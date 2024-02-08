@@ -3,6 +3,7 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
+const generateCode = require('../utils/generateCode');
 
 const userSchema = new mongoose.Schema({
     firstname: {
@@ -38,17 +39,31 @@ const userSchema = new mongoose.Schema({
     avatar: {
         public_id: {
             type: String,
-            required: true
         },
         url: {
             type: String,
-            required: true
         }
     },
     role: {
         type: String,
         default: 'student' // student, parent, teacher, admin
     },
+    isEmailVerified: {
+        type: Boolean,
+        default: false,
+    },
+    isContactVerified: {
+        type: Boolean,
+        default: false
+    },
+    emailCodeVerification: {
+        type: String,
+    },
+    contactCodeVerification: {
+        type: String,
+    },
+    emailCodeExpire: Date,
+    contactCodeExpire: Date,
     resetPasswordToken: String,
     resetPasswordExpire: Date
 }, { timestamps: true })
@@ -86,6 +101,20 @@ userSchema.methods.getResetPasswordToken = async function () {
     this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex');
     this.resetPasswordExpire = Date.now() + 30 * 60 * 1000;
     return resetToken;
+}
+
+userSchema.methods.getEmailCodeVerification = async function () {
+    const code = generateCode(6);
+    this.emailCodeVerification = code.trim();
+    this.emailCodeExpire = Date.now() + 5 * 60 * 1000;
+    return code;
+}
+
+userSchema.methods.getContactCodeVerification = async function () {
+    const code = generateCode(6);
+    this.contactCodeVerification = code.trim();
+    this.contactCodeExpire = Date.now() + 5 * 60 * 1000;
+    return code;
 }
 
 module.exports = mongoose.model('User', userSchema)

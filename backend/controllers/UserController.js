@@ -3,16 +3,21 @@ const crypto = require('crypto');
 const sendToken = require('../utils/jwtToken')
 const sendEmail = require('../utils/sendEmail')
 const { uploadSingle, uploadMultiple, destroyUploaded } = require('../utils/cloudinaryUpload');
-
+const { sendCodeToEmail, sendCodeToContact } = require('../utils/verification')
 
 exports.registerUser = async (req, res, next) => {
-
     try {
-
-        const imageDetails = await uploadSingle(req.file.path, 'avatar');
-        req.body.avatar = imageDetails;
+        
         const user = await User.create(req.body);
-
+        const newUser = await User.findById(user._id);
+       
+        const emailCode = await newUser.getEmailCodeVerification()
+        const contactCode = await newUser.getContactCodeVerification()
+       
+        newUser.save({ validateBeforeSave: false });
+        sendCodeToEmail(newUser, emailCode);
+        sendCodeToContact(newUser, contactCode)
+       
         if (!user) {
             return res.status(500).json({
                 success: false,

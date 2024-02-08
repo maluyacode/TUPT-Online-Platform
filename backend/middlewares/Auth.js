@@ -6,9 +6,9 @@ exports.isAuthenticated = async (req, res, next) => {
     // if (req.headers.authorization) {
     //     req.cookies.token = req.headers.authorization
     // }
-    
+
     const { token } = req.cookies
-    console.log("token" + token)
+    // console.log("token" + token)
 
     if (!token) {
         return res.status(401).json({ message: 'Login first to access this resource' })
