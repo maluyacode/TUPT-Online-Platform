@@ -42,6 +42,7 @@ function Register() {
             email: '',
             contact_number: '',
             role: '',
+            password: ''
         },
         validateOnChange: false,
         validationSchema: RegisterSchema,
@@ -89,18 +90,17 @@ function Register() {
                                 <form onSubmit={formik.handleSubmit}>
                                     <MDBRow>
                                         <MDBCol col='6' md={6}>
-                                            <MDBInput label='First name' id='form1' type='text'
+                                            <MDBInput label='First name' type='text'
                                                 name='firstname'
                                                 value={formik.values.firstname}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
-                                                color='danger'
                                             />
                                             <ErrorMessage formik={formik} name='firstname' />
                                         </MDBCol>
 
                                         <MDBCol col='6' md={6}>
-                                            <MDBInput label='Last name' id='form1' type='text'
+                                            <MDBInput label='Last name' type='text'
                                                 name='lastname'
                                                 value={formik.values.lastname}
                                                 onChange={formik.handleChange}
@@ -110,7 +110,7 @@ function Register() {
                                         </MDBCol>
                                     </MDBRow>
 
-                                    <MDBInput label='Contact No. (e.g 09863568721)' id='form1' type='tel'
+                                    <MDBInput label='Contact No. (e.g 09863568721)' type='tel'
                                         name='contact_number'
                                         value={formik.values.contact_number}
                                         onChange={formik.handleChange}
@@ -118,7 +118,7 @@ function Register() {
                                     />
                                     <ErrorMessage formik={formik} name='contact_number' />
 
-                                    <MDBInput label='Email' id='form1' type='email'
+                                    <MDBInput label='Email' type='email'
                                         name='email'
                                         value={formik.values.email}
                                         onChange={formik.handleChange}
@@ -126,7 +126,7 @@ function Register() {
                                     />
                                     <ErrorMessage formik={formik} name='email' />
 
-                                    <MDBInput label='Password' id='form1' type='password'
+                                    <MDBInput label='Password' type='password'
                                         name='password'
                                         value={formik.values.password}
                                         onChange={formik.handleChange}

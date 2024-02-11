@@ -1,17 +1,36 @@
+const dotenv = require('dotenv');
+// const { createServer } = require('node:http');
+const { Server } = require('socket.io');
+
+
 const connectDatabase = require('./config/database');
 const app = require('./app');
-const cloudinary = require('cloudinary');
-const dotenv = require('dotenv');
-
-const port = process.env.PORT || 8080;
+require('./config/cloudinary');
 
 dotenv.config({ path: './config/.env' });
 connectDatabase();
 
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
+const port = process.env.PORT || 8080;
+
+
+const server = app.listen(port, () => console.log(`Server Started: http://localhost:${port}/`))
+
+
+const io = new Server(server, {
+    cors: {
+        origin: 'http://localhost:3000',
+        methods: ['GET', 'POST'],
+    },
 });
 
-app.listen(port, () => console.log(`Server Started: http://localhost:${port}/`))
+io.on('connection', (socket) => {
+    console.log(`User connected ${socket.id}`);
+    socket.on('disconnect', () => {
+        console.log('User disconnected');
+    })
+
+    socket.on('message', (message) => {
+        socket.broadcast.emit('server', message)
+    })
+
+});

@@ -6,7 +6,7 @@ class ToastEmmiter {
     static success(message = 'Success', position = 'top-center') {
         toast.success(message, {
             position: position,
-            autoClose: 1500,
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -18,8 +18,8 @@ class ToastEmmiter {
 
     static error(message = 'Success', position = 'top-center') {
         toast.error(message, {
-            position: "top-center",
-            autoClose: 1500,
+            position: position,
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -32,7 +32,7 @@ class ToastEmmiter {
     static info(message = 'Success', position = 'top-center') {
         toast.info(message, {
             position: "top-center",
-            autoClose: 1500,
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -45,7 +45,7 @@ class ToastEmmiter {
     static warning(message = 'Success', position = 'top-center') {
         toast.warning(message, {
             position: "top-center",
-            autoClose: 1500,
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

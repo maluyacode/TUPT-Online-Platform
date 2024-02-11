@@ -7,8 +7,8 @@ const Toast = () => {
             position="top-center"
             autoClose={5000}
             hideProgressBar
-            newestOnTop={false}
-            closeOnClick={false}
+            newestOnTop={true}
+            closeOnClick={true}
             rtl={false}
             pauseOnFocusLoss
             draggable

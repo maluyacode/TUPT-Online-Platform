@@ -22,5 +22,54 @@ exports.sendCodeToContact = async (user, code) => {
         },
         body: JSON.stringify(message)
     })
-    console.log(response)
+}
+
+exports.verifyEmailAndContactCode = (user, req, res, next) => {
+
+    const { contactCode, emailCode } = req.body;
+
+    if (user.emailCodeVerification !== emailCode && user.contactCodeVerification !== contactCode) {
+        res.status(406).json({
+            success: false,
+            message: `Contact number verification code and email verification code doesn't match`
+        })
+        return false
+    }
+
+    if (user.emailCodeVerification !== emailCode) {
+        res.status(406).json({
+            success: false,
+            message: `Email verification code doesn't match`
+        })
+        return false
+    }
+
+    if (user.contactCodeVerification !== contactCode) {
+        res.status(406).json({
+            success: false,
+            message: `Contact number verification code doesn't match`
+        })
+        return false
+    }
+
+    if (user.emailCodeExpire < Date.now() && user.contactCodeExpire < Date.now()) {
+        res.status(406).json({
+            success: false,
+            message: 'Verfication codes are expired, please resend code'
+        })
+        return false
+    }
+
+    return true
+}
+
+exports.verifyAccount = async user => {
+    user.isContactVerified = true
+    user.isEmailVerified = true
+    user.contactCodeExpire = null
+    user.contactCodeVerification = null
+    user.emailCodeExpire = null
+    user.emailCodeVerification = null
+    user.save();
+    return user;
 }

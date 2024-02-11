@@ -1,0 +1,1 @@
+export const ACCESS_CHAT = 'ACCESS_CHAT'

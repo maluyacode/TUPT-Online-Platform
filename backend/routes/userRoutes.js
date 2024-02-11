@@ -5,6 +5,10 @@ const userController = require('../controllers/userController');
 const { isAuthenticated } = require('../middlewares/Auth');
 
 router.post('/register', upload.single('avatar'), userController.registerUser);
+router.post('/verification', isAuthenticated, userController.verifyCode);
+router.get('/resend-code', isAuthenticated, userController.reSendCode);
+
+
 router.post('/login', userController.loginUser);
 router.get('/logout', userController.logoutUser);
 router.put('/update/:id', isAuthenticated, upload.single('avatar'), userController.updateUser);

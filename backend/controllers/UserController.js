@@ -3,21 +3,21 @@ const crypto = require('crypto');
 const sendToken = require('../utils/jwtToken')
 const sendEmail = require('../utils/sendEmail')
 const { uploadSingle, uploadMultiple, destroyUploaded } = require('../utils/cloudinaryUpload');
-const { sendCodeToEmail, sendCodeToContact } = require('../utils/verification')
+const { sendCodeToEmail, sendCodeToContact, verifyEmailAndContactCode, verifyAccount } = require('../utils/verification')
 
 exports.registerUser = async (req, res, next) => {
     try {
-        
+
         const user = await User.create(req.body);
         const newUser = await User.findById(user._id);
-       
+
         const emailCode = await newUser.getEmailCodeVerification()
         const contactCode = await newUser.getContactCodeVerification()
-       
+
         newUser.save({ validateBeforeSave: false });
         sendCodeToEmail(newUser, emailCode);
         sendCodeToContact(newUser, contactCode)
-       
+
         if (!user) {
             return res.status(500).json({
                 success: false,
@@ -33,6 +33,54 @@ exports.registerUser = async (req, res, next) => {
             success: false
         })
     }
+}
+
+exports.verifyCode = async (req, res, next) => {
+
+    const { contactCode, emailCode } = req.body;
+
+    const user = await User.findById(req.user._id);
+
+    const isVerified = verifyEmailAndContactCode(user, req, res, next);
+
+    if (!isVerified) {
+        return;
+    }
+
+    if (user.emailCodeVerification === emailCode && user.contactCodeVerification === contactCode) {
+        const verifiedUser = await verifyAccount(user)
+        sendToken(verifiedUser, 200, res);
+    } else {
+        res.status(500).json({
+            success: false,
+            message: 'Error occured, please try again later'
+        })
+    }
+
+}
+
+exports.reSendCode = async (req, res, next) => {
+
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+        return res.status(404).json({
+            success: false,
+            message: 'Account does not exist'
+        })
+    }
+
+    const emailCode = await user.getEmailCodeVerification()
+    const contactCode = await user.getContactCodeVerification()
+
+    user.save({ validateBeforeSave: false });
+    sendCodeToEmail(user, emailCode);
+    sendCodeToContact(user, contactCode)
+
+    return res.status(200).json({
+        success: true,
+        message: "We send you the verification codes"
+    })
 }
 
 exports.loginUser = async (req, res, next) => {

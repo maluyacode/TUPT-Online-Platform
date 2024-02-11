@@ -2,7 +2,9 @@ import axios from 'axios'
 
 const registerAPI = async (formData) => {
     try {
-        const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/user/register`, formData);
+        const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/user/register`, formData, {
+            withCredentials: true
+        });
         return response
 
     } catch (err) {

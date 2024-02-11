@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -7,58 +7,102 @@ import {
     MDBInput
 }
     from 'mdb-react-ui-kit';
+import { useFormik } from 'formik'
 
 import { Link, useNavigate } from 'react-router-dom';
 import MetaData from '../Layout/MetaData';
+import ErrorMessage from '../Layout/ErrorMessage';
+import Block from '../Layout/Loaders/Block';
+import ToastEmmiter from '../Layout/ToastEmmiter';
+
+import LoginSchema from '../ValidationSchema/LoginSchema'
+import loginAPI from '../../api/loginAPI';
+import Gallery from '../Static/Gallery';
 
 function Login() {
 
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(false);
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: ''
+        },
+        validateOnChange: false,
+        validationSchema: LoginSchema,
+        validateOnMount: true,
+        onSubmit: async (values) => {
+            console.log(values)
+            setLoading(true)
+            const { data: { success, message } } = await loginAPI(values);
+            if (success) {
+                ToastEmmiter.success('You are login', 'top-center');
+                navigate('/');
+            } else {
+                ToastEmmiter.error(message, 'top-center');
+            }
+        },
+    });
+
     return (
         <>
+            <Block loading={loading} />
             <MetaData pageTitle={'Login'}></MetaData>
-            <MDBContainer className="my-5 gradient-form">
 
-                <MDBRow className='shadow-5 '>
+            <MDBContainer className="my-5 gradient-form" style={loading ? { pointerEvents: 'none', opacity: 0.5 } : {}}>
+                <MDBRow className='shadow-5'>
 
-                    <MDBCol col='6' className="mb-5" md={6}>
-                        <div className="d-flex flex-column mx-auto" style={{ maxWidth: '500px' }}>
+                    <MDBCol col='6' className="mb-0" md={6}>
+                        <div className="d-flex flex-column mx-auto pt-5" style={{ maxWidth: '500px' }}>
+                            <form onSubmit={formik.handleSubmit}>
+                                <div className="text-center">
+                                    <img src="./tupt-logo.png"
+                                        style={{ width: '100px' }} alt="logo" />
+                                    <h4 className="mt-1 mb-5 pb-1">TUPT Online Commucation Platform</h4>
+                                </div>
 
-                            <div className="text-center">
-                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-                                    style={{ width: '185px' }} alt="logo" />
-                                <h4 className="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
-                            </div>
-
-                            <p>Please login to your account</p>
-
-
-                            <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email' />
-                            <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password' />
+                                <p>Please login to your account</p>
 
 
-                            <div className="text-center pt-1 mb-5 pb-1">
-                                <MDBBtn className="mb-4 w-100 ">Sign in</MDBBtn>
-                                <a className="text-muted" href="" onClick={(e) => {
-                                    e.preventDefault()
-                                    navigate('/forgot-password')
-                                }}>Forgot password?</a>
-                            </div>
+                                <MDBInput label='Email address' type='email'
+                                    name='email'
+                                    value={formik.values.email}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                                <ErrorMessage formik={formik} name='email' />
 
-                            <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
-                                <p className="mb-0">Don't have an account?</p>
-                                <MDBBtn onClick={() => navigate('/register')} outline className='mx-2' color='info'>
-                                    Sign Up
-                                </MDBBtn>
-                            </div>
+                                <MDBInput label='Password' type='password'
+                                    name='password'
+                                    value={formik.values.password}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                                <ErrorMessage formik={formik} name='password' />
 
+                                <div className="text-center pt-1 mb-5 pb-1">
+                                    <MDBBtn className="mb-4 w-100 " type='submit'>Sign in</MDBBtn>
+                                    <a className="text-muted" href="" onClick={(e) => {
+                                        e.preventDefault()
+                                        navigate('/forgot-password')
+                                    }}>Forgot password?</a>
+                                </div>
+
+                                <div className="d-flex flex-row align-items-center justify-content-center pb-4 mb-4">
+                                    <p className="mb-0">Don't have an account?</p>
+                                    <MDBBtn onClick={() => navigate('/register')} outline className='mx-2' color='info'>
+                                        Sign Up
+                                    </MDBBtn>
+                                </div>
+                            </form>
                         </div>
 
                     </MDBCol>
 
-                    <MDBCol col='6' className="mb-5" md={6}>
-                        <div className="d-flex flex-column justify-content-center h-100 mb-4">
+                    <MDBCol col='6' className="d-flex flex-column justify-content-center mx-auto" md={6}>
+                        {/* <div className="d-flex flex-column justify-content-center h-100 mb-4">
 
                             <div className="px-3 py-4 p-md-5 mx-md-4">
                                 <h4 class="mb-4">We are more than just a company</h4>
@@ -68,13 +112,13 @@ function Login() {
                                 </p>
                             </div>
 
-                        </div>
-
+                        </div> */}
+                        <Gallery />
                     </MDBCol>
 
                 </MDBRow>
 
-            </MDBContainer>
+            </MDBContainer >
         </>
     );
 }
