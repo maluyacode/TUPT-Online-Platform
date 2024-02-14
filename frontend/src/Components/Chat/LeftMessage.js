@@ -15,7 +15,7 @@ const LeftMessage = ({ message, chatInfo }) => {
                 alt="avatar 1"
                 style={{ width: "45px", height: "100%", borderRadius: '50%' }}
             /> :
-                <div className='d-flex align-content-center justify-content-center' style={{ width: "45px", height: "45px", borderRadius: '50%', backgroundColor: avatarColor, marginTop: -5 }}>
+                <div className='d-flex align-content-center justify-content-center' style={{ width: "45px", height: "45px", borderRadius: '50%', backgroundColor: 'lightblue', marginTop: -5 }}>
                     <span style={{ lineHeight: "45px", fontSize: 18 }}>
                         {participant.firstname.charAt(0)}{participant.lastname.charAt(0)}
                     </span>
@@ -26,7 +26,7 @@ const LeftMessage = ({ message, chatInfo }) => {
 
     return (
         <>
-            <div className="d-flex flex-row justify-content-start">
+            <div className="d-flex flex-row justify-content-start mb-2 pt-1">
                 {avatar}
                 <div>
                     <p

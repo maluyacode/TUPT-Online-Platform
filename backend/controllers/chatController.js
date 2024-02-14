@@ -41,3 +41,34 @@ exports.accessPrivateChat = async (req, res) => {
         }
     }
 }
+
+exports.getUserChats = async (req, res) => {
+
+    const userid = req.user._id;
+    try {
+
+        let chats = await Chat.find({
+            isGroup: false,
+            participants: userid,
+        })
+            .populate('participants')
+            .populate({
+                path: 'lastMessage',
+                ref: 'message',
+                populate: {
+                    path: 'sender',
+                    ref: 'User'
+                }
+            })
+
+        res.status(200).json({
+            success: true,
+            chats: chats,
+        })
+
+    } catch (error) {
+        console.log(error)
+        return res.status(400);
+    }
+
+}

@@ -3,11 +3,15 @@ import {
     MDBContainer,
     MDBNavbar,
     MDBNavbarBrand,
-    MDBIcon
+    MDBIcon,
+    MDBNavbarNav,
+    MDBNavbarItem,
+    MDBNavbarLink
 } from 'mdb-react-ui-kit';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { closeSideBar, openSideBar } from '../../actions/uiActions'
+import { getUser } from '../../utils/helper';
 
 export default function TopBar() {
 
@@ -30,6 +34,11 @@ export default function TopBar() {
                     <MDBNavbarBrand href='' onClick={handleSideBar} >
                         <MDBIcon fas icon="bars" />
                     </MDBNavbarBrand>
+                    <MDBNavbarItem style={{ listStyle: 'none' }}>
+                        <MDBNavbarLink href='#'>
+                            { getUser().firstname }
+                        </MDBNavbarLink>
+                    </MDBNavbarItem>
                 </MDBContainer>
             </MDBNavbar>
         </>

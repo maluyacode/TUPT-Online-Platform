@@ -5,5 +5,6 @@ const chatController = require('../controllers/chatController');
 const { isAuthenticated } = require('../middlewares/Auth');
 
 router.post('/', isAuthenticated, chatController.accessPrivateChat)
+router.get('/lists', isAuthenticated, chatController.getUserChats)
 
 module.exports = router

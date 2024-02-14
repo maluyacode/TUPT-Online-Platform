@@ -1,6 +1,8 @@
 import {
     OpenSideBar,
-    CloseSideBar
+    CloseSideBar,
+    OpenChatSideBar,
+    CloseChatSideBar
 } from '../constants/uiConstants'
 
 export const uiReducer = (state = {}, action) => {
@@ -14,6 +16,16 @@ export const uiReducer = (state = {}, action) => {
             return {
                 ...state,
                 isSideBarCollapse: false
+            }
+        case OpenChatSideBar:
+            return {
+                ...state,
+                isChatSideBarOpen: false
+            }
+        case CloseChatSideBar:
+            return {
+                ...state,
+                isChatSideBarOpen: true
             }
     }
     return state

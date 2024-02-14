@@ -9,17 +9,16 @@ const reducer = combineReducers({
 })
 
 let initialState = {
-
+    ui: {
+        isSideBarCollapse: true,
+        isChatSideBarOpen: false
+    }
 }
+
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const middleware = [thunk];
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const store = createStore(
-    reducer,
-    initialState,
-    composeEnhancers(applyMiddleware(...middleware))
-);
+const store = createStore(reducer, initialState, applyMiddleware(...middleware))
 
 export default store;

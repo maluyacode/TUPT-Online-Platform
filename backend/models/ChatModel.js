@@ -15,7 +15,8 @@ const chatSchema = new mongoose.Schema({
         type: String
     }, // Only applicable if isGroup is true
     lastMessage: {
-        type: mongoose.Schema.Types.ObjectId, ref: 'Message'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Message'
     }, // Reference to the last message in the conversation
     unreadCount: {
         type: Number, default: 0

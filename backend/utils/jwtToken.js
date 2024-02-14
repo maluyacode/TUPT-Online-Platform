@@ -5,11 +5,11 @@ const sendToken = (user, statuscode, res) => {
         expires: new Date(
             Date.now() + process.env.COOKIE_EXPIRES_TIME * 24 * 60 * 60 * 1000
         ),
-        httpOnly: true,
+        httpOnly: false,
     }
-    res.status(statuscode).clearCookie('token').cookie('token', token, options).json({
+    res.status(statuscode).clearCookie('token').cookie('token', token, options).cookie('user', JSON.stringify(user), options).json({
         user,
-        success: true,  
+        success: true,
         token,
     })
 }

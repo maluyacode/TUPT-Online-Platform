@@ -1,6 +1,8 @@
 import {
     OpenSideBar,
-    CloseSideBar
+    CloseSideBar,
+    OpenChatSideBar,
+    CloseChatSideBar
 } from '../constants/uiConstants'
 
 export const openSideBar = () => async (dispatch) => {
@@ -12,5 +14,17 @@ export const openSideBar = () => async (dispatch) => {
 export const closeSideBar = () => async (dispatch) => {
     dispatch({
         type: CloseSideBar
+    })
+}
+
+export const openChatSideBar = () => async (dispatch) => {
+    dispatch({
+        type: OpenChatSideBar
+    })
+}
+
+export const closeChatSideBar = () => async (dispatch) => {
+    dispatch({
+        type: CloseChatSideBar
     })
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
     MDBContainer,
     MDBRow,
@@ -13,6 +13,7 @@ import {
     MDBInputGroup,
 } from "mdb-react-ui-kit";
 import axios from "axios";
+import { socket } from "../../socket";
 import { useDispatch, useSelector } from "react-redux";
 
 import SideNav from "../Layout/SideNav";
@@ -21,18 +22,85 @@ import LeftMessage from "./LeftMessage";
 import RightMessage from "./RightMessage";
 
 import { accessChat } from "../../actions/chatActions";
+import { getUser } from "../../utils/helper";
+import RightSideBar from "./RightSideBar";
+import { closeChatSideBar, openChatSideBar } from "../../actions/uiActions";
 
 
 export default function Chat() {
 
     const dispatch = useDispatch()
-    const { messages, chatInfo } = useSelector(state => state.chat);
+    const { messages, chatInfo, selectedChat } = useSelector(state => state.chat);
+    const selectedChatRef = useRef(selectedChat);
+    const chat = useSelector(state => state.chat);
+    const { isChatSideBarOpen } = useSelector(state => state.ui);
+    const [currentMessage, setCurrentMessage] = useState('');
+    const scrollableContainerRef = useRef(null);
 
     useEffect(() => {
-        dispatch(accessChat('65c74231dc0531150fb527a6'))
-    }, [])
+        selectedChatRef.current = selectedChat;
+    }, [selectedChat]);
 
-    
+    useEffect(() => {
+        if (selectedChat) {
+            socket.on('recieved-message', (message) => {
+                dispatch(accessChat(selectedChatRef.current))
+            })
+            dispatch(accessChat(selectedChat))
+        }
+    }, [socket, selectedChat])
+
+    const handleMessage = e => {
+        setCurrentMessage(e.target.value);
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        if (!currentMessage) return;
+    }
+
+    const sendMessage = async () => {
+        try {
+            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/message/send`, {
+                content: currentMessage,
+                chatId: chatInfo._id,
+            }, {
+                withCredentials: true
+            });
+            setCurrentMessage('');
+            socket.emit('send',
+                JSON.stringify({
+                    message: currentMessage,
+                    recipient: selectedChat
+                })
+            )
+        } catch ({ response }) {
+            console.log(response);
+            return response
+        }
+    }
+
+    useEffect(() => {
+        if (scrollableContainerRef.current) {
+            // Scroll to the bottom when messages change
+            scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight;
+        }
+    }, [messages]);
+
+    useEffect(() => {
+        // Scroll to the bottom when component initially loads
+        if (scrollableContainerRef.current) {
+            scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight;
+        }
+    }, []);
+
+    const openSideBar = () => {
+        dispatch(openChatSideBar())
+    }
+
+    const closeSidebar = () => {
+        dispatch(closeChatSideBar())
+    }
 
     return (
         <>
@@ -46,23 +114,33 @@ export default function Chat() {
                                 <MDBCard style={{ borderRadius: 0, }}>
                                     <MDBCardHeader className="d-flex justify-content-between align-items-center p-3">
                                         <h5 className="mb-0">Chat</h5>
-                                        {/* <MDBBtn color="primary" size="sm" rippleColor="dark">
-                                            Let's Chat App
-                                        </MDBBtn> */}
+                                        {isChatSideBarOpen ?
+                                            <div onClick={openSideBar}>
+                                                <MDBIcon fas icon="arrow-circle-left" size="lg" style={{ cursor: 'pointer' }} />
+                                            </div> :
+                                            <div onClick={closeSidebar}>
+                                                <MDBIcon fas icon="arrow-circle-right" size="lg" style={{ cursor: 'pointer' }} />
+                                            </div>
+                                        }
                                     </MDBCardHeader>
                                     <div
-                                        // suppressScrollX
-                                        style={{ position: "relative", height: "500px", overflowY: 'scroll', }}
+                                        ref={scrollableContainerRef}
+                                        style={{ position: "relative", height: "500px", overflowY: 'scroll', overflowAnchor: 'auto' }}
                                     >
-                                        <MDBCardBody>
-                                            {messages && messages.map(message => {
-                                                if (message.sender === '65c747cadc0531150fb527b1') {
-                                                    return <RightMessage key={message._id} message={message} chatInfo={chatInfo} />
-                                                } else {
-                                                    return <LeftMessage key={message._id} message={message} chatInfo={chatInfo} />
-                                                }
-                                            })}
-                                        </MDBCardBody>
+                                        {selectedChat ?
+                                            <MDBCardBody>
+                                                {messages && messages.map(message => {
+                                                    if (message.sender === getUser()._id) {
+                                                        return <RightMessage key={message._id} message={message} chatInfo={chatInfo} />
+                                                    } else {
+                                                        return <LeftMessage key={message._id} message={message} chatInfo={chatInfo} />
+                                                    }
+                                                })}
+                                            </MDBCardBody> :
+                                            <MDBCardBody className="text-center">
+                                                Select your chat
+                                            </MDBCardBody>
+                                        }
                                     </div>
                                     <MDBCardFooter className="text-muted d-flex justify-content-start align-items-center p-3">
                                         {/* <img
@@ -73,9 +151,10 @@ export default function Chat() {
                                         <textarea
                                             type="text"
                                             name="message"
+                                            onChange={handleMessage}
                                             className="form-control form-control-lg"
-                                            id="exampleFormControlInput1"
                                             placeholder="Type message"
+                                            value={currentMessage}
                                             rows={1}
                                             style={{ border: 'none', resize: 'none' }}
                                         ></textarea>
@@ -85,7 +164,7 @@ export default function Chat() {
                                         <a className="ms-3 text-muted" href="#!">
                                             <MDBIcon fas icon="smile" />
                                         </a> */}
-                                        <a className="ms-3" href="#!">
+                                        <a className="ms-3" href="#!" onClick={sendMessage}>
                                             <MDBIcon fas icon="paper-plane" size="2x" />
                                         </a>
                                     </MDBCardFooter>
@@ -94,6 +173,7 @@ export default function Chat() {
                         </MDBRow>
                     </MDBContainer>
                 </main>
+                <RightSideBar />
             </div>
 
         </>

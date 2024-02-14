@@ -1,8 +1,10 @@
 import React from 'react'
 import colors from '../../data/colors.json'
+import { isAuthenticated } from '../../utils/helper'
 
 const RightMessage = ({ message, chatInfo }) => {
 
+    const authenticated = isAuthenticated();
     const { content, sender } = message
     const { participants } = chatInfo;
     const indexColor = Math.floor(Math.random() * (50 - 1 + 1)) + 1;
@@ -35,7 +37,7 @@ const RightMessage = ({ message, chatInfo }) => {
                         00:06
                     </p> */}
                 </div>
-                {avatar}
+                {/* {avatar} */}
             </div>
             {/* <div className="divider d-flex align-items-center justify-content-center mb-4">
                 <p

@@ -16,31 +16,16 @@ import Toast from './Components/Layout/Toast';
 import SideNav from './Components/Layout/SideNav';
 import Home from './Components/Home';
 import Chat from './Components/Chat/Chat';
+import { getUser, isAuthenticated } from './utils/helper';
 
 function App() {
 
-  // const [count, setCount] = useState(0);
+  if (isAuthenticated()) {
+    socket.connect()
+  }
 
-  // socket.on('connect', () => {
-  //   console.log('Connected to server');
-  // });
-
-
-  // useEffect(() => {
-  //   socket.on('server', (data) => {
-  //     setCount((prev) => {
-  //       return prev + 1
-  //     })
-  //   })
-  // }, [socket])
-
-  // const handleClick = () => {
-  //   socket.emit('message', 'Hello')
-  // }
   return (
     <div className="App">
-      {/* <button onClick={handleClick}>Send</button>
-      <span>{count}</span> */}
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />

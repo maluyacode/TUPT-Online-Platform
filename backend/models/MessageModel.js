@@ -23,4 +23,4 @@ const messageSchema = new mongoose.Schema({
     ], // Array of URLs to message attachments
 }, { timestamps: true })
 
-module.exports = mongoose.model('message', messageSchema)
+module.exports = mongoose.model('Message', messageSchema)
