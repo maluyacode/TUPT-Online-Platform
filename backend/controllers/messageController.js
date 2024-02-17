@@ -14,11 +14,12 @@ exports.sendMessage = async (req, res, next) => {
         sender: req.user._id,
         content: content,
         chat: chatId,
+        readBy: [req.user._id]
     };
 
     try {
         const message = await Message.create(newMessage);
-        
+
         const chat = await Chat.findByIdAndUpdate(chatId, {
             lastMessage: message._id
         });

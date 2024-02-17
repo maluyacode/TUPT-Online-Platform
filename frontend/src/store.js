@@ -8,10 +8,16 @@ const reducer = combineReducers({
     chat: chatReducer
 })
 
+
+const selectChat = sessionStorage.getItem('selectedChat') ? JSON.parse(sessionStorage.getItem('selectedChat')) : false
+
 let initialState = {
     ui: {
         isSideBarCollapse: true,
         isChatSideBarOpen: false
+    },
+    chat: {
+        selectedChat: selectChat.id,
     }
 }
 

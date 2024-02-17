@@ -11,25 +11,29 @@ import {
     MDBSc,
     MDBCardFooter,
     MDBInputGroup,
+    MDBTypography
 } from "mdb-react-ui-kit";
 import axios from "axios";
-import { socket } from "../../socket";
 import { useDispatch, useSelector } from "react-redux";
 
 import SideNav from "../Layout/SideNav";
 import TopBar from "../Layout/TopBar";
 import LeftMessage from "./LeftMessage";
 import RightMessage from "./RightMessage";
+import RightSideBar from "./RightSideBar";
+import { closeChatSideBar, openChatSideBar } from "../../actions/uiActions";
+import MetaData from "../Layout/MetaData";
+import ChatHeader from "./ChatHeader";
 
 import { accessChat } from "../../actions/chatActions";
 import { getUser } from "../../utils/helper";
-import RightSideBar from "./RightSideBar";
-import { closeChatSideBar, openChatSideBar } from "../../actions/uiActions";
+import { socket } from "../../socket";
 
 
 export default function Chat() {
 
     const dispatch = useDispatch()
+
     const { messages, chatInfo, selectedChat } = useSelector(state => state.chat);
     const selectedChatRef = useRef(selectedChat);
     const chat = useSelector(state => state.chat);
@@ -102,8 +106,16 @@ export default function Chat() {
         dispatch(closeChatSideBar())
     }
 
+    const kaChatko = chatInfo?.participants.reduce((accumulator, participant) => {
+        if (participant._id === selectedChat) {
+            return participant
+        }
+        return accumulator;
+    }, null);
+
     return (
         <>
+            <MetaData pageTitle="Chat" />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />
                 <main style={{ padding: 10 }} className='shadow-6-strong  w-100'>
@@ -114,6 +126,7 @@ export default function Chat() {
                                 <MDBCard style={{ borderRadius: 0, }}>
                                     <MDBCardHeader className="d-flex justify-content-between align-items-center p-3">
                                         <h5 className="mb-0">Chat</h5>
+                                        <ChatHeader user={kaChatko} />
                                         {isChatSideBarOpen ?
                                             <div onClick={openSideBar}>
                                                 <MDBIcon fas icon="arrow-circle-left" size="lg" style={{ cursor: 'pointer' }} />
@@ -125,17 +138,27 @@ export default function Chat() {
                                     </MDBCardHeader>
                                     <div
                                         ref={scrollableContainerRef}
-                                        style={{ position: "relative", height: "500px", overflowY: 'scroll', overflowAnchor: 'auto' }}
+                                        style={{ position: "relative", minHeight: '68vh', maxHeight: "68vh", overflowY: 'scroll', overflowAnchor: 'auto' }}
                                     >
                                         {selectedChat ?
                                             <MDBCardBody>
-                                                {messages && messages.map(message => {
+                                                {messages?.length > 0 ? messages.map(message => {
                                                     if (message.sender === getUser()._id) {
                                                         return <RightMessage key={message._id} message={message} chatInfo={chatInfo} />
                                                     } else {
                                                         return <LeftMessage key={message._id} message={message} chatInfo={chatInfo} />
                                                     }
-                                                })}
+                                                }) :
+                                                    <div
+                                                        className="text-center"
+                                                        style={{
+                                                            minHeight: "60vh"
+                                                        }}
+                                                    >
+                                                        <MDBTypography className='lead mb-0' tag='strong'>No conversation yet.</MDBTypography>
+                                                        <MDBTypography tag='div' className="lead" style={{ fontSize: '16px' }}>Unahan mo na ayiiiee</MDBTypography>
+                                                    </div>
+                                                }
                                             </MDBCardBody> :
                                             <MDBCardBody className="text-center">
                                                 Select your chat
@@ -172,9 +195,9 @@ export default function Chat() {
                             </MDBCol>
                         </MDBRow>
                     </MDBContainer>
-                </main>
+                </main >
                 <RightSideBar />
-            </div>
+            </div >
 
         </>
     );

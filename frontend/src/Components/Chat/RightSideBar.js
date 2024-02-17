@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MDBBtn, MDBBtnGroup, MDBContainer } from 'mdb-react-ui-kit';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { useSelector } from 'react-redux';
 import ChatLists from './ChatLists';
+import GroupLists from './GroupLists';
+import PeopleLists from './PeopleLists';
 
 const RightSideBar = () => {
 
     const { isChatSideBarOpen } = useSelector(state => state.ui);
+
+    const [selectedTab, setSelectedTab] = useState('chats');
+
 
     return (
         <Sidebar
@@ -25,17 +30,25 @@ const RightSideBar = () => {
             </Menu> */}
             <MDBContainer fluid className='mt-5'>
                 <MDBBtnGroup shadow='0' className='d-flex justify-content-center'>
-                    <MDBBtn color='secondary'>
+                    <MDBBtn color='secondary'
+                        onClick={() => setSelectedTab('chats')}
+                    >
                         Chats
                     </MDBBtn>
-                    <MDBBtn color='secondary'>
+                    <MDBBtn color='secondary'
+                        onClick={() => setSelectedTab('groups')}
+                    >
                         Groups
                     </MDBBtn>
-                    <MDBBtn color='secondary'>
+                    <MDBBtn color='secondary'
+                        onClick={() => setSelectedTab('people')}
+                    >
                         People
                     </MDBBtn>
                 </MDBBtnGroup>
-                <ChatLists />
+                {selectedTab === 'chats' ? <ChatLists /> :
+                    selectedTab === 'groups' ? <GroupLists /> :
+                        <PeopleLists />}
             </MDBContainer>
         </Sidebar>
     )

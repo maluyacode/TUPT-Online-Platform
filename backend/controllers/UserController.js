@@ -250,3 +250,26 @@ exports.resetUserPassword = async (req, res, next) => {
 exports.updateUserPassword = async (req, res, next) => {
 
 }
+
+exports.getAllUsers = async (req, res, next) => {
+    try {
+
+        const users = await User.find({
+            _id: {
+                $ne: req.user._id
+            }
+        });
+
+        res.status(200).json({
+            success: true,
+            users: users,
+        })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: 'Error occured'
+        })
+    }
+}

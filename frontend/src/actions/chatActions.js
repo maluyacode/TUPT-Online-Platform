@@ -29,4 +29,5 @@ export const selectChat = (data) => async (dispatch) => {
         type: types.SELECT_CHAT,
         payload: data
     })
+    sessionStorage.setItem('selectedChat', JSON.stringify(data));
 }

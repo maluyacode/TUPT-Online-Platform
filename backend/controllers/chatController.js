@@ -1,6 +1,7 @@
 const Chat = require('../models/ChatModel');
 const User = require('../models/UserModel')
 const Message = require('../models/MessageModel');
+const { isNull } = require('util');
 
 exports.accessPrivateChat = async (req, res) => {
 
@@ -50,20 +51,20 @@ exports.getUserChats = async (req, res) => {
         let chats = await Chat.find({
             isGroup: false,
             participants: userid,
-        })
-            .populate('participants')
-            .populate({
-                path: 'lastMessage',
-                ref: 'message',
-                populate: {
-                    path: 'sender',
-                    ref: 'User'
-                }
-            })
+        }).populate('participants').populate({
+            path: 'lastMessage',
+            ref: 'message',
+            populate: {
+                path: 'sender',
+                ref: 'User'
+            }
+        }).sort({ updatedAt: 'desc' })
+
+        let filteredChats = chats.filter(chat => chat.lastMessage !== null);
 
         res.status(200).json({
             success: true,
-            chats: chats,
+            chats: filteredChats,
         })
 
     } catch (error) {

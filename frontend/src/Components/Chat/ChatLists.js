@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { chatLists as getChats, selectChat } from '../../actions/chatActions';
 import { getUser } from '../../utils/helper'
+import { socket } from '../../socket';
 export default function ChatLists() {
 
     const dispatch = useDispatch();
@@ -19,9 +20,16 @@ export default function ChatLists() {
         }))
     }
 
+    useEffect(() => {
+        socket.on('recieved-message', () => {
+            dispatch(getChats());
+        })
+    }, [])
+
     return (
         <MDBListGroup style={{ minWidth: '22rem' }} light className='pe-0'>
             {chatLists && chatLists.map(chat => {
+                const hasNewMessage = !chat.lastMessage?.readBy.includes(getUser()._id)
                 return (
                     <MDBListGroupItem action className='d-flex justify-content-between align-items-center px-4' style={{ cursor: 'pointer' }}
                         key={chat._id}
@@ -30,8 +38,8 @@ export default function ChatLists() {
                         <div className='d-flex align-items-center'>
                             {profileHead(chat.participants)}
                             <div className='ms-3'>
-                                <p className='text-muted  mb-1'>{`${myKaChat(chat.participants).firstname} ${myKaChat(chat.participants).lastname}`}</p>
-                                <p className='text-muted mb-0 d-flex'>{anylastMessage(chat)}</p>
+                                <p className={`mb-1 ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{`${myKaChat(chat.participants).firstname} ${myKaChat(chat.participants).lastname}`}</p>
+                                <p className={`mb-0 d-flex ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{anylastMessage(chat)}</p>
                             </div>
                         </div>
                         <MDBBadge pill light color='success'>
@@ -40,7 +48,7 @@ export default function ChatLists() {
                     </MDBListGroupItem>
                 )
             })}
-        </MDBListGroup>
+        </MDBListGroup >
     );
 }
 
