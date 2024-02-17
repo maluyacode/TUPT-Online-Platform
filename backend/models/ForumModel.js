@@ -17,6 +17,11 @@ const forumModel = new mongoose.Schema({
         ref: 'User',
         required: true
     },
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'comment',
+        required: true
+    }],
     numOfReplies: {
         type: Number
     },
