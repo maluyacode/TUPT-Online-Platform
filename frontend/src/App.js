@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import { socket } from './socket';
-// import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import 'react-toastify/dist/ReactToastify.css';
 // import { Button } from 'react-bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,7 +16,12 @@ import Toast from './Components/Layout/Toast';
 import SideNav from './Components/Layout/SideNav';
 import Home from './Components/Home';
 import Chat from './Components/Chat/Chat';
+import Announcement from './Components/Announcement/Announcement';
+
 import { getUser, isAuthenticated } from './utils/helper';
+import Post from './Components/Announcement/Post';
+import Emergency from './Components/Announcement/Emergency';
+import AnnoncementDetails from './Components/Announcement/AnnouncementDetails';
 
 function App() {
 
@@ -37,6 +42,12 @@ function App() {
           <Route path='/verification' element={<Verification />} />
 
           <Route path='/tupt-chat' element={<Chat />} />
+
+          <Route path='/announcements' element={<Announcement />} />
+          <Route path='/post-announcement' element={<Post />} />
+          <Route path='/post-emergency' element={<Emergency />} />
+          <Route path='/announcement-details' element={< AnnoncementDetails />} />
+
         </Routes>
         <Toast />
       </Router>

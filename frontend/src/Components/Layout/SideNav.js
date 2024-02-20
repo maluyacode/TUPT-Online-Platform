@@ -4,6 +4,9 @@ import { MDBNavbarBrand, MDBIcon } from 'mdb-react-ui-kit';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 
+import CampaignIcon from '@mui/icons-material/Campaign';
+import ReportProblemIcon from '@mui/icons-material/ReportProblem';
+
 const SideNav = () => {
     const navigate = useNavigate();
     const { isSideBarCollapse } = useSelector(state => state.ui)
@@ -26,9 +29,12 @@ const SideNav = () => {
                     <div style={{ fontWeight: 500, fontSize: '18px' }}>TUPT PLATFORM</div>
                 </MDBNavbarBrand>
                 <div className='' style={{ marginLeft: -7 }}>
-                    <MenuItem icon={<MDBIcon fas icon="home" />} onClick={() => navigate('/')}> Home </MenuItem>
-                    <MenuItem icon={<MDBIcon fab icon="rocketchat" />} onClick={() => navigate('/tupt-chat')}> Chats </MenuItem>
-                    <MenuItem icon={<MDBIcon fas icon="bullhorn" />}> Announcements </MenuItem>
+                    <MenuItem onClick={() => navigate('/')} icon={<MDBIcon fas icon="home" />} > Home </MenuItem>
+                    <MenuItem onClick={() => navigate('/tupt-chat')} icon={<MDBIcon fab icon="rocketchat" />} > Chats </MenuItem>
+                    <SubMenu onClick={() => navigate('/announcements')} icon={<MDBIcon fas icon="bullhorn" />} label='Announcements'>
+                        <MenuItem onClick={() => navigate('/post-announcement')} icon={<CampaignIcon />}>Post</MenuItem>
+                        <MenuItem onClick={() => navigate('/post-emergency')} icon={<ReportProblemIcon />}> Emergency </MenuItem>
+                    </SubMenu>
                     <MenuItem icon={<MDBIcon far icon="comments" />}> Colab </MenuItem>
                     <MenuItem icon={<MDBIcon fas icon="info-circle" />}> Help </MenuItem>
                     {/* <SubMenu label="Charts">

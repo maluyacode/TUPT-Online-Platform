@@ -13,6 +13,13 @@ import {
     MDBInputGroup,
     MDBTypography
 } from "mdb-react-ui-kit";
+
+import {
+    TextField,
+    Box
+} from '@mui/material'
+
+
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -113,6 +120,33 @@ export default function Chat() {
         return accumulator;
     }, null);
 
+    let prevHeight = 0;
+
+    // const onChange = e => {
+    //     const isCtrlX = e.ctrlKey && e.key === 'z';
+    //     const key = e.key;
+
+    //     if (key !== 'Backspace' && key !== 'Enter' && !isCtrlX) {
+    //         return;
+    //     }
+
+    //     const { height } = window.getComputedStyle(e.target);
+    //     const currentHeight = parseInt(height) + 20; // Add 20 for the additional offset
+    //     const containerElement = document.querySelector('#chat-container');
+    //     let containerHeight = parseInt(window.getComputedStyle(containerElement).height);
+
+    //     if (currentHeight >= prevHeight) {
+    //         containerHeight -= (currentHeight - prevHeight); // Reduce containerHeight by the difference in height
+    //     } else if (currentHeight <= prevHeight) {
+    //         containerHeight += (prevHeight - currentHeight); // Increase containerHeight by the difference in height
+    //     }
+
+    //     containerElement.style.height = `${containerHeight}px`;
+    //     prevHeight = currentHeight; // Update prevHeight for the next onChange event
+    //     console.log(containerHeight)
+    //     console.log(prevHeight)
+    // };
+
     return (
         <>
             <MetaData pageTitle="Chat" />
@@ -137,8 +171,9 @@ export default function Chat() {
                                         }
                                     </MDBCardHeader>
                                     <div
+                                        id="chat-container"
                                         ref={scrollableContainerRef}
-                                        style={{ position: "relative", minHeight: '68vh', maxHeight: "68vh", overflowY: 'scroll', overflowAnchor: 'auto' }}
+                                        style={{ position: "relative", height: '480px', overflowY: 'scroll', overflowAnchor: 'auto' }}
                                     >
                                         {selectedChat ?
                                             <MDBCardBody>
@@ -181,6 +216,19 @@ export default function Chat() {
                                             rows={1}
                                             style={{ border: 'none', resize: 'none' }}
                                         ></textarea>
+                                        {/* <TextField
+                                            id="outlined-multiline-flexible"
+                                            placeholder="Message"
+                                            multiline
+                                            // rows={5}
+                                            sx={{ py: 0 }}
+                                            onKeyDown={onChange}
+                                            maxRows={5}
+                                            size="small"
+                                            name="message"
+                                            value={currentMessage}
+                                            fullWidth
+                                        /> */}
                                         {/* <a className="ms-1 text-muted" href="#!">
                                             <MDBIcon fas icon="paperclip" />
                                         </a>
