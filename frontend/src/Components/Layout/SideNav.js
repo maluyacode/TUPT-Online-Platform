@@ -20,7 +20,7 @@ const SideNav = () => {
             <Menu>
                 <MDBNavbarBrand href='#' className='d-flex justify-content-start px-3' style={{ height: 75 }}>
                     <img
-                        src='./tupt-logo.png'
+                        src='/tupt-logo.png'
                         height='30'
                         alt=''
                         loading='lazy'

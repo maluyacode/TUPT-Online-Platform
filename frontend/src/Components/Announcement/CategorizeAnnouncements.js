@@ -1,31 +1,13 @@
 import React from 'react'
-import SideNav from '../Layout/SideNav'
-import MetaData from '../Layout/MetaData'
+import { MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol, MDBContainer, MDBRow, MDBBadge } from 'mdb-react-ui-kit'
+import { Box, Button, TextField, Typography } from '@mui/material'
+import CalendarMonth from '@mui/icons-material/CalendarMonth'
+
 import TopBar from '../Layout/TopBar'
-import {
-    MDBContainer,
-    MDBCard,
-    MDBCardTitle,
-    MDBCardText,
-    MDBCardBody,
-    MDBCardImage,
-    MDBRow,
-    MDBCol
-} from 'mdb-react-ui-kit';
+import MetaData from '../Layout/MetaData'
+import SideNav from '../Layout/SideNav'
 
-import {
-    Box, Button, Divider, Typography
-} from '@mui/material'
-
-import {
-    useNavigate
-} from 'react-router-dom'
-
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import GroupList from './GroupList';
-import TeachersList from './TeachersList';
-
-
+import { useNavigate, useParams } from 'react-router-dom'
 
 const announcements = [
     {
@@ -122,9 +104,12 @@ const announcements = [
 ];
 
 
-const Announcement = () => {
+const TeacherAnnouncements = () => {
 
+    const { teacherId } = useParams();
     const navigate = useNavigate();
+
+    console.log(teacherId)
 
     return (
         <>
@@ -133,15 +118,19 @@ const Announcement = () => {
                 <SideNav />
                 <main style={{ padding: 10 }} className='shadow-6-strong  w-100'>
                     <TopBar />
-                    <MDBContainer fluid style={{ maxWidth: '1500px' }}>
-                        <MDBRow className='pt-3'>
-
-                            <MDBCol sm={'12'} md='6'>
-                                <Typography variant='h5' sx={{ position: 'sticky', top: 0 }}>Announcements</Typography>
-                                <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
-                                <Box sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
-                                    {announcements.map((announcement, i) => (
-                                        <MDBCard key={`announcement${i}`} onClick={() => navigate('/announcement-details/sampleId')} style={{ cursor: 'pointer' }} className='mb-2'>
+                    <MDBContainer style={{ maxWidth: 1000 }} className='mt-4'>
+                        <MDBRow>
+                            <MDBCol>
+                                <Box sx={{ boxShadow: 5, py: 2, px: 3 }} className='d-flex gap-3'>
+                                    <img src='https://via.placeholder.com/150' width={'75'} height={'75'} />
+                                    <Box>
+                                        <Typography variant='h5'>Pops Madriaga Announcements</Typography>
+                                        <MDBBadge color='success' light>Teacher</MDBBadge>
+                                    </Box>
+                                </Box>
+                                <Box sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '73vh' }}>
+                                    {announcements.map(announcement => (
+                                        <MDBCard onClick={() => navigate('/announcement-details/sampleId')} style={{ cursor: 'pointer' }} className='mb-2'>
                                             <MDBRow className='g-0'>
                                                 <MDBCol md='3' sm='3' xs='3'>
                                                     <MDBCardImage style={{ height: 150, width: 150, objectFit: 'cover' }} src={announcement.image} fluid />
@@ -153,7 +142,7 @@ const Announcement = () => {
                                                             {announcement.content.substring(0, 50) + '...'}
                                                         </MDBCardText>
                                                         <MDBCardText>
-                                                            <CalendarMonthIcon />{announcement.postedDate}
+                                                            <CalendarMonth />{announcement.postedDate}
                                                         </MDBCardText>
                                                     </MDBCardBody>
                                                 </MDBCol>
@@ -162,23 +151,12 @@ const Announcement = () => {
                                     ))}
                                 </Box>
                             </MDBCol>
-
-                            <MDBCol sm={'12'} md='3'>
-                                <TeachersList />
-                            </MDBCol>
-
-                            <MDBCol sm={'12'} md='3'>
-                                <GroupList />
-                            </MDBCol>
-
                         </MDBRow>
                     </MDBContainer>
-
-                </main >
-
-            </div >
+                </main>
+            </div>
         </>
     )
 }
 
-export default Announcement
+export default TeacherAnnouncements
