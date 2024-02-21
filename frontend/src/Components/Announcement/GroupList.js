@@ -92,7 +92,7 @@ const GroupList = () => {
             </Popper>
             <Box className='d-flex justify-content-between '>
                 <Typography variant='h5' sx={{ position: 'sticky', top: 0 }}>Groups</Typography>
-                <Button variant='outlined'>Add Group</Button>
+                <Button onClick={() => navigate('/announcement/create-group')} variant='outlined'>Add Group</Button>
             </Box>
             <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
             <Box ref={groupBox} sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
