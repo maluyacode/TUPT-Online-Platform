@@ -75,7 +75,7 @@ const CreateGroup = () => {
         setLoading(true)
         try {
             const formData = new FormData;
-            const members = groupUsers.map(user => { return user._id })
+            let members = groupUsers.map(user => { return user._id })
 
             formData.append('groupName', groupName)
             formData.append('members', JSON.stringify(members))

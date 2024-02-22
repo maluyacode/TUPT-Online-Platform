@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-const GroupSchema = new Schema({
+const groupSchema = new mongoose.Schema({
     groupName: {
         type: String,
         required: true
     },
-    members: {
-        type: String,
-        required: true
-    },
+    members: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    }],
     coverPhoto: {
         public_id: {
             type: String,
@@ -19,11 +19,9 @@ const GroupSchema = new Schema({
         }
     },
     createdBy: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
-}, { timestamps });
+}, { timestamps: true });
 
-const Group = mongoose.model('Announcement', GroupSchema);
-
-module.exports = Group;
+module.exports = mongoose.model('group', groupSchema)

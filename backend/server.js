@@ -5,9 +5,10 @@ const { Server } = require('socket.io');
 
 const connectDatabase = require('./config/database');
 const app = require('./app');
-require('./config/cloudinary');
 
 dotenv.config({ path: './config/.env' });
+
+require('./config/cloudinary');
 connectDatabase();
 
 const port = process.env.PORT || 8080;

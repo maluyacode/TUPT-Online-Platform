@@ -1,11 +1,15 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Box, Button, Divider, IconButton, Menu, Typography, MenuItem, Fade, Popper, Paper } from '@mui/material';
 import { MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCol, MDBIcon, MDBRow } from 'mdb-react-ui-kit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+import Block from '../Layout/Loaders/Block';
+import ToastEmmiter from '../Layout/ToastEmmiter';
+
 import {
     useNavigate
 } from 'react-router-dom'
+import axios from 'axios';
 
 const groupChatData = [
     { name: 'The Brainstormers', image: 'https://via.placeholder.com/150' },
@@ -32,8 +36,8 @@ const groupChatData = [
 
 
 const GroupList = () => {
-
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [open, setOpen] = React.useState(false);
@@ -55,20 +59,46 @@ const GroupList = () => {
         // setOpen((prev) => placement !== newPlacement || !prev);
         setPlacement(newPlacement);
     };
-
     window.addEventListener('scroll', () => {
         console.log("Asdsad")
         setOpen(false)
     })
-
     groupBox?.current?.addEventListener('scroll', () => {
         console.log("Asdsad")
         setOpen(false)
     })
 
+    const [groups, setGroups] = useState([])
+
+    const getGroups = async () => {
+        setLoading(true)
+        try {
+
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/group/get-all`, {
+                withCredentials: true,
+            })
+
+            setGroups(data.groups);
+            setLoading(false)
+
+        } catch (err) {
+            setLoading(false)
+            console.log(err)
+            ToastEmmiter.error('Error occured', 'top-right')
+        }
+    }
+
+    const handleEdit = () => {
+        navigate(`/announcement/edit-group/${prevButtonId}`)
+    }
+
+    useEffect(() => {
+        getGroups()
+    }, [])
 
     return (
         <>
+            <Block loading={loading} />
             <Popper
                 // Note: The following zIndex style is specifically for documentation purposes and may not be necessary in your application.
                 sx={{ zIndex: 1200 }}
@@ -80,7 +110,7 @@ const GroupList = () => {
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={100}>
                         <Paper className='d-flex flex-column' sx={{ p: 1 }}>
-                            <Button size='large'>
+                            <Button size='large' onClick={handleEdit}>
                                 <MDBIcon fas icon="edit" />
                             </Button>
                             <Button size='large'>
@@ -96,17 +126,17 @@ const GroupList = () => {
             </Box>
             <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
             <Box ref={groupBox} sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
-                {groupChatData.map((group, i) => (
+                {groups.map((group, i) => (
                     <MDBCard key={`group${i}`} style={{ cursor: 'pointer', }} className='mb-2'>
                         <MDBRow className='g-0'>
-                            <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'3'} className='d-flex justify-content-center align-items-center'>
-                                <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={group.image} fluid />
+                            <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'4'} className='d-flex justify-content-center align-items-center'>
+                                <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={group.coverPhoto.url} fluid />
                             </MDBCol>
-                            <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'7'}>
+                            <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'6'}>
                                 <MDBCardBody className='ps-0'>
                                     {/* <MDBCardTitle>Popsicles Madriaga</MDBCardTitle> */}
                                     <MDBCardText>
-                                        {group.name}
+                                        {group.groupName}
                                     </MDBCardText>
                                     {/* <MDBCardText>
                                         <small className='text-muted'>Last updated 3 mins ago</small>
@@ -114,7 +144,7 @@ const GroupList = () => {
                                 </MDBCardBody>
                             </MDBCol>
                             <MDBCol sm={'2'} className='d-flex justify-content-center align-items-center'>
-                                <IconButton key={i} data-id={i} onClick={handleClick('bottom')} >
+                                <IconButton key={group._id} data-id={group._id} onClick={handleClick('bottom')} >
                                     <MoreVertIcon />
                                 </IconButton>
                             </MDBCol>

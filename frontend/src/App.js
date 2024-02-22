@@ -24,6 +24,7 @@ import Emergency from './Components/Announcement/Emergency';
 import AnnoncementDetails from './Components/Announcement/AnnouncementDetails';
 import CategorizeAnnouncements from './Components/Announcement/CategorizeAnnouncements';
 import CreateGroup from './Components/Announcement/CreateGroup';
+import EditGroup from './Components/Announcement/EditGroup';
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
           <Route path='/announcement-details/:announcementId' element={< AnnoncementDetails />} />
           <Route path='/categorize-announcements/:teacherId' element={<CategorizeAnnouncements />} />
           <Route path='/announcement/create-group' element={<CreateGroup />} />
+          <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
 
         </Routes>
         <Toast />

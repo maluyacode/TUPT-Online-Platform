@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const userRoutes = require('./routes/userRoutes');
 const chatRoutes = require('./routes/chatRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const groupRoutes = require('./routes/groupRoutes');
 
 const corsOptions = {
     origin: 'http://localhost:3000', //included origin as true
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/chat', chatRoutes);
 app.use('/api/v1/message', messageRoutes);
+app.use('/api/v1/group', groupRoutes);
 
 
 module.exports = app;
