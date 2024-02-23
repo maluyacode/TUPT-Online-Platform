@@ -10,7 +10,8 @@ exports.uploadSingle = async (postImage, folderName) => {
 
     return {
         public_id: result.public_id,
-        url: result.secure_url
+        url: result.secure_url,
+        orginal_name: postImage.orginalname
     }
 }
 
@@ -29,7 +30,8 @@ exports.uploadMultiple = async (postImages, folderName) => {
 
         images.push({
             public_id: result.public_id,
-            url: result.secure_url
+            url: result.secure_url,
+            orginal_name: postImages[i].originalname
         })
     }
 

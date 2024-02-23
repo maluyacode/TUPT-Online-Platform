@@ -1,10 +1,6 @@
-// classified the user by section or by year
-
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-// Define Announcement schema
-const AnnouncementSchema = new Schema({
+const AnnouncementSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -13,18 +9,49 @@ const AnnouncementSchema = new Schema({
         type: String,
         required: true
     },
-    attachments: [String],
+    canViewBy: [{
+        type: String, // parent, student, teacher.
+    }],
+    groupViewers: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Group',
+        default: null,
+    },
+    isForAll: {
+        type: Boolean,
+        required: true,
+    },
+    images: [{
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        },
+        original_name: {
+            type: String,
+        }
+    }],
+    attachments: [{
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        },
+        original_name: {
+            type: String,
+        }
+    }],
     viewedBy: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
     createdBy: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
-}, { timestamps });
+}, { timestamps: true });
 
-// Create Announcement model
-const Announcement = mongoose.model('Announcement', AnnouncementSchema);
+module.exports = mongoose.model('announcement', AnnouncementSchema);
 
-module.exports = Announcement;

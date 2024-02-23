@@ -9,31 +9,9 @@ import ToastEmmiter from '../Layout/ToastEmmiter';
 import {
     useNavigate
 } from 'react-router-dom'
+
+import Swal from 'sweetalert2'
 import axios from 'axios';
-
-const groupChatData = [
-    { name: 'The Brainstormers', image: 'https://via.placeholder.com/150' },
-    { name: 'The Collaborators', image: 'https://via.placeholder.com/150' },
-    { name: 'The Dream Team', image: 'https://via.placeholder.com/150' },
-    { name: 'The Power Group', image: 'https://via.placeholder.com/150' },
-    { name: 'The Innovation Hub', image: 'https://via.placeholder.com/150' },
-    { name: 'The Creative Collective', image: 'https://via.placeholder.com/150' },
-    { name: 'The Visionaries', image: 'https://via.placeholder.com/150' },
-    { name: 'The Problem Solvers', image: 'https://via.placeholder.com/150' },
-    { name: 'The Strategy Squad', image: 'https://via.placeholder.com/150' },
-    { name: 'The Game Changers', image: 'https://via.placeholder.com/150' },
-    { name: 'The Think Tank', image: 'https://via.placeholder.com/150' },
-    { name: 'The Synergy Squad', image: 'https://via.placeholder.com/150' },
-    { name: 'The Motivation Nation', image: 'https://via.placeholder.com/150' },
-    { name: 'The Success Squad', image: 'https://via.placeholder.com/150' },
-    { name: 'The Idea Exchange', image: 'https://via.placeholder.com/150' },
-    { name: 'The Brain Trust', image: 'https://via.placeholder.com/150' },
-    { name: 'The Solution Seekers', image: 'https://via.placeholder.com/150' },
-    { name: 'The Genius Club', image: 'https://via.placeholder.com/150' },
-    { name: 'The Inspiration Station', image: 'https://via.placeholder.com/150' },
-    { name: 'The Achievement Alliance', image: 'https://via.placeholder.com/150' }
-];
-
 
 const GroupList = () => {
     const navigate = useNavigate();
@@ -88,8 +66,44 @@ const GroupList = () => {
         }
     }
 
+    const deleteGroup = async () => {
+        setLoading(true)
+        try {
+
+            const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/group/delete/${prevButtonId}`, {
+                withCredentials: true,
+            })
+
+            setLoading(false)
+            setOpen(false)
+            ToastEmmiter.success(data.message, 'top-right')
+            getGroups()
+
+        } catch (err) {
+            setLoading(false)
+            console.log(err)
+            ToastEmmiter.error('Error occured', 'top-right')
+        }
+    }
+
     const handleEdit = () => {
         navigate(`/announcement/edit-group/${prevButtonId}`)
+    }
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            // icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteGroup()
+            }
+        });
     }
 
     useEffect(() => {
@@ -110,10 +124,10 @@ const GroupList = () => {
                 {({ TransitionProps }) => (
                     <Fade {...TransitionProps} timeout={100}>
                         <Paper className='d-flex flex-column' sx={{ p: 1 }}>
-                            <Button size='large' onClick={handleEdit}>
+                            <Button onClick={handleEdit} size='large'>
                                 <MDBIcon fas icon="edit" />
                             </Button>
-                            <Button size='large'>
+                            <Button onClick={handleDelete} size='large'>
                                 <MDBIcon fas icon="trash-alt" />
                             </Button>
                         </Paper>
@@ -133,9 +147,9 @@ const GroupList = () => {
                                 <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={group.coverPhoto.url} fluid />
                             </MDBCol>
                             <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'6'}>
-                                <MDBCardBody className='ps-0'>
+                                <MDBCardBody className='px-0 py-3'>
                                     {/* <MDBCardTitle>Popsicles Madriaga</MDBCardTitle> */}
-                                    <MDBCardText>
+                                    <MDBCardText className='w-100'>
                                         {group.groupName}
                                     </MDBCardText>
                                     {/* <MDBCardText>

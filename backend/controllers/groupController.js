@@ -1,6 +1,7 @@
 const Group = require('../models/GroupModel');
 const User = require('../models/UserModel');
 const { uploadSingle, destroyUploaded } = require('../utils/cloudinaryUpload');
+const mega = require('../utils/mega')
 
 exports.getUsersTobeAdded = async (req, res, next) => {
 
@@ -57,7 +58,14 @@ exports.createGroup = async (req, res, next) => {
 exports.getGroups = async (req, res, next) => {
     try {
 
-        const groups = await Group.find();
+        let groupFilter = {}
+        if (req.query.owner) {
+            groupFilter.createdBy = {
+                $eq: req.query.owner
+            }
+        }
+
+        const groups = await Group.find(groupFilter);
 
         res.status(200).json({
             success: true,
@@ -73,6 +81,8 @@ exports.getGroups = async (req, res, next) => {
 }
 
 exports.getSingleGroup = async (req, res, next) => {
+    const file = await mega.uploadFile('app.js')
+
     try {
 
         const group = await Group.findById(req.params.id)
@@ -93,6 +103,7 @@ exports.getSingleGroup = async (req, res, next) => {
         })
     }
 }
+
 exports.updateGroup = async (req, res, next) => {
 
     try {
@@ -123,4 +134,23 @@ exports.updateGroup = async (req, res, next) => {
         })
     }
 
+}
+
+exports.deleteGroup = async (req, res, next) => {
+
+    try {
+
+        await Group.findByIdAndDelete(req.params.id);
+
+        res.status(200).json({
+            success: true,
+            message: 'Group successfully deleted'
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
 }

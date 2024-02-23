@@ -9,5 +9,6 @@ router.post('/create', isAuthenticated, upload.single('coverPhoto'), groupContro
 router.get('/get-all', isAuthenticated, groupController.getGroups)
 router.get('/get-single/:id', isAuthenticated, groupController.getSingleGroup)
 router.put('/update/:id', isAuthenticated, upload.single('coverPhoto'), groupController.updateGroup)
+router.delete('/delete/:id', isAuthenticated, groupController.deleteGroup)
 
 module.exports = router
