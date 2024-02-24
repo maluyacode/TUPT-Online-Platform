@@ -17,4 +17,6 @@ router.put('/update/:id', isAuthenticated, announcementController.updateAnnounce
 
 router.delete('/delete/:id', isAuthenticated, announcementController.deleteAnnouncement);
 
+router.get('/get-my-announcement/:id', isAuthenticated, announcementController.getAnnouncementsOfTeacher)
+
 module.exports = router

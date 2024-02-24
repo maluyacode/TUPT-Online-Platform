@@ -25,3 +25,17 @@ export const getAnnouncement = async (id) => {
     }
 
 }
+
+export const getMyAnnouncements = async (id) => {
+
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/get-my-announcement/${id}`, {
+            withCredentials: true
+        });
+        return response;
+    } catch ({ response }) {
+        console.log(response)
+        return response
+    }
+
+}

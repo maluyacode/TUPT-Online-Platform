@@ -14,7 +14,7 @@ const AnnouncementSchema = new mongoose.Schema({
     }],
     groupViewers: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Group',
+        ref: 'group',
         default: null,
     },
     isForAll: {

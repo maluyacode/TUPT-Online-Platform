@@ -81,6 +81,29 @@ exports.getAnnouncementForGroup = async (req, res, next) => {
 
 }
 
+exports.getAnnouncementsOfTeacher = async (req, res, next) => {
+    try {
+
+        const announcements = await Announcement.find({
+            createdBy: req.params.id
+        }).populate({
+            path: 'groupViewers',
+            ref: 'group'
+        });
+
+        return res.status(200).json({
+            success: true,
+            announcements: announcements
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
+}
+
 exports.getSingleAnnouncement = async (req, res, next) => {
     try {
 
@@ -104,5 +127,19 @@ exports.updateAnnouncement = async (req, res, next) => {
 }
 
 exports.deleteAnnouncement = async (req, res, next) => {
+    try {
 
+        await Announcement.findByIdAndDelete(req.params.id);
+
+        return res.status(200).json({
+            success: true,
+            message: 'Announcement deleted successfully'
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
 }
