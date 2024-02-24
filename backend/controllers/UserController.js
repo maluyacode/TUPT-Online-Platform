@@ -125,13 +125,6 @@ exports.logoutUser = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
 
-    const newUserData = {
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        email: req.body.email,
-        contact_number: req.body.contact_number
-    }
-
     const user = await User.findById(req.user.id)
 
     if (req.file) {
@@ -139,23 +132,28 @@ exports.updateUser = async (req, res, next) => {
             destroyUploaded(user.avatar.public_id)
         }
         const imageDetails = await uploadSingle(req.file.path, 'avatar');
-        newUserData.avatar = imageDetails
+        req.body.avatar = imageDetails
     }
 
-    const updatedUser = await User.findByIdAndUpdate(req.user.id, newUserData, {
+    if (req.body.birthdate == 'Invalid Date') {
+        req.body.birthdate = null
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
         new: true,
         runValidators: true
     })
 
-    if (!user) {
+    if (!updatedUser) {
         return res.status(401).json({ message: "User not updated" });
     }
 
-    res.status(200).json({
-        success: true,
-        user: updatedUser
-    })
+    sendToken(updatedUser, 200, res, 'Profile is successfully updated');
 
+    // res.status(200).json({
+    //     success: true,
+    //     user: updatedUser
+    // })
 }
 
 exports.getUserProfile = async (req, res, next) => {
@@ -252,13 +250,18 @@ exports.updateUserPassword = async (req, res, next) => {
 }
 
 exports.getAllUsers = async (req, res, next) => {
+
+    const userFilter = {
+        _id: { $ne: req.user._id } // Exclude the current user
+    };
+
+    if (req.query.role) {
+        userFilter.role = req.query.role; // Filter by role if provided
+    }
+
     try {
 
-        const users = await User.find({
-            _id: {
-                $ne: req.user._id
-            }
-        });
+        const users = await User.find(userFilter);
 
         res.status(200).json({
             success: true,

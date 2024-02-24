@@ -58,7 +58,23 @@ exports.createAnnouncement = async (req, res, next) => {
 }
 
 exports.getAllAnnouncements = async (req, res, next) => {
-    
+    try {
+
+        const announcements = await Announcement.find({
+            isForAll: true
+        })
+
+        return res.status(200).json({
+            success: true,
+            announcements: announcements
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
 }
 
 exports.getAnnouncementForGroup = async (req, res, next) => {
@@ -66,7 +82,21 @@ exports.getAnnouncementForGroup = async (req, res, next) => {
 }
 
 exports.getSingleAnnouncement = async (req, res, next) => {
+    try {
 
+        const announcement = await Announcement.findById(req.params.id);
+
+        return res.status(200).json({
+            success: true,
+            announcement: announcement
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
 }
 
 exports.updateAnnouncement = async (req, res, next) => {

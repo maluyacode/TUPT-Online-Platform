@@ -141,7 +141,7 @@ const GroupList = () => {
             <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
             <Box ref={groupBox} sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
                 {groups.map((group, i) => (
-                    <MDBCard key={`group${i}`} style={{ cursor: 'pointer', }} className='mb-2'>
+                    <MDBCard key={`group${i}`} style={{ cursor: 'pointer', }} className='mb-2 py-2'>
                         <MDBRow className='g-0'>
                             <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'4'} className='d-flex justify-content-center align-items-center'>
                                 <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={group.coverPhoto.url} fluid />

@@ -81,7 +81,6 @@ exports.getGroups = async (req, res, next) => {
 }
 
 exports.getSingleGroup = async (req, res, next) => {
-    const file = await mega.uploadFile('app.js')
 
     try {
 

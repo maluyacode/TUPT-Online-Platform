@@ -21,10 +21,11 @@ import Announcement from './Components/Announcement/Announcement';
 import { getUser, isAuthenticated } from './utils/helper';
 import Post from './Components/Announcement/Post';
 import Emergency from './Components/Announcement/Emergency';
-import AnnoncementDetails from './Components/Announcement/AnnouncementDetails';
 import CategorizeAnnouncements from './Components/Announcement/CategorizeAnnouncements';
 import CreateGroup from './Components/Announcement/CreateGroup';
 import EditGroup from './Components/Announcement/EditGroup';
+import AnnouncementDetails from './Components/Announcement/AnnouncementDetails';
+import UserProfile from './Components/User/UserProfile';
 
 function App() {
 
@@ -49,11 +50,12 @@ function App() {
           <Route path='/announcements' element={<Announcement />} />
           <Route path='/post-announcement' element={<Post />} />
           <Route path='/post-emergency' element={<Emergency />} />
-          <Route path='/announcement-details/:announcementId' element={< AnnoncementDetails />} />
+          <Route path='/announcement-details/:id' element={<AnnouncementDetails />} />
           <Route path='/categorize-announcements/:teacherId' element={<CategorizeAnnouncements />} />
           <Route path='/announcement/create-group' element={<CreateGroup />} />
           <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
 
+          <Route path='/profile' element={<UserProfile />} />
         </Routes>
         <Toast />
       </Router>

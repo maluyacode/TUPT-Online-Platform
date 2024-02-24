@@ -62,6 +62,35 @@ const userSchema = new mongoose.Schema({
     contactCodeVerification: {
         type: String,
     },
+
+    birthdate: {
+        type: Date,
+        default: null
+    },
+    instagramLink: {
+        type: String,
+        default: null
+    },
+    facebookLink: {
+        type: String,
+        default: null
+    },
+    houseNo: {
+        type: String,
+        default: null
+    },
+    street: {
+        type: String,
+        default: null
+    },
+    baranggay: {
+        type: String,
+        default: null
+    },
+    city: {
+        type: String,
+        default: null
+    },
     emailCodeExpire: Date,
     contactCodeExpire: Date,
     resetPasswordToken: String,

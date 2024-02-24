@@ -16,6 +16,7 @@ require('./config/cloudinary');
 connectDatabase();
 
 const port = process.env.PORT || 8080;
+console.log(port)
 
 
 const server = app.listen(port, () => console.log(`Server Started: http://localhost:${port}/`))

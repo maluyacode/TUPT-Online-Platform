@@ -29,29 +29,6 @@ import Block from '../Layout/Loaders/Block';
 import { getUser } from '../../utils/helper';
 import ToastEmmiter from '../Layout/ToastEmmiter';
 
-const groupChatData = [
-    { label: 'The Brainstormers', image: 'https://via.placeholder.com/150' },
-    { label: 'The Collaborators', image: 'https://via.placeholder.com/150' },
-    { label: 'The Dream Team', image: 'https://via.placeholder.com/150' },
-    { label: 'The Power Group', image: 'https://via.placeholder.com/150' },
-    { label: 'The Innovation Hub', image: 'https://via.placeholder.com/150' },
-    { label: 'The Creative Collective', image: 'https://via.placeholder.com/150' },
-    { label: 'The Visionaries', image: 'https://via.placeholder.com/150' },
-    { label: 'The Problem Solvers', image: 'https://via.placeholder.com/150' },
-    { label: 'The Strategy Squad', image: 'https://via.placeholder.com/150' },
-    { label: 'The Game Changers', image: 'https://via.placeholder.com/150' },
-    { label: 'The Think Tank', image: 'https://via.placeholder.com/150' },
-    { label: 'The Synergy Squad', image: 'https://via.placeholder.com/150' },
-    { label: 'The Motivation Nation', image: 'https://via.placeholder.com/150' },
-    { label: 'The Success Squad', image: 'https://via.placeholder.com/150' },
-    { label: 'The Idea Exchange', image: 'https://via.placeholder.com/150' },
-    { label: 'The Brain Trust', image: 'https://via.placeholder.com/150' },
-    { label: 'The Solution Seekers', image: 'https://via.placeholder.com/150' },
-    { label: 'The Genius Club', image: 'https://via.placeholder.com/150' },
-    { label: 'The Inspiration Station', image: 'https://via.placeholder.com/150' },
-    { label: 'The Achievement Alliance', image: 'https://via.placeholder.com/150' }
-];
-
 const Post = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false)
