@@ -26,6 +26,7 @@ import CreateGroup from './Components/Announcement/CreateGroup';
 import EditGroup from './Components/Announcement/EditGroup';
 import AnnouncementDetails from './Components/Announcement/AnnouncementDetails';
 import UserProfile from './Components/User/UserProfile';
+import TeachersPosts from './Components/Announcement/TeachersPosts';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
 
           <Route path='/announcements' element={<Announcement />} />
           <Route path='/post-announcement' element={<Post />} />
+          <Route path='/teachers-post' element={<TeachersPosts />} />
           <Route path='/post-emergency' element={<Emergency />} />
           <Route path='/announcement-details/:id' element={<AnnouncementDetails />} />
           <Route path='/categorize-announcements/:teacherId' element={<CategorizeAnnouncements />} />

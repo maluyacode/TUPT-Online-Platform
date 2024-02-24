@@ -1,17 +1,14 @@
 const dotenv = require('dotenv');
-// const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const mega = require('./utils/mega');
-
-(async () => {
-    await mega.connect();
-})();
-
 const connectDatabase = require('./config/database');
 const app = require('./app');
 
 dotenv.config({ path: './config/.env' });
 
+(async () => {
+    await mega.connect();
+})();
 require('./config/cloudinary');
 connectDatabase();
 

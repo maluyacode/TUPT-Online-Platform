@@ -5,8 +5,8 @@ let storage;
 
 exports.connect = async () => {
     storage = new Storage({
-        email: 'adlawandavemerc98@gmail.com',
-        password: 'nawalda@16',
+        email: process.env.MEGA_EMAIL,
+        password: process.env.MEGA_PASSWORD,
         // userAgent: 'ExampleApplication/1.0'
     });
 
