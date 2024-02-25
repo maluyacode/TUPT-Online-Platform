@@ -27,6 +27,7 @@ import EditGroup from './Components/Announcement/EditGroup';
 import AnnouncementDetails from './Components/Announcement/AnnouncementDetails';
 import UserProfile from './Components/User/UserProfile';
 import TeachersPosts from './Components/Announcement/TeachersPosts';
+import EditAnnouncement from './Components/Announcement/EditAnnouncement';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
 
           <Route path='/announcements' element={<Announcement />} />
           <Route path='/post-announcement' element={<Post />} />
+          <Route path='/edit-announcement/:id' element={<EditAnnouncement />} />
           <Route path='/teachers-post' element={<TeachersPosts />} />
           <Route path='/post-emergency' element={<Emergency />} />
           <Route path='/announcement-details/:id' element={<AnnouncementDetails />} />

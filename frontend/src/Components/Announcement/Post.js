@@ -92,7 +92,7 @@ const Post = () => {
             const formData = new FormData;
             formData.append('title', values.title)
             formData.append('content', values.content)
-            formData.append('groupViewers', values.groupViewers)
+            formData.append('groupViewers', values.groupViewers._id)
             formData.append('canViewBy', JSON.stringify(values.canViewBy))
             for (let i = 0; i < values.images.length; i++) {
                 formData.append('images', values.images[i]);
@@ -100,7 +100,7 @@ const Post = () => {
             for (let i = 0; i < values.files.length; i++) {
                 formData.append('files', values.files[i]);
             }
-            makeAnnouncement(formData);
+            // makeAnnouncement(formData);
         },
     });
 
@@ -201,7 +201,7 @@ const Post = () => {
                                             id="combo-box-demo"
                                             options={ownedGroups}
                                             getOptionLabel={(option) => option.groupName}
-                                            getOptionSelected={(option, value) => option._id === value._id}
+                                            isOptionEqualToValue={(option, value) => option._id === value._id}
                                             name='groupViewers'
                                             onChange={(event, newValue) => {
                                                 formik.setFieldTouched('groupViewers', true);
@@ -209,8 +209,8 @@ const Post = () => {
                                                     formik.setFieldValue('groupViewers', '');
                                                     return
                                                 }
-                                                console.log(newValue._id)
-                                                formik.setFieldValue('groupViewers', newValue._id);
+                                                // console.log(newValue)
+                                                formik.setFieldValue('groupViewers', newValue);
                                             }}
                                             renderInput={(params) => <TextField {...params} size='small' fullWidth label="Select Group" />}
                                         />

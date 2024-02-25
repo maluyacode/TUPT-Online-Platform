@@ -10,7 +10,7 @@ const PostSchema = Yup.object().shape({
     title: Yup.string()
         .required(requiredMessage),
 
-    groupViewers: Yup.string()
+    groupViewers: Yup.object()
         .required(requiredMessage),
 
     content: Yup.string()

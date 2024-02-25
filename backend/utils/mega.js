@@ -76,4 +76,15 @@ const getFileDetails = async (name, originalName) => {
     };
 }
 
+exports.destroyFile = async (name) => {
 
+    await storage.ready;
+    console.log(name)
+
+    const resultFile = storage.root.children.find(folder => folder.name === 'TUPT-Online-Platform').children.find(file => file.name === name);
+    if (!resultFile) {
+        return
+    }
+    resultFile.delete()
+
+}

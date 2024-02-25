@@ -135,7 +135,7 @@ const TeachersPosts = () => {
                                                 }
                                             </Typography>
                                             <Box>
-                                                <IconButton size='small'>
+                                                <IconButton onClick={() => navigate(`/edit-announcement/${announcement._id}`)} size='small'>
                                                     <EditIcon fontSize='small' />
                                                 </IconButton>
                                                 <IconButton onClick={() => handleDelete(announcement._id)} size='small'>

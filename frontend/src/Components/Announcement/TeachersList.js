@@ -11,29 +11,6 @@ import ToastEmmiter from '../Layout/ToastEmmiter';
 import { getAllTeachers } from '../../api/usersAPI';
 import { profileHead } from '../../utils/avatar'
 
-// const teachers = [
-//     { name: 'John Smith', image: 'https://via.placeholder.com/150' },
-//     { name: 'Mary Johnson', image: 'https://via.placeholder.com/150' },
-//     { name: 'David Williams', image: 'https://via.placeholder.com/150' },
-//     { name: 'Linda Brown', image: 'https://via.placeholder.com/150' },
-//     { name: 'Michael Jones', image: 'https://via.placeholder.com/150' },
-//     { name: 'Sarah Davis', image: 'https://via.placeholder.com/150' },
-//     { name: 'James Wilson', image: 'https://via.placeholder.com/150' },
-//     { name: 'Patricia Martinez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Robert Anderson', image: 'https://via.placeholder.com/150' },
-//     { name: 'Barbara Taylor', image: 'https://via.placeholder.com/150' },
-//     { name: 'William Thomas', image: 'https://via.placeholder.com/150' },
-//     { name: 'Jennifer Garcia', image: 'https://via.placeholder.com/150' },
-//     { name: 'Richard Hernandez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Susan Martinez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Joseph Rodriguez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Margaret Lopez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Thomas Perez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Dorothy Gonzalez', image: 'https://via.placeholder.com/150' },
-//     { name: 'Daniel Wilson', image: 'https://via.placeholder.com/150' },
-//     { name: 'Lisa Moore', image: 'https://via.placeholder.com/150' }
-// ];
-
 const TeachersList = () => {
     const navigate = useNavigate();
 

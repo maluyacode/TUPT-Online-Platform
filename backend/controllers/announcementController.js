@@ -107,7 +107,11 @@ exports.getAnnouncementsOfTeacher = async (req, res, next) => {
 exports.getSingleAnnouncement = async (req, res, next) => {
     try {
 
-        const announcement = await Announcement.findById(req.params.id);
+        const announcement = await Announcement.findById(req.params.id)
+            .populate({
+                path: 'groupViewers',
+                ref: 'group'
+            });
 
         return res.status(200).json({
             success: true,
@@ -123,7 +127,67 @@ exports.getSingleAnnouncement = async (req, res, next) => {
 }
 
 exports.updateAnnouncement = async (req, res, next) => {
+    try {
 
+        let announcement = await Announcement.findById(req.params.id);
+
+        req.body.canViewBy = JSON.parse(req.body.canViewBy);
+        if (req.body.groupViewers === 'all') {
+            delete req.body.groupViewers
+            req.body.isForAll = true
+        } else {
+            req.body.isForAll = false
+        }
+
+
+        if (req.files.images) {
+
+            if (announcement.images.length > 0) {
+                const images = announcement.images;
+                for (i in images) {
+                    destroyUploaded(images[i].public_id)
+                }
+            }
+
+            req.body.images = await uploadMultiple(req.files.images, 'announcements') // get image details - cloudinary
+        }
+
+        if (req.files.files) {
+
+            if (announcement.attachments.length > 0) {
+                const attachments = announcement.attachments;
+                for (i in attachments) {
+                    mega.destroyFile(attachments[i].public_id)
+                }
+            }
+
+            let filesLink = [];
+            for (i in req.files.files) {
+                console.log(req.files.files)
+                const files = req.files.files
+
+                const result = await mega.uploadFile(files[i].originalname, files[i].path) // get file details - megajs
+                console.log(result)
+                filesLink.push(result);
+
+            }
+            req.body.attachments = filesLink
+        }
+
+        announcement = await Announcement.findByIdAndUpdate(req.params.id, req.body)
+
+        return res.status(200).json({
+            success: true,
+            message: 'Reannounced successfully!',
+            announcement: announcement
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
 }
 
 exports.deleteAnnouncement = async (req, res, next) => {
