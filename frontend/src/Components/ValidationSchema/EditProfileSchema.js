@@ -49,7 +49,7 @@ const RegisterSchema = Yup.object().shape({
             return true;
         }),
 
-    birthdate: Yup.date(),
+    // birthdate: Yup.date(),
     facebookLink: Yup.string(),
     instagramLink: Yup.string(),
     houseNo: Yup.string(),

@@ -29,6 +29,10 @@ import UserProfile from './Components/User/UserProfile';
 import TeachersPosts from './Components/Announcement/TeachersPosts';
 import EditAnnouncement from './Components/Announcement/EditAnnouncement';
 
+
+import Dashboard from './Components/Admin/Dashboard';
+import AdminSideNav from './Components/Layout/Admin/AdminSideNav';
+
 function App() {
 
   if (isAuthenticated()) {
@@ -60,7 +64,10 @@ function App() {
           <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
 
           <Route path='/profile' element={<UserProfile />} />
+
+          <Route path='/admin/dashboard' element={<Dashboard />} />
         </Routes>
+
         <Toast />
       </Router>
     </div>

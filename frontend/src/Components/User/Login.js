@@ -36,11 +36,19 @@ function Login() {
         onSubmit: async (values) => {
             console.log(values)
             setLoading(true)
-            const { data: { success, message } } = await loginAPI(values);
+            const { data: { success, message, user } } = await loginAPI(values);
+
             if (success) {
-                ToastEmmiter.success('You are login', 'top-center');
-                navigate('/');
+                setLoading(false)
+                if (user.role === 'admin') {
+                    navigate('/admin/dashboard');
+                    ToastEmmiter.success('Welcome back admin!', 'top-right');
+                } else {
+                    ToastEmmiter.success('You are login', 'top-center');
+                    navigate('/');
+                }
             } else {
+                setLoading(false)
                 ToastEmmiter.error(message, 'top-center');
             }
         },
