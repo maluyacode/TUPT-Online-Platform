@@ -14,9 +14,9 @@ const Dashboard = () => {
             <main style={{ padding: 10 }} className='shadow-6-strong  w-100'>
                 <TopBar />
                 <MDBContainer fluid>
-                    <MDBRow className='mt-3'>
-                        <MDBCol md={3} >
-                            <Paper className='p-4' sx={{ boxShadow: 5 }}>
+                    <MDBRow className='mt-3 '>
+                        <MDBCol className='mb-3' style={{ minWidth: 300 }}>
+                            <Paper className='p-4' sx={{ boxShadow: 5, }}>
                                 <Typography className='mb-1' fontSize={20}>Total Users</Typography>
                                 <Divider sx={{ borderBottom: 2 }} />
                                 <Typography className='fw-bold' fontSize={50} textAlign={'center'}>123</Typography>
@@ -37,7 +37,7 @@ const Dashboard = () => {
                                 </Box>
                             </Paper>
                         </MDBCol>
-                        <MDBCol md={3}>
+                        <MDBCol className='mb-3' style={{ minWidth: 300 }}>
                             <Paper className='p-4' sx={{ boxShadow: 5 }}>
                                 <Typography className='mb-1' fontSize={20}>Total Announcements</Typography>
                                 <Divider sx={{ borderBottom: 2 }} />
@@ -55,7 +55,7 @@ const Dashboard = () => {
                                 </Box>
                             </Paper>
                         </MDBCol>
-                        <MDBCol md={3}>
+                        <MDBCol className='mb-3' style={{ minWidth: 300 }}>
                             <Paper className='p-4' sx={{ boxShadow: 5 }}>
                                 <Typography className='mb-1' fontSize={20}>Total Messages</Typography>
                                 <Divider sx={{ borderBottom: 2 }} />
@@ -81,7 +81,7 @@ const Dashboard = () => {
                                 </Box>
                             </Paper>
                         </MDBCol>
-                        <MDBCol md={3}>
+                        <MDBCol className='mb-3' style={{ minWidth: 300 }}>
                             <Paper className='p-4' sx={{ boxShadow: 5 }}>
                                 <Typography className='mb-1' fontSize={20}>Total Forum Topics</Typography>
                                 <Divider sx={{ borderBottom: 2 }} />

@@ -6,33 +6,70 @@ const { uploadSingle, uploadMultiple, destroyUploaded } = require('../utils/clou
 const { sendCodeToEmail, sendCodeToContact, verifyEmailAndContactCode, verifyAccount } = require('../utils/verification')
 
 exports.registerUser = async (req, res, next) => {
-    try {
 
-        const user = await User.create(req.body);
-        const newUser = await User.findById(user._id);
+    if (req.body.whosCreating === 'admin') {
+        next()
 
-        const emailCode = await newUser.getEmailCodeVerification()
-        const contactCode = await newUser.getContactCodeVerification()
+    } else {
+        console.log("asdasd")
+        try {
 
-        newUser.save({ validateBeforeSave: false });
-        sendCodeToEmail(newUser, emailCode);
-        sendCodeToContact(newUser, contactCode)
+            const user = await User.create(req.body);
+            const newUser = await User.findById(user._id);
 
-        if (!user) {
-            return res.status(500).json({
-                success: false,
-                message: 'Failed to create an account'
+            const emailCode = await newUser.getEmailCodeVerification()
+            const contactCode = await newUser.getContactCodeVerification()
+
+            newUser.save({ validateBeforeSave: false });
+            sendCodeToEmail(newUser, emailCode);
+            sendCodeToContact(newUser, contactCode)
+
+            if (!user) {
+                return res.status(500).json({
+                    success: false,
+                    message: 'Failed to create an account'
+                })
+            }
+
+            sendToken(user, 200, res);
+
+        } catch (err) {
+            console.log(err)
+            res.status(500).json({
+                success: false
             })
         }
 
-        sendToken(user, 200, res);
+    }
+}
+
+exports.regsteredByAdmin = async (req, res, next) => {
+    console.log(req.file)
+
+    try {
+
+        if (req.file) {
+            const imageDetails = await uploadSingle(req.file.path, 'avatar');
+            req.body.avatar = imageDetails
+        }
+
+        const user = await User.create(req.body);
+
+        return res.status(200).json({
+            success: true,
+            message: 'User successfully created',
+            user: user
+        })
 
     } catch (err) {
+
         console.log(err)
         res.status(500).json({
             success: false
         })
+
     }
+
 }
 
 exports.verifyCode = async (req, res, next) => {
@@ -116,9 +153,15 @@ exports.logoutUser = async (req, res, next) => {
         httpOnly: true
     })
 
+    res.cookie('user', null, {
+        expires: new Date(Date.now()),
+        httpOnly: true
+    })
+
     res.status(200).json({
         sucess: true,
-        message: 'Logged Out'
+        message: 'Logged Out',
+        success: true,
     })
 
 }

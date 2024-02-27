@@ -13,6 +13,19 @@ export const getAllTeachers = async () => {
     }
 }
 
+export const getAllUsers = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/user/lists`, {
+            withCredentials: true
+        });
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+}
+
 export const updateProfile = async (values, id) => {
 
     try {
@@ -46,4 +59,17 @@ export const updateProfile = async (values, id) => {
         return response
     }
 
+}
+
+export const logout = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/user/logout`, {
+            withCredentials: true
+        });
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
 }

@@ -4,7 +4,7 @@ const upload = require('../utils/multer')
 const userController = require('../controllers/userController');
 const { isAuthenticated } = require('../middlewares/Auth');
 
-router.post('/register', upload.single('avatar'), userController.registerUser);
+router.post('/register', upload.single('avatar'), userController.registerUser, userController.regsteredByAdmin);
 router.post('/verification', isAuthenticated, userController.verifyCode);
 router.get('/resend-code', isAuthenticated, userController.reSendCode);
 router.post('/login', userController.loginUser);

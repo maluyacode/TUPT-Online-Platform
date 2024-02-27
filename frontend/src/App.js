@@ -32,10 +32,15 @@ import EditAnnouncement from './Components/Announcement/EditAnnouncement';
 
 import Dashboard from './Components/Admin/Dashboard';
 import AdminSideNav from './Components/Layout/Admin/AdminSideNav';
+import ChatManagement from './Components/Admin/ChatManagement/ChatManagement';
+import AnnouncementManagement from './Components/Admin/AnnouncementManagement/AnnouncementManagement'
+import UserManagement from './Components/Admin/UserManagement/UserManagement';
+import ForumManagement from './Components/Admin/ForumManagement/ForumManagment';
+import CreateUser from './Components/Admin/UserManagement/CreateUser';
 
 function App() {
 
-  if (isAuthenticated()) {
+  if (isAuthenticated() && getUser()) {
     socket.connect()
   }
 
@@ -66,6 +71,14 @@ function App() {
           <Route path='/profile' element={<UserProfile />} />
 
           <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/admin/chat-management' element={<ChatManagement />} />
+
+          <Route path='/admin/user-management' element={<UserManagement />} />
+          <Route path='/admin/create-user' element={<CreateUser />} />
+
+          <Route path='/admin/announcement-management' element={<AnnouncementManagement />} />
+
+          <Route path='/admin/forum-management' element={<ForumManagement />} />
         </Routes>
 
         <Toast />

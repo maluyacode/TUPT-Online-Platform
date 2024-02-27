@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MDBContainer,
     MDBNavbar,
@@ -19,8 +19,12 @@ import { useNavigate } from 'react-router-dom';
 import { closeSideBar, openSideBar } from '../../actions/uiActions'
 import { getUser } from '../../utils/helper';
 import { profileHead } from '../../utils/avatar';
+import { logout } from '../../api/usersAPI';
+import ToastEmmiter from '../Layout/ToastEmmiter'
+import Block from '../Layout/Loaders/Block'
 
 export default function TopBar() {
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const { isSideBarCollapse } = useSelector(state => state.ui);
@@ -34,8 +38,22 @@ export default function TopBar() {
         }
     }
 
+    const handleLogout = async () => {
+        console.log("ASDsad")
+        setLoading(true)
+        const { data } = await logout();
+        if (data.success) {
+            setLoading(false)
+            ToastEmmiter.success(data.message, 'top-center')
+            navigate('/login')
+        } else {
+            setLoading(false)
+        }
+    }
+
     return (
         <>
+            <Block loading={loading} />
             <MDBNavbar light bgColor='light' style={{ zIndex: 4, }}>
                 <MDBContainer fluid>
                     <MDBNavbarBrand href='' onClick={handleSideBar} >
@@ -55,7 +73,10 @@ export default function TopBar() {
                                         }}
                                         >Profile</MenuItem>
                                         <MenuItem onClick={popupState.close}>My account</MenuItem>
-                                        <MenuItem onClick={popupState.close}>Logout</MenuItem>
+                                        <MenuItem onClick={() => {
+                                            popupState.close()
+                                            handleLogout()
+                                        }}>Logout</MenuItem>
                                     </Menu>
                                 </React.Fragment>
                             )}
