@@ -1,7 +1,9 @@
-import { Button, ButtonGroup } from "@mui/material";
+import { Box, Button, ButtonGroup } from "@mui/material";
 import { Visibility, EditNote, Delete } from "@mui/icons-material"
 import { createTheme } from '@mui/material/styles';
 import { profileHead } from '../../../utils/avatar'
+import ChatIcon from '@mui/icons-material/Chat';
+import EmailIcon from '@mui/icons-material/Email';
 
 export const getTableColumns = (handleEdit, handleDelete) => {
     const userColumns = [
@@ -69,12 +71,31 @@ export const getTableColumns = (handleEdit, handleDelete) => {
 }
 
 
-export const getTableOptions = (navigate) => {
+export const getTableOptions = (navigate, sendEmail, sendMessage) => {
     const options = {
         filterType: 'multiselect',
         rowsPerPage: 3,
+        responsive: "standard",
         onRowSelectionChange: (currentRowsSelected, allRowsSelected, rowsSelected) => {
 
+        },
+        customToolbarSelect: (selectedRows, displayData, setSelectedRows) => {
+            console.log(displayData)
+            const users = selectedRows.data.map(item => {
+                return {
+                    _id: displayData.at(item.index).data[0],
+                    fullname: `${displayData.at(item.index).data[2]} ${displayData.at(item.index).data[3]}`,
+                    email: displayData.at(item.index).data[4],
+                    phone: displayData.at(item.index).data[5],
+                }
+            });
+
+            return (
+                <Box className='px-4'>
+                    <Button onClick={() => sendEmail(users)} startIcon={<EmailIcon />} variant="contained" size='small' className="me-2">Email</Button>
+                    <Button onClick={() => sendMessage(users)} startIcon={<ChatIcon />} variant="contained" size='small'>Send SMS</Button>
+                </Box>
+            )
         },
         customToolbar: () => {
             return (

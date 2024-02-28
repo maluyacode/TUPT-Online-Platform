@@ -88,3 +88,29 @@ export const logout = async () => {
         return response
     }
 }
+
+export const sendEmailToUsers = async (formData) => {
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/user/send-email`, formData, {
+            withCredentials: true
+        });
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+}
+
+export const sendSMSToUsers = async (formData) => {
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_API}/api/v1/user/send-sms`, formData, {
+            withCredentials: true
+        });
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+} 

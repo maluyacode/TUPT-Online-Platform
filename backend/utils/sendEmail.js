@@ -15,7 +15,16 @@ const sendEmail = async options => {
         from: `${process.env.SMTP_FROM_NAME} <${process.env.SMTP_FROM_EMAIL}>`,
         to: options.email,
         subject: options.subject,
-        html: `<p>${options.message}</p>`
+        html: `<pre style="font-size: 18px;">${options.message}</pre>`
+    }
+
+    if (options.attachments?.length > 0) {
+        message.attachments = options.attachments.map(file => {
+            return {
+                filename: file.originalname,
+                path: file.path
+            }
+        })
     }
 
     await transporter.sendMail(message)

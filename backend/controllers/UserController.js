@@ -348,3 +348,51 @@ exports.deleteUser = async (req, res, next) => {
         })
     }
 }
+
+exports.emailUsers = async (req, res, nex) => {
+    try {
+        console.log(req.body.body)
+        const users = JSON.parse(req.body.users);
+
+        for (let i in users) {
+            await sendEmail({
+                email: users[i].email,
+                subject: req.body.subject,
+                message: req.body.body,
+                attachments: req.files.attachments,
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            message: 'Email successfully delivered'
+        })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: 'Error occured'
+        })
+    }
+}
+
+exports.sendSMStoUsers = async (req, res, next) => {
+    try {
+        
+        const users = JSON.parse(req.body.users);
+        console.log(req.body)
+
+        res.status(200).json({
+            success: true,
+            message: 'SMS sent'
+        })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: 'Error occured'
+        })
+    }
+}

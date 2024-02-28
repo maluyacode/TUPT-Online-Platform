@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit'
+import { MDBBtn, MDBCol, MDBContainer, MDBModal, MDBModalBody, MDBModalContent, MDBModalDialog, MDBModalFooter, MDBModalHeader, MDBModalTitle, MDBRow } from 'mdb-react-ui-kit'
 import MUIDataTable from "mui-datatables";
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -12,16 +12,38 @@ import { useNavigate } from "react-router-dom";
 
 import { getMuiTheme, getTableColumns, getTableData, getTableOptions } from './userTableConfig'
 import { getUser } from '../../../utils/helper'
-import { getAllUsers } from '../../../api/usersAPI'
+import { getAllUsers, sendEmailToUsers, sendSMSToUsers } from '../../../api/usersAPI'
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { Box, Chip, TextField, Typography } from '@mui/material';
 
 const UserManagement = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    const [centredModal, setCentredModal] = useState(false);
+    const [messageModal, setMessageModal] = useState(false)
+
+    const toggleOpen = () => {
+        if (centredModal) {
+            setCentredModal(false)
+        } else {
+            setCentredModal(true)
+        }
+    };
+
+    const toggleSMS = () => {
+        if (messageModal) {
+            setMessageModal(false)
+        } else {
+            setMessageModal(true)
+        }
+    }
+
     const [users, setUsers] = useState([]);
     const [columns, setColumns] = useState([]);
+    const [options, setOptions] = useState({});
+    const [selectedUsers, setSelectedUsers] = useState([]);
 
     const handleEdit = (id) => {
         navigate(`/admin/edit-user/${id}`)
@@ -60,6 +82,57 @@ const UserManagement = () => {
         });
     }
 
+
+    const sendMessage = (users) => {
+        setSelectedUsers(users)
+        toggleSMS()
+    }
+
+    const sendEmail = (users) => {
+        setSelectedUsers(users)
+        toggleOpen()
+    }
+
+    const goSendEmail = async (e) => {
+
+        e.preventDefault();
+        setLoading(true)
+        const formData = new FormData(e.target)
+        formData.append('users', JSON.stringify(selectedUsers))
+        // formData.set('body', JSON.stringify(e.target.body.value))
+        const { data } = await sendEmailToUsers(formData);
+        if (data.success) {
+            setLoading(false)
+            ToastEmmiter.success(data.message, 'top-center')
+            getUsers();
+            toggleOpen()
+            e.target.reset()
+        } else {
+            setLoading(false)
+            ToastEmmiter.error('System error, try again later', 'top-center');
+        }
+
+    }
+
+    const goSendSms = async (e) => {
+        e.preventDefault();
+        setLoading(true)
+        const formData = new FormData(e.target)
+        formData.append('users', JSON.stringify(selectedUsers))
+        const { data } = await sendSMSToUsers(formData);
+        if (data.success) {
+            setLoading(false)
+            ToastEmmiter.success(data.message, 'top-center')
+            getUsers();
+            toggleSMS()
+            e.target.reset()
+        } else {
+            setLoading(false)
+            ToastEmmiter.error('System error, try again later', 'top-center');
+        }
+    }
+
+
     const getUsers = async () => {
         setLoading(true)
         const { data } = await getAllUsers();
@@ -68,6 +141,7 @@ const UserManagement = () => {
             setLoading(false)
             setUsers(getTableData(data.users))
             setColumns(getTableColumns(handleEdit, handleDelete))
+            setOptions(getTableOptions(navigate, sendEmail, sendMessage));
 
         } else {
             setLoading(false)
@@ -75,12 +149,96 @@ const UserManagement = () => {
         }
     }
 
+    const deselect = (user) => {
+        setSelectedUsers(selectedUsers.filter(tempUser => tempUser._id !== user._id));
+    }
+
     useEffect(() => {
         getUsers();
     }, [])
 
+    const onChange = (e) => {
+        console.log(JSON.stringify(e.target.value))
+    }
+
+
     return (
         <>
+            {/* Email */}
+            <MDBModal tabIndex='-1' open={centredModal} setOpen={setCentredModal}>
+                <MDBModalDialog centered>
+                    <form onSubmit={goSendEmail}>
+                        <MDBModalContent>
+                            <MDBModalHeader>
+                                <MDBModalTitle>Send Email</MDBModalTitle>
+                                <MDBBtn className='btn-close' color='none' type='button' onClick={toggleOpen}></MDBBtn>
+                            </MDBModalHeader>
+                            <MDBModalBody>
+
+                                <Box className='mb-4'>
+                                    {selectedUsers?.map((user, i) => (
+                                        <Chip key={i} label={`${user.fullname}`} onDelete={() => deselect(user)} sx={{ mx: 0.3, my: 0.3 }} />
+                                    ))}
+                                </Box>
+
+                                <TextField name='subject' size='small' className='mb-4' label='Subject' fullWidth />
+                                <TextField onChange={onChange} name='body' size='small' className='mb-4' rows={10} multiline label='Body' fullWidth />
+                                <TextField name='attachments' size='small' type='file' className='mb-4' label='Attachments' fullWidth InputLabelProps={{ shrink: true }} inputProps={{
+                                    multiple: true
+                                }} />
+                            </MDBModalBody>
+                            <MDBModalFooter>
+                                <MDBBtn type='button' color='secondary' onClick={() => {
+                                    setCentredModal(false);
+                                    setSelectedUsers([])
+                                }}>
+                                    Cancel
+                                </MDBBtn>
+                                <MDBBtn type='submit'>Send</MDBBtn>
+                            </MDBModalFooter>
+                        </MDBModalContent>
+                    </form>
+                </MDBModalDialog>
+            </MDBModal>
+            {/* Email */}
+
+            {/* SMS */}
+            <MDBModal tabIndex='-1' open={messageModal}
+                setOpen={setMessageModal}
+            >
+                <MDBModalDialog centered>
+                    <form onSubmit={goSendSms}>
+                        <MDBModalContent>
+                            <MDBModalHeader>
+                                <MDBModalTitle>Send Email</MDBModalTitle>
+                                <MDBBtn className='btn-close' color='none' type='button' onClick={toggleSMS}></MDBBtn>
+                            </MDBModalHeader>
+                            <MDBModalBody>
+
+                                <Box className='mb-4'>
+                                    {selectedUsers?.map((user, i) => (
+                                        <Chip key={i} label={`${user.fullname}`} onDelete={() => deselect(user)} sx={{ mx: 0.3, my: 0.3 }} />
+                                    ))}
+                                </Box>
+
+                                {/* <Typography variant='h5'>Message</Typography> */}
+                                <TextField onChange={onChange} name='message' size='small' className='mb-4' rows={10} multiline label='Message' fullWidth />
+                            </MDBModalBody>
+                            <MDBModalFooter>
+                                <MDBBtn type='button' color='secondary' onClick={() => {
+                                    toggleSMS()
+                                    setSelectedUsers([])
+                                }}>
+                                    Cancel
+                                </MDBBtn>
+                                <MDBBtn type='submit'>Send</MDBBtn>
+                            </MDBModalFooter>
+                        </MDBModalContent>
+                    </form>
+                </MDBModalDialog>
+            </MDBModal>
+            {/* SMS */}
+
             <Block loading={loading} />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />
@@ -95,7 +253,7 @@ const UserManagement = () => {
                                         title={"Employee List"}
                                         data={users}
                                         columns={columns}
-                                        options={getTableOptions(navigate)}
+                                        options={options}
                                     />
                                 </ThemeProvider>
 
