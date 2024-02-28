@@ -1,9 +1,9 @@
 import { Button, ButtonGroup } from "@mui/material";
 import { Visibility, EditNote, Delete } from "@mui/icons-material"
 import { createTheme } from '@mui/material/styles';
+import { profileHead } from '../../../utils/avatar'
 
-
-export const getTableColumns = (handleEdit) => {
+export const getTableColumns = (handleEdit, handleDelete) => {
     const userColumns = [
         {
             name: "id",
@@ -17,10 +17,11 @@ export const getTableColumns = (handleEdit) => {
             name: "images",
             label: "Profile",
             options: {
-                customBodyRender: (images, tableMeta, updateValue) => {
+                filter: false,
+                customBodyRender: (value, tableMeta, updateValue) => {
                     return (
                         <>
-                            <img src={'https://via.placeholder.com/150'} style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '50%', borderColor: 'black', borderWidth: '1px', borderStyle: 'solid' }} />
+                            {profileHead(value, 80, 80)}
                         </>
                     )
                 }
@@ -55,8 +56,8 @@ export const getTableColumns = (handleEdit) => {
                     return (
                         <ButtonGroup variant="text" aria-label="text button group">
                             <Button size='small' onClick={() => console.log(value)}><Visibility /></Button>
-                            <Button size='small' onClick={() => console.log(value)}><EditNote /></Button>
-                            <Button size='small' onClick={() => console.log(value)} ><Delete /></Button>
+                            <Button size='small' onClick={() => handleEdit(value)}><EditNote /></Button>
+                            <Button size='small' onClick={() => handleDelete(value)} ><Delete /></Button>
                         </ButtonGroup>
                     )
                 }
@@ -89,7 +90,7 @@ export const getTableData = (users) => {
     const formattedData = users.map(user => {
         return {
             id: user._id,
-            images: user.images,
+            images: user,
             firstname: user.firstname,
             lastname: user.lastname,
             email: user.email,

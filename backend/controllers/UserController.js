@@ -48,6 +48,9 @@ exports.regsteredByAdmin = async (req, res, next) => {
 
     try {
 
+        req.body.isContactVerified = true
+        req.body.isEmailVerified = true
+
         if (req.file) {
             const imageDetails = await uploadSingle(req.file.path, 'avatar');
             req.body.avatar = imageDetails
@@ -168,7 +171,7 @@ exports.logoutUser = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
 
-    const user = await User.findById(req.user.id)
+    const user = await User.findById(req.params.id)
 
     if (req.file) {
         if (user.avatar) {
@@ -182,7 +185,7 @@ exports.updateUser = async (req, res, next) => {
         req.body.birthdate = null
     }
 
-    const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
         runValidators: true
     })
@@ -191,7 +194,14 @@ exports.updateUser = async (req, res, next) => {
         return res.status(401).json({ message: "User not updated" });
     }
 
-    sendToken(updatedUser, 200, res, 'Profile is successfully updated');
+    if (req.body.whosEditing === 'admin') {
+        return res.status(200).json({
+            success: true,
+            message: 'User updated successfully'
+        })
+    }
+
+    sendToken(updatedUser, 200, res, 'Profile successfully updated');
 
     // res.status(200).json({
     //     success: true,
@@ -309,6 +319,25 @@ exports.getAllUsers = async (req, res, next) => {
         res.status(200).json({
             success: true,
             users: users,
+        })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: 'Error occured'
+        })
+    }
+}
+
+exports.deleteUser = async (req, res, next) => {
+    try {
+
+        await User.findByIdAndDelete(req.params.id);
+
+        res.status(200).json({
+            success: true,
+            message: 'User successfully deleted'
         })
 
     } catch (err) {

@@ -13,12 +13,52 @@ import { useNavigate } from "react-router-dom";
 import { getMuiTheme, getTableColumns, getTableData, getTableOptions } from './userTableConfig'
 import { getUser } from '../../../utils/helper'
 import { getAllUsers } from '../../../api/usersAPI'
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const UserManagement = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const [users, setUsers] = useState([]);
+    const [columns, setColumns] = useState([]);
+
+    const handleEdit = (id) => {
+        navigate(`/admin/edit-user/${id}`)
+    }
+
+    const deleteUser = async (id) => {
+        setLoading(true)
+        try {
+            const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/user/delete/${id}`, {
+                withCredentials: true
+            });
+            setLoading(false)
+            ToastEmmiter.success(data.message, 'top-center')
+            getUsers();
+        } catch ({ response }) {
+            setLoading(false)
+            ToastEmmiter.error('System error, try again later', 'top-center')
+            console.log(response);
+            return response
+        }
+    }
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            // icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteUser(id)
+            }
+        });
+    }
 
     const getUsers = async () => {
         setLoading(true)
@@ -27,6 +67,7 @@ const UserManagement = () => {
 
             setLoading(false)
             setUsers(getTableData(data.users))
+            setColumns(getTableColumns(handleEdit, handleDelete))
 
         } else {
             setLoading(false)
@@ -37,10 +78,6 @@ const UserManagement = () => {
     useEffect(() => {
         getUsers();
     }, [])
-
-    const handleEdit = (id) => {
-        console.log(id)
-    }
 
     return (
         <>
@@ -57,7 +94,7 @@ const UserManagement = () => {
                                     <MUIDataTable
                                         title={"Employee List"}
                                         data={users}
-                                        columns={getTableColumns(handleEdit)}
+                                        columns={columns}
                                         options={getTableOptions(navigate)}
                                     />
                                 </ThemeProvider>

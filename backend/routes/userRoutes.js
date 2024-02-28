@@ -13,6 +13,7 @@ router.put('/update/:id', isAuthenticated, upload.single('avatar'), userControll
 router.get('/profile/:id', isAuthenticated, upload.single('avatar'), userController.getUserProfile);
 router.post('/forgot-password', userController.forgotUserPassword);
 router.put('/reset-password/:token', userController.resetUserPassword);
+router.delete('/delete/:id', isAuthenticated, userController.deleteUser)
 
 router.get('/lists', isAuthenticated, userController.getAllUsers);
 

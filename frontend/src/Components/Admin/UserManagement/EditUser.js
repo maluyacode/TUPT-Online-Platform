@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MDBBtn, MDBCol, MDBContainer, MDBInput, MDBRow } from 'mdb-react-ui-kit'
 import { Divider, FormControl, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
@@ -11,12 +11,17 @@ import ErrorMessage from '../../Layout/ErrorMessage'
 
 import registerAPI from '../../../api/registerAPI'
 import ToastEmmiter from '../../Layout/ToastEmmiter'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getSingleUser, updateProfile } from '../../../api/usersAPI'
 
-const CreateUser = () => {
+const EditUser = () => {
+
+    delete RegisterSchema.fields.password
 
     const navigate = useNavigate();
+    const { id } = useParams();
     const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState({});
 
     const formik = useFormik({
         initialValues: {
@@ -39,40 +44,40 @@ const CreateUser = () => {
         validationSchema: RegisterSchema,
         validateOnBlur: true,
         onSubmit: async (values) => {
+            values.whosEditing = 'admin';
             setLoading(true)
-
-            const formData = new FormData;
-            formData.append('firstname', values.firstname)
-            formData.append('lastname', values.lastname)
-            formData.append('contact_number', values.contact_number)
-            formData.append('email', values.email)
-            formData.append('password', values.password)
-            formData.append('role', values.role)
-            formData.append('birthdate', new Date(values.birthdate))
-            formData.append('facebookLink', values.facebookLink)
-            formData.append('instagramLink', values.instagramLink)
-            formData.append('houseNo', values.houseNo)
-            formData.append('street', values.street)
-            formData.append('baranggay', values.baranggay)
-            formData.append('city', values.city)
-            formData.append('whosCreating', 'admin')
-
-            if (values.avatar) {
-                formData.append('avatar', values.avatar);
-            }
-
-            const { data } = await registerAPI(formData);
+            const { data } = await updateProfile(values, id);
 
             if (data.success) {
                 setLoading(false)
-                ToastEmmiter.success(data.message, 'top-center');
-                navigate('/admin/user-management')
+                ToastEmmiter.success(data.message, 'top-right')
+                navigate('/admin/user-management');
             } else {
                 setLoading(false)
                 ToastEmmiter.error('System error, try again later', 'top-right');
             }
+
         },
     });
+
+    const getUser = async () => {
+        setLoading(true)
+        const { data } = await getSingleUser(id);
+        if (data.success) {
+            setLoading(false)
+            setUser(data.user)
+            formik.setValues(data.user)
+            formik.setFieldValue('birthdate', data.user.birthdate)
+        } else {
+            setLoading(false)
+            ToastEmmiter.error('System error, try again later', 'top-right');
+        }
+    }
+
+    useEffect(() => {
+        getUser()
+    }, [])
+
 
     return (
         <>
@@ -157,6 +162,7 @@ const CreateUser = () => {
                                             value={formik.values.role}
                                             label="Age"
                                             onChange={(e) => {
+                                                console.log(e.target.value)
                                                 formik.setFieldValue('role', e.target.value)
                                             }}
                                         >
@@ -171,14 +177,14 @@ const CreateUser = () => {
                                         fullWidth
                                         size='small'
                                         name='birthdate'
-                                        value={formik.values.birthdate}
+                                        value={formik.values.birthdate ? new Date(formik.values.birthdate).toISOString().split('T')[0] : ''}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
                                         InputLabelProps={{
                                             shrink: true
                                         }}
                                     />
-                                    <MDBBtn onClick={formik.handleSubmit} className='w-100' size='md'>Create User</MDBBtn>
+                                    <MDBBtn onClick={formik.handleSubmit} className='w-100' size='md'>Update User</MDBBtn>
                                 </Paper>
                             </MDBCol>
                             <MDBCol sm={6}>
@@ -243,7 +249,7 @@ const CreateUser = () => {
                                         size='small'
                                         name='avatar'
                                         onChange={e => {
-                                            formik.setFieldValue('avatar', e.target.files[0])
+                                            formik.setFieldValue('avatar', e.target.files)
                                         }}
                                         InputLabelProps={{
                                             shrink: true
@@ -260,4 +266,4 @@ const CreateUser = () => {
     )
 }
 
-export default CreateUser
+export default EditUser

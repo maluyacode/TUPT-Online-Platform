@@ -13,6 +13,19 @@ export const getAllTeachers = async () => {
     }
 }
 
+export const getSingleUser = async (id) => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/user/profile/${id}`, {
+            withCredentials: true
+        });
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+}
+
 export const getAllUsers = async () => {
     try {
         const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/user/lists`, {
@@ -39,9 +52,11 @@ export const updateProfile = async (values, id) => {
         formData.append('facebookLink', values.facebookLink)
         formData.append('instagramLink', values.instagramLink)
         formData.append('houseNo', values.houseNo)
+        formData.append('role', values.role)
         formData.append('street', values.street)
         formData.append('baranggay', values.baranggay)
         formData.append('city', values.city)
+        formData.append('whosEditing', values.whosEditing)
 
         if (values.avatar?.length > 0) {
             formData.append('avatar', values.avatar[0]);

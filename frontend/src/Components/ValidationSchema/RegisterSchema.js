@@ -31,7 +31,7 @@ const RegisterSchema = Yup.object().shape({
         .required(requiredMessage),
 
     role: Yup.string()
-        .oneOf(['student', 'teacher', 'parent'], 'Role must be either student, teacher, or parent')
+        .oneOf(['student', 'teacher', 'parent', 'admin'], 'Role must be either student, teacher, or parent')
         .required('Role is required'),
 
 
