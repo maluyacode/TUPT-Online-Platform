@@ -38,6 +38,8 @@ import UserManagement from './Components/Admin/UserManagement/UserManagement';
 import ForumManagement from './Components/Admin/ForumManagement/ForumManagment';
 import CreateUser from './Components/Admin/UserManagement/CreateUser';
 import EditUser from './Components/Admin/UserManagement/EditUser';
+import CreateAnnouncement from './Components/Admin/AnnouncementManagement/CreateAnnouncement';
+import AdminEditAnnouncement from './Components/Admin/AnnouncementManagement/AdminEditAnnouncement';
 
 function App() {
 
@@ -79,6 +81,8 @@ function App() {
           <Route path='/admin/edit-user/:id' element={<EditUser />} />
 
           <Route path='/admin/announcement-management' element={<AnnouncementManagement />} />
+          <Route path='/admin/create-announcement' element={<CreateAnnouncement />} />
+          <Route path='/admin/edit-announcement/:id' element={<AdminEditAnnouncement />} />
 
           <Route path='/admin/forum-management' element={<ForumManagement />} />
         </Routes>

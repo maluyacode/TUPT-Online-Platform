@@ -66,7 +66,7 @@ const Announcement = () => {
                                         <MDBCard key={`announcement${i}`} onClick={() => navigate(`/announcement-details/${announcement._id}`)} style={{ cursor: 'pointer' }} className='mb-2'>
                                             <MDBRow className='g-0'>
                                                 <MDBCol md='3' sm='3' xs='3'>
-                                                    <MDBCardImage style={{ height: 150, width: 150, objectFit: 'cover' }} src={announcement.images[0].url} fluid />
+                                                    <MDBCardImage style={{ height: 150, width: 150, objectFit: 'cover' }} src={announcement.images[0]?.url} fluid />
                                                 </MDBCol>
                                                 <MDBCol md='9' sm='9' xs='9'>
                                                     <MDBCardBody className='ps-2'>

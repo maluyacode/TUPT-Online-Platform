@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useDropzone } from 'react-dropzone';
+import React, { useEffect, useState } from 'react'
+
 import { MDBCol, MDBContainer, MDBIcon, MDBRow } from 'mdb-react-ui-kit'
 import {
     Autocomplete,
@@ -14,28 +14,29 @@ import {
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 
-import { useFormik } from 'formik'
-import axios from 'axios';
+import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-import DropzoneFile from '../Generic/DropzoneFile';
-import MetaData from '../Layout/MetaData'
-import SideNav from '../Layout/SideNav'
-import TopBar from '../Layout/TopBar'
-import PostSchema from '../ValidationSchema/PostSchema';
-import ErrorMessage from '../Layout/ErrorMessage';
-import Block from '../Layout/Loaders/Block';
+import ToastEmmiter from '../../Layout/ToastEmmiter';
+import PostSchema from '../../ValidationSchema/PostSchema';
 
-import { getUser } from '../../utils/helper';
-import ToastEmmiter from '../Layout/ToastEmmiter';
+import { getUser } from '../../../utils/helper';
+import Block from '../../Layout/Loaders/Block';
+import MetaData from '../../Layout/MetaData';
+import SideNav from '../../Layout/SideNav';
+import TopBar from '../../Layout/TopBar';
+import ErrorMessage from '../../Layout/ErrorMessage';
 
-const Post = () => {
+
+const CreateAnnouncement = () => {
+
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false)
 
-    const [ownedGroups, setOwnedGroups] = useState([]);
+    const [groups, setGroups] = useState([]);
 
-    const getOwnedGroups = async () => {
+    const getGroups = async () => {
 
         try {
             setLoading(true);
@@ -47,14 +48,16 @@ const Post = () => {
                 groupName: 'Announce to all people',
                 _id: 'all'
             })
-            setOwnedGroups(data.groups)
+            setGroups(data.groups)
             setLoading(false)
 
         } catch (err) {
+            ToastEmmiter.error('System error, please try again later', 'top-right')
+            setLoading(false)
             console.log(err)
-
         }
     }
+
 
     const makeAnnouncement = async (formData) => {
         setLoading(true)
@@ -67,7 +70,7 @@ const Post = () => {
                 }
             })
             ToastEmmiter.success(data.message, 'top-right');
-            navigate('/announcements')
+            navigate('/admin/announcement-management')
             setLoading(false)
         } catch (err) {
             setLoading(false)
@@ -89,6 +92,7 @@ const Post = () => {
         validationSchema: PostSchema,
         validateOnMount: true,
         onSubmit: async (values) => {
+            console.log(values)
             const formData = new FormData;
             formData.append('title', values.title)
             formData.append('content', values.content)
@@ -104,6 +108,7 @@ const Post = () => {
         },
     });
 
+
     const handleViewers = e => {
         formik.setFieldTouched('canViewBy', true)
         if (e.target.checked) {
@@ -114,7 +119,7 @@ const Post = () => {
     }
 
     useEffect(() => {
-        getOwnedGroups();
+        getGroups();
     }, [])
 
     return (
@@ -130,7 +135,7 @@ const Post = () => {
                             <MDBRow>
                                 <MDBCol sm='12' md='6'>
                                     <Box sx={{ boxShadow: 5, p: 2 }}>
-                                        <Typography variant='h6' mb={2}>Post Announcement</Typography>
+                                        <Typography variant='h6' mb={2}>Admin Announcement</Typography>
 
                                         <TextField placeholder='Title' size='small' fullWidth
                                             name='title'
@@ -199,7 +204,7 @@ const Post = () => {
                                         <Autocomplete
                                             disablePortal
                                             id="combo-box-demo"
-                                            options={ownedGroups}
+                                            options={groups}
                                             getOptionLabel={(option) => option.groupName}
                                             isOptionEqualToValue={(option, value) => option._id === value._id}
                                             name='groupViewers'
@@ -240,4 +245,4 @@ const fileMessage = (field, formik) => {
     return formik.values[field] ? `${formik.values[field].length} ${formik.values[field].length > 1 ? field : field.slice(0, -1)}  uploaded` : `Upload one or more ${field}`
 }
 
-export default Post
+export default CreateAnnouncement

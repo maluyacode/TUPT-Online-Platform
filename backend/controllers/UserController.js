@@ -3,7 +3,8 @@ const crypto = require('crypto');
 const sendToken = require('../utils/jwtToken')
 const sendEmail = require('../utils/sendEmail')
 const { uploadSingle, uploadMultiple, destroyUploaded } = require('../utils/cloudinaryUpload');
-const { sendCodeToEmail, sendCodeToContact, verifyEmailAndContactCode, verifyAccount } = require('../utils/verification')
+const { sendCodeToEmail, sendCodeToContact, verifyEmailAndContactCode, verifyAccount } = require('../utils/verification');
+const sendSMS = require('../utils/sendSMS');
 
 exports.registerUser = async (req, res, next) => {
 
@@ -379,9 +380,17 @@ exports.emailUsers = async (req, res, nex) => {
 
 exports.sendSMStoUsers = async (req, res, next) => {
     try {
-        
+
         const users = JSON.parse(req.body.users);
-        console.log(req.body)
+
+        for (let i in users) {
+            setTimeout(async () => {
+                await sendSMS({
+                    message: req.body.message,
+                    phone: users[i].phone,
+                })
+            }, 1000)
+        }
 
         res.status(200).json({
             success: true,

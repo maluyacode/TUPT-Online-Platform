@@ -24,6 +24,11 @@ const UserManagement = () => {
     const [centredModal, setCentredModal] = useState(false);
     const [messageModal, setMessageModal] = useState(false)
 
+    const [users, setUsers] = useState([]);
+    const [columns, setColumns] = useState([]);
+    const [options, setOptions] = useState({});
+    const [selectedUsers, setSelectedUsers] = useState([]);
+
     const toggleOpen = () => {
         if (centredModal) {
             setCentredModal(false)
@@ -39,11 +44,6 @@ const UserManagement = () => {
             setMessageModal(true)
         }
     }
-
-    const [users, setUsers] = useState([]);
-    const [columns, setColumns] = useState([]);
-    const [options, setOptions] = useState({});
-    const [selectedUsers, setSelectedUsers] = useState([]);
 
     const handleEdit = (id) => {
         navigate(`/admin/edit-user/${id}`)
@@ -85,12 +85,12 @@ const UserManagement = () => {
 
     const sendMessage = (users) => {
         setSelectedUsers(users)
-        toggleSMS()
+        setMessageModal(true)
     }
 
     const sendEmail = (users) => {
         setSelectedUsers(users)
-        toggleOpen()
+        setCentredModal(true)
     }
 
     const goSendEmail = async (e) => {
@@ -170,7 +170,7 @@ const UserManagement = () => {
                     <form onSubmit={goSendEmail}>
                         <MDBModalContent>
                             <MDBModalHeader>
-                                <MDBModalTitle>Send Email</MDBModalTitle>
+                                <MDBModalTitle>Send Email Alert</MDBModalTitle>
                                 <MDBBtn className='btn-close' color='none' type='button' onClick={toggleOpen}></MDBBtn>
                             </MDBModalHeader>
                             <MDBModalBody>
@@ -210,7 +210,7 @@ const UserManagement = () => {
                     <form onSubmit={goSendSms}>
                         <MDBModalContent>
                             <MDBModalHeader>
-                                <MDBModalTitle>Send Email</MDBModalTitle>
+                                <MDBModalTitle>Send SMS Alert</MDBModalTitle>
                                 <MDBBtn className='btn-close' color='none' type='button' onClick={toggleSMS}></MDBBtn>
                             </MDBModalHeader>
                             <MDBModalBody>
@@ -250,7 +250,7 @@ const UserManagement = () => {
 
                                 <ThemeProvider theme={getMuiTheme}>
                                     <MUIDataTable
-                                        title={"Employee List"}
+                                        title={"Users List"}
                                         data={users}
                                         columns={columns}
                                         options={options}

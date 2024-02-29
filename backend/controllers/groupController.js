@@ -60,8 +60,13 @@ exports.getGroups = async (req, res, next) => {
 
         let groupFilter = {}
         if (req.query.owner) {
-            groupFilter.createdBy = {
-                $eq: req.query.owner
+
+            const user = await User.findById(req.query.owner);
+
+            if (user.role !== 'admin') {
+                groupFilter.createdBy = {
+                    $eq: req.query.owner
+                }
             }
         }
 

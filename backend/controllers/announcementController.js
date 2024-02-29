@@ -60,9 +60,21 @@ exports.createAnnouncement = async (req, res, next) => {
 exports.getAllAnnouncements = async (req, res, next) => {
     try {
 
-        const announcements = await Announcement.find({
+        let announcementFilter = {
             isForAll: true
-        })
+        }
+
+        if (req.user.role === 'admin') {
+            announcementFilter = {};
+        }
+
+        const announcements = await Announcement.find(announcementFilter).populate({
+            path: 'groupViewers',
+            ref: 'group'
+        }).populate({
+            path: 'createdBy',
+            ref: 'user'
+        });
 
         return res.status(200).json({
             success: true,
