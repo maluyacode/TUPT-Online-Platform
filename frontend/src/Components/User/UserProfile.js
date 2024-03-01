@@ -19,6 +19,8 @@ import { getUser } from '../../utils/helper'
 import { updateProfile } from '../../api/usersAPI'
 import Block from '../Layout/Loaders/Block'
 import ToastEmmiter from '../Layout/ToastEmmiter'
+import ConnectedParents from './ConnectedParents'
+import PendingRequest from './PendingRequest'
 
 const specify = <span className='fst-italic fw-lighter' style={{ fontSize: 12 }}>Not specified</span>
 
@@ -28,6 +30,17 @@ const UserProfile = () => {
     const avatar = useRef(null)
     const [avatarPreview, setAvatarPreview] = useState('');
     const [isButtonDisable, setButtonDisable] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenPending, setOpenPending] = useState(false)
+
+    const toggleOpen = () => {
+        setIsOpen(!isOpen)
+        setOpenPending(false)
+    };
+    const toggleOpenPending = () => {
+        setOpenPending(!isOpenPending)
+        setIsOpen(false)
+    };
 
     const formik = useFormik({
         initialValues: {
@@ -112,7 +125,7 @@ const UserProfile = () => {
                     </Box>
                     <MDBContainer fluid className='pb-3 px-3' style={{ maxWidth: '1280px', height: 'fit-content' }}>
 
-                        <MDBRow className='mb-4 mt-4'>
+                        <MDBRow className='mb-2 mt-4'>
                             <MDBCol>
                                 <Paper className='py-2 pb-4 px-0' sx={{ boxShadow: 1 }}>
                                     <Typography className='px-5 mb-2' variant='h6'>Basic Info</Typography>
@@ -211,6 +224,16 @@ const UserProfile = () => {
                                             {!formik.values.birthdate ? specify : ""}
                                         </MDBCol>
                                     </MDBRow>
+                                </Paper>
+                            </MDBCol>
+                        </MDBRow>
+                        <MDBRow className='mb-2'>
+                            <MDBCol>
+                                <Paper>
+                                    <Button onClick={toggleOpen}>Connected Parents</Button>
+                                    <Button onClick={toggleOpenPending}>Pending Request</Button>
+                                    <ConnectedParents open={isOpen} loading={loading} setLoading={setLoading} />
+                                    <PendingRequest open={isOpenPending} loading={loading} setLoading={setLoading} />
                                 </Paper>
                             </MDBCol>
                         </MDBRow>

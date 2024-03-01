@@ -58,6 +58,24 @@ export const updateProfile = async (values, id) => {
         formData.append('city', values.city)
         formData.append('whosEditing', values.whosEditing)
 
+        if (values.role === 'student') {
+            formData.append('course', values.course)
+            formData.append('department', null)
+            formData.append('iCareFor', [])
+        }
+
+        if (values.role === 'teacher') {
+            formData.append('department', values.department)
+            formData.append('iCareFor', [])
+            formData.append('course', null)
+        }
+
+        if (values.role === 'parent') {
+            formData.append('course', null)
+            formData.append('department', null)
+            formData.append('iCareFor', JSON.stringify(values.iCareFor))
+        }
+
         if (values.avatar?.length > 0) {
             formData.append('avatar', values.avatar[0]);
         }

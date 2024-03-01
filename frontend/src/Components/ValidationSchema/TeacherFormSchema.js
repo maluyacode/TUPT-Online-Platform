@@ -25,7 +25,13 @@ const RegisterSchema = Yup.object().shape({
 
     email: Yup.string()
         .email('Invalid email address')
-        .required(requiredMessage),
+        .required(requiredMessage)
+        .test('is-tup-email', 'Email must be from @tup.edu.ph domain', value => {
+            if (value) {
+                return value.endsWith('@tup.edu.ph');
+            }
+            return true; // Return true if value is empty or null
+        }),
 
     password: Yup.string()
         .min(8, 'Please provide atleast 8 characters')

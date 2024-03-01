@@ -34,5 +34,9 @@ router.get('/lists', isAuthenticated, userController.getAllUsers);
 
 router.get('/get-users-free-access', userController.getUsersFreeAccess);
 
+router.get('/accept-as-parent/:id', isAuthenticated, userController.acceptParentRequest)
+
+router.get('/reject-as-parent/:id', isAuthenticated, userController.rejectParentRequest)
+
 
 module.exports = router

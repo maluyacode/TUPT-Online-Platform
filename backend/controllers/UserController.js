@@ -45,9 +45,19 @@ exports.registerUser = async (req, res, next) => {
 }
 
 exports.regsteredByAdmin = async (req, res, next) => {
-    console.log(req.file)
+    console.log(JSON.parse(req.body.iCareFor))
 
     try {
+
+        if (req.body.role === 'parent') {
+            console.log(req.body.iCareFor)
+            req.body.iCareFor = JSON.parse(req.body.iCareFor).map(value => {
+                return {
+                    user: value,
+                    isAccepted: true,
+                }
+            })
+        }
 
         req.body.isContactVerified = true
         req.body.isEmailVerified = true
@@ -174,6 +184,15 @@ exports.updateUser = async (req, res, next) => {
 
     const user = await User.findById(req.params.id)
 
+    if (req.body.role === 'parent') {
+        console.log(req.body.iCareFor)
+        req.body.iCareFor = JSON.parse(req.body.iCareFor).map(value => {
+            return {
+                user: value,
+            }
+        })
+    }
+
     if (req.file) {
         if (user.avatar) {
             destroyUploaded(user.avatar.public_id)
@@ -217,6 +236,19 @@ exports.getUserProfile = async (req, res, next) => {
 
         const user = await User.findById(id);
 
+        const parents = await User.find({
+            role: 'parent',
+            iCareFor: { $exists: true, $ne: [] }
+        })
+
+        const connectedParents = parents.filter(parent =>
+            parent.iCareFor.some(iCareForItem => iCareForItem.user.equals(user._id) && iCareForItem.isAccepted === true)
+        );
+
+        const pendingParents = parents.filter(parent =>
+            parent.iCareFor.some(iCareForItem => iCareForItem.user.equals(user._id) && iCareForItem.isAccepted === false)
+        )
+
         if (!user) {
             return res.status(400).json({
                 success: false,
@@ -226,7 +258,9 @@ exports.getUserProfile = async (req, res, next) => {
 
         return res.status(200).json({
             success: true,
-            user
+            user,
+            connectedParents: connectedParents,
+            pendingParents: pendingParents,
         })
 
     } catch (err) {
@@ -432,3 +466,58 @@ exports.sendSMStoUsers = async (req, res, next) => {
         })
     }
 }
+
+exports.acceptParentRequest = async (req, res, next) => {
+
+    try {
+
+        const parent = await User.findOne({
+            _id: req.params.id,
+            role: 'parent',
+        })
+
+        const result = parent.iCareFor.find(student => student.user == req.user.id).isAccepted = true;
+        parent.save();
+        return res.status(200).json({
+            success: true,
+            message: `You accepted ${parent.firstname} ${parent.lastname} as your parent/guardian`,
+            parent: parent
+        })
+
+    } catch (err) {
+        console.log(err)
+        return res.status(500).json({
+            success: false,
+            message: `Error occured, contact the developer for inquiries`,
+        })
+    }
+
+}
+
+exports.rejectParentRequest = async (req, res, next) => {
+
+    try {
+
+        const parent = await User.findOne({
+            _id: req.params.id,
+            role: 'parent',
+        })
+
+        const result = parent.iCareFor.filter(student => student.user != req.user.id)
+        parent.iCareFor = result;
+        parent.save();
+        return res.status(200).json({
+            success: true,
+            message: `You rejected ${parent.firstname} ${parent.lastname} as your parent/guardian`,
+            parent: parent
+        })
+
+    } catch (err) {
+        console.log(err)
+        return res.status(500).json({
+            success: false,
+            message: `Error occured, contact the developer for inquiries`,
+        })
+    }
+
+} 
