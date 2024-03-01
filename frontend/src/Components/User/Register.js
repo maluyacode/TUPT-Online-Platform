@@ -21,6 +21,10 @@ import ErrorMessage from '../Layout/ErrorMessage';
 import registerAPI from '../../api/registerAPI';
 import Block from '../Layout/Loaders/Block';
 import ToastEmmiter from '../Layout/ToastEmmiter';
+import StudentForm from './StudentForm';
+import TeacherForm from './TeacherForm';
+import ParentForm from './ParentForm';
+import { Box, Button } from '@mui/material';
 
 const role = [
     { value: 'student', label: 'Student', color: '#FF8B00' },
@@ -34,39 +38,38 @@ function Register() {
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [tab, setTab] = useState('student')
 
-    const formik = useFormik({
-        initialValues: {
-            firstname: '',
-            lastname: '',
-            email: '',
-            contact_number: '',
-            role: '',
-            password: ''
-        },
-        validateOnChange: false,
-        validationSchema: RegisterSchema,
-        validateOnMount: true,
-        onSubmit: async (values) => {
-            setLoading(true)
-            const response = await registerAPI(values)
-            if (response) {
-                ToastEmmiter.info('Please verify your email and contact number', 'top-center')
-                navigate('/verification');
-            } else {
-                ToastEmmiter.error('Error occured, please try again later', 'top-center')
-            }
-        },
-    });
-
-
+    // const formik = useFormik({
+    //     initialValues: {
+    //         firstname: '',
+    //         lastname: '',
+    //         email: '',
+    //         contact_number: '',
+    //         role: '',
+    //         password: ''
+    //     },
+    //     validateOnChange: false,
+    //     validationSchema: RegisterSchema,
+    //     validateOnMount: true,
+    //     onSubmit: async (values) => {
+    //         setLoading(true)
+    //         const response = await registerAPI(values)
+    //         if (response) {
+    //             ToastEmmiter.info('Please verify your email and contact number', 'top-center')
+    //             navigate('/verification');
+    //         } else {
+    //             ToastEmmiter.error('Error occured, please try again later', 'top-center')
+    //         }
+    //     },
+    // });
 
     return (
         <>
             <Block loading={loading} />
             <MetaData pageTitle={'Register'}></MetaData>
 
-            <MDBContainer className='p-4 mt-2' style={loading ? disabledBackground : {}}>
+            <MDBContainer className='p-4 mt-2'>
 
                 <MDBRow>
 
@@ -85,9 +88,15 @@ function Register() {
 
                     <MDBCol md='6'>
 
-                        <MDBCard className='my-5'>
+                        <MDBCard className='my-5 mt-2'>
                             <MDBCardBody className='p-5'>
-                                <form onSubmit={formik.handleSubmit}>
+                                <Box className='mb-4 d-flex justify-content-center gap-4'>
+                                    <Button onClick={() => setTab('student')} variant={tab === 'student' ? 'contained' : 'outlined'}>Student</Button>
+                                    <Button onClick={() => setTab('teacher')} variant={tab === 'teacher' ? 'contained' : 'outlined'}>Teacher</Button>
+                                    <Button onClick={() => setTab('parent')} variant={tab === 'parent' ? 'contained' : 'outlined'}>Parent</Button>
+                                </Box>
+
+                                {/* <form onSubmit={formik.handleSubmit}>
                                     <MDBRow>
                                         <MDBCol col='6' md={6}>
                                             <MDBInput label='First name' type='text'
@@ -110,7 +119,7 @@ function Register() {
                                         </MDBCol>
                                     </MDBRow>
 
-                                    <MDBInput label='Contact No. (e.g 09863568721)' type='tel'
+                                    <MDBInput label='Contact No. (e.g 09863568721)' id='phone'
                                         name='contact_number'
                                         value={formik.values.contact_number}
                                         onChange={formik.handleChange}
@@ -153,34 +162,25 @@ function Register() {
                                     />
                                     <ErrorMessage formik={formik} name='role' />
 
-                                    {/* <div className='d-flex justify-content-center mb-4'>
-                                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-                            </div> */}
-
                                     <MDBBtn className='w-100 mb-4' size='md' type='submit'>sign up</MDBBtn>
 
                                     <div className="text-center">
 
                                         <p>Already have an account?</p>
                                         <MDBBtn onClick={() => navigate('/login')} className='mb-4 bg-info' size='md'>sign in</MDBBtn>
-                                        {/* <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                    <MDBIcon fab icon='facebook-f' size="sm" />
-                                </MDBBtn>
-
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                <MDBIcon fab icon='twitter' size="sm" />
-                                </MDBBtn>
-                                
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                <MDBIcon fab icon='google' size="sm" />
-                                </MDBBtn>
-                                
-                                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                                    <MDBIcon fab icon='github' size="sm" />
-                                </MDBBtn> */}
 
                                     </div>
-                                </form>
+                                </form> */}
+
+                                {tab === 'student' ?
+                                    <StudentForm />
+                                    : ""}
+                                {tab === 'teacher' ?
+                                    <TeacherForm />
+                                    : ""}
+                                {tab === 'parent' ?
+                                    <ParentForm />
+                                    : ""}
                             </MDBCardBody>
                         </MDBCard>
 

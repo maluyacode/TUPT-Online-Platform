@@ -32,4 +32,7 @@ router.post('/send-sms', isAuthenticated, upload.single('attachments'), userCont
 
 router.get('/lists', isAuthenticated, userController.getAllUsers);
 
+router.get('/get-users-free-access', userController.getUsersFreeAccess);
+
+
 module.exports = router

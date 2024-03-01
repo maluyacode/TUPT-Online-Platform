@@ -103,7 +103,7 @@ export default function Verification() {
                             <MDBRow>
 
                                 <MDBCol>
-                                    <MDBBtn block onClick={handleClick} disabled={isButtonDisabled}>
+                                    <MDBBtn type='button' block onClick={handleClick} disabled={isButtonDisabled}>
                                         {isButtonDisabled ? `Resend code (${countdown})` : 'Resend Code'}
                                     </MDBBtn>
                                 </MDBCol>

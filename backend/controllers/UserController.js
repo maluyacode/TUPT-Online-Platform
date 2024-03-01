@@ -331,6 +331,33 @@ exports.getAllUsers = async (req, res, next) => {
     }
 }
 
+exports.getUsersFreeAccess = async (req, res, next) => {
+
+    const userFilter = {}
+
+    if (req.query.role) {
+        userFilter.role = req.query.role; // Filter by role if provided
+    }
+
+    try {
+
+        const users = await User.find(userFilter);
+
+        res.status(200).json({
+            success: true,
+            users: users,
+        })
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            success: false,
+            message: 'Error occured'
+        })
+    }
+
+}
+
 exports.deleteUser = async (req, res, next) => {
     try {
 

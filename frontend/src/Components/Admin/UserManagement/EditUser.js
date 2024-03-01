@@ -17,6 +17,8 @@ import { getSingleUser, updateProfile } from '../../../api/usersAPI'
 const EditUser = () => {
 
     delete RegisterSchema.fields.password
+    delete RegisterSchema.fields.course
+    delete RegisterSchema.fields.department
 
     const navigate = useNavigate();
     const { id } = useParams();
@@ -77,7 +79,7 @@ const EditUser = () => {
     useEffect(() => {
         getUser()
     }, [])
-
+    console.log(formik.errors)
 
     return (
         <>

@@ -35,14 +35,6 @@ const RegisterSchema = Yup.object().shape({
         .oneOf(['student', 'teacher', 'parent', 'admin'], 'Role must be either student, teacher, or parent')
         .required('Role is required'),
 
-    course: Yup.string()
-        .oneOf(courses.map(course => course.value), 'Course does not exist')
-        .required('Course is required'),
-
-    department: Yup.string()
-        .oneOf(departments.map(department => department.value), 'Course does not exist')
-        .required('Department is required'),
-
     student: Yup.array()
         .required(requiredMessage)
 });

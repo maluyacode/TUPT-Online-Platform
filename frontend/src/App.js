@@ -40,6 +40,7 @@ import CreateUser from './Components/Admin/UserManagement/CreateUser';
 import EditUser from './Components/Admin/UserManagement/EditUser';
 import CreateAnnouncement from './Components/Admin/AnnouncementManagement/CreateAnnouncement';
 import AdminEditAnnouncement from './Components/Admin/AnnouncementManagement/AdminEditAnnouncement';
+import ProtectedRoute from './Components/Middleware/ProtectedRoute';
 
 function App() {
 
@@ -51,7 +52,6 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<Home />} />
 
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
@@ -59,8 +59,9 @@ function App() {
           <Route path='/change-password' element={<ChangePassword />} />
           <Route path='/verification' element={<Verification />} />
 
-          <Route path='/tupt-chat' element={<Chat />} />
+          <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
 
+          <Route path='/tupt-chat' element={<Chat />} />
           <Route path='/announcements' element={<Announcement />} />
           <Route path='/post-announcement' element={<Post />} />
           <Route path='/edit-announcement/:id' element={<EditAnnouncement />} />
@@ -73,7 +74,7 @@ function App() {
 
           <Route path='/profile' element={<UserProfile />} />
 
-          <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/admin/dashboard' element={<ProtectedRoute isAdmin={true}> <Dashboard /> </ProtectedRoute>} />
           <Route path='/admin/chat-management' element={<ChatManagement />} />
 
           <Route path='/admin/user-management' element={<UserManagement />} />

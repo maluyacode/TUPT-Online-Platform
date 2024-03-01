@@ -15,6 +15,9 @@ import { useNavigate } from 'react-router-dom'
 
 const CreateUser = () => {
 
+    delete RegisterSchema.fields.course
+    delete RegisterSchema.fields.department
+    
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 

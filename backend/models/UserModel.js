@@ -63,6 +63,31 @@ const userSchema = new mongoose.Schema({
         type: String,
     },
 
+    course: { // student
+        type: String,
+        default: null
+    },
+    department: { // if teacher
+        type: String,
+        default: null
+    },
+    iCareFor: [{ // if parent
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            default: null
+        },
+        isAccepted: {
+            type: Boolean,
+            default: false
+        }
+    }],
+    myGuardian: [{ // if student
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        default: null
+    }],
+
     birthdate: {
         type: Date,
         default: null

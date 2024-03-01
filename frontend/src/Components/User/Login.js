@@ -44,7 +44,7 @@ function Login() {
                     navigate('/admin/dashboard');
                     ToastEmmiter.success('Welcome back admin!', 'top-right');
                 } else {
-                    ToastEmmiter.success('You are login', 'top-center');
+                    // ToastEmmiter.success('You are login', 'top-center');
                     navigate('/');
                 }
             } else {
