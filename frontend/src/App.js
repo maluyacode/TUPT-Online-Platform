@@ -41,6 +41,7 @@ import EditUser from './Components/Admin/UserManagement/EditUser';
 import CreateAnnouncement from './Components/Admin/AnnouncementManagement/CreateAnnouncement';
 import AdminEditAnnouncement from './Components/Admin/AnnouncementManagement/AdminEditAnnouncement';
 import ProtectedRoute from './Components/Middleware/ProtectedRoute';
+import Collab from './Components/Collab/Collab';
 
 function App() {
 
@@ -71,6 +72,8 @@ function App() {
           <Route path='/categorize-announcements/:teacherId' element={<CategorizeAnnouncements />} />
           <Route path='/announcement/create-group' element={<CreateGroup />} />
           <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
+
+          <Route path='/collab' element={<Collab />} />
 
           <Route path='/profile' element={<UserProfile />} />
 

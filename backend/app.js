@@ -9,6 +9,8 @@ const chatRoutes = require('./routes/chatRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const groupRoutes = require('./routes/groupRoutes');
 const announcementRoutes = require('./routes/announcementRoutes');
+const collabRoutes = require('./routes/collabRoutes');
+const commentRoutes = require('./routes/commentRoutes');
 
 const corsOptions = {
     origin: 'http://localhost:3000', //included origin as true
@@ -27,6 +29,8 @@ app.use('/api/v1/chat', chatRoutes);
 app.use('/api/v1/message', messageRoutes);
 app.use('/api/v1/group', groupRoutes);
 app.use('/api/v1/announcement', announcementRoutes);
+app.use('/api/v1/collab', collabRoutes);
+app.use('/api/v1/comment', commentRoutes);
 
 
 module.exports = app;

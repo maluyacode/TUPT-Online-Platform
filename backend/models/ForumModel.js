@@ -9,36 +9,37 @@ const forumModel = new mongoose.Schema({
         type: String,
         required: true
     },
-    category: {
+    category: [{
         type: String,
-    },
-    user: {
-        type: Schema.Types.ObjectId,
+        required: true
+    }],
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
-    comments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'comment',
-        required: true
-    }],
-    numOfReplies: {
-        type: Number
-    },
-    image: {
+    images: [{
         public_id: {
             type: String,
-            required: true
         },
         url: {
             type: String,
-            required: true,
+        },
+        original_name: {
+            type: String,
         }
-    }
+    }],
+    attachments: [{
+        public_id: {
+            type: String,
+        },
+        url: {
+            type: String,
+        },
+        original_name: {
+            type: String,
+        }
+    }],
 }, { timestamps: true })
-
-forumModel
-    .pre('findOne', Populate('author'))
-    .pre('find', Populate('author'));
 
 module.exports = mongoose.model('forum', forumModel)

@@ -44,7 +44,7 @@ const SideNav = () => {
                                 <MenuItem onClick={() => navigate('/post-announcement')} icon={<CampaignIcon />}>Post</MenuItem>
                                 <MenuItem onClick={() => navigate('/post-emergency')} icon={<ReportProblemIcon />}> Emergency </MenuItem>
                             </SubMenu>
-                            <MenuItem icon={<MDBIcon far icon="comments" />}> Colab </MenuItem>
+                            <MenuItem onClick={() => navigate('/collab')} icon={<MDBIcon far icon="comments" />}> Colab </MenuItem>
                             <MenuItem icon={<MDBIcon fas icon="info-circle" />}> Help </MenuItem>
                             {/* <SubMenu label="Charts">
                         <MenuItem> Chats </MenuItem>
