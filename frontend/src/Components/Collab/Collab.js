@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit';
-import { Box, Button, Divider, InputAdornment, Paper, TextField, Typography } from '@mui/material';
+import { Badge, Box, Button, Divider, InputAdornment, Paper, TextField, Typography } from '@mui/material';
 import CreatableSelect from 'react-select/creatable';
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -15,6 +15,7 @@ import CollabSchema from '../ValidationSchema/CollabSchema';
 
 import categories from '../../data/categories.json'
 import { createPost } from '../../api/collabsApi';
+import { fetchAllPost } from '../../api/collabsApi';
 import ToastEmmiter from '../Layout/ToastEmmiter';
 import TopicLists from './TopicLists';
 import ViewTopic from './ViewTopic';
@@ -22,16 +23,37 @@ import ViewTopic from './ViewTopic';
 
 const Collab = () => {
 
+    const [success, setSuccess] = useState(false)
+
     const [loading, setLoading] = useState(false);
     const [imgPreview, setImgPreview] = useState('https://cdn-icons-png.flaticon.com/512/4147/4147103.png')
     const fileInputRef = useRef();
     const [isDisabled, setIsDisabled] = useState(true);
     const [keyword, setKeyWord] = useState();
+    const [fetchStatus, setFetchStatus] = useState('all');
 
     const [openRight, setOpenRight] = useState(false); // view post in right side
     const [selectedPost, setSelectedPost] = useState('');
 
     const [status, setStatus] = useState('searching') // searching or posting
+
+    const [topics, setTopics] = useState([]);
+    const [filteredTopics, setFilteredTopics] = useState();
+
+    const getAllTopics = async () => {
+
+        const { data } = await fetchAllPost(fetchStatus);
+        if (data.success) {
+            console.log(data);
+            setLoading(false)
+            setTopics(data.topics)
+            setFilteredTopics(data.topics)
+
+        } else {
+            ToastEmmiter.warning('System error, please try again later', 'top-center');
+            setLoading(false)
+        }
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -41,7 +63,7 @@ const Collab = () => {
             attachments: [],
             category: [],
         },
-        validateOnChange: true,
+        validateOnChange: false,
         validationSchema: CollabSchema,
         validateOnMount: true,
         onSubmit: async (values) => {
@@ -51,6 +73,7 @@ const Collab = () => {
                 ToastEmmiter.success(data.message, 'top-right')
                 setLoading(false)
                 setStatus('searching')
+                setSuccess(true)
                 formik.setValues({
                     heading: '',
                     body: '',
@@ -58,7 +81,11 @@ const Collab = () => {
                     attachments: [],
                     category: [],
                 })
+                setSuccess(false)
+
+                getAllTopics()
             } else {
+                setSuccess(false)
                 setLoading(false)
             }
         },
@@ -90,6 +117,18 @@ const Collab = () => {
         }
     }, [formik.values, formik.errors])
 
+    useEffect(() => {
+        getAllTopics()
+    }, [`${success}`, fetchStatus])
+
+    useEffect(() => {
+        const regex = new RegExp(keyword, 'i');
+        const filteredTopics = topics.filter(topic => regex.test(topic.heading)
+            // || regex.test(user.lastname)
+        );
+        setFilteredTopics(filteredTopics);
+    }, [keyword])
+
     const viewTopic = (id) => {
         setSelectedPost(id)
         setOpenRight(true);
@@ -110,30 +149,41 @@ const Collab = () => {
 
                             {openRight ?
                                 <MDBCol md={6} >
-                                    <ViewTopic setOpenRight={setOpenRight} selectedPost={selectedPost} loading={loading} setLoading={setLoading} />
+                                    <ViewTopic setOpenRight={setOpenRight} selectedPost={selectedPost} setSuccess={setSuccess} getAllTopics={getAllTopics} />
                                 </MDBCol>
                                 : ""}
 
                             <MDBCol md={openRight ? 6 : 10}>
 
                                 {status === 'searching' ?
-                                    <TextField
-                                        onChange={e => setKeyWord(e.target.value)}
-                                        fullWidth
-                                        size='small'
-                                        InputProps={{
-                                            startAdornment: (
-                                                <InputAdornment position="start">
-                                                    <SearchIcon />
-                                                </InputAdornment>
-                                            ),
-                                            endAdornment: (
-                                                <InputAdornment position="start">
-                                                    <Button className='rounded-pill' onClick={() => setStatus('posting')} startIcon={<ForumIcon />} variant='contained' size='small'>Post</Button>
-                                                </InputAdornment>
-                                            )
-                                        }}
-                                    />
+                                    <Box className='d-flex gap-3'>
+
+                                        <Button className='rounded-pill' size='small' variant={fetchStatus === 'all' ? 'contained' : 'outlined'} onClick={() => {
+                                            setFetchStatus('all')
+                                        }}>All</Button>
+                                        <Button className='rounded-pill' size='small' variant={fetchStatus === 'mine' ? 'contained' : 'outlined'} onClick={() => {
+                                            setFetchStatus('mine')
+                                        }}>Mine</Button>
+
+                                        <TextField
+                                            onChange={e => setKeyWord(e.target.value)}
+                                            fullWidth
+                                            size='small'
+                                            InputProps={{
+                                                startAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <SearchIcon />
+                                                    </InputAdornment>
+                                                ),
+                                                endAdornment: (
+                                                    <InputAdornment position="start">
+                                                        <Button className='rounded-pill' onClick={() => setStatus('posting')} startIcon={<ForumIcon />} variant='contained' size='small'>Post</Button>
+                                                    </InputAdornment>
+                                                )
+                                            }}
+                                        />
+
+                                    </Box>
                                     : ""}
 
                                 {status === 'posting' ?
@@ -170,10 +220,14 @@ const Collab = () => {
                                                 variant='outlined'
                                                 placeholder='Body'
                                             />
-
-                                            <Paper onClick={() => fileInputRef.current.click()} style={{ cursor: 'pointer' }} className='ps-2 d-flex justify-content-center align-content-center'>
-                                                <img src={imgPreview} width={100} />
-                                            </Paper>
+                                            <Badge badgeContent={formik.values.attachments?.length + formik.values.images?.length} color='primary' anchorOrigin={{
+                                                vertical: 'top',
+                                                horizontal: 'left',
+                                            }}>
+                                                <Paper onClick={() => fileInputRef.current.click()} style={{ cursor: 'pointer' }} className='ps-2 d-flex justify-content-center align-content-center'>
+                                                    <img src={imgPreview} width={100} />
+                                                </Paper>
+                                            </Badge>
                                             <input multiple name='images' ref={fileInputRef} type='file' style={{ display: 'none' }}
                                                 onChange={fileOnChange}
                                             />
@@ -189,7 +243,13 @@ const Collab = () => {
                                     </Paper>
                                     : ""}
 
-                                <TopicLists keyword={keyword} loading={loading} setLoading={setLoading} viewTopic={viewTopic} />
+                                <TopicLists
+                                    topics={topics}
+                                    filteredTopics={filteredTopics}
+                                    key={`${success}asdasd`}
+                                    keyword={keyword}
+                                    viewTopic={viewTopic}
+                                    success={success} />
                             </MDBCol>
 
                         </MDBRow>

@@ -22,6 +22,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.6",
     "react-dropzone": "^14.2.3",
     "react-file-icon": "^1.4.0",
     "react-helmet": "^6.1.0",

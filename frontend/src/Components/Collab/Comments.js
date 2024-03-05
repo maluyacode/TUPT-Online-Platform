@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Divider, Fade, IconButton, Paper, Popper, TextField, Typography } from '@mui/material'
+import { Badge, Box, Button, ClickAwayListener, Divider, Fade, IconButton, Paper, Popper, TextField, Typography } from '@mui/material'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { colorCoding, profileHead } from '../../utils/avatar'
 import FileDisplay from '../Generic/FileDisplay'
@@ -8,7 +8,8 @@ import { MDBIcon } from 'mdb-react-ui-kit'
 import ShortcutIcon from '@mui/icons-material/Shortcut';
 import ToastEmmiter from '../Layout/ToastEmmiter'
 import Block from '../Layout/Loaders/Block'
-import { deleteCommentApi } from '../../api/commentsApi'
+import { deleteCommentApi, deleteCommentedFileApi, editCommentApi } from '../../api/commentsApi'
+import { getUser } from '../../utils/helper'
 
 
 const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName, parentRef, getTopic }) => {
@@ -23,12 +24,16 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
     const [initialText, setInitialText] = useState('');
     const [textContent, setTextContent] = useState('');
 
+    const [commentedById, setCommentedById] = useState('');
+
     const handleClick = (newPlacement) => (event) => {
 
         const newButtonId = event.currentTarget.getAttribute('data-id');
         const name = event.currentTarget.getAttribute('data-name');
         const textContent = event.currentTarget.getAttribute('data-text-content');
+        const commentedby = event.currentTarget.getAttribute('data-commentedby');
 
+        setCommentedById(commentedby)
         setIsEditing(false)
         setName(name);
         setInitialText(textContent)
@@ -50,8 +55,18 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
     })
 
 
-    const editComment = async (id) => {
-        console.log(id) // to edit
+    const editComment = async (e) => {
+        e.preventDefault();
+        setLoading(true)
+        const { data } = await editCommentApi(prevButtonId, { textContent: e.target.textContent.value });
+        if (data.success) {
+            ToastEmmiter.success(data.message)
+            setLoading(false)
+            getTopic()
+        } else {
+            ToastEmmiter.warning('System error, please try again later', 'top-center');
+            setLoading(false)
+        }
     }
 
 
@@ -63,7 +78,7 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
             setLoading(false)
             getTopic()
         } else {
-            ToastEmmiter.warning('Error fetching post', 'top-center');
+            ToastEmmiter.warning('System error, please try again later', 'top-center');
             setLoading(false)
         }
     }
@@ -77,6 +92,7 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
     }
 
     const handleEdit = () => {
+        changingBackground(prevButtonId)
         setOpen(false)
         setTextContent(initialText);
         setIsEditing(true);
@@ -138,9 +154,42 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
         // parentElement.scrollTo(0, childHeight);
     }
 
+    const deleteFile = async (publicId) => {
+        setLoading(true)
+        const { data } = await deleteCommentedFileApi(prevButtonId, publicId);
+        if (data.success) {
+            ToastEmmiter.success(data.message)
+            setLoading(false)
+            getTopic()
+        } else {
+            ToastEmmiter.warning('System error, please try again later', 'top-center');
+            setLoading(false)
+        }
+    }
+
+    const handleDeleteFile = (publicId) => {
+        Swal.fire({
+            // title: "Are you sure?",
+            text: "Delete this attachment?",
+            // icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteFile(publicId)
+            }
+            removeBackground();
+        });
+    }
+
+    console.log(commentedById)
+
     return (
         <>
             <Block loading={loading} />
+
             <Popper
                 sx={{ zIndex: 1200 }}
                 open={open}
@@ -149,23 +198,29 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                 transition
             >
                 {({ TransitionProps }) => (
-                    <Fade {...TransitionProps} timeout={100}>
-                        <Paper className='d-flex flex-row' sx={{ p: 1 }}>
-                            <Button onClick={handleReply} size='large'>
-                                <MDBIcon fas icon="reply" />
-                            </Button>
-                            <Button onClick={handleEdit} size='large'>
-                                <MDBIcon fas icon="edit" />
-                            </Button>
-                            <Button onClick={handleDelete} size='large'>
-                                <MDBIcon fas icon="trash-alt" />
-                            </Button>
-                        </Paper>
-                    </Fade>
+                    <ClickAwayListener onClickAway={() => setOpen(false)}>
+                        <Fade {...TransitionProps} timeout={100}>
+                            <Paper className='d-flex flex-row' sx={{ p: 1 }}>
+                                <Button onClick={handleReply} size='large'>
+                                    <MDBIcon fas icon="reply" />
+                                </Button>
+                                {getUser()._id === commentedById && (
+                                    <>
+                                        <Button onClick={handleEdit} size='large'>
+                                            <MDBIcon fas icon="edit" />
+                                        </Button>
+                                        <Button onClick={handleDelete} size='large'>
+                                            <MDBIcon fas icon="trash-alt" />
+                                        </Button>
+                                    </>
+                                )}
+                            </Paper>
+                        </Fade>
+                    </ClickAwayListener>
                 )}
             </Popper>
             {comments?.map((comment, i) => (
-                <>
+                <Fragment key={i}>
                     {comment.repliedTo && (
                         <Box onClick={() => viewRepliedComment(comment._id)} className='d-flex gap-2 align-items-center' sx={{ cursor: 'pointer' }}>
                             <ShortcutIcon />
@@ -182,9 +237,10 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                         <div className='' style={{ width: '90%' }}>
                             <div className='d-flex gap-2 align-items-center'>
                                 <Typography className='fw-bold' color={colorCoding(comment.commentedBy?.role)}>{comment.commentedBy?.firstname} {comment.commentedBy?.lastname}</Typography>
-                                <small style={{ fontSize: 12 }}>{computeTimeElapsed(comment.createdAt)}</small>
+                                <small style={{ fontSize: 12 }}>{computeTimeElapsed(comment.createdAt, comment.updatedAt)}</small>
                                 <IconButton size='small' key={comment._id + i}
                                     data-id={comment._id}
+                                    data-commentedby={comment.commentedBy?._id}
                                     data-name={`${comment.commentedBy?.firstname} ${comment.commentedBy?.lastname}`}
                                     data-text-content={comment.textContent}
                                     onClick={handleClick('bottom')} >
@@ -193,15 +249,21 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                             </div>
                             <div className='overflow-hidden' >
                                 {isEditing && prevButtonId === comment._id ?
-                                    <TextField multiline fullWidth size='small' value={textContent} InputProps={{
-                                        endAdornment: (
-                                            <Button size='small' onClick={() => {
-                                                setIsEditing(false)
-                                                setTextContent('')
-                                                setInitialText('')
-                                            }}>Cancel</Button>
-                                        )
-                                    }} />
+                                    <form onSubmit={editComment}>
+                                        <TextField autoFocus fullWidth size='small' value={textContent}
+                                            name='textContent'
+                                            onChange={(e) => setTextContent(e.target.value)}
+                                            InputProps={{
+                                                endAdornment: (
+                                                    <Button size='small' onClick={() => {
+                                                        setIsEditing(false)
+                                                        setTextContent('')
+                                                        setInitialText('')
+                                                        removeBackground()
+                                                    }}>Cancel</Button>
+                                                )
+                                            }} />
+                                    </form>
                                     :
                                     <Typography sx={{ wordWrap: 'break-word', }}>{comment.textContent}</Typography>
                                 }
@@ -211,8 +273,8 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                                 <div key={i} >
                                     <Badge badgeContent={
                                         <>
-                                            {isEditing ?
-                                                <MDBIcon fas icon="trash-alt" style={{
+                                            {isEditing && prevButtonId === comment._id ?
+                                                <MDBIcon onClick={() => handleDeleteFile(image.public_id)} fas icon="trash-alt" style={{
                                                     fontSize: 25, cursor: 'pointer', color: 'red',
                                                     marginBottom: -55, marginLeft: -35
                                                 }} /> : ""
@@ -231,8 +293,8 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                                 <Fragment key={i}>
                                     <div className='mt-2 d-flex align-items-center gap-1'>
                                         <FileDisplay attachment={attachment} />
-                                        {isEditing ?
-                                            <MDBIcon fas icon="trash-alt" style={{
+                                        {isEditing && prevButtonId === comment._id ?
+                                            <MDBIcon onClick={() => handleDeleteFile(attachment.public_id)} fas icon="trash-alt" style={{
                                                 fontSize: 25, cursor: 'pointer', color: 'red',
                                             }} />
                                             : ""}
@@ -243,7 +305,7 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
 
                     </Box >
                     <Divider sx={{ borderBottom: 2, mb: 1 }} />
-                </>
+                </Fragment>
             ))
             }
         </>
@@ -259,9 +321,9 @@ function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
-function computeTimeElapsed(createdAt) {
+function computeTimeElapsed(createdAt, updatedAt) {
     const now = new Date();
-    const createdDate = new Date(createdAt);
+    const createdDate = new Date(updatedAt);
     const elapsedMilliseconds = now - createdDate;
 
     const minutes = Math.floor(elapsedMilliseconds / (1000 * 60));
@@ -269,14 +331,20 @@ function computeTimeElapsed(createdAt) {
     const days = Math.floor(hours / 24);
     const months = Math.floor(days / 30);
 
+    let textIndication = ''
+
+    if (createdAt !== updatedAt) {
+        textIndication = 'Edited';
+    }
+
     if (months > 0) {
-        return months === 1 ? `${months}m ago` : `${months}mos ago`;
+        return months === 1 ? `${textIndication} ${months}m ago` : `${textIndication} ${months}mos ago`;
     } else if (days > 0) {
-        return days === 1 ? `${days}d ago` : `${days}d ago`;
+        return days === 1 ? `${textIndication} ${days}d ago` : `${textIndication} ${days}d ago`;
     } else if (hours > 0) {
-        return hours === 1 ? `${hours}h ago` : `${hours}h ago`;
+        return hours === 1 ? `${textIndication} ${hours}h ago` : `${textIndication} ${hours}h ago`;
     } else {
-        return minutes <= 1 ? 'Just now' : `${minutes}m ago`;
+        return minutes <= 1 ? `${textIndication} Just now` : `${textIndication} ${minutes}m ago`;
     }
 }
 

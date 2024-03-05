@@ -3,45 +3,16 @@ import { Badge, Box, Button, Chip, Paper, Tooltip, Typography } from '@mui/mater
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import { MDBCol, MDBRow } from 'mdb-react-ui-kit';
 import ToastEmmiter from '../Layout/ToastEmmiter';
-import { fetchAllPost } from '../../api/collabsApi';
 import Block from '../Layout/Loaders/Block';
 import { colorCoding } from '../../utils/avatar';
 
-const TopicLists = ({ keyword, loading, setLoading, viewTopic }) => {
+const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => {
 
-    const [topics, setTopics] = useState([]);
-    const [filteredTopics, setFilteredTopics] = useState();
-
-    const getAllTopics = async () => {
-
-        const { data } = await fetchAllPost();
-        if (data.success) {
-
-            setLoading(false)
-            setTopics(data.topics)
-            setFilteredTopics(data.topics)
-
-        } else {
-            ToastEmmiter.warning('System error, please try again later', 'top-center');
-            setLoading(false)
-        }
-    }
-
-
-    useEffect(() => {
-        getAllTopics()
-    }, [loading])
-
-    useEffect(() => {
-        const regex = new RegExp(keyword, 'i');
-        const filteredTopics = topics.filter(topic => regex.test(topic.heading)
-            // || regex.test(user.lastname)
-        );
-        setFilteredTopics(filteredTopics);
-    }, [keyword])
+    const [loading, setLoading] = useState(false);
 
     return (
         <>
+            <Block loading={loading} />
             <div style={{ height: '80vh', overflowY: 'auto' }}>
 
                 {filteredTopics?.map((topic, i) => (
@@ -53,7 +24,6 @@ const TopicLists = ({ keyword, loading, setLoading, viewTopic }) => {
                                 bgcolor: '#F6F9FC',
                             },
                         }} className='p-3 d-flex flex-column flex-md-row-reverse gap-4 mb-2 mt-2'>
-                        <Block loading={loading} />
 
                         {topic.images.length > 0 ? <>
                             <Box>
@@ -91,12 +61,19 @@ const TopicLists = ({ keyword, loading, setLoading, viewTopic }) => {
                                 ))}
                             </Box>
 
-                            <Box className='d-flex gap-2 mt-3 p-1 px-2 rounded-3' sx={{ backgroundColor: '#F6F5F5' }}>
-                                <ChatBubbleOutlineIcon />
-                                <Typography sx={{ fontSize: 16, mt: -0.2 }}>2</Typography>
-                                <Typography className='fw-bold' sx={{ fontSize: 16, mt: -0.2 }}>Dave Merc: </Typography>
-                                <Typography sx={{ fontSize: 16, mt: -0.2 }}>paano magnetworking sa linux server?</Typography>
-                            </Box>
+                            {topic?.commentCount > 0 ?
+                                <Box className='d-flex gap-2 mt-3 p-1 px-2 rounded-3' sx={{ backgroundColor: '#F6F5F5' }}>
+                                    <ChatBubbleOutlineIcon />
+                                    <Typography sx={{ fontSize: 16, mt: -0.2 }}>{topic?.commentCount}</Typography>
+                                    <Typography className='fw-bold' sx={{ fontSize: 16, mt: -0.2 }}>{topic.latestComment?.commentedBy?.firstname}: </Typography>
+                                    <Typography sx={{ fontSize: 16, mt: -0.2 }}>{topic?.latestComment?.textContent}</Typography>
+                                </Box>
+                                :
+                                <Box className='d-flex gap-2 mt-3 p-1 px-2 rounded-3' sx={{ backgroundColor: '#F6F5F5' }}>
+                                    <ChatBubbleOutlineIcon />
+                                    <Typography sx={{ fontSize: 16, mt: -0.2 }}>Start a comment</Typography>
+                                </Box>
+                            }
                         </Box>
                     </Paper>
                 ))}

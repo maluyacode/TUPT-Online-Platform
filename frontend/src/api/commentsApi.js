@@ -63,3 +63,35 @@ export const deleteCommentApi = async (id) => {
     }
 
 }
+
+export const editCommentApi = async (id, values) => {
+    try {
+
+        const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/comment/edit/${id}`, values, {
+            withCredentials: true,
+        });
+
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+
+}
+
+export const deleteCommentedFileApi = async (id, publicId) => {
+    try {
+
+        const response = await axios.delete(`${process.env.REACT_APP_API}/api/v1/comment/delete/attached/${id}?publicId=${publicId}`, {
+            withCredentials: true,
+        });
+
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+
+}
