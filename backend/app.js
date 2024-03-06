@@ -11,6 +11,7 @@ const groupRoutes = require('./routes/groupRoutes');
 const announcementRoutes = require('./routes/announcementRoutes');
 const collabRoutes = require('./routes/collabRoutes');
 const commentRoutes = require('./routes/commentRoutes');
+const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const corsOptions = {
     origin: 'http://localhost:3000', //included origin as true
@@ -31,6 +32,7 @@ app.use('/api/v1/group', groupRoutes);
 app.use('/api/v1/announcement', announcementRoutes);
 app.use('/api/v1/collab', collabRoutes);
 app.use('/api/v1/comment', commentRoutes);
+app.use('/api/v1/dashboard', dashboardRoutes);
 
 
 module.exports = app;

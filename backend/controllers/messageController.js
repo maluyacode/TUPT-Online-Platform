@@ -1,6 +1,7 @@
 const User = require('../models/UserModel')
 const Chat = require('../models/ChatModel')
-const Message = require('../models/MessageModel')
+const Message = require('../models/MessageModel');
+const sendSMS = require('../utils/sendSMS');
 
 exports.sendMessage = async (req, res, next) => {
     const { content, chatId } = req.body;
@@ -31,4 +32,35 @@ exports.sendMessage = async (req, res, next) => {
         // throw new Error(error.message);
     }
     // res.json(message);
+}
+
+
+exports.notifyUser = async (req, res, next) => {
+
+    try {
+
+        const users = JSON.parse(req.body.sendTo);
+
+        req.body.message = `${req.body.message} n\ From: ${req.user.firstname} ${req.user.lastname}`
+
+        for (let i in users) {
+            setTimeout(async () => {
+                await sendSMS({
+                    message: req.body.message,
+                    phone: users[i].contact_number,
+                })
+            }, 1000)
+        }
+
+        res.json({
+            success: true,
+            message: 'Successfully Notify'
+        });
+
+    } catch (error) {
+        console.log(error)
+        res.status(400);
+        // throw new Error(error.message);
+    }
+
 }

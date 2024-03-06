@@ -76,6 +76,17 @@ exports.getAllAnnouncements = async (req, res, next) => {
             isForAll: true
         }
 
+        if (req.query.today === 'true') {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0)
+            announcementFilter.createdAt = {
+                $gte: today
+            }
+            announcementFilter.updatedAt = {
+                $gte: today
+            }
+        }
+
         if (req.user.role === 'admin') {
             announcementFilter = {};
         }

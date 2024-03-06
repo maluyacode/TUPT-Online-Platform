@@ -63,7 +63,7 @@ const PeopleLists = () => {
                                     {profileHead(user)}
                                     <div className='ms-3'>
                                         <p className='fw-bold mb-1'>{user.firstname} {user.lastname}</p>
-                                        <p className='text-muted mb-0'>{user.email}</p>
+                                        <p className='text-muted mb-0'>{user.email.length > 20 ? user.email.substring(0, 20) + '...' : user.email}</p>
                                     </div>
                                 </div>
                                 <MDBBadge pill className='text-capitalize' light color={
@@ -81,9 +81,9 @@ const PeopleLists = () => {
                             >
                                 Message <MDBIcon fas icon='envelope' />
                             </MDBBtn>
-                            <MDBBtn color='link' rippleColor='primary' className='text-reset m-0'>
+                            {/* <MDBBtn color='link' rippleColor='primary' className='text-reset m-0'>
                                 Profile <MDBIcon fas icon="user-circle" />
-                            </MDBBtn>
+                            </MDBBtn> */}
                         </MDBCardFooter>
                     </MDBCard>
                 </MDBCol>

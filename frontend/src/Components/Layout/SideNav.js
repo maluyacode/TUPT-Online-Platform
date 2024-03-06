@@ -38,7 +38,7 @@ const SideNav = () => {
                         </MDBNavbarBrand>
                         <div className='' style={{ marginLeft: -7 }}>
                             <MenuItem onClick={() => navigate('/')} icon={<MDBIcon fas icon="home" />} > Home </MenuItem>
-                            <MenuItem onClick={() => navigate('/tupt-chat')} icon={<MDBIcon fab icon="rocketchat" />} > Chats </MenuItem>
+                            <MenuItem onClick={() => navigate('/tupt-chat')} icon={<MDBIcon fab icon="rocketchat" />} > Emergency Chat </MenuItem>
                             <SubMenu onClick={() => navigate('/announcements')} icon={<MDBIcon fas icon="bullhorn" />} label='Announcements'>
                                 {getUser().role === 'teacher' && (
                                     <>
@@ -48,8 +48,8 @@ const SideNav = () => {
                                 )}
                                 <MenuItem onClick={() => navigate('/post-emergency')} icon={<ReportProblemIcon />}> Emergency </MenuItem>
                             </SubMenu>
-                            <MenuItem onClick={() => navigate('/collab')} icon={<MDBIcon far icon="comments" />}> Colab </MenuItem>
-                            <MenuItem icon={<MDBIcon fas icon="info-circle" />}> Help </MenuItem>
+                            <MenuItem onClick={() => navigate('/collab')} icon={<MDBIcon far icon="comments" />}> EM Collaboration </MenuItem>
+                            <MenuItem icon={<MDBIcon fas icon="info-circle" />}> How to use this App? </MenuItem>
                             {/* <SubMenu label="Charts">
                         <MenuItem> Chats </MenuItem>
                         <MenuItem> Line charts </MenuItem>

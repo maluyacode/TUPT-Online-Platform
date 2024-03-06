@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TopBar from '../Layout/TopBar'
 import SideNav from '../Layout/SideNav'
 import RegressionChart from './Charts/RegressionChart'
@@ -6,10 +6,46 @@ import { MDBCol, MDBContainer, MDBRow } from 'mdb-react-ui-kit'
 import { Box, Divider, Paper, Typography } from '@mui/material'
 import FiberNewIcon from '@mui/icons-material/FiberNew';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import { fetchTotalUsers } from '../../api/dashboardsApi'
+import ToastEmmiter from '../Layout/ToastEmmiter'
+import Block from '../Layout/Loaders/Block'
 
 const Dashboard = () => {
+
+    const [loading, setLoading] = useState();
+    const [totalUsers, setTotalUsers] = useState(0);
+    const [totalStudents, setTotalStudents] = useState(0);
+    const [totalTeachers, setTotalTeachers] = useState(0);
+    const [totalParents, setTotalParents] = useState(0);
+
+
+    const getTotalUsers = async () => {
+
+        setLoading(true)
+
+        const { data } = await fetchTotalUsers();
+        if (data.success) {
+            console.log(data)
+            setLoading(false)
+            setTotalUsers(data.totalUsers)
+            setTotalStudents(data.totalStudents)
+            setTotalTeachers(data.totalTeachers)
+            setTotalParents(data.totalParents)
+        } else {
+            setLoading(false)
+            ToastEmmiter.error('System error, please try again later', 'top-center')
+        }
+
+    }
+
+    useEffect(() => {
+        getTotalUsers()
+    }, [])
+
+
     return (
         <div style={{ display: 'flex', height: '100vh' }}>
+            <Block loading={loading} />
             <SideNav />
             <main style={{ padding: 10 }} className='shadow-6-strong  w-100'>
                 <TopBar />
@@ -19,20 +55,20 @@ const Dashboard = () => {
                             <Paper className='p-4' sx={{ boxShadow: 5, }}>
                                 <Typography className='mb-1' fontSize={20}>Total Users</Typography>
                                 <Divider sx={{ borderBottom: 2 }} />
-                                <Typography className='fw-bold' fontSize={50} textAlign={'center'}>123</Typography>
+                                <Typography className='fw-bold' fontSize={50} textAlign={'center'}>{totalUsers}</Typography>
                                 <Divider sx={{ borderBottom: 2 }} />
                                 <Box className='d-flex justify-content-between px-1 mt-2'>
                                     <Box>
                                         <Typography className='fw-light'>Teachers</Typography>
-                                        <Typography className='fw-bold' textAlign={'center'}>21</Typography>
+                                        <Typography className='fw-bold' textAlign={'center'}>{totalTeachers}</Typography>
                                     </Box>
                                     <Box>
                                         <Typography className='fw-light'>Students</Typography>
-                                        <Typography className='fw-bold' textAlign={'center'}>12</Typography>
+                                        <Typography className='fw-bold' textAlign={'center'}>{totalStudents}</Typography>
                                     </Box>
                                     <Box>
                                         <Typography className='fw-light'>Parents</Typography>
-                                        <Typography className='fw-bold' textAlign={'center'}>34</Typography>
+                                        <Typography className='fw-bold' textAlign={'center'}>{totalParents}</Typography>
                                     </Box>
                                 </Box>
                             </Paper>

@@ -43,7 +43,7 @@ export default function ChatLists() {
                             </div>
                         </div>
                         <MDBBadge pill light color='success'>
-                            new
+                            {hasNewMessage ? 'New' : ""}
                         </MDBBadge>
                     </MDBListGroupItem>
                 )

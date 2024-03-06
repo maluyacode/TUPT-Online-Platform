@@ -16,8 +16,10 @@ import {
 
 import {
     TextField,
-    Box
+    Box,
+    IconButton
 } from '@mui/material'
+import AnnouncementIcon from '@mui/icons-material/Announcement';
 
 
 import axios from "axios";
@@ -35,6 +37,7 @@ import ChatHeader from "./ChatHeader";
 import { accessChat } from "../../actions/chatActions";
 import { getUser } from "../../utils/helper";
 import { socket } from "../../socket";
+import EmergencyMessage from "./EmergencyMessage";
 
 
 export default function Chat() {
@@ -47,33 +50,40 @@ export default function Chat() {
     const { isChatSideBarOpen } = useSelector(state => state.ui);
     const [currentMessage, setCurrentMessage] = useState('');
     const scrollableContainerRef = useRef(null);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
         selectedChatRef.current = selectedChat;
     }, [selectedChat]);
 
     useEffect(() => {
-        if (selectedChat) {
-            socket.on('recieved-message', (message) => {
-                dispatch(accessChat(selectedChatRef.current))
-                    // navigator.mediaDevices.getUserMedia({ audio: true })
-                    //     .then(function (stream) {
-                    //         // Permission granted, you can autoplay audio
-                    //         let beat = new Audio('/sounds/message-notif.mp3');
-                    //         beat.play().catch(error => {
-                    //             // Autoplay was prevented. Show a play button to allow the user to start the audio.
-                    //             console.log('Autoplay was prevented.');
-                    //         });
 
-                    //         // Don't need the stream, so stop it
-                    //         stream.getTracks().forEach(track => track.stop());
-                    //     })
-                    .catch(function (error) {
-                        // Permission denied, handle accordingly
-                        console.log('Permission to autoplay audio was denied.');
-                    });
+        if (selectedChat) {
+            socket.on('recieved-message', (recipientId) => {
+                dispatch(accessChat(selectedChatRef.current))
+                console.log("reciver: " + recipientId)
+                console.log("currentLOgin: " + getUser()._id)
+                if (recipientId === getUser()._id) {
+                    navigator.mediaDevices.getUserMedia({ audio: true })
+                        .then(function (stream) {
+                            let beat = new Audio('/sounds/message-notif.mp3');
+                            beat.play().catch(error => {
+                                console.log('Autoplay was prevented.');
+                            });
+                            stream.getTracks().forEach(track => track.stop());
+                        })
+                        .catch(function (error) {
+                            console.log('Permission to autoplay audio was denied.');
+                        });
+                }
+
             })
             dispatch(accessChat(selectedChat))
+
+            return () => {
+                // Clean up the event listener when the component unmounts or when `selectedChat` changes.
+                socket.off('recieved-message');
+            };
         }
     }, [socket, selectedChat])
 
@@ -168,6 +178,7 @@ export default function Chat() {
 
     return (
         <>
+            <EmergencyMessage open={open} setOpen={setOpen} chatInfo={chatInfo} />
             <MetaData pageTitle="Chat" />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />
@@ -178,16 +189,21 @@ export default function Chat() {
                             <MDBCol md="12" lg="12" xl="12" className="p-0">
                                 <MDBCard style={{ borderRadius: 0, }}>
                                     <MDBCardHeader className="d-flex justify-content-between align-items-center p-3">
-                                        <h5 className="mb-0">Chat</h5>
+                                        <h5 className="mb-0">Emergency Chat</h5>
                                         <ChatHeader user={kaChatko} />
-                                        {isChatSideBarOpen ?
-                                            <div onClick={openSideBar}>
-                                                <MDBIcon fas icon="arrow-circle-left" size="lg" style={{ cursor: 'pointer' }} />
-                                            </div> :
-                                            <div onClick={closeSidebar}>
-                                                <MDBIcon fas icon="arrow-circle-right" size="lg" style={{ cursor: 'pointer' }} />
-                                            </div>
-                                        }
+                                        <Box className='d-flex gap-2 align-items-center'>
+                                            <IconButton onClick={() => setOpen(true)} size="small">
+                                                <AnnouncementIcon />
+                                            </IconButton>
+                                            {isChatSideBarOpen ?
+                                                <div onClick={openSideBar}>
+                                                    <MDBIcon fas icon="arrow-circle-left" size="lg" style={{ cursor: 'pointer' }} />
+                                                </div> :
+                                                <div onClick={closeSidebar}>
+                                                    <MDBIcon fas icon="arrow-circle-right" size="lg" style={{ cursor: 'pointer' }} />
+                                                </div>
+                                            }
+                                        </Box>
                                     </MDBCardHeader>
                                     <div
                                         id="chat-container"
@@ -210,7 +226,7 @@ export default function Chat() {
                                                         }}
                                                     >
                                                         <MDBTypography className='lead mb-0' tag='strong'>No conversation yet.</MDBTypography>
-                                                        <MDBTypography tag='div' className="lead" style={{ fontSize: '16px' }}>Unahan mo na ayiiiee</MDBTypography>
+                                                        {/* <MDBTypography tag='div' className="lead" style={{ fontSize: '16px' }}>Unahan mo na ayiiiee</MDBTypography> */}
                                                     </div>
                                                 }
                                             </MDBCardBody> :

@@ -6,4 +6,6 @@ const { isAuthenticated } = require('../middlewares/Auth');
 
 router.post('/send', isAuthenticated, messageController.sendMessage)
 
+router.post('/notify-user', isAuthenticated, messageController.notifyUser);
+
 module.exports = router

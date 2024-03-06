@@ -45,10 +45,10 @@ io.on('connection', (socket) => {
         const user = connectedUsers.get(recipient);
         console.log(user)
 
-        socket.emit('recieved-message');
+        socket.emit('recieved-message', recipient);
 
         if (user) {
-            user.emit('recieved-message');
+            user.emit('recieved-message', recipient);
         }
 
     })
@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
     socket.on('new-announcement', (data) => {
 
         const { teacher, announcement, group } = JSON.parse(data);
-        
+
         if (group) {
 
             const membersId = group.members.map(value => value._id);

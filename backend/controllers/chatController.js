@@ -51,6 +51,9 @@ exports.getUserChats = async (req, res) => {
         let chats = await Chat.find({
             isGroup: false,
             participants: userid,
+            lastMessage: {
+                $ne: null
+            }
         }).populate('participants').populate({
             path: 'lastMessage',
             ref: 'message',

@@ -1,8 +1,14 @@
 import axios from "axios";
 
-export const getAnnouncements = async () => {
+export const getAnnouncements = async (filter = {}) => {
+
+    let today = false
+    if (filter.today) {
+        today = true;
+    }
+
     try {
-        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/get-all`, {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/get-all?today=${today}`, {
             withCredentials: true
         });
         return response;
@@ -111,5 +117,5 @@ export const fetchGroupPosts = async (id) => {
         console.log(response)
         return response
     }
-    
+
 }

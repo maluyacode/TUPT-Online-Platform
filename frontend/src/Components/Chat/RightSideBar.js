@@ -35,11 +35,11 @@ const RightSideBar = () => {
                     >
                         Chats
                     </MDBBtn>
-                    <MDBBtn color='secondary'
+                    {/* <MDBBtn color='secondary'
                         onClick={() => setSelectedTab('groups')}
                     >
                         Groups
-                    </MDBBtn>
+                    </MDBBtn> */}
                     <MDBBtn color='secondary'
                         onClick={() => setSelectedTab('people')}
                     >
