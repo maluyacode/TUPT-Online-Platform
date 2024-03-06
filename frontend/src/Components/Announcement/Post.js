@@ -28,6 +28,7 @@ import Block from '../Layout/Loaders/Block';
 
 import { getUser } from '../../utils/helper';
 import ToastEmmiter from '../Layout/ToastEmmiter';
+import { socket } from '../../socket';
 
 const Post = () => {
     const navigate = useNavigate();
@@ -56,6 +57,16 @@ const Post = () => {
         }
     }
 
+    const pushNotifyAnnouncement = (data) => {
+
+        socket.emit('new-announcement', JSON.stringify({
+            teacher: getUser(),
+            announcement: data.announcement,
+            group: data.announcement.groupViewers,
+        }))
+
+    }
+
     const makeAnnouncement = async (formData) => {
         setLoading(true)
         try {
@@ -69,6 +80,9 @@ const Post = () => {
             ToastEmmiter.success(data.message, 'top-right');
             navigate('/announcements')
             setLoading(false)
+
+            pushNotifyAnnouncement(data)
+
         } catch (err) {
             setLoading(false)
             ToastEmmiter.error('Error occured');

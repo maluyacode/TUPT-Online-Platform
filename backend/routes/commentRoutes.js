@@ -11,4 +11,8 @@ router.post('/create', isAuthenticated, upload.fields([
 
 router.delete('/delete/:id', isAuthenticated, commentController.deleteComment);
 
+router.put('/edit/:id', isAuthenticated, commentController.editComment)
+
+router.delete('/delete/attached/:id', isAuthenticated, commentController.deleteCommentedFile)
+
 module.exports = router

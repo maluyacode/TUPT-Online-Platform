@@ -82,3 +82,34 @@ export const updateAnnouncement = async (values, id) => {
     }
 
 }
+
+export const fetchTeachersPost = async (id) => {
+
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/announcements-by-teacher/${id}`, {
+            withCredentials: true
+        });
+
+        return response;
+
+    } catch ({ response }) {
+        console.log(response)
+        return response
+    }
+}
+
+export const fetchGroupPosts = async (id) => {
+
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/announcements-by-group/${id}`, {
+            withCredentials: true
+        });
+
+        return response;
+
+    } catch ({ response }) {
+        console.log(response)
+        return response
+    }
+    
+}

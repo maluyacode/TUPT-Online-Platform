@@ -53,5 +53,26 @@ io.on('connection', (socket) => {
 
     })
 
+    socket.on('new-announcement', (data) => {
+
+        const { teacher, announcement, group } = JSON.parse(data);
+        
+        if (group) {
+
+            const membersId = group.members.map(value => value._id);
+            connectedUsers.forEach((value, key) => {
+                if (membersId.includes(key)) {
+                    const user = connectedUsers.get(key);
+                    user.emit('push-announcement', data)
+                }
+            });
+
+        } else {
+
+            socket.broadcast.emit('push-announcement', data)
+
+        }
+
+    })
 
 });

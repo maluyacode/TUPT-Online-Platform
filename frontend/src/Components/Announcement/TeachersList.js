@@ -27,11 +27,11 @@ const TeachersList = () => {
 
     return (
         <>
-            <Typography variant='h5' sx={{ position: 'sticky', top: 0 }}>Teachers</Typography>
+            <Typography variant='h6' sx={{ position: 'sticky', top: 0 }}>List of Teachers</Typography>
             <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
-            <Box sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
+            <Box sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'auto', maxHeight: '81vh' }}>
                 {teachers.map((teacher, i) => (
-                    <MDBCard key={`teacher${i}`} onClick={() => navigate('/categorize-announcements/sampleId')} style={{ cursor: 'pointer', }} className='mb-2'>
+                    <MDBCard key={`teacher${i}`} onClick={() => navigate(`/categorize-announcements/${teacher._id}`)} style={{ cursor: 'pointer', }} className='mb-2'>
                         <MDBRow className='g-0'>
                             <MDBCol xs={'2'} sm='2' md='4' className='d-flex justify-content-center align-items-center'>
                                 {/* <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={teacher.image} fluid /> */}

@@ -59,14 +59,14 @@ const Announcement = () => {
                         <MDBRow className='pt-3'>
 
                             <MDBCol sm={'12'} md='6'>
-                                <Typography variant='h5' sx={{ position: 'sticky', top: 0 }}>Announcements</Typography>
+                                <Typography variant='h6' sx={{ position: 'sticky', top: 0 }}>Announcements For Everyone</Typography>
                                 <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
-                                <Box sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
+                                <Box sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'auto', maxHeight: '81vh' }}>
                                     {announcements.map((announcement, i) => (
                                         <MDBCard key={`announcement${i}`} onClick={() => navigate(`/announcement-details/${announcement._id}`)} style={{ cursor: 'pointer' }} className='mb-2'>
                                             <MDBRow className='g-0'>
                                                 <MDBCol md='3' sm='3' xs='3'>
-                                                    <MDBCardImage style={{ height: 150, width: 150, objectFit: 'cover' }} src={announcement.images[0]?.url} fluid />
+                                                    <MDBCardImage style={{ height: 150, width: 150, objectFit: 'cover' }} src={announcement.images[0]?.url || '/bullhorn.svg'} fluid />
                                                 </MDBCol>
                                                 <MDBCol md='9' sm='9' xs='9'>
                                                     <MDBCardBody className='ps-2'>

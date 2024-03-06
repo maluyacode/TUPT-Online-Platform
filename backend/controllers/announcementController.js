@@ -1,4 +1,6 @@
-const Announcement = require('../models/AnnouncementModel')
+const Announcement = require('../models/AnnouncementModel');
+const Group = require('../models/GroupModel');
+const User = require('../models/UserModel')
 const { uploadSingle, destroyUploaded, uploadMultiple } = require('../utils/cloudinaryUpload');
 const mega = require('../utils/mega')
 
@@ -7,6 +9,7 @@ exports.createAnnouncement = async (req, res, next) => {
 
         req.body.createdBy = req.user._id;
         req.body.canViewBy = JSON.parse(req.body.canViewBy);
+
         if (req.body.groupViewers === 'all') {
             delete req.body.groupViewers
             req.body.isForAll = true
@@ -36,6 +39,15 @@ exports.createAnnouncement = async (req, res, next) => {
 
         const announcement = await Announcement.create(req.body);
 
+        const newAnnouncement = await announcement.populate({
+            path: 'groupViewers',
+            ref: 'group',
+            populate: {
+                path: 'members',
+                ref: 'user',
+            }
+        });
+
         if (!announcement) {
             return res.status(404).json({
                 success: false,
@@ -45,7 +57,7 @@ exports.createAnnouncement = async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            announcement: announcement,
+            announcement: newAnnouncement,
             message: 'Announcement already posted'
         })
 
@@ -74,7 +86,7 @@ exports.getAllAnnouncements = async (req, res, next) => {
         }).populate({
             path: 'createdBy',
             ref: 'user'
-        });
+        }).sort({ createdAt: -1 })
 
         return res.status(200).json({
             success: true,
@@ -91,21 +103,60 @@ exports.getAllAnnouncements = async (req, res, next) => {
 
 exports.getAnnouncementForGroup = async (req, res, next) => {
 
+    try {
+
+        const announcements = await Announcement.find({
+            groupViewers: req.params.id
+        }).populate({
+            path: 'groupViewers',
+            ref: 'group',
+            // populate: {
+            //     path: 'members',
+            //     ref: 'users',
+            // }
+        }).populate({
+            path: 'createdBy',
+            ref: 'user',
+        }).sort({ updatedAt: -1 });
+
+        const group = await Group.findById(req.params.id).populate('createdBy');
+
+        return res.status(200).json({
+            success: true,
+            announcements: announcements,
+            group: group
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
+
 }
 
 exports.getAnnouncementsOfTeacher = async (req, res, next) => {
+
     try {
 
         const announcements = await Announcement.find({
             createdBy: req.params.id
         }).populate({
             path: 'groupViewers',
-            ref: 'group'
-        });
+            ref: 'group',
+            // populate: {
+            //     path: 'members',
+            //     ref: 'users',
+            // }
+        }).sort({ updatedAt: -1 });
+
+        const teacher = await User.findById(req.params.id);
 
         return res.status(200).json({
             success: true,
-            announcements: announcements
+            announcements: announcements,
+            teacher: teacher
         })
 
     } catch (err) {

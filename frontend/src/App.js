@@ -21,7 +21,7 @@ import Announcement from './Components/Announcement/Announcement';
 import { getUser, isAuthenticated } from './utils/helper';
 import Post from './Components/Announcement/Post';
 import Emergency from './Components/Announcement/Emergency';
-import CategorizeAnnouncements from './Components/Announcement/CategorizeAnnouncements';
+import AnnouncementsListByTeacher from './Components/Announcement/AnnouncementsListByTeacher';
 import CreateGroup from './Components/Announcement/CreateGroup';
 import EditGroup from './Components/Announcement/EditGroup';
 import AnnouncementDetails from './Components/Announcement/AnnouncementDetails';
@@ -42,16 +42,52 @@ import CreateAnnouncement from './Components/Admin/AnnouncementManagement/Create
 import AdminEditAnnouncement from './Components/Admin/AnnouncementManagement/AdminEditAnnouncement';
 import ProtectedRoute from './Components/Middleware/ProtectedRoute';
 import Collab from './Components/Collab/Collab';
+import ToastEmmiter from './Components/Layout/ToastEmmiter';
+import Alert from './Components/Layout/Alert';
+import AnnouncementsListByGroup from './Components/Announcement/AnnouncementsListByGroup';
 
 function App() {
+
+  const [open, setOpen] = useState(false);
+  const [newAnnouncement, setNewAnnouncement] = useState({});
 
   if (isAuthenticated() && getUser()) {
     socket.connect()
   }
 
+
+  useEffect(() => {
+
+    const handlePushAnnouncement = (data) => {
+      // ToastEmmiter.info('New announcement arrived');
+
+      const { announcement } = JSON.parse(data);
+
+      setNewAnnouncement(announcement)
+
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function (stream) {
+          let beat = new Audio('/sounds/announcement-notif.mp3');
+          beat.play().catch(error => {
+          });
+          setOpen(true);
+          stream.getTracks().forEach(track => track.stop());
+        })
+    };
+
+    socket.on('push-announcement', handlePushAnnouncement);
+
+    return () => {
+      socket.off('push-announcement', handlePushAnnouncement);
+    };
+
+  }, []);
+
+
   return (
     <div className="App">
       <Router>
+        <Alert open={open} setOpen={setOpen} announcement={newAnnouncement} />
         <Routes>
 
           <Route path='/login' element={<Login />} />
@@ -69,7 +105,8 @@ function App() {
           <Route path='/teachers-post' element={<TeachersPosts />} />
           <Route path='/post-emergency' element={<Emergency />} />
           <Route path='/announcement-details/:id' element={<AnnouncementDetails />} />
-          <Route path='/categorize-announcements/:teacherId' element={<CategorizeAnnouncements />} />
+          <Route path='/categorize-announcements/:teacherId' element={<AnnouncementsListByTeacher />} />
+          <Route path='/group-announcements/:groupId' element={<AnnouncementsListByGroup />} />
           <Route path='/announcement/create-group' element={<CreateGroup />} />
           <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
 

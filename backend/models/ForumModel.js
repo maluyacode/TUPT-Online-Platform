@@ -40,6 +40,12 @@ const forumModel = new mongoose.Schema({
             type: String,
         }
     }],
+    latestComment: { type: Object },
+    commentCount: { type: Number },
+    deletedAt: {
+        type: Date,
+        default: null,
+    }
 }, { timestamps: true })
 
 module.exports = mongoose.model('forum', forumModel)

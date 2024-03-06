@@ -166,24 +166,27 @@ const EditGroup = () => {
                                         {groupUsers.length > 0 ?
                                             <>
                                                 {groupUsers.map((user, i) => (
-
-                                                    <MDBCard key={i} className='p-2 px-4 mb-2'>
-                                                        <MDBRow>
-                                                            <MDBCol sm={'4'} className='d-flex justify-content-center align-items-center'>
-                                                                <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={user?.avatar?.url || 'https://via.placeholder.com/150'} fluid />
-                                                            </MDBCol>
-                                                            <MDBCol sm={'8'} className='d-flex justify-content-start align-items-center'>
-                                                                <Typography>
-                                                                    {user.firstname} {user.lastname}
-                                                                </Typography>
-                                                            </MDBCol>
-                                                            {/* <MDBCol sm={'3'} className='d-flex justify-content-start align-items-center'>
+                                                    <>
+                                                        {user._id !== getUser()._id && (
+                                                            <MDBCard key={i} className='p-2 px-4 mb-2'>
+                                                                <MDBRow>
+                                                                    <MDBCol sm={'4'} className='d-flex justify-content-center align-items-center'>
+                                                                        <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={user?.avatar?.url || 'https://via.placeholder.com/150'} fluid />
+                                                                    </MDBCol>
+                                                                    <MDBCol sm={'8'} className='d-flex justify-content-start align-items-center'>
+                                                                        <Typography>
+                                                                            {user.firstname} {user.lastname}
+                                                                        </Typography>
+                                                                    </MDBCol>
+                                                                    {/* <MDBCol sm={'3'} className='d-flex justify-content-start align-items-center'>
                                                                 <Button className='text-capitalize' onClick={() => removeUser(user._id)}>
                                                                     Remove
                                                                 </Button>
                                                             </MDBCol> */}
-                                                        </MDBRow>
-                                                    </MDBCard>
+                                                                </MDBRow>
+                                                            </MDBCard>
+                                                        )}
+                                                    </>
 
                                                 ))}
                                             </>
@@ -214,7 +217,11 @@ const EditGroup = () => {
 
                     <Box className='mb-4'>
                         {groupUsers?.map((user, i) => (
-                            <Chip key={i} label={`${user.firstname} ${user.lastname}`} onDelete={() => deselect(user)} sx={{ mx: 0.3, my: 0.3 }} />
+                            <>
+                                {user._id !== getUser()._id && (
+                                    <Chip key={i} label={`${user.firstname} ${user.lastname}`} onDelete={() => deselect(user)} sx={{ mx: 0.3, my: 0.3 }} />
+                                )}
+                            </>
                         ))}
                     </Box>
 

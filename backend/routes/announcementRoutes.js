@@ -22,4 +22,8 @@ router.delete('/delete/:id', isAuthenticated, announcementController.deleteAnnou
 
 router.get('/get-my-announcement/:id', isAuthenticated, announcementController.getAnnouncementsOfTeacher)
 
+router.get('/announcements-by-teacher/:id', isAuthenticated, announcementController.getAnnouncementsOfTeacher)
+
+router.get('/announcements-by-group/:id', isAuthenticated, announcementController.getAnnouncementForGroup)
+
 module.exports = router

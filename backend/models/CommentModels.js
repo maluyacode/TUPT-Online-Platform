@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const commentModel = new mongoose.Schema({
     textContent: {
-        type: String, 
+        type: String,
         // required: true
     },
     commentedBy: {

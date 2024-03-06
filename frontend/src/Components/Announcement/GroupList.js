@@ -12,6 +12,7 @@ import {
 
 import Swal from 'sweetalert2'
 import axios from 'axios';
+import { getUser } from '../../utils/helper'
 
 const GroupList = () => {
     const navigate = useNavigate();
@@ -37,6 +38,7 @@ const GroupList = () => {
         // setOpen((prev) => placement !== newPlacement || !prev);
         setPlacement(newPlacement);
     };
+
     window.addEventListener('scroll', () => {
         console.log("Asdsad")
         setOpen(false)
@@ -109,7 +111,7 @@ const GroupList = () => {
     useEffect(() => {
         getGroups()
     }, [])
-
+    console.log(groups.length)
     return (
         <>
             <Block loading={loading} />
@@ -134,39 +136,69 @@ const GroupList = () => {
                 )}
             </Popper>
             <Box className='d-flex justify-content-between '>
-                <Typography variant='h5' sx={{ position: 'sticky', top: 0 }}>Groups</Typography>
-                <Button onClick={() => navigate('/announcement/create-group')} variant='outlined'>Add Group</Button>
+                <Typography variant='h6' sx={{ position: 'sticky', top: 0 }}>
+                    {getUser().role === 'teacher' ? 'Your Groups' : 'Joined Groups'}
+                </Typography>
+                {getUser().role === 'teacher' && (
+                    <Button onClick={() => navigate('/announcement/create-group')} variant='outlined'>Add Group</Button>
+                )}
             </Box>
             <Divider sx={{ my: 1.5, borderBottom: 3, position: 'sticky', top: '48px' }} />
-            <Box ref={groupBox} sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'scroll', maxHeight: '81vh' }}>
+            <Box ref={groupBox} sx={{ boxShadow: 5, py: 2, px: 3, overflowY: 'auto', maxHeight: '81vh' }}>
+                {checkGroupInvolvement(groups)}
                 {groups.map((group, i) => (
-                    <MDBCard key={`group${i}`} style={{ cursor: 'pointer', }} className='mb-2 py-2'>
-                        <MDBRow className='g-0'>
-                            <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'4'} className='d-flex justify-content-center align-items-center'>
-                                <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={group.coverPhoto.url} fluid />
-                            </MDBCol>
-                            <MDBCol onClick={() => navigate('/categorize-announcements/sampleId')} sm={'6'}>
-                                <MDBCardBody className='px-0 py-3'>
-                                    {/* <MDBCardTitle>Popsicles Madriaga</MDBCardTitle> */}
-                                    <MDBCardText className='w-100'>
-                                        {group.groupName}
-                                    </MDBCardText>
-                                    {/* <MDBCardText>
+                    <>
+                        {(group.members.includes(getUser()._id) || group.createdBy === getUser()._id) && (
+                            <MDBCard key={`group${i}`} style={{ cursor: 'pointer', }} className='mb-2 py-2'>
+                                <MDBRow className='g-0'>
+                                    <MDBCol onClick={() => navigate(`/group-announcements/${group._id}`)} sm={'4'} className='d-flex justify-content-center align-items-center'>
+                                        <MDBCardImage style={{ height: 50, width: 50, objectFit: 'cover', borderRadius: '50%' }} src={group.coverPhoto.url} fluid />
+                                    </MDBCol>
+                                    <MDBCol onClick={() => navigate(`/group-announcements/${group._id}`)} sm={'6'}>
+                                        <MDBCardBody className='px-0 py-3'>
+                                            {/* <MDBCardTitle>Popsicles Madriaga</MDBCardTitle> */}
+                                            <MDBCardText className='w-100'>
+                                                {group.groupName}
+                                            </MDBCardText>
+                                            {/* <MDBCardText>
                                         <small className='text-muted'>Last updated 3 mins ago</small>
                                     </MDBCardText> */}
-                                </MDBCardBody>
-                            </MDBCol>
-                            <MDBCol sm={'2'} className='d-flex justify-content-center align-items-center'>
-                                <IconButton key={group._id} data-id={group._id} onClick={handleClick('bottom')} >
-                                    <MoreVertIcon />
-                                </IconButton>
-                            </MDBCol>
-                        </MDBRow>
-                    </MDBCard>
+                                        </MDBCardBody>
+                                    </MDBCol>
+                                    <MDBCol sm={'2'} className='d-flex justify-content-center align-items-center'>
+                                        {getUser().role === 'teacher' && group.createdBy === getUser()._id && (
+                                            <IconButton key={group._id} data-id={group._id} onClick={handleClick('bottom')} >
+                                                <MoreVertIcon />
+                                            </IconButton>
+                                        )}
+                                    </MDBCol>
+                                </MDBRow>
+                            </MDBCard>
+                        )}
+                    </>
                 ))}
             </Box >
         </>
     )
+}
+
+const checkGroupInvolvement = (groups) => {
+
+    if (getUser().role === 'teacher') {
+
+        const results = groups.map(group => group.members.includes(getUser()._id) || group.createdBy === getUser()._id)
+        if (!results.includes(true)) {
+            return <Typography>You haven't created or added to group yet</Typography>
+        }
+
+    } else {
+
+        const results = groups.map(group => group.members.includes(getUser()._id))
+        if (!results.includes(true)) {
+            return <Typography>You haven't added to the group yet</Typography>
+        }
+    }
+
 }
 
 export default GroupList

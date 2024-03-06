@@ -40,8 +40,12 @@ const SideNav = () => {
                             <MenuItem onClick={() => navigate('/')} icon={<MDBIcon fas icon="home" />} > Home </MenuItem>
                             <MenuItem onClick={() => navigate('/tupt-chat')} icon={<MDBIcon fab icon="rocketchat" />} > Chats </MenuItem>
                             <SubMenu onClick={() => navigate('/announcements')} icon={<MDBIcon fas icon="bullhorn" />} label='Announcements'>
-                                <MenuItem onClick={() => navigate('/teachers-post')} icon={<ViewListIcon />}> My Posts </MenuItem>
-                                <MenuItem onClick={() => navigate('/post-announcement')} icon={<CampaignIcon />}>Post</MenuItem>
+                                {getUser().role === 'teacher' && (
+                                    <>
+                                        <MenuItem onClick={() => navigate('/teachers-post')} icon={<ViewListIcon />}> My Posts </MenuItem>
+                                        <MenuItem onClick={() => navigate('/post-announcement')} icon={<CampaignIcon />}>Post</MenuItem>
+                                    </>
+                                )}
                                 <MenuItem onClick={() => navigate('/post-emergency')} icon={<ReportProblemIcon />}> Emergency </MenuItem>
                             </SubMenu>
                             <MenuItem onClick={() => navigate('/collab')} icon={<MDBIcon far icon="comments" />}> Colab </MenuItem>

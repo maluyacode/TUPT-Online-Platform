@@ -56,18 +56,18 @@ export default function Chat() {
         if (selectedChat) {
             socket.on('recieved-message', (message) => {
                 dispatch(accessChat(selectedChatRef.current))
-                // navigator.mediaDevices.getUserMedia({ audio: true })
-                //     .then(function (stream) {
-                //         // Permission granted, you can autoplay audio
-                //         let beat = new Audio('/sounds/message-notif.mp3');
-                //         beat.play().catch(error => {
-                //             // Autoplay was prevented. Show a play button to allow the user to start the audio.
-                //             console.log('Autoplay was prevented.');
-                //         });
+                    // navigator.mediaDevices.getUserMedia({ audio: true })
+                    //     .then(function (stream) {
+                    //         // Permission granted, you can autoplay audio
+                    //         let beat = new Audio('/sounds/message-notif.mp3');
+                    //         beat.play().catch(error => {
+                    //             // Autoplay was prevented. Show a play button to allow the user to start the audio.
+                    //             console.log('Autoplay was prevented.');
+                    //         });
 
-                //         // Don't need the stream, so stop it
-                //         stream.getTracks().forEach(track => track.stop());
-                //     })
+                    //         // Don't need the stream, so stop it
+                    //         stream.getTracks().forEach(track => track.stop());
+                    //     })
                     .catch(function (error) {
                         // Permission denied, handle accordingly
                         console.log('Permission to autoplay audio was denied.');
