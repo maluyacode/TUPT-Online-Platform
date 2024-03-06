@@ -34,6 +34,7 @@ const AnnouncementDetails = () => {
 
     const getSingleAnnouncement = async () => {
         const { data } = await getAnnouncement(id);
+        console.log(data)
         if (data.success) {
             setAnnouncement(data.announcement)
         } else {
@@ -45,7 +46,6 @@ const AnnouncementDetails = () => {
         getSingleAnnouncement()
     }, [])
 
-    console.log(announcement)
 
     return (
         <>
@@ -109,11 +109,15 @@ const AnnouncementDetails = () => {
                             <MDBCardFooter background='transparent' border='primary' className='d-flex flex-row justify-content-between'>
                                 <div>
                                     <MDBIcon fas icon="calendar-alt" size='lg' />
-                                    <span className='ms-2'>Posted on April 16, 2022</span>
+                                    <span className='ms-2'>{formatDate(announcement.createdAt, announcement.updatedAt)}</span>
+                                </div>
+                                <div>
+                                    <MDBIcon fas icon="users" size='lg' />
+                                    <span className='ms-2'>{announcement.groupViewers ? announcement.groupViewers.groupName : "For Everyone"}</span>
                                 </div>
                                 <div>
                                     <MDBIcon fas icon="user" size='lg' />
-                                    <span className='ms-2'>Posted by Dave Merc Adlawan</span>
+                                    <span className='ms-2'>{announcement?.createdBy?.firstname} {announcement?.createdBy?.lastname}</span>
                                 </div>
                             </MDBCardFooter>
                         </MDBCard>
@@ -122,6 +126,16 @@ const AnnouncementDetails = () => {
             </div>
         </>
     )
+}
+
+function formatDate(createdAt, updatedAt) {
+
+    let texIndication = ''
+
+    if (createdAt !== updatedAt) {
+        texIndication = 'Reannounced'
+    }
+    return `${texIndication} ${new Date(updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
 }
 
 export default AnnouncementDetails

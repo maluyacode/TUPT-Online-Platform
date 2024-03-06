@@ -6,5 +6,10 @@ const { isAuthenticated } = require('../middlewares/Auth');
 
 
 router.get('/total-users', isAuthenticated, dashboardController.totalUsers)
+router.get('/total-announcements', isAuthenticated, dashboardController.totalAnnouncements)
+router.get('/total-messages', isAuthenticated, dashboardController.totalMessages)
+router.get('/total-topics', isAuthenticated, dashboardController.totalTopics)
+
+
 
 module.exports = router

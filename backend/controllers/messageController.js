@@ -39,20 +39,19 @@ exports.notifyUser = async (req, res, next) => {
 
     try {
 
-        const users = JSON.parse(req.body.sendTo);
+        const users = req.body.sendTo;
 
-        req.body.message = `${req.body.message} n\ From: ${req.user.firstname} ${req.user.lastname}`
-
+        req.body.message = `${req.body.message} \n\nFrom: ${req.user.firstname} ${req.user.lastname}`
         for (let i in users) {
             setTimeout(async () => {
                 await sendSMS({
                     message: req.body.message,
                     phone: users[i].contact_number,
                 })
-            }, 1000)
+            }, 2000)
         }
 
-        res.json({
+        res.status(200).json({
             success: true,
             message: 'Successfully Notify'
         });

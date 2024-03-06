@@ -45,6 +45,7 @@ import Collab from './Components/Collab/Collab';
 import ToastEmmiter from './Components/Layout/ToastEmmiter';
 import Alert from './Components/Layout/Alert';
 import AnnouncementsListByGroup from './Components/Announcement/AnnouncementsListByGroup';
+import ReportIncident from './Components/Incidents/ReportIncident';
 
 function App() {
 
@@ -97,6 +98,8 @@ function App() {
           <Route path='/verification' element={<Verification />} />
 
           <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
+
+          <Route path='/report-incident' element={<ProtectedRoute> <ReportIncident /> </ProtectedRoute>} />
 
           <Route path='/tupt-chat' element={<Chat />} />
           <Route path='/announcements' element={<Announcement />} />

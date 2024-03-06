@@ -72,7 +72,7 @@ export default function TopBar() {
                                             navigate('/profile')
                                         }}
                                         >Profile</MenuItem>
-                                        <MenuItem onClick={popupState.close}>My account</MenuItem>
+                                        {/* <MenuItem onClick={popupState.close}>My account</MenuItem> */}
                                         <MenuItem onClick={() => {
                                             popupState.close()
                                             handleLogout()

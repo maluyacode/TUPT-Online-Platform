@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { chatLists as getChats, selectChat } from '../../actions/chatActions';
 import { getUser } from '../../utils/helper'
 import { socket } from '../../socket';
+import { Typography } from '@mui/material';
 export default function ChatLists() {
 
     const dispatch = useDispatch();
@@ -28,6 +29,9 @@ export default function ChatLists() {
 
     return (
         <MDBListGroup style={{ minWidth: '22rem' }} light className='pe-0'>
+            {chatLists <= 0 && (
+                <Typography className='mt-3' textAlign={'center'}>No chat available</Typography>
+            )}
             {chatLists && chatLists.map(chat => {
                 const hasNewMessage = !chat.lastMessage?.readBy.includes(getUser()._id)
                 return (
@@ -43,7 +47,7 @@ export default function ChatLists() {
                             </div>
                         </div>
                         <MDBBadge pill light color='success'>
-                            {hasNewMessage ? 'New' : ""}
+                            {hasNewMessage ? 'Unreplied' : ""}
                         </MDBBadge>
                     </MDBListGroupItem>
                 )

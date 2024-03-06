@@ -185,7 +185,7 @@ exports.getSingleAnnouncement = async (req, res, next) => {
             .populate({
                 path: 'groupViewers',
                 ref: 'group'
-            });
+            }).populate('createdBy')
 
         return res.status(200).json({
             success: true,

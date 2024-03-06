@@ -38,6 +38,7 @@ import { accessChat } from "../../actions/chatActions";
 import { getUser } from "../../utils/helper";
 import { socket } from "../../socket";
 import EmergencyMessage from "./EmergencyMessage";
+import ToastEmmiter from "../Layout/ToastEmmiter";
 
 
 export default function Chat() {
@@ -192,7 +193,12 @@ export default function Chat() {
                                         <h5 className="mb-0">Emergency Chat</h5>
                                         <ChatHeader user={kaChatko} />
                                         <Box className='d-flex gap-2 align-items-center'>
-                                            <IconButton onClick={() => setOpen(true)} size="small">
+                                            <IconButton onClick={() => {
+                                                if (!selectedChat) {
+                                                    return ToastEmmiter.info('Select your chat first')
+                                                }
+                                                setOpen(true)
+                                            }} size="small">
                                                 <AnnouncementIcon />
                                             </IconButton>
                                             {isChatSideBarOpen ?

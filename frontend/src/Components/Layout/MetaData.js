@@ -5,6 +5,7 @@ const MetaData = ({ pageTitle = '' }) => {
     return (
         <Helmet>
             <title>{pageTitle} | TUPT-Platform</title>
+            <link rel="icon" type="image/png" href='/tupt-logo.png' />
         </Helmet>
     )
 }

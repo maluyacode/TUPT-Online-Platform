@@ -49,7 +49,7 @@ const UserProfile = () => {
             email: getUser().email,
             contact_number: getUser().contact_number,
             avatar: '',
-            // role: '',
+            role: getUser().role,
             // joinedDate: '',
             birthdate: getUser().birthdate,
             facebookLink: getUser().facebookLink ? getUser().facebookLink : '',
@@ -188,7 +188,8 @@ const UserProfile = () => {
                                     <MDBRow className='mx-5'>
                                         <MDBCol md={'4'} className='mb-3'>
                                             <TextField sx={{ textTransform: 'capitalize' }} size='small' variant='filled' label='Role' fullWidth
-                                                value={getUser().role.charAt(0).toUpperCase() + getUser().role.slice(1)}
+                                                value={formik.values.role.charAt(0).toUpperCase() + formik.values.role.slice(1)}
+
                                                 InputProps={{
                                                     readOnly: true,
                                                 }}
@@ -227,16 +228,18 @@ const UserProfile = () => {
                                 </Paper>
                             </MDBCol>
                         </MDBRow>
-                        <MDBRow className='mb-2'>
-                            <MDBCol>
-                                <Paper>
-                                    <Button onClick={toggleOpen}>Connected Parents</Button>
-                                    <Button onClick={toggleOpenPending}>Pending Request</Button>
-                                    <ConnectedParents open={isOpen} loading={loading} setLoading={setLoading} />
-                                    <PendingRequest open={isOpenPending} loading={loading} setLoading={setLoading} />
-                                </Paper>
-                            </MDBCol>
-                        </MDBRow>
+                        {getUser().role === 'student' && (
+                            <MDBRow className='mb-2'>
+                                <MDBCol>
+                                    <Paper>
+                                        <Button onClick={toggleOpen}>Connected Parents</Button>
+                                        <Button onClick={toggleOpenPending}>Pending Request</Button>
+                                        <ConnectedParents open={isOpen} loading={loading} setLoading={setLoading} />
+                                        <PendingRequest open={isOpenPending} loading={loading} setLoading={setLoading} />
+                                    </Paper>
+                                </MDBCol>
+                            </MDBRow>
+                        )}
                         <MDBRow>
                             <MDBCol md={'6'} className='mb-4'>
                                 <Paper className='py-2 pb-3 px-0' sx={{ boxShadow: 1 }}>

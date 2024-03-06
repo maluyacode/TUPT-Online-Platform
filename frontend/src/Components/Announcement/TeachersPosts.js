@@ -166,7 +166,7 @@ const TeachersPosts = () => {
                                                 <GroupsIcon sx={{ marginRight: 1 }} />
                                                 <Typography className='text-body' fontSize={14}>
                                                     {announcement.isForAll ? "For All" :
-                                                        announcement.groupViewers.groupName
+                                                        announcement?.groupViewers?.groupName ? announcement?.groupViewers?.groupName : "Deleted Group"
                                                     }
                                                 </Typography>
                                             </Box>

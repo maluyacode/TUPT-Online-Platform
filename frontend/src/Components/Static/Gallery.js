@@ -10,13 +10,13 @@ export default function Gallery() {
         <MDBRow>
             <MDBCol lg={4} md={12} className='mb-4 mb-lg-0'>
                 <img
-                    src='https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp'
+                    src='/tupt-images/1.jpg'
                     className='w-100 shadow-1-strong rounded mb-4'
                     alt='Boat on Calm Water'
                 />
 
                 <img
-                    src='https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp'
+                    src='/tupt-images/2.jpg'
                     className='w-100 shadow-1-strong rounded mb-4'
                     alt='Wintry Mountain Landscape'
                 />
@@ -24,13 +24,13 @@ export default function Gallery() {
 
             <MDBCol lg={4} className='mb-4 mb-lg-0'>
                 <img
-                    src='https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp'
+                    src='/tupt-images/3.jpg'
                     className='w-100 shadow-1-strong rounded mb-4'
                     alt='Mountains in the Clouds'
                 />
 
                 <img
-                    src='https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp'
+                    src='/tupt-images/4.jpg'
                     className='w-100 shadow-1-strong rounded mb-4'
                     alt='Boat on Calm Water'
                 />
@@ -38,13 +38,13 @@ export default function Gallery() {
 
             <MDBCol lg={4} className='mb-4 mb-lg-0'>
                 <img
-                    src='https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp'
+                    src='/tupt-images/5.jpg'
                     className='w-100 shadow-1-strong rounded mb-4'
                     alt='Waves at Sea'
                 />
 
                 <img
-                    src='https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp'
+                    src='/tupt-images/6.jpg'
                     className='w-100 shadow-1-strong rounded mb-4'
                     alt='Yosemite National Park'
                 />

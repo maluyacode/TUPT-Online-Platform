@@ -9,6 +9,7 @@ import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import ViewListIcon from '@mui/icons-material/ViewList';
 import { getUser } from '../../utils/helper';
 import AdminSideNav from './Admin/AdminSideNav';
+import FlagIcon from '@mui/icons-material/Flag';
 
 const SideNav = () => {
     const navigate = useNavigate();
@@ -46,9 +47,12 @@ const SideNav = () => {
                                         <MenuItem onClick={() => navigate('/post-announcement')} icon={<CampaignIcon />}>Post</MenuItem>
                                     </>
                                 )}
-                                <MenuItem onClick={() => navigate('/post-emergency')} icon={<ReportProblemIcon />}> Emergency </MenuItem>
+                                {/* <MenuItem onClick={() => navigate('/post-emergency')} icon={<ReportProblemIcon />}> Emergency </MenuItem> */}
                             </SubMenu>
                             <MenuItem onClick={() => navigate('/collab')} icon={<MDBIcon far icon="comments" />}> EM Collaboration </MenuItem>
+
+                            <MenuItem onClick={() => navigate('/report-incident')} icon={<FlagIcon />}> Report Case </MenuItem>
+
                             <MenuItem icon={<MDBIcon fas icon="info-circle" />}> How to use this App? </MenuItem>
                             {/* <SubMenu label="Charts">
                         <MenuItem> Chats </MenuItem>
