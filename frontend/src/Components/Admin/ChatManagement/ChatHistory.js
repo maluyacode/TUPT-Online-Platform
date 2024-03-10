@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MDBCol, MDBContainer, MDBIcon, MDBRow } from 'mdb-react-ui-kit'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -16,6 +16,8 @@ import Filter from 'bad-words';
 import Swal from 'sweetalert2';
 import { hideMessageApi } from '../../../api/messagesApi';
 
+import { socket } from '../../../socket'
+
 const ChatHistory = () => {
 
     const filter = new Filter({ list: filipinoBarwords.array });
@@ -29,6 +31,8 @@ const ChatHistory = () => {
     const [chat, setChat] = useState({});
     const [messages, setMessages] = useState([]);
     const [selectedMessage, setSelectedMessage] = useState('');
+
+    const scrollableContainerRef = useRef(null);
 
     const getConversation = async () => {
         setLoading(true)
@@ -83,6 +87,27 @@ const ChatHistory = () => {
         getConversation()
     }, [])
 
+    useEffect(() => {
+        if (scrollableContainerRef.current) {
+            // Scroll to the bottom when messages change
+            scrollableContainerRef.current.scrollTop = scrollableContainerRef.current.scrollHeight;
+        }
+    }, [messages]);
+
+    useEffect(() => {
+
+        socket.on('push-to-admin', (data) => {
+            getConversation();
+        })
+
+        return () => {
+            socket.off('push-to-admin');
+            // socket.off('show-hidden-message');
+        };
+
+    }, [socket])
+
+
     return (
         <>
             <Menu
@@ -125,7 +150,7 @@ const ChatHistory = () => {
                             ))}
                         </MDBRow>
                         <Divider sx={{ my: 2, borderBottom: 2 }} />
-                        <Box sx={{ overflowY: 'auto', overflowX: 'hidden', height: '80%' }}>
+                        <Box ref={scrollableContainerRef} sx={{ overflowY: 'auto', overflowX: 'hidden', height: '80%' }}>
                             {messages?.map(message => (
                                 <>
                                     <MDBRow className='mb-1'>

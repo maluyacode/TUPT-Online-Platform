@@ -28,7 +28,9 @@ const chatSchema = new mongoose.Schema({
     deletedAt: {
         type: Date,
         default: null,
-    }
+    },
+    messages: Array,
+    flagCount: Number,
 }, { timestamps: true })
 
 module.exports = mongoose.model('chat', chatSchema)

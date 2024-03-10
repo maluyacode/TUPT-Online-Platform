@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
         console.log(user)
 
         socket.emit('recieved-message', recipient);
-
+        socket.broadcast.emit('push-to-admin', 'admin');
         if (user) {
             user.emit('recieved-message', recipient);
         }

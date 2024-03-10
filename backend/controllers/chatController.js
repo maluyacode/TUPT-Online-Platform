@@ -2,6 +2,8 @@ const Chat = require('../models/ChatModel');
 const User = require('../models/UserModel')
 const Message = require('../models/MessageModel');
 // const { isNull } = require('util');
+const Filter = require('bad-words')
+const filipinoBarwords = require('filipino-badwords-list');
 
 exports.accessPrivateChat = async (req, res) => {
 
@@ -81,6 +83,8 @@ exports.geAllChats = async (req, res, next) => {
 
     try {
 
+        const filter = new Filter({ list: filipinoBarwords.array });
+
         let chats = await Chat.find({
             lastMessage: {
                 $exists: true,
@@ -98,11 +102,31 @@ exports.geAllChats = async (req, res, next) => {
             }
         });
 
+        const messages = await Message.find();
+
         chats = chats.filter(chat => chat.lastMessage !== null && chat.participants.length >= 2);
+
+        chats = chats.map(chat => {
+            const resChat = chat;
+            let flagCount = 0;
+            const chatMessage = messages.filter(message => {
+                if (message.chat.toString() === chat._id.toString()) {
+                    if (message.content !== filter.clean(message.content) && message.deletedAt === null) {
+                        flagCount++;
+                    }
+                    return message
+                }
+            })
+            resChat.messages = chatMessage
+            resChat.flagCount = flagCount
+            return chat;
+        })
+
+        chats.sort((a, b) => b.flagCount - a.flagCount);
 
         res.status(200).json({
             success: true,
-            chats: chats,
+            chats: chats
         })
 
     } catch (error) {

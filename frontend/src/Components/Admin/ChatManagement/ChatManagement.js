@@ -10,7 +10,7 @@ import ToastEmmiter from '../../Layout/ToastEmmiter'
 import { useNavigate } from 'react-router-dom';
 
 import { fetchAllChats } from '../../../api/chatsApi'
-import { Box, Button, IconButton, Paper, TextField, Tooltip, Typography } from '@mui/material'
+import { Badge, Box, Button, IconButton, Paper, TextField, Tooltip, Typography } from '@mui/material'
 import { profileHead } from '../../../utils/avatar'
 
 const placement = [
@@ -78,57 +78,68 @@ const ChatManagement = () => {
                         <MDBRow className='mt-3 py-2' style={{ height: '90%', overflowY: 'auto' }}>
                             {filteredChats?.map(chat => (
                                 <MDBCol lg={3} md={4} sm={6} className='mb-3'>
-                                    <Paper sx={{ p: 2, }}>
-                                        <Box className='d-flex gap-2 align-items-center py-2 overflow-x-scroll'>
-                                            {chat?.participants?.map((user, i) => (
-                                                <>
-                                                    <Tooltip key={'parent' + user._id} open={openToolTip} title={`${user.firstname} ${user.lastname}`} placement={placement[i]}>
-                                                        <div>
-                                                        </div>
+                                    <Badge badgeContent={
+                                        <>
+                                            {chat.flagCount > 0 && (
+                                                <MDBIcon fas icon="flag" size='xl' color='danger' />
+                                            )}
+                                        </>
+                                    } sx={{ width: '100%', }} anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                    }}>
+                                        <Paper sx={{ p: 2, width: '100%' }}>
+                                            <Box className='d-flex gap-2 align-items-center py-2 overflow-x-scroll'>
+                                                {chat?.participants?.map((user, i) => (
+                                                    <>
+                                                        <Tooltip key={'parent' + user._id} open={openToolTip} title={`${user.firstname} ${user.lastname}`} placement={placement[i]}>
+                                                            <div>
+                                                            </div>
+                                                        </Tooltip>
+                                                        <Tooltip key={'child' + user._id} title={`${user.firstname} ${user.lastname}`} placement='top'>
+                                                            {profileHead(user, 50, 50, 20, '50%')}
+                                                        </Tooltip>
+                                                    </>
+                                                ))}
+                                            </Box>
+                                            <div className='d-flex align-content-end justify-content-between'>
+                                                <div>
+                                                    <Tooltip title='Date Started' placement='left'>
+                                                        <Box className='d-flex align-items-center gap-1 px-1 mb-2'>
+                                                            <MDBIcon far icon="calendar-alt" size='xl' />
+                                                            <Typography>{formatDate(chat.createdAt)}</Typography>
+                                                        </Box>
                                                     </Tooltip>
-                                                    <Tooltip key={'child' + user._id} title={`${user.firstname} ${user.lastname}`} placement='top'>
-                                                        {profileHead(user, 50, 50, 20, '50%')}
-                                                    </Tooltip>
-                                                </>
-                                            ))}
-                                        </Box>
-                                        <div className='d-flex align-content-end justify-content-between'>
-                                            <div>
-                                                <Tooltip title='Date Started' placement='left'>
-                                                    <Box className='d-flex align-items-center gap-1 px-1 mb-2'>
-                                                        <MDBIcon far icon="calendar-alt" size='xl' />
-                                                        <Typography>{formatDate(chat.createdAt)}</Typography>
+                                                    <Box className='d-flex align-items-center gap-1 px-1' sx={{ ml: -0.3 }}>
+                                                        {chat.lastMessage ?
+                                                            <>
+                                                                <Tooltip title='Last Message' placement='left'>
+                                                                    {/* <img width={25} height={25} style={{ borderRadius: '50%' }} src='https://i0.wp.com/sunrisedaycamp.org/wp-content/uploads/2020/10/placeholder.png?ssl=1' /> */}
+                                                                    {profileHead(chat?.lastMessage?.sender, 25, 25, 10, '50%')}
+                                                                </Tooltip>
+                                                                <Typography>{chat?.lastMessage?.content?.substring(0, 10)}...</Typography>
+                                                            </>
+                                                            :
+                                                            <Typography>No message yet</Typography>
+                                                        }
                                                     </Box>
-                                                </Tooltip>
-                                                <Box className='d-flex align-items-center gap-1 px-1' sx={{ ml: -0.3 }}>
-                                                    {chat.lastMessage ?
-                                                        <>
-                                                            <Tooltip title='Last Message' placement='left'>
-                                                                {/* <img width={25} height={25} style={{ borderRadius: '50%' }} src='https://i0.wp.com/sunrisedaycamp.org/wp-content/uploads/2020/10/placeholder.png?ssl=1' /> */}
-                                                                {profileHead(chat?.lastMessage?.sender, 25, 25, 10, '50%')}
-                                                            </Tooltip>
-                                                            <Typography>{chat?.lastMessage?.content?.substring(0, 10)}...</Typography>
-                                                        </>
-                                                        :
-                                                        <Typography>No message yet</Typography>
-                                                    }
-                                                </Box>
+                                                </div>
+                                                <div className='d-flex align-items-end'>
+                                                    <Tooltip title='View Chat History'>
+                                                        <IconButton onClick={() => navigate(`/admin/chat-history/${chat._id}`)}>
+                                                            <ManageHistoryIcon />
+                                                        </IconButton>
+                                                    </Tooltip>
+                                                </div>
                                             </div>
-                                            <div className='d-flex align-items-end'>
-                                                <Tooltip title='View Chat History'>
-                                                    <IconButton onClick={() => navigate(`/admin/chat-history/${chat._id}`)}>
-                                                        <ManageHistoryIcon />
-                                                    </IconButton>
-                                                </Tooltip>
-                                            </div>
-                                        </div>
-                                    </Paper>
+                                        </Paper>
+                                    </Badge>
                                 </MDBCol>
                             ))}
                         </MDBRow>
                     </MDBContainer>
                 </main>
-            </div>
+            </div >
         </>
     )
 }
