@@ -6,7 +6,13 @@ import { chatLists as getChats, selectChat } from '../../actions/chatActions';
 import { getUser } from '../../utils/helper'
 import { socket } from '../../socket';
 import { Typography } from '@mui/material';
+
+import filipinoBarwords from 'filipino-badwords-list';
+import Filter from 'bad-words';
+
 export default function ChatLists() {
+
+    const filter = new Filter({ list: filipinoBarwords.array });
 
     const dispatch = useDispatch();
     const { chatLists } = useSelector(state => state.chat);
@@ -43,7 +49,7 @@ export default function ChatLists() {
                             {profileHead(chat.participants)}
                             <div className='ms-3'>
                                 <p className={`mb-1 ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{`${myKaChat(chat.participants).firstname} ${myKaChat(chat.participants).lastname}`}</p>
-                                <p className={`mb-0 d-flex ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{anylastMessage(chat)}</p>
+                                <p className={`mb-0 d-flex ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{filter.clean(anylastMessage(chat))}</p>
                             </div>
                         </div>
                         <MDBBadge pill light color='success'>
@@ -83,5 +89,5 @@ const profileHead = (participants) => {
             <span style={{ lineHeight: "45px", fontSize: 18 }}>
                 {kaChatKo.firstname.charAt(0)}{kaChatKo.lastname.charAt(0)}
             </span>
-        </div >
+        </div>
 }

@@ -50,7 +50,7 @@ const IncidentLocations = () => {
                 labels: Object.keys(data),
                 datasets: [
                     {
-                        label: 'Incident Rates',
+                        label: 'Locations',
                         data: Object.values(data),
                         backgroundColor: [
                             'rgb(255, 99, 132)',

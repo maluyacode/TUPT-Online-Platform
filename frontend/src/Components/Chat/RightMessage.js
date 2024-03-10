@@ -1,8 +1,12 @@
 import React from 'react'
 import colors from '../../data/colors.json'
 import { isAuthenticated } from '../../utils/helper'
+import filipinoBarwords from 'filipino-badwords-list';
+import Filter from 'bad-words';
 
 const RightMessage = ({ message, chatInfo }) => {
+
+    const filter = new Filter({ list: filipinoBarwords.array });
 
     const authenticated = isAuthenticated();
     const { content, sender } = message
@@ -31,7 +35,7 @@ const RightMessage = ({ message, chatInfo }) => {
             <div className="d-flex flex-row justify-content-end mb-2 pt-1">
                 <div>
                     <p className="small text-center p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                        {content}
+                        {filter.clean(content)}
                     </p>
                     {/* <p className="small me-4 mb-3 rounded-3 text-muted d-flex justify-content-end">
                         00:06

@@ -1,7 +1,11 @@
 import React from 'react'
 import colors from '../../data/colors.json'
+import filipinoBarwords from 'filipino-badwords-list';
+import Filter from 'bad-words';
 
 const LeftMessage = ({ message, chatInfo }) => {
+
+    const filter = new Filter({ list: filipinoBarwords.array });
 
     const { content, sender } = message
     const { participants } = chatInfo;
@@ -33,7 +37,7 @@ const LeftMessage = ({ message, chatInfo }) => {
                         className="small p-2 ms-3 mb-1 rounded-3"
                         style={{ backgroundColor: "#f5f6f7" }}
                     >
-                        {content}
+                        {filter.clean(content)}
                     </p>
                     {/* <p className="small d-flex justify-content-start ms-4 mb-3 rounded-3 text-muted">
                         23:58

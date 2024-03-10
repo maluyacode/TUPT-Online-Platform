@@ -14,3 +14,18 @@ export const notifyApi = async (formData) => {
         return response
     }
 }
+
+export const hideMessageApi = async (id) => {
+
+    try {
+        const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/message/hide/${id}`, {}, {
+            withCredentials: true
+        });
+
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+}

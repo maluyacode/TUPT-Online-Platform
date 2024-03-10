@@ -46,6 +46,7 @@ import ToastEmmiter from './Components/Layout/ToastEmmiter';
 import Alert from './Components/Layout/Alert';
 import AnnouncementsListByGroup from './Components/Announcement/AnnouncementsListByGroup';
 import ReportIncident from './Components/Incidents/ReportIncident';
+import ChatHistory from './Components/Admin/ChatManagement/ChatHistory';
 
 function App() {
 
@@ -118,7 +119,9 @@ function App() {
           <Route path='/profile' element={<UserProfile />} />
 
           <Route path='/admin/dashboard' element={<ProtectedRoute isAdmin={true}> <Dashboard /> </ProtectedRoute>} />
+
           <Route path='/admin/chat-management' element={<ChatManagement />} />
+          <Route path='/admin/chat-history/:id' element={<ChatHistory />} />
 
           <Route path='/admin/user-management' element={<UserManagement />} />
           <Route path='/admin/create-user' element={<CreateUser />} />

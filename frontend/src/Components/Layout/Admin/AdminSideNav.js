@@ -34,7 +34,7 @@ const AdminSideNav = () => {
                     <div className='' style={{ marginLeft: -7 }}>
 
                         <MenuItem onClick={() => navigate('/admin/dashboard')} icon={<MDBIcon fas icon="dashboard" />} > Dashboard </MenuItem>
-                        {/* <MenuItem onClick={() => navigate('/admin/chat-management')} icon={<ChatIcon />} > Chat Management </MenuItem> */}
+                        <MenuItem onClick={() => navigate('/admin/chat-management')} icon={<ChatIcon />} > Chat Management </MenuItem>
                         <MenuItem onClick={() => navigate('/admin/announcement-management')} icon={<MDBIcon fas icon="bullhorn" />} > Announcement Management </MenuItem>
                         <MenuItem onClick={() => navigate('/admin/user-management')} icon={<ManageAccountsIcon />} > User Management </MenuItem>
                         {/* <MenuItem onClick={() => navigate('/admin/forum-management')} icon={<WorkspacesIcon />} > Forum Management </MenuItem> */}

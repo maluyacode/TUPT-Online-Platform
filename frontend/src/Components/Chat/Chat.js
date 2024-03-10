@@ -40,7 +40,6 @@ import { socket } from "../../socket";
 import EmergencyMessage from "./EmergencyMessage";
 import ToastEmmiter from "../Layout/ToastEmmiter";
 
-
 export default function Chat() {
 
     const dispatch = useDispatch()
@@ -173,9 +172,6 @@ export default function Chat() {
     //     console.log(containerHeight)
     //     console.log(prevHeight)
     // };
-
-
-
 
     return (
         <>
