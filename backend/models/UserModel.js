@@ -125,7 +125,11 @@ const userSchema = new mongoose.Schema({
     emailCodeExpire: Date,
     contactCodeExpire: Date,
     resetPasswordToken: String,
-    resetPasswordExpire: Date
+    resetPasswordExpire: Date,
+    deletedAt: {
+        type: Date,
+        default: null,
+    }
 }, { timestamps: true })
 
 userSchema.pre('save', async function (next) {

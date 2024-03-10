@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import colors from '../../data/colors.json'
 import { isAuthenticated } from '../../utils/helper'
 import filipinoBarwords from 'filipino-badwords-list';
 import Filter from 'bad-words';
+import { IconButton, Menu, MenuItem, Tooltip } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { hideMessageApi } from '../../api/messagesApi';
+import ToastEmmiter from '../Layout/ToastEmmiter';
+import Swal from 'sweetalert2';
+import MoreVert from '@mui/icons-material/MoreVert';
+import { accessChat } from '../../actions/chatActions';
+import { socket } from '../../socket';
 
 const RightMessage = ({ message, chatInfo }) => {
 
+    const dispatch = useDispatch()
     const filter = new Filter({ list: filipinoBarwords.array });
+    const [loading, setLoading] = useState(false)
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => { setAnchorEl(event.currentTarget) };
+    const handleClose = () => { setAnchorEl(null) }
 
+    const { selectedChat } = useSelector(state => state.chat);
     const authenticated = isAuthenticated();
     const { content, sender } = message
     const { participants } = chatInfo;
@@ -25,20 +40,87 @@ const RightMessage = ({ message, chatInfo }) => {
                     <span style={{ lineHeight: "45px", fontSize: 18 }}>
                         {participant.firstname.charAt(0)}{participant.lastname.charAt(0)}
                     </span>
-                </div >
+                </div>
         }
-        return accumulator; // Important: return the accumulator if the condition isn't met
-    }, null); // Provide an initial value for the accumulator, e.g., null
+        return accumulator;
+    }, null);
+
+    const hideMessage = async () => {
+        setLoading(true)
+        const { data } = await hideMessageApi(message._id);
+        if (data.success) {
+            setLoading(false)
+            dispatch(accessChat(selectedChat))
+
+            socket.emit('hide-message',
+                JSON.stringify({
+                    recipient: selectedChat
+                })
+            )
+
+        } else {
+            setLoading(false)
+            ToastEmmiter.error('System error, please try again later', 'top-center')
+        }
+    }
+
+    const handleHideMessage = () => {
+        console.log(message)
+        hideMessage()
+    }
 
     return (
         <>
-            <div className="d-flex flex-row justify-content-end mb-2 pt-1">
-                <div>
-                    <p className="small text-center p-2 me-3 mb-1 text-white rounded-3 bg-primary">
-                        {filter.clean(content)}
-                    </p>
-                    {/* <p className="small me-4 mb-3 rounded-3 text-muted d-flex justify-content-end">
-                        00:06
+            <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                }}
+            >
+                <MenuItem onClick={() => {
+                    handleClose()
+                    handleHideMessage()
+                }}>Hide</MenuItem>
+                {/* <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem> */}
+            </Menu>
+
+            <div className="d-flex flex-row justify-content-end align-items-start  mb-2 pt-1">
+                {!message.deletedAt && (
+                    <IconButton onClick={e => {
+                        handleClick(e)
+                    }}>
+                        <MoreVert />
+                    </IconButton>
+                )}
+                <div className='d-flex flex-column align-items-center'>
+                    {!message.deletedAt ?
+                        <Tooltip title={formatDate(message.createdAt)}>
+                            <p
+                                className="small text-center p-2 me-3 mb-2 text-white rounded-3 bg-primary"
+                                style={{ backgroundColor: "#f5f6f7" }}
+                            >
+                                {filter.clean(content)}
+                            </p>
+                        </Tooltip> :
+                        <Tooltip title={formatDate(message.createdAt)}>
+                            <p
+                                className="small p-2 ms-3 mb-2 rounded-3"
+                                style={{ borderColor: 'red', borderWidth: 1, borderStyle: 'solid' }}
+                            >
+                                This message is hidden.
+                            </p>
+                        </Tooltip>
+                    }
+                    {/* <p className="small me-4 mb-1 rounded-3 text-muted d-flex justify-content-end">
+                        {formatDate(message.createdAt)}
                     </p> */}
                 </div>
                 {/* {avatar} */}
@@ -53,6 +135,10 @@ const RightMessage = ({ message, chatInfo }) => {
             </div> */}
         </>
     )
+}
+
+function formatDate(createdAt) {
+    return `${new Date(createdAt).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit', hour: '2-digit', minute: '2-digit' })}`;
 }
 
 export default RightMessage

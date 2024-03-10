@@ -8,4 +8,6 @@ router.post('/send', isAuthenticated, messageController.sendMessage)
 
 router.post('/notify-user', isAuthenticated, messageController.notifyUser);
 
+router.put('/hide/:id', isAuthenticated, messageController.hideMessage);
+
 module.exports = router

@@ -56,33 +56,43 @@ export default function Chat() {
         selectedChatRef.current = selectedChat;
     }, [selectedChat]);
 
+    const updateMessage = (recipientId) => {
+
+        dispatch(accessChat(selectedChatRef.current))
+
+        if (recipientId === getUser()._id) {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(function (stream) {
+                    let beat = new Audio('/sounds/message-notif.mp3');
+                    beat.play().catch(error => {
+                        console.log('Autoplay was prevented.');
+                    });
+                    stream.getTracks().forEach(track => track.stop());
+                })
+                .catch(function (error) {
+                    console.log('Permission to autoplay audio was denied.');
+                });
+        }
+
+    }
+
     useEffect(() => {
 
         if (selectedChat) {
-            socket.on('recieved-message', (recipientId) => {
-                dispatch(accessChat(selectedChatRef.current))
-                console.log("reciver: " + recipientId)
-                console.log("currentLOgin: " + getUser()._id)
-                if (recipientId === getUser()._id) {
-                    navigator.mediaDevices.getUserMedia({ audio: true })
-                        .then(function (stream) {
-                            let beat = new Audio('/sounds/message-notif.mp3');
-                            beat.play().catch(error => {
-                                console.log('Autoplay was prevented.');
-                            });
-                            stream.getTracks().forEach(track => track.stop());
-                        })
-                        .catch(function (error) {
-                            console.log('Permission to autoplay audio was denied.');
-                        });
-                }
 
+            socket.on('show-hidden-message', () => {
+                dispatch(accessChat(selectedChat))
             })
+
+            socket.on('recieved-message', (recipientId) => {
+                updateMessage(recipientId);
+            })
+
             dispatch(accessChat(selectedChat))
 
             return () => {
-                // Clean up the event listener when the component unmounts or when `selectedChat` changes.
                 socket.off('recieved-message');
+                socket.off('show-hidden-message');
             };
         }
     }, [socket, selectedChat])

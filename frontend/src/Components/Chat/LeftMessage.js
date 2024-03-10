@@ -2,6 +2,7 @@ import React from 'react'
 import colors from '../../data/colors.json'
 import filipinoBarwords from 'filipino-badwords-list';
 import Filter from 'bad-words';
+import { Tooltip } from '@mui/material';
 
 const LeftMessage = ({ message, chatInfo }) => {
 
@@ -33,12 +34,24 @@ const LeftMessage = ({ message, chatInfo }) => {
             <div className="d-flex flex-row justify-content-start mb-2 pt-1">
                 {avatar}
                 <div>
-                    <p
-                        className="small p-2 ms-3 mb-1 rounded-3"
-                        style={{ backgroundColor: "#f5f6f7" }}
-                    >
-                        {filter.clean(content)}
-                    </p>
+                    {!message.deletedAt ?
+                        <Tooltip title={formatDate(message.createdAt)}>
+                            <p
+                                className="small p-2 ms-3 mb-2 rounded-3"
+                                style={{ backgroundColor: "#f5f6f7" }}
+                            >
+                                {filter.clean(content)}
+                            </p>
+                        </Tooltip> :
+                        <Tooltip title={formatDate(message.createdAt)}>
+                            <p
+                                className="small p-2 ms-3 mb-2 rounded-3"
+                                style={{ borderColor: 'red', borderWidth: 1, borderStyle: 'solid' }}
+                            >
+                                This message is hidden.
+                            </p>
+                        </Tooltip>
+                    }
                     {/* <p className="small d-flex justify-content-start ms-4 mb-3 rounded-3 text-muted">
                         23:58
                     </p> */}
@@ -56,6 +69,10 @@ const LeftMessage = ({ message, chatInfo }) => {
 
         </>
     )
+}
+
+function formatDate(createdAt) {
+    return `${new Date(createdAt).toLocaleDateString('en-US', { month: '2-digit', day: 'numeric', year: '2-digit', hour: '2-digit', minute: '2-digit' })}`;
 }
 
 export default LeftMessage

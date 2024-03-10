@@ -63,3 +63,25 @@ exports.notifyUser = async (req, res, next) => {
     }
 
 }
+
+exports.hideMessage = async (req, res, next) => {
+
+    try {
+
+        const message = await Message.findById(req.params.id);
+        message.deletedAt = new Date();
+        message.save();
+
+        res.status(200).json({
+            success: true,
+            message: 'Message successfully hidden'
+        });
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
+
+}

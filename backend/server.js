@@ -53,6 +53,16 @@ io.on('connection', (socket) => {
 
     })
 
+    socket.on('hide-message', (data) => {
+        const { recipient } = JSON.parse(data);
+
+        const user = connectedUsers.get(recipient);
+
+        if (user) {
+            user.emit('show-hidden-message', recipient);
+        }
+    })
+
     socket.on('new-announcement', (data) => {
 
         const { teacher, announcement, group } = JSON.parse(data);

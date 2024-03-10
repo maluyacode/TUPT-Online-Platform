@@ -21,6 +21,10 @@ const messageSchema = new mongoose.Schema({
             type: String
         }
     ], // Array of URLs to message attachments
+    deletedAt: {
+        type: Date,
+        default: null,
+    }
 }, { timestamps: true })
 
 module.exports = mongoose.model('Message', messageSchema)
