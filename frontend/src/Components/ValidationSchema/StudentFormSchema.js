@@ -13,7 +13,7 @@ const RegisterSchema = Yup.object().shape({
         .required(requiredMessage),
 
     lastname: Yup.string()
-        .min(2, shortTextMessage)
+        // .min(2, shortTextMessage)
         .max(50, longTextMessage)
         .required(requiredMessage),
 

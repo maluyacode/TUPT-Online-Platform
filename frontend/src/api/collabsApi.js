@@ -61,11 +61,11 @@ export const updatePostApi = async (id, values) => {
 
 }
 
-export const fetchAllPost = async (fetchStatus) => {
+export const fetchAllPost = async (fetchStatus, fetchArchived) => {
 
     try {
 
-        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/collab/get-all?fetchStatus=${fetchStatus}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/collab/get-all?fetchStatus=${fetchStatus}&fetchArchived=${fetchArchived}`, {
             withCredentials: true,
         });
 
@@ -99,6 +99,20 @@ export const deleteTopic = async (id) => {
     try {
 
         const response = await axios.delete(`${process.env.REACT_APP_API}/api/v1/collab/delete/${id}`, {
+            withCredentials: true,
+        });
+        return response
+
+    } catch ({ response }) {
+        console.log(response);
+        return response
+    }
+}
+
+export const restoreTopicApi = async (id) => {
+    try {
+
+        const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/collab/restore/${id}`, {}, {
             withCredentials: true,
         });
         return response

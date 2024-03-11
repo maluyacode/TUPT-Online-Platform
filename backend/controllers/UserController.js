@@ -45,7 +45,7 @@ exports.registerUser = async (req, res, next) => {
 }
 
 exports.regsteredByAdmin = async (req, res, next) => {
-    console.log(JSON.parse(req.body.iCareFor))
+    // console.log(JSON.parse(req.body.iCareFor))
 
     try {
 

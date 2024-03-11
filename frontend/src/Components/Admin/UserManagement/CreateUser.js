@@ -116,6 +116,8 @@ const CreateUser = () => {
         getStudents();
     }, [])
 
+    console.log(formik.errors)
+
     return (
         <>
             <Block loading={loading} />

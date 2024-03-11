@@ -81,7 +81,7 @@ const EditAnnouncement = () => {
     const getAnnouncement = async () => {
         setLoading(true)
         const { data } = await getSingleAnnouncement(id);
-        if (data.success) {     
+        if (data.success) {
 
             setLoading(false)
             setAnnouncement(data.announcement)
@@ -195,9 +195,9 @@ const EditAnnouncement = () => {
                             <MDBRow>
                                 <MDBCol sm='12' md='6'>
                                     <Box sx={{ boxShadow: 5, p: 2 }}>
-                                        <Typography variant='h6' mb={2}>Edit Announcement</Typography>
+                                        <Typography variant='h6' mb={2}>Announcement Details</Typography>
 
-                                        <TextField placeholder='Title' size='small' fullWidth
+                                        <TextField label='Title' size='small' fullWidth
                                             name='title'
                                             value={formik.values.title}
                                             onChange={formik.handleChange}
@@ -205,7 +205,7 @@ const EditAnnouncement = () => {
                                         />
                                         <ErrorMessage formik={formik} name='title' />
 
-                                        <TextField placeholder='Content' multiline rows={7} size='small' fullWidth
+                                        <TextField label='Content' multiline rows={7} size='small' fullWidth
                                             name='content'
                                             value={formik.values.content}
                                             onChange={formik.handleChange}
@@ -261,7 +261,7 @@ const EditAnnouncement = () => {
 
                                         <Box sx={{ display: 'flex', justifyContent: 'end' }}>
                                             <Button variant='contained' sx={{ mr: 2 }}>Clear</Button>
-                                            <Button variant='contained' sx={{ ms: 'auto' }} type='submit'>Announce</Button>
+                                            <Button variant='contained' sx={{ ms: 'auto' }} type='submit'>Reannounce</Button>
                                         </Box>
                                     </Box>
                                 </MDBCol>
@@ -285,7 +285,7 @@ const EditAnnouncement = () => {
                                                 }
                                                 formik.setFieldValue('groupViewers', newValue);
                                             }}
-                                            renderInput={(params) => <TextField {...params} size='small' fullWidth label="Select Group" />}
+                                            renderInput={(params) => <TextField {...params} size='small' fullWidth label="Group" />}
                                         />
 
                                         <ErrorMessage formik={formik} name='groupViewers' />

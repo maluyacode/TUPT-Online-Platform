@@ -106,7 +106,8 @@ export default function Chat() {
         if (!currentMessage) return;
     }
 
-    const sendMessage = async () => {
+    const sendMessage = async (e) => {
+        e.preventDefault();
         try {
             const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/message/send`, {
                 content: currentMessage,
@@ -156,33 +157,7 @@ export default function Chat() {
         return accumulator;
     }, null);
 
-    let prevHeight = 0;
-
-    // const onChange = e => {
-    //     const isCtrlX = e.ctrlKey && e.key === 'z';
-    //     const key = e.key;
-
-    //     if (key !== 'Backspace' && key !== 'Enter' && !isCtrlX) {
-    //         return;
-    //     }
-
-    //     const { height } = window.getComputedStyle(e.target);
-    //     const currentHeight = parseInt(height) + 20; // Add 20 for the additional offset
-    //     const containerElement = document.querySelector('#chat-container');
-    //     let containerHeight = parseInt(window.getComputedStyle(containerElement).height);
-
-    //     if (currentHeight >= prevHeight) {
-    //         containerHeight -= (currentHeight - prevHeight); // Reduce containerHeight by the difference in height
-    //     } else if (currentHeight <= prevHeight) {
-    //         containerHeight += (prevHeight - currentHeight); // Increase containerHeight by the difference in height
-    //     }
-
-    //     containerElement.style.height = `${containerHeight}px`;
-    //     prevHeight = currentHeight; // Update prevHeight for the next onChange event
-    //     console.log(containerHeight)
-    //     console.log(prevHeight)
-    // };
-
+    
     return (
         <>
             <EmergencyMessage open={open} setOpen={setOpen} chatInfo={chatInfo} />
@@ -253,17 +228,21 @@ export default function Chat() {
                                             alt="avatar 3"
                                             style={{ width: "45px", height: "100%", borderRadius: '50%', marginRight: 10 }}
                                         /> */}
-                                        <textarea
-                                            type="text"
-                                            name="message"
-                                            onChange={handleMessage}
-                                            className="form-control form-control-lg"
-                                            placeholder="Type message"
-                                            value={currentMessage}
-                                            rows={1}
-                                            style={{ border: 'none', resize: 'none' }}
-                                        ></textarea>
-                                        {/* <TextField
+                                        <form className="d-flex w-100" onSubmit={sendMessage}>
+                                            <TextField
+                                                autoFocus={true}
+                                                focused={true}
+                                                type="text"
+                                                size="small"
+                                                name="message"
+                                                onChange={handleMessage}
+                                                className="form-control form-control-lg"
+                                                placeholder="Type message"
+                                                value={currentMessage}
+                                                style={{ border: 'none', resize: 'none' }}
+                                            />
+
+                                            {/* <TextField
                                             id="outlined-multiline-flexible"
                                             placeholder="Message"
                                             multiline
@@ -276,15 +255,16 @@ export default function Chat() {
                                             value={currentMessage}
                                             fullWidth
                                         /> */}
-                                        {/* <a className="ms-1 text-muted" href="#!">
+                                            {/* <a className="ms-1 text-muted" href="#!">
                                             <MDBIcon fas icon="paperclip" />
                                         </a>
                                         <a className="ms-3 text-muted" href="#!">
                                             <MDBIcon fas icon="smile" />
                                         </a> */}
-                                        <a className="ms-3" href="#!" onClick={sendMessage}>
-                                            <MDBIcon fas icon="paper-plane" size="2x" />
-                                        </a>
+                                            <a type="submit" className="ms-3" href="#!" onClick={sendMessage}>
+                                                <MDBIcon fas icon="paper-plane" size="2x" />
+                                            </a>
+                                        </form>
                                     </MDBCardFooter>
                                 </MDBCard>
                             </MDBCol>

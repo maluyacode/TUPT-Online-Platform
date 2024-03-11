@@ -185,7 +185,7 @@ const TeacherAnnouncements = () => {
                                                                     <GroupsIcon />
                                                                     <Typography className='me-3'>
                                                                         {announcement.isForAll ? 'For everyone' :
-                                                                            announcement.groupViewers.groupName}
+                                                                            announcement?.groupViewers?.groupName}
                                                                     </Typography>
                                                                 </MDBCardText>
                                                             </MDBCardBody>

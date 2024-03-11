@@ -6,14 +6,19 @@ import ToastEmmiter from '../Layout/ToastEmmiter';
 import Block from '../Layout/Loaders/Block';
 import { colorCoding } from '../../utils/avatar';
 
+import filipinoBarwords from 'filipino-badwords-list';
+import Filter from 'bad-words';
+
 const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => {
+
+    const filter = new Filter({ list: filipinoBarwords.array });
 
     const [loading, setLoading] = useState(false);
 
     return (
         <>
             <Block loading={loading} />
-            <div style={{ height: '80vh', overflowY: 'auto' }}>
+            <div style={{ height: '80vh', overflowY: 'auto', }} className='p-3'>
 
                 {filteredTopics?.map((topic, i) => (
                     <Paper
@@ -42,18 +47,18 @@ const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => 
                             <Box className='d-flex flex-column flex-md-row gap-2 ms-1'>
                                 <Tooltip title={
                                     <Typography className='text-capitalize'>
-                                        {topic.postedBy.role}
+                                        {topic?.postedBy?.role}
                                     </Typography>
                                 } placement='right'>
                                     <Typography className='fw-bold'
-                                        color={colorCoding(topic.postedBy.role)}
-                                    >{topic.postedBy.firstname} {topic.postedBy.lastname}</Typography>
+                                        color={colorCoding(topic?.postedBy?.role)}
+                                    >{topic?.postedBy?.firstname} {topic?.postedBy?.lastname}</Typography>
                                 </Tooltip>
                                 <Typography>{computeTimeElapsed(topic.createdAt)}</Typography>
                             </Box>
-                            <Typography className='mt-2 fs-4 ms-1'>{topic.heading}</Typography>
+                            <Typography className='mt-2 fs-4 ms-1'>{filterText(topic.heading)}</Typography>
                             <Typography className='mt-2 ms-1'>
-                                {topic.body}
+                                {filterText(topic.body)}
                             </Typography>
                             <Box className='mt-3'>
                                 {topic?.category?.map((name, i) => (
@@ -66,7 +71,7 @@ const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => 
                                     <ChatBubbleOutlineIcon />
                                     <Typography sx={{ fontSize: 16, mt: -0.2 }}>{topic?.commentCount}</Typography>
                                     <Typography className='fw-bold' sx={{ fontSize: 16, mt: -0.2 }}>{topic.latestComment?.commentedBy?.firstname}: </Typography>
-                                    <Typography sx={{ fontSize: 16, mt: -0.2 }}>{topic?.latestComment?.textContent}</Typography>
+                                    <Typography sx={{ fontSize: 16, mt: -0.2 }}>{filterText(topic?.latestComment?.textContent)}</Typography>
                                 </Box>
                                 :
                                 <Box className='d-flex gap-2 mt-3 p-1 px-2 rounded-3' sx={{ backgroundColor: '#F6F5F5' }}>
@@ -101,6 +106,20 @@ function computeTimeElapsed(createdAt) {
         return hours === 1 ? `${hours}h ago` : `${hours}h ago`;
     } else {
         return minutes <= 1 ? 'Just now' : `${minutes}m ago`;
+    }
+}
+
+const filterText = (text) => {
+    try {
+        const filter = new Filter({ list: filipinoBarwords.array });
+        if (typeof text === 'string') {
+            return filter.clean(text);
+        } else {
+            return text;
+        }
+    } catch (error) {
+        console.error('Error filtering text:', error);
+        return text;
     }
 }
 

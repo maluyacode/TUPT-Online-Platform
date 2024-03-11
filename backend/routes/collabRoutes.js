@@ -22,4 +22,6 @@ router.delete('/delete/:id', isAuthenticated, collabController.deleteTopic)
 
 router.delete('/destroy/:id', isAuthenticated, collabController.destroyTopic)
 
+router.put('/restore/:id', isAuthenticated, collabController.restoreTopic)
+
 module.exports = router

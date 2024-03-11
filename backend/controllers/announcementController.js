@@ -73,15 +73,21 @@ exports.getAllAnnouncements = async (req, res, next) => {
     try {
 
         let announcementFilter = {
-            isForAll: true
+            isForAll: true,
+            $or: [
+                { deletedAt: null },
+                { deletedAt: { $exists: false } }
+            ]
         }
+
+
 
         if (req.query.today === 'true') {
             const today = new Date();
             today.setHours(0, 0, 0, 0)
-            announcementFilter.createdAt = {
-                $gte: today
-            }
+            // announcementFilter.createdAt = {
+            //     $gte: today
+            // }
             announcementFilter.updatedAt = {
                 $gte: today
             }
@@ -97,7 +103,7 @@ exports.getAllAnnouncements = async (req, res, next) => {
         }).populate({
             path: 'createdBy',
             ref: 'user'
-        }).sort({ createdAt: -1 })
+        }).sort({ updatedAt: -1 })
 
         return res.status(200).json({
             success: true,
@@ -117,7 +123,11 @@ exports.getAnnouncementForGroup = async (req, res, next) => {
     try {
 
         const announcements = await Announcement.find({
-            groupViewers: req.params.id
+            groupViewers: req.params.id,
+            $or: [
+                { deletedAt: null },
+                { deletedAt: { $exists: false } }
+            ]
         }).populate({
             path: 'groupViewers',
             ref: 'group',
@@ -151,9 +161,22 @@ exports.getAnnouncementsOfTeacher = async (req, res, next) => {
 
     try {
 
-        const announcements = await Announcement.find({
-            createdBy: req.params.id
-        }).populate({
+        let announcementFilter = {
+            createdBy: req.params.id,
+            $or: [
+                { deletedAt: null },
+                { deletedAt: { $exists: false } }
+            ]
+        }
+
+        if (req.query.fetchArchived === 'true') {
+            delete announcementFilter.$or
+            announcementFilter.deletedAt = {
+                $ne: null
+            }
+        }
+
+        const announcements = await Announcement.find(announcementFilter).populate({
             path: 'groupViewers',
             ref: 'group',
             // populate: {
@@ -182,6 +205,12 @@ exports.getSingleAnnouncement = async (req, res, next) => {
     try {
 
         const announcement = await Announcement.findById(req.params.id)
+            .where({
+                $or: [
+                    { deletedAt: null },
+                    { deletedAt: { $exists: false } }
+                ]
+            })
             .populate({
                 path: 'groupViewers',
                 ref: 'group'
@@ -254,6 +283,48 @@ exports.updateAnnouncement = async (req, res, next) => {
             success: true,
             message: 'Reannounced successfully!',
             announcement: announcement
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
+}
+
+exports.softDelete = async (req, res, next) => {
+    try {
+
+        await Announcement.updateOne(
+            { _id: req.params.id },
+            { $set: { deletedAt: new Date() }, $unset: { updatedAt: '' } }
+        );
+
+        return res.status(200).json({
+            success: true,
+            message: 'Archived successfully. You can review your archived items.'
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
+}
+
+exports.recover = async (req, res, next) => {
+    try {
+
+        await Announcement.updateOne(
+            { _id: req.params.id },
+            { $set: { deletedAt: null }, $unset: { updatedAt: '' } }
+        );
+
+        return res.status(200).json({
+            success: true,
+            message: 'Unarchived successfully'
         })
 
     } catch (err) {

@@ -45,7 +45,20 @@ const forumModel = new mongoose.Schema({
     deletedAt: {
         type: Date,
         default: null,
+    },
+    updatedAt: {
+        type: Date,
+        default: new Date(),
+    },
+    createdAt: {
+        type: Date,
+        default: new Date(),
     }
-}, { timestamps: true })
+})
+
+forumModel.pre('findOneAndUpdate', function (next) {
+    this._update.updatedAt = new Date();
+    next();
+});
 
 module.exports = mongoose.model('forum', forumModel)

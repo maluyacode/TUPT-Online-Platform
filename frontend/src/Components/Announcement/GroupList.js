@@ -126,7 +126,7 @@ const GroupList = () => {
                     <Fade {...TransitionProps} timeout={100}>
                         <Paper className='d-flex flex-column' sx={{ p: 1 }}>
                             <Button onClick={handleEdit} size='large'>
-                                <MDBIcon fas icon="edit" />
+                                <MDBIcon fas icon="eye" />
                             </Button>
                             <Button onClick={handleDelete} size='large'>
                                 <MDBIcon fas icon="trash-alt" />

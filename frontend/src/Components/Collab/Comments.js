@@ -11,8 +11,12 @@ import Block from '../Layout/Loaders/Block'
 import { deleteCommentApi, deleteCommentedFileApi, editCommentApi } from '../../api/commentsApi'
 import { getUser } from '../../utils/helper'
 
+import filipinoBarwords from 'filipino-badwords-list';
+import Filter from 'bad-words';
 
 const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName, parentRef, getTopic }) => {
+
+    const filter = new Filter({ list: filipinoBarwords.array });
 
     const [loading, setLoading] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null);
@@ -225,7 +229,7 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                         <Box onClick={() => viewRepliedComment(comment._id)} className='d-flex gap-2 align-items-center' sx={{ cursor: 'pointer' }}>
                             <ShortcutIcon />
                             <Typography fontSize={13}>{comment.repliedTo?.commentedBy.firstname} {comment.repliedTo?.commentedBy.lastname}: </Typography>
-                            <Typography fontSize={13}>{comment.repliedTo?.textContent.trim().substring(0, 10)}...</Typography>
+                            <Typography fontSize={13}>{filterText(comment.repliedTo?.textContent).trim().substring(0, 10)}...</Typography>
                         </Box>
                     )}
                     <Box id={comment._id} key={i} className='d-flex flex-row gap-2 pb-3 px-2 for-background' >
@@ -265,7 +269,7 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                                             }} />
                                     </form>
                                     :
-                                    <Typography sx={{ wordWrap: 'break-word', }}>{comment.textContent}</Typography>
+                                    <Typography sx={{ wordWrap: 'break-word', }}>{filterText(comment.textContent)}</Typography>
                                 }
                             </div>
                             {comment?.images?.map((image, i) => (
@@ -306,8 +310,7 @@ const Comments = ({ comments, open, setOpen, setReplyTo, replyTo, setReplyToName
                     </Box >
                     <Divider sx={{ borderBottom: 2, mb: 1 }} />
                 </Fragment>
-            ))
-            }
+            ))}
         </>
     )
 }
@@ -319,6 +322,22 @@ const fileType = (fileName) => {
 
 function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+
+const filterText = (text) => {
+    try {
+
+        const filter = new Filter({ list: filipinoBarwords.array });
+
+        if (typeof text === 'string') {
+            return filter.clean(text);
+        } else {
+            return text;
+        }
+    } catch (error) {
+        console.error('Error filtering text:', error);
+        return text;
+    }
 }
 
 function computeTimeElapsed(createdAt, updatedAt) {

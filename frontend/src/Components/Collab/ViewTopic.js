@@ -19,7 +19,11 @@ import EditPost from './EditPost';
 import Swal from 'sweetalert2'
 import { getUser } from '../../utils/helper';
 
+import filipinoBarwords from 'filipino-badwords-list';
+import Filter from 'bad-words';
+
 const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
+    const filter = new Filter({ list: filipinoBarwords.array });
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState();
@@ -175,12 +179,12 @@ const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
     const menuList = [
         {
             func: [handleEdit],
-            icon: <MDBIcon fas icon="edit" />,
+            icon: <MDBIcon fas icon="eye" />,
             text: 'Edit'
         },
         {
             func: [handleDelete],
-            icon: <MDBIcon fas icon="trash" />,
+            icon: <MDBIcon fas icon="archive" />,
             text: 'Delete'
         }
     ]
@@ -192,7 +196,7 @@ const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
                 <Block loading={loading} />
                 <div >
                     <Box className='d-flex align-items-center'>
-                        <Typography>{topic.heading}</Typography>
+                        <Typography>{filterText(topic.heading)}</Typography>
                         <Box ml={'auto'} className='d-flex'>
                             {getUser()._id === topic?.postedBy?._id && (
                                 <MenuListComposition menuList={menuList} buttonOpener={<MoreHorizIcon />} />
@@ -207,7 +211,7 @@ const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
 
                     <Box ref={groupBox} style={{ height: '70vh', overflowY: 'auto' }} className='px-2'>
                         <GroupsIcon sx={{ fontSize: 80 }} />
-                        <Typography fontSize={30}>{topic.heading}</Typography>
+                        <Typography fontSize={30}>{filterText(topic.heading)}</Typography>
                         <div className='my-2 mb-3'>
                             {topic?.category?.map((name, i) => (
                                 <Chip key={i} className='mx-1' label={name} />
@@ -226,7 +230,7 @@ const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
                                     <Typography className='fw-bold' color={colorCoding(topic.postedBy?.role)}>{topic.postedBy?.firstname} {topic.postedBy?.lastname}</Typography>
                                     <small style={{ fontSize: 12 }}>{computeTimeElapsed(topic.createdAt, topic.updatedAt)}</small>
                                 </div>
-                                <Typography>{topic.body}</Typography>
+                                <Typography>{filterText(topic.body)}</Typography>
                                 {topic?.images?.map((image, i) => (
                                     <Fragment key={i}>
                                         <a href={image.url} target="_blank" rel="noopener noreferrer">
@@ -365,6 +369,20 @@ function computeTimeElapsed(createdAt, updatedAt) {
         return hours === 1 ? `${textIndication} ${hours}h ago` : `${textIndication} ${hours}h ago`;
     } else {
         return minutes <= 1 ? `${textIndication} Just now` : `${textIndication} ${minutes}m ago`;
+    }
+}
+
+const filterText = (text) => {
+    try {
+        const filter = new Filter({ list: filipinoBarwords.array });
+        if (typeof text === 'string') {
+            return filter.clean(text);
+        } else {
+            return text;
+        }
+    } catch (error) {
+        console.error('Error filtering text:', error);
+        return text;
     }
 }
 export default ViewTopic

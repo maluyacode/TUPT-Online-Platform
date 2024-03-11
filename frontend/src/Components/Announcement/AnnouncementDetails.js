@@ -113,7 +113,7 @@ const AnnouncementDetails = () => {
                                 </div>
                                 <div>
                                     <MDBIcon fas icon="users" size='lg' />
-                                    <span className='ms-2'>{announcement.groupViewers ? announcement.groupViewers.groupName : "For Everyone"}</span>
+                                    <span className='ms-2'>{announcement.groupViewers ? announcement?.groupViewers?.groupName : "For Everyone"}</span>
                                 </div>
                                 <div>
                                     <MDBIcon fas icon="user" size='lg' />

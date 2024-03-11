@@ -26,4 +26,8 @@ router.get('/announcements-by-teacher/:id', isAuthenticated, announcementControl
 
 router.get('/announcements-by-group/:id', isAuthenticated, announcementController.getAnnouncementForGroup)
 
+router.put('/soft-delete/:id', isAuthenticated, announcementController.softDelete);
+
+router.put('/recover/:id', isAuthenticated, announcementController.recover);
+
 module.exports = router

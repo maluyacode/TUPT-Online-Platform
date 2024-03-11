@@ -47,6 +47,8 @@ import Alert from './Components/Layout/Alert';
 import AnnouncementsListByGroup from './Components/Announcement/AnnouncementsListByGroup';
 import ReportIncident from './Components/Incidents/ReportIncident';
 import ChatHistory from './Components/Admin/ChatManagement/ChatHistory';
+import ArchivedAnnouncements from './Components/Announcement/ArchivedAnnouncements';
+import ArchivedPosts from './Components/Collab/ArchivedPosts';
 
 function App() {
 
@@ -108,11 +110,14 @@ function App() {
           <Route path='/edit-announcement/:id' element={<EditAnnouncement />} />
           <Route path='/teachers-post' element={<TeachersPosts />} />
           <Route path='/post-emergency' element={<Emergency />} />
+          <Route path='/archived-posts' element={<ArchivedPosts />} />
           <Route path='/announcement-details/:id' element={<AnnouncementDetails />} />
           <Route path='/categorize-announcements/:teacherId' element={<AnnouncementsListByTeacher />} />
           <Route path='/group-announcements/:groupId' element={<AnnouncementsListByGroup />} />
           <Route path='/announcement/create-group' element={<CreateGroup />} />
           <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
+          <Route path='/archived-announcements' element={<ArchivedAnnouncements />} />
+
 
           <Route path='/collab' element={<Collab />} />
 

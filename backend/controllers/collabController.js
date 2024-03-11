@@ -115,13 +115,28 @@ exports.getAllTopics = async (req, res, next) => {
             deletedAt: null,
         }
 
+        const sortOption = {
+            createdAt: -1
+        }
+
+
+        if (req.query.fetchArchived === 'fetch') {
+            filterOptions.deletedAt = {
+                $ne: null,
+            }
+            delete sortOption.createdAt
+            sortOption.deletedAt = -1;
+        }
+
         if (req.query.fetchStatus !== 'all') {
             filterOptions.postedBy = req.user._id
         }
 
+        console.log(filterOptions)
+
         let topics = await Forum.find(filterOptions)
             .populate('postedBy')
-            .sort({ createdAt: -1 })
+            .sort(sortOption)
 
         const fetchTopics = []
 
@@ -141,7 +156,6 @@ exports.getAllTopics = async (req, res, next) => {
             }
         }
 
-        console.log(fetchTopics);
 
         return res.status(200).json({
             success: true,
@@ -203,6 +217,28 @@ exports.deleteTopic = async (req, res, next) => {
         return res.status(200).json({
             success: true,
             message: 'Topic deleted successfully'
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({
+            success: false
+        })
+    }
+
+}
+
+exports.restoreTopic = async (req, res, next) => {
+
+    try {
+
+        const topic = await Forum.findById(req.params.id);
+        topic.deletedAt = null
+        topic.save();
+
+        return res.status(200).json({
+            success: true,
+            message: 'Topic restore successfully'
         })
 
     } catch (err) {

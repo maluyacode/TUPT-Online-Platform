@@ -72,7 +72,16 @@ export default function TopBar() {
                                             navigate('/profile')
                                         }}
                                         >Profile</MenuItem>
-                                        {/* <MenuItem onClick={popupState.close}>My account</MenuItem> */}
+                                        {getUser().role === 'teacher' && (
+                                            <MenuItem onClick={() => {
+                                                popupState.close()
+                                                navigate('/archived-announcements')
+                                            }} >Archived Announcements</MenuItem>
+                                        )}
+                                        <MenuItem onClick={() => {
+                                            navigate('/archived-posts')
+                                            popupState.close()
+                                        }}>Archived Posts</MenuItem>
                                         <MenuItem onClick={() => {
                                             popupState.close()
                                             handleLogout()

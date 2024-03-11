@@ -32,10 +32,10 @@ export const getAnnouncement = async (id) => {
 
 }
 
-export const getMyAnnouncements = async (id) => {
+export const getMyAnnouncements = async (id, fetchArchived) => {
 
     try {
-        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/get-my-announcement/${id}`, {
+        const response = await axios.get(`${process.env.REACT_APP_API}/api/v1/announcement/get-my-announcement/${id}?fetchArchived=${fetchArchived}`, {
             withCredentials: true
         });
         return response;
@@ -118,4 +118,33 @@ export const fetchGroupPosts = async (id) => {
         return response
     }
 
+}
+
+export const archiveAnnouncementApi = async (id) => {
+    try {
+        const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/announcement/soft-delete/${id}`, {}, {
+            withCredentials: true
+        });
+
+        return response;
+
+    } catch ({ response }) {
+        console.log(response)
+        return response
+    }
+}
+
+export const unArchiveAnnouncementApi = async (id) => {
+    try {
+
+        const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/announcement/recover/${id}`, {}, {
+            withCredentials: true
+        });
+
+        return response;
+
+    } catch ({ response }) {
+        console.log(response)
+        return response
+    }
 }
