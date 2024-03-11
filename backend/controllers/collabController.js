@@ -126,6 +126,11 @@ exports.getAllTopics = async (req, res, next) => {
             }
             delete sortOption.createdAt
             sortOption.deletedAt = -1;
+            filterOptions.forceDeletedAt = null
+        }
+
+        if (req.query.fetchArchived === 'none') {
+            delete filterOptions.deletedAt
         }
 
         if (req.query.fetchStatus !== 'all') {
@@ -254,7 +259,12 @@ exports.destroyTopic = async (req, res, next) => {
 
     try {
 
-        await Forum.findByIdAndDelete(req.param.id);
+        const topic = await Forum.findById(req.params.id);
+        topic.forceDeletedAt = Date.now();
+        if (!topic.deletedAt) {
+            topic.deletedAt = Date.now();
+        }
+        topic.save();
 
         return res.status(200).json({
             success: true,

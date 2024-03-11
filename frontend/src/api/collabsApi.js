@@ -115,6 +115,7 @@ export const restoreTopicApi = async (id) => {
         const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/collab/restore/${id}`, {}, {
             withCredentials: true,
         });
+
         return response
 
     } catch ({ response }) {
@@ -129,6 +130,7 @@ export const destroyTopic = async (id) => {
         const response = await axios.delete(`${process.env.REACT_APP_API}/api/v1/collab/destroy/${id}`, {
             withCredentials: true,
         });
+        
         return response
 
     } catch ({ response }) {
