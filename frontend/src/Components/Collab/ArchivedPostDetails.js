@@ -17,23 +17,17 @@ import TopBar from '../Layout/TopBar';
 import { MDBContainer } from 'mdb-react-ui-kit';
 import { fetchSinglePost } from '../../api/collabsApi';
 import ToastEmmiter from '../Layout/ToastEmmiter';
-import { Group, MoreHoriz, Shortcut } from '@mui/icons-material';
+import { Delete, Group, MoreHoriz, Shortcut } from '@mui/icons-material';
 import { Badge, Box, Chip, Divider } from '@mui/material';
 import { colorCoding, profileHead } from '../../utils/avatar';
 import FileDisplay from '../Generic/FileDisplay';
 
 import filipinoBarwords from 'filipino-badwords-list';
 import Filter from 'bad-words';
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
-
+import Swal from 'sweetalert2';
+import { deleteCommentApi } from '../../api/commentsApi';
+import { getUser } from '../../utils/helper';
+import { filterText } from '../../utils/filterText';
 
 const ArchivedPostDetails = ({ setOpen, open, selectedPostId }) => {
 
@@ -81,6 +75,28 @@ const ArchivedPostDetails = ({ setOpen, open, selectedPostId }) => {
         }
     }, [selectedPostId])
 
+    const deleteComment = async (id) => {
+        setLoading(true)
+        const { data } = await deleteCommentApi(id);
+        if (data.success) {
+            ToastEmmiter.success(data.message)
+            setLoading(false)
+            getTopic()
+        } else {
+            ToastEmmiter.warning('System error, please try again later', 'top-center');
+            setLoading(false)
+        }
+    }
+
+    const handleDelete = (id) => {
+        if (window.confirm("Once you proceed with this action, it cannot be undone! By proceeding, this content will no longer be visible to users.")) {
+            deleteComment(id)
+        } else {
+
+        }
+
+    }
+
     return (
         <React.Fragment>
             <Block loading={loading} />
@@ -127,10 +143,14 @@ const ArchivedPostDetails = ({ setOpen, open, selectedPostId }) => {
 
                         <div className='mt-1'>
                             <div className='d-flex gap-2'>
-                                <Typography className='fw-bold' color={colorCoding(topic.postedBy?.role)}>{topic.postedBy?.firstname} {topic.postedBy?.lastname}</Typography>
+                                <Typography className='fw-bold' color={colorCoding(topic.postedBy?.role)}>{topic.postedBy?.firstname || "User not available"} {topic.postedBy?.lastname}</Typography>
                                 <small style={{ fontSize: 12 }}>{computeTimeElapsed(topic.createdAt, topic.updatedAt)}</small>
                             </div>
-                            <Typography>{filterText(topic.body)}</Typography>
+                            <pre>
+                                <Typography>
+                                    {filterText(topic.body)}
+                                </Typography>
+                            </pre>
                             {topic?.images?.map((image, i) => (
                                 <Fragment key={i}>
                                     <a href={image.url} target="_blank" rel="noopener noreferrer">
@@ -161,7 +181,7 @@ const ArchivedPostDetails = ({ setOpen, open, selectedPostId }) => {
                             {comment.repliedTo && (
                                 <Box className='d-flex gap-2 align-items-center' sx={{ cursor: 'pointer' }}>
                                     <Shortcut />
-                                    <Typography fontSize={13}>{comment.repliedTo?.commentedBy.firstname} {comment.repliedTo?.commentedBy.lastname}: </Typography>
+                                    <Typography fontSize={13}>{comment.repliedTo?.commentedBy?.firstname || "User not available"} {comment.repliedTo?.commentedBy?.lastname}: </Typography>
                                     <Typography fontSize={13}>{filterText(comment.repliedTo?.textContent).trim().substring(0, 10)}...</Typography>
                                 </Box>
                             )}
@@ -173,8 +193,21 @@ const ArchivedPostDetails = ({ setOpen, open, selectedPostId }) => {
 
                                 <div className='' style={{ width: '90%' }}>
                                     <div className='d-flex gap-2 align-items-center'>
-                                        <Typography className='fw-bold' color={colorCoding(comment.commentedBy?.role)}>{comment.commentedBy?.firstname} {comment.commentedBy?.lastname}</Typography>
+                                        <Typography className='fw-bold' color={colorCoding(comment.commentedBy?.role)}>{comment.commentedBy?.firstname || "User not available"} {comment.commentedBy?.lastname}</Typography>
                                         <small style={{ fontSize: 12 }}>{computeTimeElapsed(comment.createdAt, comment.updatedAt)}</small>
+                                        {getUser().role === 'admin' && (
+                                            <>
+                                                {!comment.deletedAt ?
+
+                                                    <IconButton size='small'
+                                                        onClick={() => handleDelete(comment._id)}
+                                                    >
+                                                        <Delete fontSize='small' />
+                                                    </IconButton>
+                                                    : <Typography color={'red'}><i>No longer available to user</i></Typography>
+                                                }
+                                            </>
+                                        )}
                                     </div>
                                     <div className='overflow-hidden' >
                                         <Typography sx={{ wordWrap: 'break-word', }}>{filterText(comment.textContent)}</Typography>
@@ -209,23 +242,23 @@ const ArchivedPostDetails = ({ setOpen, open, selectedPostId }) => {
                     </Button>
                 </DialogActions> */}
             </Dialog>
-        </React.Fragment>
+        </React.Fragment >
     )
 }
 
-const filterText = (text) => {
-    try {
-        const filter = new Filter({ list: filipinoBarwords.array });
-        if (typeof text === 'string') {
-            return filter.clean(text);
-        } else {
-            return text;
-        }
-    } catch (error) {
-        console.error('Error filtering text:', error);
-        return text;
-    }
-}
+// const filterText = (text) => {
+//     try {
+//         const filter = new Filter({ list: filipinoBarwords.array });
+//         if (typeof text === 'string') {
+//             return filter.clean(text);
+//         } else {
+//             return text;
+//         }
+//     } catch (error) {
+//         console.error('Error filtering text:', error);
+//         return text;
+//     }
+// }
 
 function computeTimeElapsed(createdAt, updatedAt) {
     const now = new Date();

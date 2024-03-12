@@ -51,6 +51,10 @@ const AnnouncementSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    forceDeletedAt: {
+        type: Date,
+        default: null,
+    },
     deletedAt: {
         type: Date,
         default: null,

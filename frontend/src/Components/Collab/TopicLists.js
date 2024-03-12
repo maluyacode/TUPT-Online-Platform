@@ -8,6 +8,7 @@ import { colorCoding } from '../../utils/avatar';
 
 import filipinoBarwords from 'filipino-badwords-list';
 import Filter from 'bad-words';
+import { computeTimeElapsed } from '../../utils/computeTimeElapsed';
 
 const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => {
 
@@ -54,7 +55,7 @@ const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => 
                                         color={colorCoding(topic?.postedBy?.role)}
                                     >{topic?.postedBy?.firstname} {topic?.postedBy?.lastname}</Typography>
                                 </Tooltip>
-                                <Typography>{computeTimeElapsed(topic.createdAt)}</Typography>
+                                <Typography>{computeTimeElapsed(topic.createdAt, topic.updatedAt)}</Typography>
                             </Box>
                             <Typography className='mt-2 fs-4 ms-1'>{filterText(topic.heading)}</Typography>
                             <Typography className='mt-2 ms-1'>
@@ -88,26 +89,26 @@ const TopicLists = ({ keyword, viewTopic, success, topics, filteredTopics }) => 
     )
 }
 
-function computeTimeElapsed(createdAt) {
-    const now = new Date();
-    const createdDate = new Date(createdAt);
-    const elapsedMilliseconds = now - createdDate;
+// function computeTimeElapsed(createdAt) {
+//     const now = new Date();
+//     const createdDate = new Date(createdAt);
+//     const elapsedMilliseconds = now - createdDate;
 
-    const minutes = Math.floor(elapsedMilliseconds / (1000 * 60));
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const months = Math.floor(days / 30);
+//     const minutes = Math.floor(elapsedMilliseconds / (1000 * 60));
+//     const hours = Math.floor(minutes / 60);
+//     const days = Math.floor(hours / 24);
+//     const months = Math.floor(days / 30);
 
-    if (months > 0) {
-        return months === 1 ? `${months}m ago` : `${months}mos ago`;
-    } else if (days > 0) {
-        return days === 1 ? `${days}d ago` : `${days}d ago`;
-    } else if (hours > 0) {
-        return hours === 1 ? `${hours}h ago` : `${hours}h ago`;
-    } else {
-        return minutes <= 1 ? 'Just now' : `${minutes}m ago`;
-    }
-}
+//     if (months > 0) {
+//         return months === 1 ? `${months}m ago` : `${months}mos ago`;
+//     } else if (days > 0) {
+//         return days === 1 ? `${days}d ago` : `${days}d ago`;
+//     } else if (hours > 0) {
+//         return hours === 1 ? `${hours}h ago` : `${hours}h ago`;
+//     } else {
+//         return minutes <= 1 ? 'Just now' : `${minutes}m ago`;
+//     }
+// }
 
 const filterText = (text) => {
     try {

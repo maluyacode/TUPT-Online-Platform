@@ -72,7 +72,7 @@ export default function TopBar() {
                                             navigate('/profile')
                                         }}
                                         >Profile</MenuItem>
-                                        {getUser().role === 'teacher' && (
+                                        {(getUser().role === 'teacher' || getUser().role === 'admin') && (
                                             <MenuItem onClick={() => {
                                                 popupState.close()
                                                 navigate('/archived-announcements')

@@ -77,7 +77,8 @@ exports.getAllAnnouncements = async (req, res, next) => {
             $or: [
                 { deletedAt: null },
                 { deletedAt: { $exists: false } }
-            ]
+            ],
+            forceDeletedAt: null
         }
 
 
@@ -127,7 +128,8 @@ exports.getAnnouncementForGroup = async (req, res, next) => {
             $or: [
                 { deletedAt: null },
                 { deletedAt: { $exists: false } }
-            ]
+            ],
+            forceDeletedAt: null
         }).populate({
             path: 'groupViewers',
             ref: 'group',
@@ -166,13 +168,18 @@ exports.getAnnouncementsOfTeacher = async (req, res, next) => {
             $or: [
                 { deletedAt: null },
                 { deletedAt: { $exists: false } }
-            ]
+            ],
+            forceDeletedAt: null
         }
 
         if (req.query.fetchArchived === 'true') {
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
+            console.log(sevenDaysAgo)
             delete announcementFilter.$or
             announcementFilter.deletedAt = {
-                $ne: null
+                $ne: null,
+                $gte: sevenDaysAgo,
             }
         }
 
@@ -204,13 +211,20 @@ exports.getAnnouncementsOfTeacher = async (req, res, next) => {
 exports.getSingleAnnouncement = async (req, res, next) => {
     try {
 
+        const filterOption = {
+            $or: [
+                { deletedAt: null },
+                { deletedAt: { $exists: false } }
+            ],
+            forceDeletedAt: null
+        }
+
+        if (req.user.role === 'admin') {
+            delete filterOption.forceDeletedAt
+        }
+
         const announcement = await Announcement.findById(req.params.id)
-            .where({
-                $or: [
-                    { deletedAt: null },
-                    { deletedAt: { $exists: false } }
-                ]
-            })
+            .where()
             .populate({
                 path: 'groupViewers',
                 ref: 'group'
@@ -296,10 +310,9 @@ exports.updateAnnouncement = async (req, res, next) => {
 exports.softDelete = async (req, res, next) => {
     try {
 
-        await Announcement.updateOne(
-            { _id: req.params.id },
-            { $set: { deletedAt: new Date() }, $unset: { updatedAt: '' } }
-        );
+        const announcement = await Announcement.findById(req.params.id);
+        announcement.deletedAt = Date.now();
+        announcement.save();
 
         return res.status(200).json({
             success: true,
@@ -317,10 +330,9 @@ exports.softDelete = async (req, res, next) => {
 exports.recover = async (req, res, next) => {
     try {
 
-        await Announcement.updateOne(
-            { _id: req.params.id },
-            { $set: { deletedAt: null }, $unset: { updatedAt: '' } }
-        );
+        const announcement = await Announcement.findById(req.params.id);
+        announcement.deletedAt = null;
+        announcement.save();
 
         return res.status(200).json({
             success: true,
@@ -338,7 +350,13 @@ exports.recover = async (req, res, next) => {
 exports.deleteAnnouncement = async (req, res, next) => {
     try {
 
-        await Announcement.findByIdAndDelete(req.params.id);
+        const announcement = await Announcement.findById(req.params.id);
+
+        announcement.forceDeletedAt = Date.now();
+        if (!announcement.deletedAt) {
+            announcement.deletedAt = Date.now();
+        }
+        announcement.save();
 
         return res.status(200).json({
             success: true,

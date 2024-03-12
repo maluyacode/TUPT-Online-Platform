@@ -10,6 +10,7 @@ import Block from '../../Layout/Loaders/Block'
 import { getMuiTheme, getTableColumns, getTableData, getTableOptions } from './forumTableConfig'
 import { ThemeProvider } from '@mui/material'
 import MUIDataTable from 'mui-datatables'
+import ArchivedPostDetails from '../../Collab/ArchivedPostDetails'
 
 const ForumManagment = () => {
     const [loading, setLoading] = useState(false);
@@ -19,8 +20,12 @@ const ForumManagment = () => {
     const [columns, setColumns] = useState([]);
     const [options, setOptions] = useState({});
 
-    const handleEdit = (id) => {
-        navigate(`/admin/edit-announcement/${id}`)
+    const [selectedPostId, setSelectedPostId] = useState(null);
+    const [open, setOpen] = useState(false);
+
+    const handleView = (id) => {
+        setSelectedPostId(id)
+        setOpen(true)
     }
 
     const forceDelete = async (id) => {
@@ -61,7 +66,7 @@ const ForumManagment = () => {
 
             setLoading(false)
             setData(getTableData(data.topics))
-            setColumns(getTableColumns(handleEdit, handleDelete))
+            setColumns(getTableColumns(handleView, handleDelete))
             setOptions(getTableOptions(navigate));
 
         } else {
@@ -77,6 +82,7 @@ const ForumManagment = () => {
 
     return (
         <>
+            <ArchivedPostDetails setOpen={setOpen} open={open} selectedPostId={selectedPostId} />
             <Block loading={loading} />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />

@@ -49,7 +49,8 @@ const ArchivedPosts = () => {
     const handleClickUnArchive = (id) => {
         setSelectedId(id)
         setOpenSnackBar(true);
-        removeTopicInitially(id)
+        // removeTopicInitially(id)
+        unArchiveTopic(id);
     };
 
     const removeTopicInitially = (id) => {
@@ -71,21 +72,21 @@ const ArchivedPosts = () => {
     }
 
     const handleCloseSnackBar = (event, reason) => {
-        console.log("Kahit di ko ginagalaw")
+        // console.log("Kahit di ko ginagalaw")
 
-        if (!selectedId) {
-            return;
-        }
+        // if (!selectedId) {
+        //     return;
+        // }
 
         if (reason === 'clickaway') {
             return;
         }
 
-        if (event?.target?.getAttribute('reason') === 'undo') {
-            getTopics()
-        } else {
-            unArchiveTopic(selectedId);
-        }
+        // if (event?.target?.getAttribute('reason') === 'undo') {
+        //     getTopics()
+        // } else {
+        //     unArchiveTopic(selectedId);
+        // }
 
         setOpenSnackBar(false);
     };
@@ -99,9 +100,6 @@ const ArchivedPosts = () => {
                 message="Topic unarchived"
                 action={
                     <>
-                        <Button reason={'undo'} color="secondary" size="small" onClick={handleCloseSnackBar}>
-                            UNDO
-                        </Button>
                         <IconButton
                             size="small"
                             aria-label="close"
@@ -130,25 +128,32 @@ const ArchivedPosts = () => {
                             </MDBCol>
 
                             <Box sx={{ width: '100%' }}>
-                                <Collapse in={open}>
-                                    <Alert
-                                        action={
-                                            <IconButton
-                                                aria-label="close"
-                                                color="inherit"
-                                                size="small"
-                                                onClick={() => {
-                                                    setOpen(false);
-                                                }}
+                                {topics?.length > 0 && (
+                                    <Box sx={{ width: '100%' }}>
+                                        <Collapse in={open}>
+                                            <Alert
+                                                action={
+                                                    <IconButton
+                                                        aria-label="close"
+                                                        color="inherit"
+                                                        size="small"
+                                                        onClick={() => {
+                                                            setOpen(false);
+                                                        }}
+                                                    >
+                                                        <Close fontSize="inherit" />
+                                                    </IconButton>
+                                                }
+                                                sx={{ mb: 2 }}
                                             >
-                                                <Close fontSize="inherit" />
-                                            </IconButton>
-                                        }
-                                        sx={{ mb: 2 }}
-                                    >
-                                        Please note that archived items will be lost after 7 days. Ensure that you restore any important content before the expiration date to avoid permanent loss.
-                                    </Alert>
-                                </Collapse>
+                                                Please note that archived items will be lost after 7 days. Ensure that you restore any important content before the expiration date to avoid permanent loss.
+                                            </Alert>
+                                        </Collapse>
+                                    </Box>
+                                )}
+                                {topics?.length <= 0 && (
+                                    <Typography className='mt-5' textAlign={'center'}>Nothing to show</Typography>
+                                )}
                             </Box>
 
                         </MDBRow>
@@ -175,7 +180,7 @@ const ArchivedPosts = () => {
 
                                         <Box sx={{ flex: 1 }}>
                                             <Box className='d-flex flex-row flex-nowrap justify-content-between flex-md-row gap-2 ms-1'>
-                                                <Typography>6 Days left</Typography>
+                                                <Typography>{daysLeftUntilNotAvailable(new Date(topic.deletedAt))} days left</Typography>
                                                 <Box>
                                                     <Tooltip title='View Details'>
                                                         <IconButton onClick={() => {
@@ -229,6 +234,19 @@ const ArchivedPosts = () => {
             </div >
         </>
     )
+}
+
+function daysLeftUntilNotAvailable(deletedAtDate) {
+    // Get the current date
+    const currentDate = new Date();
+
+    // Calculate the difference in milliseconds between the deletedAt date and the current date
+    const differenceInMilliseconds = new Date(currentDate.setHours(0, 0, 0, 0)).getTime() - new Date(deletedAtDate.setHours(0, 0, 0, 0)).getTime()
+
+    // Convert milliseconds to days
+    const daysLeft = Math.ceil(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+    console.log(daysLeft)
+    return 7 - daysLeft;
 }
 
 function computeTimeElapsed(createdAt) {

@@ -17,6 +17,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import { Box, Chip, TextField, Typography } from '@mui/material';
 import { getAnnouncements } from '../../../api/announcementsAPI';
+import AnnouncementDetails from './AnnouncementDetails';
 
 const AnnouncementManagement = () => {
     const [loading, setLoading] = useState(false);
@@ -27,8 +28,12 @@ const AnnouncementManagement = () => {
     const [options, setOptions] = useState({});
     const [selectedUsers, setSelectedUsers] = useState([]);
 
-    const handleEdit = (id) => {
-        navigate(`/admin/edit-announcement/${id}`)
+    const [open, setOpen] = useState(false);
+    const [announcementId, seAnnouncementId] = useState('');
+
+    const handleView = (id) => {
+        seAnnouncementId(id);
+        setOpen(true)
     }
 
     const deleteAnnouncement = async (id) => {
@@ -52,13 +57,13 @@ const AnnouncementManagement = () => {
 
     const handleDelete = (id) => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            // title: "Are you sure?",
+            text: "Once you proceed with this action, it cannot be undone! By proceeding, this content will no longer be visible to users.",
             // icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Confirmed"
         }).then((result) => {
             if (result.isConfirmed) {
                 deleteAnnouncement(id)
@@ -73,7 +78,7 @@ const AnnouncementManagement = () => {
             console.log(data.announcements)
             setLoading(false)
             setAnnouncements(getTableData(data.announcements))
-            setColumns(getTableColumns(handleEdit, handleDelete))
+            setColumns(getTableColumns(handleView, handleDelete))
             setOptions(getTableOptions(navigate));
 
         } else {
@@ -88,6 +93,7 @@ const AnnouncementManagement = () => {
 
     return (
         <>
+            <AnnouncementDetails key={announcementId} setOpen={setOpen} open={open} announcementId={announcementId} />
             <Block loading={loading} />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />

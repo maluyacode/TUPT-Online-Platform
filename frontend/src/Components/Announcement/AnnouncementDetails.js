@@ -67,8 +67,8 @@ const AnnouncementDetails = () => {
                                     <MDBCarousel dark
                                         showControls={announcement.images?.length > 1}
                                         className='mb-3' interval={2000}>
-                                        {announcement.images?.map(image => (
-                                            <MDBCarouselItem itemId={1} className='d-flex flex-row justify-content-center mb-3'>
+                                        {announcement.images?.map((image, i) => (
+                                            <MDBCarouselItem itemId={i + 1} className='d-flex flex-row justify-content-center mb-3'>
                                                 <img src={image.url} height={250} className='d-block w-75' alt='...' />
                                             </MDBCarouselItem>
                                         ))}
@@ -78,10 +78,11 @@ const AnnouncementDetails = () => {
                                 {/* <div className='d-flex flex-row justify-content-center mb-3'>
                                     <MDBCardImage width={250} src='https://via.placeholder.com/150' />
                                 </div> */}
-
-                                <MDBCardText className='text-center'>
-                                    {announcement.content}
-                                </MDBCardText>
+                                <pre>
+                                    <MDBCardText className='text-center'>
+                                        {announcement.content}
+                                    </MDBCardText>
+                                </pre>
                                 {announcement.attachments?.length > 0 ?
                                     <>
                                         <Typography className='fw-bold my-2 mt-4'>Attachments</Typography>

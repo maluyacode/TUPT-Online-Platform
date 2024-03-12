@@ -16,6 +16,8 @@ import { getUser } from '../../utils/helper';
 import ToastEmmiter from '../Layout/ToastEmmiter';
 import Block from '../Layout/Loaders/Block';
 import axios from 'axios';
+import { computeTimeElapsed } from '../../utils/computeTimeElapsed';
+import { daysLeft } from '../../utils/daysLeft';
 
 const ArchivedAnnouncements = () => {
 
@@ -109,14 +111,7 @@ const ArchivedAnnouncements = () => {
                                     <Paper className='p-3' >
                                         <Box className='d-flex justify-content-between'>
                                             <Typography className='text-body mb-2' fontSize={12}>
-                                                Posted on {
-                                                    new Date(announcement.createdAt)
-                                                        .toLocaleDateString('en-PH', {
-                                                            year: 'numeric',
-                                                            month: 'long',
-                                                            day: '2-digit'
-                                                        })
-                                                }
+                                                {computeTimeElapsed(announcement.createdAt, announcement.updatedAt)}
                                             </Typography>
                                             <Box>
                                                 <IconButton onClick={() => handleArchive(announcement._id)} size='small'>
@@ -145,10 +140,13 @@ const ArchivedAnnouncements = () => {
                                             </Box>
                                             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                                 <GroupsIcon sx={{ marginRight: 1 }} />
-                                                <Typography className='text-body' fontSize={14}>
+                                                <Typography className='text-body' fontSize={14} sx={{ mr: 2 }}>
                                                     {announcement.isForAll ? "For All" :
                                                         announcement?.groupViewers?.groupName ? announcement?.groupViewers?.groupName : "Deleted Group"
                                                     }
+                                                </Typography>
+                                                <Typography>
+                                                    <b>{daysLeft(new Date(announcement.deletedAt))}</b> days left
                                                 </Typography>
                                             </Box>
                                         </Box>

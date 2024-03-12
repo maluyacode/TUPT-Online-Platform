@@ -21,6 +21,7 @@ import { getUser } from '../../utils/helper';
 
 import filipinoBarwords from 'filipino-badwords-list';
 import Filter from 'bad-words';
+import { computeTimeElapsed } from '../../utils/computeTimeElapsed';
 
 const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
     const filter = new Filter({ list: filipinoBarwords.array });
@@ -163,12 +164,12 @@ const ViewTopic = ({ setOpenRight, selectedPost, getAllTopics }) => {
     const handleDelete = () => {
         Swal.fire({
             // title: "Are you sure?",
-            text: "Delete this topic?",
+            text: "Would you like to archive this topic?",
             // icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Archive"
         }).then((result) => {
             if (result.isConfirmed) {
                 deleteMyTopic(selectedPost)
@@ -345,32 +346,32 @@ function formatDate(date) {
     return new Date(date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 }
 
-function computeTimeElapsed(createdAt, updatedAt) {
-    const now = new Date();
-    const createdDate = new Date(updatedAt);
-    const elapsedMilliseconds = now - createdDate;
+// function computeTimeElapsed(createdAt, updatedAt) {
+//     const now = new Date();
+//     const createdDate = new Date(updatedAt);
+//     const elapsedMilliseconds = now - createdDate;
 
-    const minutes = Math.floor(elapsedMilliseconds / (1000 * 60));
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const months = Math.floor(days / 30);
+//     const minutes = Math.floor(elapsedMilliseconds / (1000 * 60));
+//     const hours = Math.floor(minutes / 60);
+//     const days = Math.floor(hours / 24);
+//     const months = Math.floor(days / 30);
 
-    let textIndication = ''
+//     let textIndication = ''
 
-    if (createdAt !== updatedAt) {
-        textIndication = 'Edited';
-    }
+//     if (createdAt !== updatedAt) {
+//         textIndication = 'Edited';
+//     }
 
-    if (months > 0) {
-        return months === 1 ? `${textIndication} ${months}m ago` : `${textIndication} ${months}mos ago`;
-    } else if (days > 0) {
-        return days === 1 ? `${textIndication} ${days}d ago` : `${textIndication} ${days}d ago`;
-    } else if (hours > 0) {
-        return hours === 1 ? `${textIndication} ${hours}h ago` : `${textIndication} ${hours}h ago`;
-    } else {
-        return minutes <= 1 ? `${textIndication} Just now` : `${textIndication} ${minutes}m ago`;
-    }
-}
+//     if (months > 0) {
+//         return months === 1 ? `${textIndication} ${months}m ago` : `${textIndication} ${months}mos ago`;
+//     } else if (days > 0) {
+//         return days === 1 ? `${textIndication} ${days}d ago` : `${textIndication} ${days}d ago`;
+//     } else if (hours > 0) {
+//         return hours === 1 ? `${textIndication} ${hours}h ago` : `${textIndication} ${hours}h ago`;
+//     } else {
+//         return minutes <= 1 ? `${textIndication} Just now` : `${textIndication} ${minutes}m ago`;
+//     }
+// }
 
 const filterText = (text) => {
     try {

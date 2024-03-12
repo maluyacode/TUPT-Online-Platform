@@ -121,8 +121,12 @@ exports.getAllTopics = async (req, res, next) => {
 
 
         if (req.query.fetchArchived === 'fetch') {
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 6);
+            console.log(sevenDaysAgo)
             filterOptions.deletedAt = {
                 $ne: null,
+                $gte: sevenDaysAgo,
             }
             delete sortOption.createdAt
             sortOption.deletedAt = -1;
@@ -183,7 +187,15 @@ exports.getSingleTopic = async (req, res, next) => {
         const topic = await Forum.findById(req.params.id)
             .populate('postedBy');
 
-        const comments = await CommentModels.find({ forum: topic._id, deletedAt: null })
+        const commentsFilterOption = {
+            forum: topic._id, deletedAt: null
+        }
+
+        if (req.user.role === 'admin') {
+            delete commentsFilterOption.deletedAt
+        }
+
+        const comments = await CommentModels.find(commentsFilterOption)
             .populate('forum')
             .populate({
                 path: 'repliedTo',
@@ -221,7 +233,7 @@ exports.deleteTopic = async (req, res, next) => {
 
         return res.status(200).json({
             success: true,
-            message: 'Topic deleted successfully'
+            message: 'Topic archived successfully'
         })
 
     } catch (err) {
