@@ -52,8 +52,8 @@ const PendingRequest = ({ open, loading, setLoading }) => {
     const handleAccept = (id) => {
 
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            // title: "Are you sure?",
+            text: "Accepting this action is irreversible! By proceeding, your account will be linked to the parent account.",
             // icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -85,8 +85,7 @@ const PendingRequest = ({ open, loading, setLoading }) => {
 
     const hanleReject = (id) => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this! This account will be possibly deleted if monitored by the admin that it doesn't connected on student account",
+            text: "This action cannot be reversed! If the admin detects that this account is not connected to a student account, it may be subject to deletion.",
             // icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",

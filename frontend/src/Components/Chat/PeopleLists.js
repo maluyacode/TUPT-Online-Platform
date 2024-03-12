@@ -15,6 +15,7 @@ import {
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { selectChat } from '../../actions/chatActions';
+import { openProfile } from '../../actions/uiActions';
 
 const PeopleLists = () => {
 
@@ -38,7 +39,7 @@ const PeopleLists = () => {
     const handleSearch = e => {
         const keyword = e.target.value;
         const regex = new RegExp(keyword, 'i');
-        const filteredUsers = allUsers.filter(user => regex.test(user.firstname) || regex.test(user.lastname));
+        const filteredUsers = allUsers.filter(user => regex.test(`${user.firstname} ${user.lastname}`));
         setUsers(filteredUsers);
     };
 
@@ -46,6 +47,10 @@ const PeopleLists = () => {
         dispatch(selectChat({
             id: userID
         }))
+    }
+
+    const handleViewProfile = (userId) => {
+        dispatch(openProfile(userId))
     }
 
 
@@ -81,9 +86,9 @@ const PeopleLists = () => {
                             >
                                 Message <MDBIcon fas icon='envelope' />
                             </MDBBtn>
-                            {/* <MDBBtn color='link' rippleColor='primary' className='text-reset m-0'>
+                            <MDBBtn onClick={() => handleViewProfile(user._id)} color='link' rippleColor='primary' className='text-reset m-0'>
                                 Profile <MDBIcon fas icon="user-circle" />
-                            </MDBBtn> */}
+                            </MDBBtn>
                         </MDBCardFooter>
                     </MDBCard>
                 </MDBCol>

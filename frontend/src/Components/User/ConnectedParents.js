@@ -54,10 +54,11 @@ const ConnectedParents = ({ open, loading, setLoading }) => {
                                         </div>
                                         <div className="flex-grow-1 ms-3">
                                             <MDBCardTitle>{parent.firstname} {parent.lastname}</MDBCardTitle>
-                                            <MDBCardText>Verified</MDBCardText>
+                                            <MDBCardText>{parent.email}</MDBCardText>
+                                            <MDBCardText>{parent.contact_number}</MDBCardText>
                                             <div className="d-flex pt-0">
-                                                <MDBBtn outline className="me-1 flex-grow-1">Message</MDBBtn>
-                                                <MDBBtn className="flex-grow-1 me-1">Remove</MDBBtn>
+                                                {/* <MDBBtn outline className="me-1 flex-grow-1">Profile</MDBBtn>
+                                                <MDBBtn className="flex-grow-1 me-1">Remove</MDBBtn> */}
                                                 {/* <MDBBtn className="flex-grow-1">Profile</MDBBtn> */}
                                             </div>
                                         </div>

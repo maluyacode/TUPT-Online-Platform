@@ -164,17 +164,6 @@ const UserProfile = () => {
                     onClose={handleClose}
                     fullWidth
                     maxWidth='sm'
-                // PaperProps={{
-                //     component: 'form',
-                //     onSubmit: (event) => {
-                //         event.preventDefault();
-                //         const formData = new FormData(event.currentTarget);
-                //         const formJson = Object.fromEntries(formData.entries());
-                //         const email = formJson.email;
-                //         console.log(email);
-                //         handleClose();
-                //     },
-                // }}
                 >
                     <DialogTitle>Change Password</DialogTitle>
                     <DialogContent>

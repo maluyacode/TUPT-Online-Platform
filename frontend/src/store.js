@@ -14,7 +14,8 @@ const selectChat = sessionStorage.getItem('selectedChat') ? JSON.parse(sessionSt
 let initialState = {
     ui: {
         isSideBarCollapse: true,
-        isChatSideBarOpen: false
+        isChatSideBarOpen: false,
+        openProfile: false
     },
     chat: {
         selectedChat: selectChat.id,

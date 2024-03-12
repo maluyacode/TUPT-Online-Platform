@@ -53,6 +53,7 @@ import VideoTutorialsList from './Components/Admin/VideoTutorialManagement/Video
 import EditTutorial from './Components/Admin/VideoTutorialManagement/EditTutorial';
 import CreateTutorial from './Components/Admin/VideoTutorialManagement/CreateTutorial';
 import TutorialsList from './Components/Tutorials/TutorialsList';
+import ViewUser from './Components/User/ViewUser';
 
 function App() {
 
@@ -95,6 +96,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ViewUser />
         <Alert open={open} setOpen={setOpen} announcement={newAnnouncement} />
         <Routes>
 

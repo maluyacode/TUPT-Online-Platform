@@ -157,7 +157,7 @@ export default function Chat() {
         return accumulator;
     }, null);
 
-    
+
     return (
         <>
             <EmergencyMessage open={open} setOpen={setOpen} chatInfo={chatInfo} />
