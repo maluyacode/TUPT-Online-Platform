@@ -52,6 +52,7 @@ import ArchivedPosts from './Components/Collab/ArchivedPosts';
 import VideoTutorialsList from './Components/Admin/VideoTutorialManagement/VideoTutorialsList';
 import EditTutorial from './Components/Admin/VideoTutorialManagement/EditTutorial';
 import CreateTutorial from './Components/Admin/VideoTutorialManagement/CreateTutorial';
+import TutorialsList from './Components/Tutorials/TutorialsList';
 
 function App() {
 
@@ -121,6 +122,7 @@ function App() {
           <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
           <Route path='/archived-announcements' element={<ArchivedAnnouncements />} />
 
+          <Route path='/tutorials' element={<TutorialsList />} />
 
           <Route path='/collab' element={<Collab />} />
 

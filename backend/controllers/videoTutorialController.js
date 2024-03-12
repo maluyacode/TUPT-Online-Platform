@@ -56,7 +56,13 @@ exports.getAll = async (req, res, next) => {
 
     try {
 
-        const videoTutorials = await VideoTutorial.find();
+        const filterOption = {};
+
+        if (req.query.user) {
+            filterOption.isDisabled = false
+        }
+
+        const videoTutorials = await VideoTutorial.find(filterOption);
 
         return res.status(200).json({
             success: true,
