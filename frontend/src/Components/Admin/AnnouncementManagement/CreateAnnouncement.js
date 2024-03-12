@@ -97,7 +97,7 @@ const CreateAnnouncement = () => {
             formData.append('title', values.title)
             formData.append('content', values.content)
             formData.append('groupViewers', values.groupViewers._id)
-            formData.append('canViewBy', JSON.stringify(values.canViewBy))
+            // formData.append('canViewBy', JSON.stringify(values.canViewBy))
             for (let i = 0; i < values.images.length; i++) {
                 formData.append('images', values.images[i]);
             }
@@ -220,13 +220,13 @@ const CreateAnnouncement = () => {
                                             renderInput={(params) => <TextField {...params} size='small' fullWidth label="Select Group" />}
                                         />
                                         <ErrorMessage formik={formik} name='groupViewers' />
-                                        <Typography variant='subtitle' sx={{ mb: 2 }}>Announce to</Typography>
+                                        {/* <Typography variant='subtitle' sx={{ mb: 2 }}>Announce to</Typography>
                                         <FormGroup sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                             <FormControlLabel onChange={handleViewers} name='canViewBy' value={'parent'} control={<Checkbox />} label="Parent" />
                                             <FormControlLabel onChange={handleViewers} name='canViewBy' value={'teacher'} control={<Checkbox />} label="Teacher" />
                                             <FormControlLabel onChange={handleViewers} name='canViewBy' value={'student'} control={<Checkbox />} label="Student" />
                                         </FormGroup>
-                                        <ErrorMessage formik={formik} name='canViewBy' />
+                                        <ErrorMessage formik={formik} name='canViewBy' /> */}
                                     </Box>
                                 </MDBCol>
                             </MDBRow>

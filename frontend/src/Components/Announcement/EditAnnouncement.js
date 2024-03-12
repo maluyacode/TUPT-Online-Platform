@@ -268,7 +268,7 @@ const EditAnnouncement = () => {
 
                                 <MDBCol sm='12' md='6'>
                                     <Box sx={{ boxShadow: 5, p: 2 }}>
-                                        {/* <Typography variant='subtitle' mb={2} >Post Announcement</Typography> */}
+                                        <Typography variant='subtitle' sx={{ mb: 2 }}>Reannounce to</Typography>
                                         <Autocomplete
                                             disablePortal
                                             id="combo-box-demo"
@@ -289,13 +289,13 @@ const EditAnnouncement = () => {
                                         />
 
                                         <ErrorMessage formik={formik} name='groupViewers' />
-                                        <Typography variant='subtitle' sx={{ mb: 2 }}>Announce to</Typography>
+                                        {/* <Typography variant='subtitle' sx={{ mb: 2 }}>Announce to</Typography>
                                         <FormGroup sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                             <FormControlLabel checked={formik.values.canViewBy.includes('parent')} onChange={handleViewers} name='canViewBy' value={'parent'} control={<Checkbox />} label="Parent" />
                                             <FormControlLabel checked={formik.values.canViewBy.includes('teacher')} onChange={handleViewers} name='canViewBy' value={'teacher'} control={<Checkbox />} label="Teacher" />
                                             <FormControlLabel checked={formik.values.canViewBy.includes('student')} onChange={handleViewers} name='canViewBy' value={'student'} control={<Checkbox checked={formik.values.canViewBy.includes('student')} />} label="Student" />
                                         </FormGroup>
-                                        <ErrorMessage formik={formik} name='canViewBy' />
+                                        <ErrorMessage formik={formik} name='canViewBy' /> */}
                                     </Box>
                                 </MDBCol>
                             </MDBRow>

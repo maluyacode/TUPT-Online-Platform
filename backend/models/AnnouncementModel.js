@@ -11,6 +11,7 @@ const AnnouncementSchema = new mongoose.Schema({
     },
     canViewBy: [{
         type: String, // parent, student, teacher.
+        default: ["parent", "student", "teacher"]
     }],
     groupViewers: {
         type: mongoose.Schema.Types.ObjectId,

@@ -8,7 +8,7 @@ exports.createAnnouncement = async (req, res, next) => {
     try {
 
         req.body.createdBy = req.user._id;
-        req.body.canViewBy = JSON.parse(req.body.canViewBy);
+        req.body.canViewBy = ["parent", "student", "teacher"]
 
         if (req.body.groupViewers === 'all') {
             delete req.body.groupViewers
@@ -248,7 +248,7 @@ exports.updateAnnouncement = async (req, res, next) => {
 
         let announcement = await Announcement.findById(req.params.id);
 
-        req.body.canViewBy = JSON.parse(req.body.canViewBy);
+        req.body.canViewBy = ["parent", "student", "teacher"]
         if (req.body.groupViewers === 'all') {
             delete req.body.groupViewers
             req.body.isForAll = true

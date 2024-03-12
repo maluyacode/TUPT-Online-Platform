@@ -52,10 +52,10 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "groupViewers",
             label: "Group Viewers"
         },
-        {
-            name: "canViewBy",
-            label: "Role Viewers"
-        },
+        // {
+        //     name: "canViewBy",
+        //     label: "Role Viewers"
+        // },
         // {
         //     name: "attachments",
         //     label: "Attachments",

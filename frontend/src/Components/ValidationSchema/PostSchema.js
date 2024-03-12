@@ -62,10 +62,10 @@ const PostSchema = Yup.object().shape({
             return true;
         }),
 
-    canViewBy: Yup.array()
-        .of(Yup.string().oneOf(['parent', 'teacher', 'student']))
-        .min(1, 'At least one viewer type must be selected')
-        .required('Viewer type is required'),
+    // canViewBy: Yup.array()
+    //     .of(Yup.string().oneOf(['parent', 'teacher', 'student']))
+    //     .min(1, 'At least one viewer type must be selected')
+    //     .required('Viewer type is required'),
 });
 
 export default PostSchema
