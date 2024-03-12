@@ -9,6 +9,11 @@ import LockIcon from '@mui/icons-material/Lock';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SaveIcon from '@mui/icons-material/Save';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import EditProfileSchema from '../ValidationSchema/EditProfileSchema'
 import { useFormik } from 'formik'
@@ -21,6 +26,7 @@ import Block from '../Layout/Loaders/Block'
 import ToastEmmiter from '../Layout/ToastEmmiter'
 import ConnectedParents from './ConnectedParents'
 import PendingRequest from './PendingRequest'
+import axios from 'axios'
 
 const specify = <span className='fst-italic fw-lighter' style={{ fontSize: 12 }}>Not specified</span>
 
@@ -32,6 +38,7 @@ const UserProfile = () => {
     const [isButtonDisable, setButtonDisable] = useState(true);
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenPending, setOpenPending] = useState(false)
+    const [open, setOpen] = useState(false);
 
     const toggleOpen = () => {
         setIsOpen(!isOpen)
@@ -58,6 +65,7 @@ const UserProfile = () => {
             street: getUser().street ? getUser().street : '',
             baranggay: getUser().baranggay ? getUser().baranggay : '',
             city: getUser().city ? getUser().city : '',
+            iCareFor: getUser().iCareFor.length > 0 ? getUser().iCareFor : []
         },
         validateOnChange: false,
         validationSchema: EditProfileSchema,
@@ -110,8 +118,101 @@ const UserProfile = () => {
         return `${formik.values.houseNo} ${formik.values.street} ${formik.values.baranggay} ${formik.values.city}`
     }
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+
+    const changePassword = async (formData) => {
+        setLoading(true)
+        try {
+            const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/user/update-password`, formData, {
+                withCredentials: true
+            });
+
+            if (data.success) {
+                ToastEmmiter.success(data.message)
+                setLoading(false)
+                handleClose()
+            }
+            setLoading(false)
+            handleClose()
+        } catch ({ response: { data } }) {
+            setLoading(false)
+            ToastEmmiter.error(data.message);
+            console.log(data)
+        }
+    }
+
+    const handleChangePassword = (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        changePassword(formData)
+    }
+
     return (
         <>
+            <React.Fragment>
+                <Dialog
+                    onSubmit={handleChangePassword}
+                    component={'form'}
+                    open={open}
+                    onClose={handleClose}
+                    fullWidth
+                    maxWidth='sm'
+                // PaperProps={{
+                //     component: 'form',
+                //     onSubmit: (event) => {
+                //         event.preventDefault();
+                //         const formData = new FormData(event.currentTarget);
+                //         const formJson = Object.fromEntries(formData.entries());
+                //         const email = formJson.email;
+                //         console.log(email);
+                //         handleClose();
+                //     },
+                // }}
+                >
+                    <DialogTitle>Change Password</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Recent Password
+                        </DialogContentText>
+                        <TextField
+                            autoFocus
+                            required
+                            margin="dense"
+                            id="name"
+                            name="oldPassword"
+                            label="Enter recent password"
+                            type="password"
+                            fullWidth
+                            variant="outlined"
+                            className='mb-4'
+                        />
+                        <DialogContentText>
+                            New Password
+                        </DialogContentText>
+                        <TextField
+                            required
+                            margin="dense"
+                            id="name"
+                            name="password"
+                            label="Enter New password"
+                            type="password"
+                            fullWidth
+                            variant="outlined"
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose}>Cancel</Button>
+                        <Button type="submit">Submit</Button>
+                    </DialogActions>
+                </Dialog>
+            </React.Fragment>
             <Block loading={loading} />
             <MetaData pageTitle="Profile" />
             <div style={{ display: 'flex' }}>
@@ -160,7 +261,7 @@ const UserProfile = () => {
                                         <Box>
                                             <Typography className='fw-bold mb-2'>{getUser().firstname} {getUser().lastname}</Typography>
                                             <Typography className='text-dark-emphasis mb-3'>ID: {getUser()._id}</Typography>
-                                            <Button size='small' variant='outlined' startIcon={<LockIcon />}>Change Password</Button>
+                                            <Button onClick={handleClickOpen} size='small' variant='outlined' startIcon={<LockIcon />}>Change Password</Button>
                                         </Box>
                                     </Box>
                                     <MDBRow className='mx-5'>

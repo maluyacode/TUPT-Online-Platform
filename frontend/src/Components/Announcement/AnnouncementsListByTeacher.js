@@ -15,101 +15,6 @@ import Block from '../Layout/Loaders/Block'
 import { getUser } from '../../utils/helper'
 import { profileHead } from '../../utils/avatar';
 
-const announcements = [
-    {
-        title: 'Important Announcement 1',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus odio et urna efficitur, in gravida eros luctus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-20'
-    },
-    {
-        title: 'Upcoming Event 1',
-        content: 'Nulla vitae libero pharetra, egestas libero at, lacinia leo. Duis suscipit, ligula ut fermentum luctus, justo nulla consequat urna, nec consequat est mi eget metus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-21'
-    },
-    {
-        title: 'Holiday Closure 1',
-        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel ultricies magna.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-22'
-    },
-    {
-        title: 'Important Announcement 2',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus odio et urna efficitur, in gravida eros luctus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-23'
-    },
-    {
-        title: 'Upcoming Event 2',
-        content: 'Nulla vitae libero pharetra, egestas libero at, lacinia leo. Duis suscipit, ligula ut fermentum luctus, justo nulla consequat urna, nec consequat est mi eget metus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-24'
-    },
-    {
-        title: 'Holiday Closure 2',
-        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel ultricies magna.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-25'
-    },
-    {
-        title: 'Important Announcement 3',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus odio et urna efficitur, in gravida eros luctus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-26'
-    },
-    {
-        title: 'Upcoming Event 3',
-        content: 'Nulla vitae libero pharetra, egestas libero at, lacinia leo. Duis suscipit, ligula ut fermentum luctus, justo nulla consequat urna, nec consequat est mi eget metus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-27'
-    },
-    {
-        title: 'Holiday Closure 3',
-        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel ultricies magna.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-28'
-    },
-    {
-        title: 'Important Announcement 4',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus odio et urna efficitur, in gravida eros luctus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-02-29'
-    },
-    {
-        title: 'Upcoming Event 4',
-        content: 'Nulla vitae libero pharetra, egestas libero at, lacinia leo. Duis suscipit, ligula ut fermentum luctus, justo nulla consequat urna, nec consequat est mi eget metus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-03-01'
-    },
-    {
-        title: 'Holiday Closure 4',
-        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel ultricies magna.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-03-02'
-    },
-    {
-        title: 'Important Announcement 5',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin dapibus odio et urna efficitur, in gravida eros luctus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-03-03'
-    },
-    {
-        title: 'Upcoming Event 5',
-        content: 'Nulla vitae libero pharetra, egestas libero at, lacinia leo. Duis suscipit, ligula ut fermentum luctus, justo nulla consequat urna, nec consequat est mi eget metus.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-03-04'
-    },
-    {
-        title: 'Holiday Closure 5',
-        content: 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel ultricies magna.',
-        image: 'https://via.placeholder.com/150',
-        postedDate: '2024-03-05'
-    },
-    // Add more announcements as needed
-];
-
-
 const TeacherAnnouncements = () => {
 
     const [loading, setLoading] = useState(false);
@@ -166,7 +71,7 @@ const TeacherAnnouncements = () => {
                                     {announcements.map(announcement => (
                                         <>
                                             {isAllowedToView(announcement) && (
-                                                <MDBCard onClick={() => navigate('/announcement-details/sampleId')} style={{ cursor: 'pointer' }} className='mb-2'>
+                                                <MDBCard onClick={() => navigate(`/announcement-details/${announcement._id}`)} style={{ cursor: 'pointer' }} className='mb-2'>
                                                     <MDBRow className='g-0'>
                                                         <MDBCol md='3' sm='3' xs='3'>
                                                             <MDBCardImage style={{ height: 150, width: 150, objectFit: 'cover' }} src={announcement?.images[0]?.url || '/bullhorn.svg'} fluid />

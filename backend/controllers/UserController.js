@@ -185,7 +185,6 @@ exports.updateUser = async (req, res, next) => {
     const user = await User.findById(req.params.id)
 
     if (req.body.role === 'parent') {
-        console.log(req.body.iCareFor)
         req.body.iCareFor = JSON.parse(req.body.iCareFor).map(value => {
             return {
                 user: value,
@@ -278,13 +277,13 @@ exports.forgotUserPassword = async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-        return res.status(404).json({ error: 'User not found with this email' })
+        return res.status(404).json({ message: 'User not found with this email' })
     }
     // Get reset token
     const resetToken = await user.getResetPasswordToken();
     await user.save({ validateBeforeSave: false });
     // Create reset password url
-    const resetUrl = `${process.env.REACT_PUBLIC_URL}/password/reset/${resetToken}`;
+    const resetUrl = `${process.env.REACT_PUBLIC_URL}/change-password/${resetToken}`;
     const message = `Your password reset token is as follow: <a href="${resetUrl}">${resetUrl}</a> If you have not requested this email, then ignore it.`
     try {
         await sendEmail({
@@ -302,12 +301,13 @@ exports.forgotUserPassword = async (req, res, next) => {
         user.resetPasswordToken = undefined;
         user.resetPasswordExpire = undefined;
         await user.save({ validateBeforeSave: false });
-        return res.status(500).json({ error: error.message })
+        return res.status(500).json({ message: error.message })
         // return next(new ErrorHandler(error.message, 500))
     }
 }
 
 exports.resetUserPassword = async (req, res, next) => {
+
     // Hash URL token
     const resetPasswordToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
     const user = await User.findOne({
@@ -330,11 +330,28 @@ exports.resetUserPassword = async (req, res, next) => {
     user.resetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
     await user.save();
-    sendToken(user, 200, res);
+
+    return res.status(200).json({
+        message: 'Password successfully changed',
+        success: true,
+    })
+    // sendToken(user, 200, res);
 }
 
 exports.updateUserPassword = async (req, res, next) => {
 
+    const user = await User.findById(req.user.id).select('password');
+    // Check previous user password
+    const isMatched = await user.comparePassword(req.body.oldPassword)
+    if (!isMatched) {
+        return res.status(400).json({ message: 'Old password is incorrect' })
+    }
+    user.password = req.body.password;
+    await user.save();
+
+    const updateUser = await User.findById(user._id);
+
+    sendToken(updateUser, 200, res, 'Password successfully changed')
 }
 
 exports.getAllUsers = async (req, res, next) => {

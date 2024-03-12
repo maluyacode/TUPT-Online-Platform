@@ -20,7 +20,9 @@ router.get('/profile/:id', isAuthenticated, upload.single('avatar'), userControl
 
 router.post('/forgot-password', userController.forgotUserPassword);
 
-router.put('/reset-password/:token', userController.resetUserPassword);
+router.put('/reset-password/:token', upload.any(), userController.resetUserPassword);
+
+router.put('/update-password', isAuthenticated, upload.any(), userController.updateUserPassword)
 
 router.delete('/delete/:id', isAuthenticated, userController.deleteUser)
 

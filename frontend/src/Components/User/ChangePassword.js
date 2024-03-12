@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MDBBtn,
     MDBContainer,
@@ -14,10 +14,46 @@ import {
     from 'mdb-react-ui-kit';
 
 import MetaData from '../Layout/MetaData';
+import axios from 'axios';
+import ToastEmmiter from '../Layout/ToastEmmiter';
+import { useNavigate, useParams } from 'react-router-dom';
+import Block from '../Layout/Loaders/Block';
 
 function ChangePassword() {
+
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
+    const { token } = useParams()
+
+    const resetPassword = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        try {
+
+            const formData = new FormData(e.target);
+
+            const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/user/reset-password/${token}`, formData, {
+                withCredentials: true
+            });
+
+            if (data.success) {
+                ToastEmmiter.success(data.message)
+                setLoading(false)
+                navigate('/login')
+            }
+            setLoading(false)
+
+        } catch ({ response: { data } }) {
+            setLoading(false)
+            ToastEmmiter.error(data.message);
+            console.log(data)
+        }
+    }
+
     return (
         <>
+            <Block loading={loading} />
             <MetaData pageTitle={'Change Password'}></MetaData>
             <MDBContainer className='my-5'>
                 <MDBCard className='mx-auto mt-5' style={{ maxWidth: '900px' }}>
@@ -30,11 +66,14 @@ function ChangePassword() {
                         <MDBCol md='8'>
 
                             <MDBCardBody>
-                                <MDBCardTitle className='mb-5'>Change Password</MDBCardTitle>
-                                <MDBInput wrapperClass='mb-4' label='New Password' id='form1' type='password' />
-                                <MDBInput wrapperClass='mb-4' label='Confirm Password' id='form2' type='password' />
+                                <form onSubmit={resetPassword}>
 
-                                <MDBBtn className="mb-4 w-100">Confirm</MDBBtn>
+                                    <MDBCardTitle className='mb-5'>Change Password</MDBCardTitle>
+                                    <MDBInput name='password' size='lg' wrapperClass='mb-4' label='New Password' id='form1' type='password' />
+                                    <MDBInput name='confirmPassword' size='lg' wrapperClass='mb-4' label='Confirm Password' id='form2' type='password' />
+
+                                    <MDBBtn type='submit' className="mb-4 w-100">Confirm</MDBBtn>
+                                </form>
 
                             </MDBCardBody>
 
