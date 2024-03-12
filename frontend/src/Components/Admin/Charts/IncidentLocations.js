@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ToastEmmiter from '../../Layout/ToastEmmiter'
 import axios from 'axios'
 import Chart from 'chart.js/auto';
-import { Menu, Paper, TextField, MenuItem } from '@mui/material';
+import { Menu, Paper, TextField, MenuItem, Button, Typography } from '@mui/material';
+
+import { toPng } from 'html-to-image';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const IncidentLocations = () => {
 
@@ -72,9 +78,62 @@ const IncidentLocations = () => {
         });
     }, [data]);
 
+
+    const generatePDF = async () => {
+        const printElement = document.getElementById('print');
+        const imageDataUrl = await toPng(printElement)
+
+        const location = Object.entries(data).reduce((a, [k, v]) => v > data[a] ? k : a, Object.keys(data)[0]);
+
+        const totalSum = Object.values(data).reduce((acc, curr) => acc + curr, 0);
+
+        // Calculate the percentage average of each location
+        const percentages = {};
+        for (const [location, count] of Object.entries(data)) {
+            percentages[location] = (count / totalSum) * 100;
+        }
+
+        // Sort locations by percentage averages in descending order
+        const sortedLocations = Object.entries(percentages)
+            .sort(([, a], [, b]) => b - a);
+
+        // Format the output
+        const formattedOutput = sortedLocations
+            .map(([location, percentage]) => `${location} = ${percentage.toFixed(2)}%`)
+            .join(', ');
+
+        const docDefinition = {
+            content: [
+                { text: 'Location incident rates', style: 'header' },
+                { image: imageDataUrl, width: 500 },
+                { text: "\n" + formattedOutput + "\n" },
+                { text: `This specific area, located within ${location}, demonstrates a notably elevated incidence rate compared to other zones within the TUP-Taguig. The data underscores a distinct pattern of incidents occurring more frequently within this particular vicinity. Understanding the contributing factors within ${location} is crucial for devising targeted strategies to mitigate incidents and enhance overall safety measures within the TUP-Taguig. By addressing these factors comprehensively, the TUPT can create a safer and more conducive environment for its stakeholders` },
+            ],
+            styles: {
+                header: {
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 20, 0, 10]
+                }
+            }
+        };
+
+        pdfMake.createPdf(docDefinition).download('locations-incident-rates.pdf');
+    };
+
+
+
+    const handlePrint = async () => {
+        await generatePDF()
+    }
+
     return (
         <Paper className='p-4 mt-2'>
-            <canvas id="barChart" />
+            <Button onClick={handlePrint}>Print</Button>
+            <div id='print'>
+                <canvas id="barChart" />
+                <Typography display={'none'}>asd</Typography>
+            </div>
         </Paper>
     )
 }

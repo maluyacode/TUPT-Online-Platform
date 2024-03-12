@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ToastEmmiter from '../../Layout/ToastEmmiter'
 import axios from 'axios'
 import Chart from 'chart.js/auto';
-import { Menu, Paper, TextField, MenuItem } from '@mui/material';
+import { Menu, Paper, TextField, MenuItem, Button } from '@mui/material';
+
+import { toPng } from 'html-to-image';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const IncidentsChart = () => {
 
@@ -74,8 +80,42 @@ const IncidentsChart = () => {
         getIncidentsByMonth()
     }
 
+    const generatePDF = async () => {
+        const printElement = document.getElementById('lineChart');
+        const imageDataUrl = await toPng(printElement)
+
+        const maxRate = Math.max(...Object.values(data));
+
+        // Find the months with the highest incident rates
+        const highestMonths = Object.entries(data)
+            .filter(([month, rate]) => rate === maxRate)
+            .map(([month, rate]) => month);
+
+        const docDefinition = {
+            content: [
+                { text: `Monthly incident rates year ${year}`, style: 'header' },
+                { image: imageDataUrl, width: 500 },
+                { text: `The chart provides a detailed depiction of incident rates observed monthly during the specified year, spanning from January ${year} to December ${year}. This comprehensive visualization offers valuable insights into the temporal distribution of incidents, enabling stakeholders to identify trends, patterns, and potential areas of concern. Upon analysis, it is evident that the highest incident rates were observed during ${highestMonths}, indicating periods of heightened activity and potential areas for targeted interventions. By leveraging this information, stakeholders can devise effective strategies to address these challenges and enhance safety and security measures within the community.` },
+            ],
+            styles: {
+                header: {
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 20, 0, 10]
+                }
+            }
+        };
+
+        pdfMake.createPdf(docDefinition).download(`monthly-incident-rates-${year}.pdf`);
+    };
+
+    const handlePrint = async () => {
+        await generatePDF()
+    }
+
     return (
-        <Paper className='p-4' sx={{ maxHeight: 400 }}>
+        <Paper className='p-4' sx={{ maxHeight: 500 }}>
+            <Button onClick={handlePrint}>Print</Button>
             <TextField
                 id="outlined-select-currency"
                 select
