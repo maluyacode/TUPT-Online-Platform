@@ -49,6 +49,9 @@ import ReportIncident from './Components/Incidents/ReportIncident';
 import ChatHistory from './Components/Admin/ChatManagement/ChatHistory';
 import ArchivedAnnouncements from './Components/Announcement/ArchivedAnnouncements';
 import ArchivedPosts from './Components/Collab/ArchivedPosts';
+import VideoTutorialsList from './Components/Admin/VideoTutorialManagement/VideoTutorialsList';
+import EditTutorial from './Components/Admin/VideoTutorialManagement/EditTutorial';
+import CreateTutorial from './Components/Admin/VideoTutorialManagement/CreateTutorial';
 
 function App() {
 
@@ -137,6 +140,14 @@ function App() {
           <Route path='/admin/edit-announcement/:id' element={<AdminEditAnnouncement />} />
 
           <Route path='/admin/forum-management' element={<ForumManagement />} />
+
+
+          <Route path='/admin/list-video-tutorial' element={<VideoTutorialsList />} />
+          <Route path='/admin/edit-video-tutorial/:id' element={<EditTutorial />} />
+          <Route path='/admin/create-video-tutorial' element={<CreateTutorial />} />
+
+
+
         </Routes>
 
         <Toast />

@@ -6,9 +6,9 @@ const app = require('./app');
 
 dotenv.config({ path: './config/.env' });
 
-(async () => {
-    await mega.connect();
-})();
+// (async () => {
+//     await mega.connect();
+// })();
 require('./config/cloudinary');
 connectDatabase();
 

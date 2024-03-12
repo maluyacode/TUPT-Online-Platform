@@ -4,12 +4,19 @@ const fs = require('fs').promises;
 let storage;
 
 exports.connect = async () => {
-    storage = new Storage({
-        email: process.env.MEGA_EMAIL,
-        password: process.env.MEGA_PASSWORD,
-        // userAgent: 'ExampleApplication/1.0'
-    });
+    try {
 
+        storage = new Storage({
+            email: process.env.MEGA_EMAIL,
+            password: process.env.MEGA_PASSWORD,
+            // userAgent: 'ExampleApplication/1.0'
+        });
+
+    } catch (err) {
+        
+        console.log(err);
+
+    }
     // Will resolve once the user is logged in
     // or reject if some error happens
     storage.ready

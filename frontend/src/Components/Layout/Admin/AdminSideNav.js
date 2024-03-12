@@ -38,6 +38,7 @@ const AdminSideNav = () => {
                         <MenuItem onClick={() => navigate('/admin/announcement-management')} icon={<MDBIcon fas icon="bullhorn" />} > Announcement Management </MenuItem>
                         <MenuItem onClick={() => navigate('/admin/forum-management')} icon={<WorkspacesIcon />} > Forum Management </MenuItem>
                         <MenuItem onClick={() => navigate('/admin/user-management')} icon={<ManageAccountsIcon />} > User Management </MenuItem>
+                        <MenuItem onClick={() => navigate('/admin/list-video-tutorial')} icon={<MDBIcon fas icon="chalkboard-teacher" />} > Video Tutorials </MenuItem>
 
                         {/* <SubMenu onClick={() => navigate('/announcements')} icon={<MDBIcon fas icon="bullhorn" />} label='Announcements'>
                             <MenuItem onClick={() => navigate('/teachers-post')} icon={<ViewListIcon />}> My Posts </MenuItem>

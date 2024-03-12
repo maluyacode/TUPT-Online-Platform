@@ -13,6 +13,7 @@ const collabRoutes = require('./routes/collabRoutes');
 const commentRoutes = require('./routes/commentRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
 const incidentRoutes = require('./routes/incidentRoutes');
+const videoTutorialRoutes = require('./routes/videoTutorialRoutes');
 
 const corsOptions = {
     origin: 'http://localhost:3000', //included origin as true
@@ -35,6 +36,7 @@ app.use('/api/v1/collab', collabRoutes);
 app.use('/api/v1/comment', commentRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/incident', incidentRoutes);
+app.use('/api/v1/video-tutorial', videoTutorialRoutes);
 
 
 module.exports = app;

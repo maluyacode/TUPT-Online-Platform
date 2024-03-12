@@ -15,6 +15,22 @@ exports.uploadSingle = async (postImage, folderName) => {
     }
 }
 
+exports.uploadVideo = async (video, folderName) => {
+
+    const result = await cloudinary.v2.uploader.upload(video.path, {
+        folder: `tupt-online-platform/${folderName}`, // folder name in cloudinary, if not exist it will create automatically.
+        // width: 200, 
+        // crop: "scale",
+        resource_type: 'video'
+    });
+
+    return {
+        public_id: result.public_id,
+        url: result.secure_url,
+        original_name: video.orginalname
+    }
+}
+
 exports.uploadMultiple = async (postImages, folderName) => {
 
     let images = []
