@@ -154,3 +154,54 @@ exports.incidentLocations = async (req, res, next) => {
     }
 
 }
+
+exports.getAllReports = async (req, res, next) => {
+
+    try {
+
+
+        let locations = await Incident.find().select('location -_id');
+        let types = await Incident.find().select('type -_id');
+
+        let filteredLocations = []
+        locations.filter(location => {
+            if (!filteredLocations.includes(location.location)) {
+                filteredLocations.push(location.location)
+            }
+        })
+
+        let filteredTypes = [];
+        types.filter(type => {
+            if (!filteredTypes.includes(type.type)) {
+                filteredTypes.push(type.type)
+                console.log(type.type)
+            }
+        })
+
+        locations = filteredLocations.map(location => {
+            return {
+                value: location,
+                label: location
+            }
+        })
+
+        types = filteredTypes.map(type => {
+            return {
+                value: type,
+                label: type
+            }
+        })
+
+        res.status(200).json({
+            success: true,
+            locations: locations,
+            types: types,
+        });
+
+    } catch (error) {
+        console.log(error)
+        res.status(400);
+        // throw new Error(error.message);
+    }
+
+}

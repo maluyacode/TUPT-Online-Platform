@@ -12,4 +12,6 @@ router.get('/most-incidents-occur', isAuthenticated, incidentController.mostInci
 
 router.get('/incident-locations', isAuthenticated, incidentController.incidentLocations)
 
+router.get('/get-all', isAuthenticated, incidentController.getAllReports);
+
 module.exports = router

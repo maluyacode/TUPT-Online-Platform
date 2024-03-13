@@ -4,6 +4,9 @@ import { createTheme } from '@mui/material/styles';
 import { profileHead } from '../../../utils/avatar'
 import ChatIcon from '@mui/icons-material/Chat';
 import EmailIcon from '@mui/icons-material/Email';
+import { Typography } from "@mui/material";
+import { Chip } from "@mui/material";
+import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
 export const getTableColumns = (handleEdit, handleDelete) => {
     const userColumns = [
@@ -48,6 +51,30 @@ export const getTableColumns = (handleEdit, handleDelete) => {
         {
             name: "role",
             label: "Role",
+            options: {
+                customBodyRender: (value) => {
+                    return <Typography textTransform={'capitalize'}>{value}</Typography>
+                }
+            }
+        },
+        {
+            name: "status",
+            label: "Status",
+            options: {
+                customBodyRender: (value) => {
+                    return <Chip label={value} sx={{ backgroundColor: value === 'Active' ? '#C5E898' : '#E78895' }} />
+                }
+            }
+        },
+        {
+            name: "deletedAt",
+            label: "Deleted At",
+            options: {
+                display: false,
+                customBodyRender: (value) => {
+                    return value ? new Date(value).toLocaleDateString('en-PH') : "Nothing show"
+                }
+            }
         },
         {
             name: 'actions',
@@ -57,9 +84,15 @@ export const getTableColumns = (handleEdit, handleDelete) => {
                 customBodyRender: (value, tableMeta, updateValue) => {
                     return (
                         <ButtonGroup variant="text" aria-label="text button group">
-                            <Button size='small' onClick={() => console.log(value)}><Visibility /></Button>
-                            <Button size='small' onClick={() => handleEdit(value)}><EditNote /></Button>
-                            <Button size='small' onClick={() => handleDelete(value)} ><Delete /></Button>
+                            <Button size='small' onClick={() => console.log(value._id)}><Visibility /></Button>
+                            <Button size='small' onClick={() => handleEdit(value._id)}><EditNote /></Button>
+                            {value.deletedAt ?
+                                <Button onClick={() => handleDelete(value._id, 'restore')}>
+                                    <RestoreFromTrashIcon />
+                                </Button>
+                                :
+                                <Button size='small' onClick={() => handleDelete(value._id)} ><Delete /></Button>
+                            }
                         </ButtonGroup>
                     )
                 }
@@ -117,7 +150,9 @@ export const getTableData = (users) => {
             email: user.email,
             phone: user.contact_number,
             role: user.role,
-            actions: user._id,
+            status: user.deletedAt ? "Disabled" : "Active",
+            deletedAt: user.deletedAt,
+            actions: user,
         }
     })
     return formattedData

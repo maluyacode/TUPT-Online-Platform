@@ -49,10 +49,10 @@ const UserManagement = () => {
         navigate(`/admin/edit-user/${id}`)
     }
 
-    const deleteUser = async (id) => {
+    const deleteUser = async (id, value) => {
         setLoading(true)
         try {
-            const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/user/delete/${id}`, {
+            const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/user/delete/${id}?action=${value}`, {
                 withCredentials: true
             });
             setLoading(false)
@@ -66,10 +66,10 @@ const UserManagement = () => {
         }
     }
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, value = 'delete') => {
         Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
+            // title: "Are you sure?",
+            text: value === 'restore' ? "Would you like to restore this account?" : "Would you like to disable this account?",
             // icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -77,7 +77,7 @@ const UserManagement = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                deleteUser(id)
+                deleteUser(id, value)
             }
         });
     }

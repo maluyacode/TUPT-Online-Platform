@@ -138,11 +138,20 @@ exports.loginUser = async (req, res, next) => {
 
     const { email, password } = req.body;
 
+    let checkUser = await User.findOne({ email })
+
+    if (checkUser.deletedAt) {
+        return res.status(400).json({
+            message: 'Account does not exist',
+        })
+    }
+
     if (!email || !password) {
         return res.status(400).json({ message: 'Please enter email & password' })
     }
 
     let user = await User.findOne({ email }).select('+password');
+
 
     if (!user) {
         return res.status(400).json({ message: 'Invalid Email or Password' });
@@ -412,7 +421,13 @@ exports.getUsersFreeAccess = async (req, res, next) => {
 exports.deleteUser = async (req, res, next) => {
     try {
 
-        await User.findByIdAndDelete(req.params.id);
+        const user = await User.findById(req.params.id);
+        if (req.query.action === 'restore') {
+            user.deletedAt = null;
+        } else {
+            user.deletedAt = new Date();
+        }
+        user.save();
 
         res.status(200).json({
             success: true,
