@@ -37,6 +37,7 @@ import ToastEmmiter from '../Layout/ToastEmmiter';
 import { getOwnedGroups } from '../../api/groupsAPI';
 import { getSingleAnnouncement, updateAnnouncement } from '../../api/announcementsAPI';
 import { FileIcon, defaultStyles } from 'react-file-icon';
+import { socket } from '../../socket';
 
 const EditAnnouncement = () => {
     const navigate = useNavigate();
@@ -50,6 +51,16 @@ const EditAnnouncement = () => {
 
     const getMyGroups = async () => {
         setOwnedGroups(await getOwnedGroups());
+    }
+
+    const pushNotifyAnnouncement = (data) => {
+
+        socket.emit('new-announcement', JSON.stringify({
+            teacher: getUser(),
+            announcement: data.announcement,
+            group: data.announcement.groupViewers,
+        }))
+
     }
 
     const formik = useFormik({
@@ -68,6 +79,7 @@ const EditAnnouncement = () => {
             setLoading(true)
             const { data } = await updateAnnouncement(values, id);
             if (data.success) {
+                pushNotifyAnnouncement(data)
                 setLoading(false)
                 ToastEmmiter.success(data.message, 'top-right')
                 navigate('/teachers-post');

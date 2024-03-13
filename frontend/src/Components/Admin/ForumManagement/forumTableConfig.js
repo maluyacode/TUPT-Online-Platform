@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Paper, Tooltip, Typography } from "@mui/material";
+import { Box, Button, ButtonGroup, Chip, Paper, Tooltip, Typography } from "@mui/material";
 import { Visibility, EditNote, Delete, Archive } from "@mui/icons-material"
 import { createTheme } from '@mui/material/styles';
 import { profileHead } from '../../../utils/avatar'
@@ -98,6 +98,7 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "updatedAt",
             label: "Last Update",
             options: {
+                display: false,
                 customBodyRender: (data, tableMeta, updateValue) => {
                     return formatDate(data)
                 }
@@ -107,6 +108,7 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "deletedAt",
             label: "Archived At",
             options: {
+                display: false,
                 customBodyRender: (data, tableMeta, updateValue) => {
                     return formatDate(data)
                 }
@@ -116,8 +118,24 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "forceDeletedAt",
             label: "Deleted At",
             options: {
+                display: false,
                 customBodyRender: (data, tableMeta, updateValue) => {
                     return formatDate(data)
+                }
+            }
+        },
+        {
+            name: "status",
+            labal: "Status",
+            options: {
+                customBodyRender: (value) => {
+                    if (value === 'Active') {
+                        return <Chip label={value} sx={{ backgroundColor: '#C5EBAA', width: '80%' }} />
+                    } else if (value === 'Archived') {
+                        return <Chip label={value} sx={{ backgroundColor: '#F9E897', width: '80%' }} />
+                    } else {
+                        return <Chip label={value} sx={{ backgroundColor: '#FF6868', width: '80%' }} />
+                    }
                 }
             }
         },
@@ -200,6 +218,7 @@ export const getTableData = (datas) => {
             updatedAt: data.updatedAt,
             deletedAt: data.deletedAt || 'Active',
             forceDeletedAt: data.forceDeletedAt || 'Active',
+            status: (data.forceDeletedAt && data.deletedAt) ? 'Disabled' : (data.deletedAt && !data.forceDeletedAt) ? "Archived" : "Active",
             actions: data,
         }
     })

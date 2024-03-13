@@ -5,7 +5,9 @@ import {
     OpenChatSideBar,
     CloseChatSideBar,
     OpenProfile,
-    CloseProfile
+    CloseProfile,
+    OpenDoc,
+    CloseDoc
 } from '../constants/uiConstants'
 import { getSingleUser } from '../api/usersAPI'
 
@@ -46,5 +48,20 @@ export const openProfile = (userID) => async (dispatch) => {
 export const closeProfile = () => async (dispatch) => {
     dispatch({
         type: CloseProfile,
+    })
+}
+
+export const openDoc = (attachment) => async (dispatch) => {
+
+    dispatch({
+        type: OpenDoc,
+        payload: attachment
+    })
+}
+
+export const closeDoc = () => async (dispatch) => {
+
+    dispatch({
+        type: CloseDoc,
     })
 }

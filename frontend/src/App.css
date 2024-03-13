@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +40,19 @@
 
 .selected-comment {
   background-color: yellow !important;
+}
+
+.tss-gm6zfk-MUIDataTableHeadCell-fixedHeader,
+.tss-qw25q6-MUIDataTableSelectCell-fixedHeader {
+  border: #4546484d 1px solid !important;
+}
+
+#header-bar,
+#pdf-download {
+  display: none !important;
+}
+
+#pdf-controls {
+  box-shadow: none !important;
+  justify-content: center;
 }

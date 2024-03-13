@@ -62,7 +62,7 @@ export const getTableColumns = (handleEdit, handleDelete) => {
             label: "Status",
             options: {
                 customBodyRender: (value) => {
-                    return <Chip label={value} sx={{ backgroundColor: value === 'Active' ? '#C5E898' : '#E78895' }} />
+                    return <Chip label={value} sx={{ backgroundColor: value === 'Active' ? '#C5E898' : '#E78895', width: '80%' }} />
                 }
             }
         },

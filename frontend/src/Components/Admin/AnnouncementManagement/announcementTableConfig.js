@@ -1,4 +1,4 @@
-import { Box, Button, ButtonGroup, Paper } from "@mui/material";
+import { Box, Button, ButtonGroup, Chip, Paper } from "@mui/material";
 import { Visibility, EditNote, Delete } from "@mui/icons-material"
 import { createTheme } from '@mui/material/styles';
 import { profileHead } from '../../../utils/avatar'
@@ -97,6 +97,7 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "updatedAt",
             label: "Last Update",
             options: {
+                display: false,
                 customBodyRender: (data, tableMeta, updateValue) => {
                     return formatDate(data)
                 }
@@ -106,6 +107,7 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "deletedAt",
             label: "Archived At",
             options: {
+                display: false,
                 customBodyRender: (data, tableMeta, updateValue) => {
                     return formatDate(data)
                 }
@@ -115,8 +117,24 @@ export const getTableColumns = (handleView, handleDelete) => {
             name: "forceDeletedAt",
             label: "Deleted At",
             options: {
+                display: false,
                 customBodyRender: (data, tableMeta, updateValue) => {
                     return formatDate(data)
+                }
+            }
+        },
+        {
+            name: "status",
+            labal: "Status",
+            options: {
+                customBodyRender: (value) => {
+                    if (value === 'Active') {
+                        return <Chip label={value} sx={{ backgroundColor: '#C5EBAA', width: '80%' }} />
+                    } else if (value === 'Archived') {
+                        return <Chip label={value} sx={{ backgroundColor: '#F9E897', width: '80%' }} />
+                    } else {
+                        return <Chip label={value} sx={{ backgroundColor: '#FF6868', width: '80%' }} />
+                    }
                 }
             }
         },
@@ -145,7 +163,7 @@ export const getTableColumns = (handleView, handleDelete) => {
 export const getTableOptions = (navigate) => {
     const options = {
         filterType: 'multiselect',
-        rowsPerPage: 4,
+        rowsPerPage: 6,
         responsive: "vertical",
         selectableRows: false,
         // onRowSelectionChange: (currentRowsSelected, allRowsSelected, rowsSelected) => {
@@ -194,6 +212,7 @@ export const getTableData = (announcements) => {
             updatedAt: announcement.updatedAt,
             deletedAt: announcement.deletedAt || 'Active',
             forceDeletedAt: announcement.forceDeletedAt || 'Active',
+            status: (announcement.forceDeletedAt && announcement.deletedAt) ? 'Disabled' : (announcement.deletedAt && !announcement.forceDeletedAt) ? "Archived" : "Active",
             actions: announcement._id,
         }
     })

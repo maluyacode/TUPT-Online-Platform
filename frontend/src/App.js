@@ -54,6 +54,7 @@ import EditTutorial from './Components/Admin/VideoTutorialManagement/EditTutoria
 import CreateTutorial from './Components/Admin/VideoTutorialManagement/CreateTutorial';
 import TutorialsList from './Components/Tutorials/TutorialsList';
 import ViewUser from './Components/User/ViewUser';
+import PreviewFile from './Components/FilePreview/PreviewFile';
 
 function App() {
 
@@ -97,6 +98,7 @@ function App() {
     <div className="App">
       <Router>
         <ViewUser />
+        <PreviewFile />
         <Alert open={open} setOpen={setOpen} announcement={newAnnouncement} />
         <Routes>
 

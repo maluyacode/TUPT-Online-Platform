@@ -80,7 +80,9 @@ const AnnouncementDetails = () => {
                                 </div> */}
                                 <pre>
                                     <MDBCardText className='text-center'>
-                                        {announcement.content}
+                                        <Typography>
+                                            {announcement.content}
+                                        </Typography>
                                     </MDBCardText>
                                 </pre>
                                 {announcement.attachments?.length > 0 ?

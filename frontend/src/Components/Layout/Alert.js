@@ -34,7 +34,12 @@ const Alert = ({ open, setOpen, announcement }) => {
                 <DialogTitle >
                     <Box className='d-flex gap-3 align-items-center'>
                         <MDBIcon fas icon="bullhorn" size='xl' color='danger' />
-                        <Typography variant='h6'>New Announcement!</Typography>
+                        <Typography variant='h6'>
+                            {announcement.createdAt === announcement.createdAt ?
+                                "New Announcement!" :
+                                "Re-announcement"
+                            }
+                        </Typography>
                     </Box>
                     <br />
                     <Typography variant='h5'>{announcement.title}</Typography>
