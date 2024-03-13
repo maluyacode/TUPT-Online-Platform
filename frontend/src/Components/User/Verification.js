@@ -20,6 +20,7 @@ import MetaData from '../Layout/MetaData';
 
 import verifyAPI from '../../api/verifyAPI'
 import reSendCode from '../../api/reSendCode';
+import { getUser } from '../../utils/helper';
 
 export default function Verification() {
 
@@ -83,21 +84,23 @@ export default function Verification() {
                         <MDBCardTitle className='mb-4'>Verify you Email and Contact No</MDBCardTitle>
 
                         <form onSubmit={formik.handleSubmit}>
-
-                            <MDBInput type='text' label='Email verification code'
-                                name='emailCode'
-                                value={formik.values.emailCode}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                            />
+                            {!getUser().isEmailVerified && (
+                                <MDBInput type='text' label='Email verification code'
+                                    name='emailCode'
+                                    value={formik.values.emailCode}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                            )}
                             <ErrorMessage formik={formik} name='emailCode' />
-
-                            <MDBInput type='text' label='Contact No verification code'
-                                name='contactCode'
-                                value={formik.values.contactCode}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
-                            />
+                            {!getUser().isContactVerified && (
+                                <MDBInput type='text' label='Contact No verification code'
+                                    name='contactCode'
+                                    value={formik.values.contactCode}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                />
+                            )}
                             <ErrorMessage formik={formik} name='contactCode' />
 
                             <MDBRow>

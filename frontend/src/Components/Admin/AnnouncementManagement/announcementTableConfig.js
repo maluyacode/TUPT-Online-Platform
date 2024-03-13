@@ -125,7 +125,7 @@ export const getTableColumns = (handleView, handleDelete) => {
         },
         {
             name: "status",
-            labal: "Status",
+            label: "Status",
             options: {
                 customBodyRender: (value) => {
                     if (value === 'Active') {

@@ -54,7 +54,7 @@ const EditAnnouncement = () => {
     }
 
     const pushNotifyAnnouncement = (data) => {
-
+        console.log(data)
         socket.emit('new-announcement', JSON.stringify({
             teacher: getUser(),
             announcement: data.announcement,
@@ -125,6 +125,7 @@ const EditAnnouncement = () => {
             formik.setFieldValue('canViewBy', formik.values.canViewBy.filter((item) => item !== e.target.value));
         }
     }
+
 
 
     const handleClickOpen = (whatToView) => {

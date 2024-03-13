@@ -61,7 +61,6 @@ export const getSingleAnnouncement = async (id) => {
 }
 
 export const updateAnnouncement = async (values, id) => {
-
     try {
 
         const formData = new FormData;
@@ -75,6 +74,10 @@ export const updateAnnouncement = async (values, id) => {
         for (let i = 0; i < values.files.length; i++) {
             formData.append('files', values.files[i]);
         }
+
+        // for (const pair of formData.entries()) {
+        //     console.log(pair[0], pair[1]);
+        // }
 
         const response = await axios.put(`${process.env.REACT_APP_API}/api/v1/announcement/update/${id}`, formData, {
             withCredentials: true

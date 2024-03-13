@@ -27,12 +27,14 @@ import ToastEmmiter from '../Layout/ToastEmmiter'
 import ConnectedParents from './ConnectedParents'
 import PendingRequest from './PendingRequest'
 import axios from 'axios'
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 const specify = <span className='fst-italic fw-lighter' style={{ fontSize: 12 }}>Not specified</span>
 
 const UserProfile = () => {
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate();
     const avatar = useRef(null)
     const [avatarPreview, setAvatarPreview] = useState('');
     const [isButtonDisable, setButtonDisable] = useState(true);
@@ -71,20 +73,52 @@ const UserProfile = () => {
         validationSchema: EditProfileSchema,
         validateOnMount: true,
         onSubmit: async (values) => {
-            setLoading(true);
-            const { data } = await updateProfile(values, getUser()._id);
-            console.log(data);
-            if (data.success) {
-                ToastEmmiter.success(data.message, 'top-right');
-                setLoading(false);
-                setButtonDisable(false)
+
+            let route = '/profile'
+            if (getUser().contact_number !== values.contact_number) {
+
+                route = '/verification'
+
+                Swal.fire({
+                    // title: "Are you sure?",
+                    text: "Changing your contact number is crucial; please make sure you input the correct phone number, as you will be redirected to verify your phone again.",
+                    // icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Confirm"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        update(values, route)
+                    }
+                });
+
             } else {
-                ToastEmmiter.error('Error occured', 'top-right');
-                setLoading(false);
-                setButtonDisable(false)
+                update(values, route)
             }
+
         },
     });
+
+    const update = async (values, route) => {
+        setLoading(true);
+        const { data } = await updateProfile(values, getUser()._id);
+        console.log(data);
+        if (data.success) {
+            ToastEmmiter.success(data.message, 'top-right');
+            setLoading(false);
+            setButtonDisable(false)
+            navigate(route)
+        } else {
+            ToastEmmiter.error('Error occured', 'top-right');
+            setLoading(false);
+            setButtonDisable(false)
+        }
+    }
+
+    const warningChangingContactNumber = () => {
+
+    }
 
     const handleInputChange = () => {
         setButtonDisable(false);
@@ -366,6 +400,9 @@ const UserProfile = () => {
                                                     value={formik.values.email}
                                                     onChange={formik.handleChange}
                                                     onBlur={formik.handleBlur}
+                                                    InputProps={{
+                                                        readOnly: true,
+                                                    }}
                                                 />
                                                 <ErrorMessage formik={formik} name={'email'} />
                                             </Box>
