@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../utils/multer')
 const userController = require('../controllers/userController');
-const { isAuthenticated } = require('../middlewares/Auth');
+const { isAuthenticated, isAuthorized } = require('../middlewares/Auth');
 
 router.post('/register', upload.single('avatar'), userController.registerUser, userController.regsteredByAdmin);
 
@@ -24,7 +24,7 @@ router.put('/reset-password/:token', upload.any(), userController.resetUserPassw
 
 router.put('/update-password', isAuthenticated, upload.any(), userController.updateUserPassword)
 
-router.delete('/delete/:id', isAuthenticated, userController.deleteUser)
+router.delete('/delete/:id', isAuthenticated, isAuthorized('admin'), userController.deleteUser)
 
 router.post('/send-email', isAuthenticated, upload.fields([
     { name: 'attachments', maxCount: 5 },

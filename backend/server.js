@@ -6,9 +6,9 @@ const app = require('./app');
 
 dotenv.config({ path: './config/.env' });
 
-// (async () => {
-//     await mega.connect();
-// })();
+(async () => {
+    await mega.connect();
+})();
 require('./config/cloudinary');
 connectDatabase();
 
@@ -43,7 +43,6 @@ io.on('connection', (socket) => {
         const { message, recipient } = JSON.parse(data);
         console.log(recipient)
         const user = connectedUsers.get(recipient);
-        console.log(user)
 
         socket.emit('recieved-message', recipient);
         socket.broadcast.emit('push-to-admin', 'admin');
@@ -66,7 +65,7 @@ io.on('connection', (socket) => {
     socket.on('new-announcement', (data) => {
 
         const { teacher, announcement, group } = JSON.parse(data);
-
+        console.log(group)
         if (group) {
 
             const membersId = group.members.map(value => value._id);

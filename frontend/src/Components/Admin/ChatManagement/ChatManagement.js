@@ -37,7 +37,7 @@ const ChatManagement = () => {
             setFilteredChats(data.chats);
         } else {
             setLoading(false)
-            ToastEmmiter.error('System error, please try again later', 'top-center')
+            ToastEmmiter.error(data.message, 'top-center')
         }
     }
 

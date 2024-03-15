@@ -171,6 +171,7 @@ userSchema.methods.getEmailCodeVerification = async function () {
     const code = generateCode(6);
     this.emailCodeVerification = code.trim();
     this.emailCodeExpire = Date.now() + 5 * 60 * 1000;
+    this.isEmailVerified = false
     return code;
 }
 
@@ -178,6 +179,7 @@ userSchema.methods.getContactCodeVerification = async function () {
     const code = generateCode(6);
     this.contactCodeVerification = code.trim();
     this.contactCodeExpire = Date.now() + 5 * 60 * 1000;
+    this.isContactVerified = false
     return code;
 }
 

@@ -46,7 +46,7 @@ const TeacherAnnouncements = () => {
 
     return (
         <>
-            <MetaData pageTitle="Announcements" />
+            <MetaData pageTitle={`${teacher?.firstname} ${teacher?.lastname}'s Posts`} />
             <Block loading={loading} />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />

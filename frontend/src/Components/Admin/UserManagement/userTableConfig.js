@@ -84,7 +84,7 @@ export const getTableColumns = (handleEdit, handleDelete) => {
                 customBodyRender: (value, tableMeta, updateValue) => {
                     return (
                         <ButtonGroup variant="text" aria-label="text button group">
-                            <Button size='small' onClick={() => console.log(value._id)}><Visibility /></Button>
+
                             <Button size='small' onClick={() => handleEdit(value._id)}><EditNote /></Button>
                             {value.deletedAt ?
                                 <Button onClick={() => handleDelete(value._id, 'restore')}>

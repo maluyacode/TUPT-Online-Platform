@@ -98,15 +98,8 @@ exports.verifyCode = async (req, res, next) => {
         return;
     }
 
-    if (user.emailCodeVerification === emailCode && user.contactCodeVerification === contactCode) {
-        const verifiedUser = await verifyAccount(user)
-        sendToken(verifiedUser, 200, res);
-    } else {
-        res.status(500).json({
-            success: false,
-            message: 'Error occured, please try again later'
-        })
-    }
+    const verifiedUser = await verifyAccount(user)
+    sendToken(verifiedUser, 200, res);
 
 }
 
@@ -121,12 +114,17 @@ exports.reSendCode = async (req, res, next) => {
         })
     }
 
-    const emailCode = await user.getEmailCodeVerification()
-    const contactCode = await user.getContactCodeVerification()
+    if (!user.isEmailVerified) {
+        const emailCode = await user.getEmailCodeVerification()
+        sendCodeToEmail(user, emailCode);
+    }
+
+    if (!user.isContactVerified) {
+        const contactCode = await user.getContactCodeVerification()
+        sendCodeToContact(user, contactCode)
+    }
 
     user.save({ validateBeforeSave: false });
-    sendCodeToEmail(user, emailCode);
-    sendCodeToContact(user, contactCode)
 
     return res.status(200).json({
         success: true,
@@ -140,7 +138,7 @@ exports.loginUser = async (req, res, next) => {
 
     let checkUser = await User.findOne({ email })
 
-    if (checkUser.deletedAt) {
+    if (checkUser?.deletedAt) {
         return res.status(400).json({
             message: 'Account does not exist',
         })
@@ -199,6 +197,8 @@ exports.updateUser = async (req, res, next) => {
                 user: value,
             }
         })
+    } else {
+        req.body.iCareFor = []
     }
 
     if (req.file) {
@@ -212,6 +212,18 @@ exports.updateUser = async (req, res, next) => {
     if (req.body.birthdate == 'Invalid Date') {
         req.body.birthdate = null
     }
+
+    if (req.body.contact_number !== user.contact_number) {
+        const contactCode = await user.getContactCodeVerification()
+        sendCodeToContact(user, contactCode)
+    }
+
+    if (req.body.email !== user.email) {
+        const emailCode = await user.getEmailCodeVerification()
+        sendCodeToEmail(user, emailCode);
+    }
+
+    user.save({ validateBeforeSave: false });
 
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
         new: true,

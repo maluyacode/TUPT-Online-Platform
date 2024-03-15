@@ -36,7 +36,8 @@ const ForumManagment = () => {
             setLoading(false)
             ToastEmmiter.success(data.message)
         } else {
-            ToastEmmiter.warning('Error fetching post', 'top-center');
+            console.log(data);
+            ToastEmmiter.warning(data.message, 'top-center');
             setLoading(false)
         }
     }

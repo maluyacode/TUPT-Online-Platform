@@ -111,7 +111,7 @@ const TeachersPosts = () => {
     return (
         <>
             <Block loading={loading} />
-            <MetaData pageTitle="Announcements" />
+            <MetaData pageTitle={"Announcements" }/>
             <div style={{ display: 'flex', minHeight: '100vh' }}>
                 <SideNav />
                 <main style={{ padding: 10 }} className='shadow-6-strong  w-100'>

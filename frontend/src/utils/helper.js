@@ -17,7 +17,7 @@ export const isAuthenticated = () => {
 
 
 export const getUser = () => {
-    return JSON.parse(getCookie('user'))
+    return getCookie('user') ? JSON.parse(getCookie('user')) : false
 }
 
 

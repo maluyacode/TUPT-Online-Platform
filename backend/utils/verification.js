@@ -28,36 +28,42 @@ exports.verifyEmailAndContactCode = (user, req, res, next) => {
 
     const { contactCode, emailCode } = req.body;
 
-    if (user.emailCodeVerification !== emailCode && user.contactCodeVerification !== contactCode) {
-        res.status(406).json({
-            success: false,
-            message: `Contact number verification code and email verification code doesn't match`
-        })
-        return false
+    if (!user.isEmailVerified) {
+
+        if (user.emailCodeVerification !== emailCode && user.contactCodeVerification !== contactCode) {
+            res.status(406).json({
+                success: false,
+                message: `Contact number verification code and email verification code doesn't match`
+            })
+            return false
+        }
+
+        if (user.emailCodeVerification !== emailCode) {
+            res.status(406).json({
+                success: false,
+                message: `Email verification code doesn't match`
+            })
+            return false
+        }
     }
 
-    if (user.emailCodeVerification !== emailCode) {
-        res.status(406).json({
-            success: false,
-            message: `Email verification code doesn't match`
-        })
-        return false
-    }
+    if (!user.isContactVerified) {
 
-    if (user.contactCodeVerification !== contactCode) {
-        res.status(406).json({
-            success: false,
-            message: `Contact number verification code doesn't match`
-        })
-        return false
-    }
+        if (user.contactCodeVerification !== contactCode) {
+            res.status(406).json({
+                success: false,
+                message: `Contact number verification code doesn't match`
+            })
+            return false
+        }
 
-    if (user.emailCodeExpire < Date.now() && user.contactCodeExpire < Date.now()) {
-        res.status(406).json({
-            success: false,
-            message: 'Verfication codes are expired, please resend code'
-        })
-        return false
+        if (user.emailCodeExpire < Date.now() && user.contactCodeExpire < Date.now()) {
+            res.status(406).json({
+                success: false,
+                message: 'Verfication codes are expired, please resend code'
+            })
+            return false
+        }
     }
 
     return true

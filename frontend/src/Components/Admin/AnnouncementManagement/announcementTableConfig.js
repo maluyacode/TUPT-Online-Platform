@@ -204,7 +204,7 @@ export const getTableData = (announcements) => {
             images: announcement.images,
             title: announcement.title,
             content: announcement.content.substring(0, 20) + '.....',
-            createdBy: `${announcement.createdBy.firstname} ${announcement.createdBy.lastname}`,
+            createdBy: `${announcement?.createdBy?.firstname || 'Deleted'} ${announcement?.createdBy?.lastname || 'User'}`,
             groupViewers: announcement.groupViewers?.groupName ? announcement.groupViewers?.groupName : "For everyone",
             canViewBy: announcement.canViewBy.join(', ').toUpperCase(),
             attachments: announcement.attachments,

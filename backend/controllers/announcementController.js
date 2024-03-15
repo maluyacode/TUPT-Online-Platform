@@ -39,7 +39,7 @@ exports.createAnnouncement = async (req, res, next) => {
 
         const announcement = await Announcement.create(req.body);
 
-        const newAnnouncement = await announcement.populate({
+        const newAnnouncement = await Announcement.findById(announcement._id).populate({
             path: 'groupViewers',
             ref: 'group',
             populate: {
@@ -250,12 +250,11 @@ exports.updateAnnouncement = async (req, res, next) => {
 
         req.body.canViewBy = ["parent", "student", "teacher"]
         if (req.body.groupViewers === 'all') {
-            delete req.body.groupViewers
+            req.body.groupViewers = null
             req.body.isForAll = true
         } else {
             req.body.isForAll = false
         }
-
 
         if (req.files.images) {
 
@@ -280,7 +279,6 @@ exports.updateAnnouncement = async (req, res, next) => {
 
             let filesLink = [];
             for (i in req.files.files) {
-                console.log(req.files.files)
                 const files = req.files.files
 
                 const result = await mega.uploadFile(files[i].originalname, files[i].path) // get file details - megajs
@@ -293,10 +291,20 @@ exports.updateAnnouncement = async (req, res, next) => {
 
         announcement = await Announcement.findByIdAndUpdate(req.params.id, req.body)
 
+        const updatedAnnouncement = await Announcement.findById(announcement._id).populate({
+            path: 'groupViewers',
+            ref: 'group',
+            populate: {
+                path: 'members',
+                ref: 'user',
+            }
+        });
+
+
         return res.status(200).json({
             success: true,
             message: 'Reannounced successfully!',
-            announcement: announcement
+            announcement: updatedAnnouncement
         })
 
     } catch (err) {

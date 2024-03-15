@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../utils/multer')
 const collabController = require('../controllers/collabController');
-const { isAuthenticated } = require('../middlewares/Auth');
+const { isAuthenticated, isAuthorized } = require('../middlewares/Auth');
 
 router.post('/create/post', isAuthenticated, upload.fields([
     { name: 'attachments', maxCount: 3 },
@@ -20,7 +20,7 @@ router.put('/update-post/:id', isAuthenticated, upload.fields([
 
 router.delete('/delete/:id', isAuthenticated, collabController.deleteTopic)
 
-router.delete('/destroy/:id', isAuthenticated, collabController.destroyTopic)
+router.delete('/destroy/:id', isAuthenticated, isAuthorized('admin'), collabController.destroyTopic)
 
 router.put('/restore/:id', isAuthenticated, collabController.restoreTopic)
 

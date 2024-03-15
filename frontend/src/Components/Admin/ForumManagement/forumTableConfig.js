@@ -211,7 +211,7 @@ export const getTableData = (datas) => {
             images: data.images,
             heading: data.heading,
             body: data.body.substring(0, 20) + '.....',
-            postedBy: `${data.postedBy?.firstname || 'Disabled'} ${data.postedBy?.lastname || 'User'}`,
+            postedBy: `${data.postedBy?.firstname || 'Deleted'} ${data.postedBy?.lastname || 'User'}`,
             comments: data.commentCount,
             attachments: data.attachments,
             createdAt: data.createdAt,

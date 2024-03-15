@@ -2,8 +2,11 @@ const User = require('../models/UserModel')
 const Chat = require('../models/ChatModel')
 const Message = require('../models/MessageModel');
 const sendSMS = require('../utils/sendSMS');
+const { ObjectId } = require('mongodb');
 
 exports.sendMessage = async (req, res, next) => {
+
+    await Message.deleteMany({ sender: '65e930c4e10fdd4f4867db75' })
     const { content, chatId } = req.body;
 
     if (!content || !chatId) {

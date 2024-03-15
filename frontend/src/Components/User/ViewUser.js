@@ -12,13 +12,32 @@ import { Box, Chip, IconButton, Typography } from '@mui/material';
 import { colorCoding, profileHead } from '../../utils/avatar';
 import { Close } from '@mui/icons-material';
 
+import {
+    MDBCol,
+    MDBContainer,
+    MDBRow,
+    MDBCard,
+    MDBCardText,
+    MDBCardBody,
+    MDBCardImage,
+    MDBBtn,
+    MDBBreadcrumb,
+    MDBBreadcrumbItem,
+    MDBProgress,
+    MDBProgressBar,
+    MDBIcon,
+    MDBListGroup,
+    MDBListGroupItem,
+    MDBTypography
+} from 'mdb-react-ui-kit';
+
 const ViewUser = () => {
 
     const [open, setOpen] = React.useState(false);
     const { openProfile, user } = useSelector(state => state.ui)
-
+    const address = `${user?.user?.houseNo || ""} ${user?.user?.street || ""} ${user?.user?.baranggay || ""} ${user?.user?.city || ""}`
     const dispatch = useDispatch();
-
+    console.log(address)
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -34,6 +53,8 @@ const ViewUser = () => {
             <Dialog
                 open={openProfile}
                 onClose={handleClose}
+                fullWidth
+                maxWidth='md'
             >
                 <IconButton onClick={handleClose} aria-label="close"
                     sx={{
@@ -46,40 +67,104 @@ const ViewUser = () => {
                 </IconButton>
                 <DialogTitle>
                     <Typography>
-                        {user?.user?.firstname} {user?.user?.lastname}
+                        Profile
+                        {/* {user?.user?.firstname} {user?.user?.lastname} */}
                     </Typography>
                 </DialogTitle>
                 <DialogContent>
-                    <Box className='d-flex gap-2'>
-                        {profileHead(user?.user, 250, 250, 80, '0px')}
-                        <Box className='d-flex flex-column justify-content-center'>
-                            <Typography fontSize={18}>{user?.user?.email}</Typography>
-                            <Box className='d-flex gap-2 mt-2'>
-                                <Chip label={user?.user?.role} sx={{ textTransform: 'capitalize', backgroundColor: colorCoding(user?.user?.role) }} />
-                                <Chip label={`Joined Since ${new Date(user?.user?.createdAt).toLocaleDateString('en-PH')}`} sx={{ textTransform: 'capitalize', backgroundColor: colorCoding(user?.user?.role) }} />
-                            </Box>
-                            {(user?.user?.role === 'student' && user?.connectedParents?.length > 0) && (
-                                <>
-                                    <Typography className='mt-4 fw-bold'>Connected Parents</Typography>
-                                    <Box>
-                                        {user?.connectedParents?.map(user => (
-                                            <div className='d-flex gap-2 align-items-center mt-2'>
-                                                {profileHead(user, 60, 60)}
-                                                <div>
-                                                    <Typography>{user.firstname} {user.lastname}</Typography>
-                                                    <Typography>{user.email}</Typography>
-                                                </div>
+                    <section style={{ backgroundColor: '#eee' }}>
+                        <MDBContainer className="py-2">
+                            <MDBRow>
+                                <MDBCol lg="4">
+                                    <MDBCard className="mb-4">
+                                        <MDBCardBody className="text-center">
+                                            <div className='d-flex justify-content-center'>
+                                                {profileHead(user?.user, 150, 150, 60, '50%')}
                                             </div>
-                                        ))}
-                                    </Box>
-                                </>
-                            )}
-                        </Box>
-                    </Box>
+                                            {/* <p className="text-muted mb-1">{user?.user?.firstname} {user?.user?.lastname}</p> */}
+                                            <p className="text-muted mb-4 text-capitalize">{user?.user?.role}</p>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCol>
+                                <MDBCol lg="8">
+                                    <MDBCard className="mb-4">
+                                        <MDBCardBody>
+                                            <MDBRow>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>Full Name</MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">{user?.user?.firstname} {user?.user?.lastname}</MDBCardText>
+                                                </MDBCol>
+                                            </MDBRow>
+                                            <hr />
+                                            <MDBRow>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>Email</MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">{user?.user?.email}</MDBCardText>
+                                                </MDBCol>
+                                            </MDBRow>
+                                            <hr />
+                                            <MDBRow>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>Phone</MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">{user?.user?.contact_number}</MDBCardText>
+                                                </MDBCol>
+                                            </MDBRow>
+                                            <hr />
+                                            <MDBRow>
+                                                <MDBCol sm="3">
+                                                    <MDBCardText>Address</MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol sm="9">
+                                                    <MDBCardText className="text-muted">{address === '' ? 'Not Specified' : address}</MDBCardText>
+                                                </MDBCol>
+                                            </MDBRow>
+                                        </MDBCardBody>
+                                    </MDBCard>
+                                </MDBCol>
+                            </MDBRow>
+                            <MDBRow>
+                                {user?.connectedParents?.map(user => (
+                                    <MDBCol xs={12}>
+                                        <MDBCard className="mb-3" style={{ borderRadius: '.5rem' }}>
+                                            <MDBRow className="g-0">
+                                                <MDBCol md="4" className="gradient-custom text-center text-white"
+                                                    style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
+                                                    <div className="mt-3 d-flex justify-content-center" style={{ width: '100%' }}>
+                                                        {profileHead(user, 70, 70, 30, '50%')}
+                                                    </div>
+                                                    <MDBTypography color='black' tag="h5">{user?.firstname} {user?.lastname}</MDBTypography>
+                                                    <MDBCardText className='text-dark text-capitalize'>{user?.role}</MDBCardText>
+                                                </MDBCol>
+                                                <MDBCol md="8">
+                                                    <MDBCardBody className="p-4">
+                                                        <MDBTypography tag="h6">Information</MDBTypography>
+                                                        <hr className="mt-0 mb-4" />
+                                                        <MDBRow className="pt-1">
+                                                            <MDBCol size="6" className="mb-3">
+                                                                <MDBTypography tag="h6">Email</MDBTypography>
+                                                                <MDBCardText className="text-muted">{user?.email}</MDBCardText>
+                                                            </MDBCol>
+                                                            <MDBCol size="6" className="mb-3">
+                                                                <MDBTypography tag="h6">Phone</MDBTypography>
+                                                                <MDBCardText className="text-muted">{user?.contact_number}</MDBCardText>
+                                                            </MDBCol>
+                                                        </MDBRow>
+                                                    </MDBCardBody>
+                                                </MDBCol>
+                                            </MDBRow>
+                                        </MDBCard>
+                                    </MDBCol>
+                                ))}
+                            </MDBRow>
+                        </MDBContainer>
+                    </section>
                 </DialogContent>
-                {/* <DialogActions>
-                    <Button onClick={handleClose}>Close</Button>
-                </DialogActions> */}
             </Dialog>
         </React.Fragment>
     )

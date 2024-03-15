@@ -43,12 +43,12 @@ export default function ChatLists() {
                 return (
                     <MDBListGroupItem action className='d-flex justify-content-between align-items-center px-4' style={{ cursor: 'pointer' }}
                         key={chat._id}
-                        onClick={() => handleSelectChat(myKaChat(chat.participants)._id)}
+                        onClick={() => handleSelectChat(myKaChat(chat.participants)?._id)}
                     >
                         <div className='d-flex align-items-center'>
                             {profileHead(chat.participants)}
                             <div className='ms-3'>
-                                <p className={`mb-1 ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{`${myKaChat(chat.participants).firstname} ${myKaChat(chat.participants).lastname}`}</p>
+                                <p className={`mb-1 ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{`${myKaChat(chat.participants)?.firstname} ${myKaChat(chat.participants)?.lastname}`}</p>
                                 <p className={`mb-0 d-flex ${hasNewMessage ? 'fw-bold ' : 'text-muted '}`}>{filter.clean(anylastMessage(chat))}</p>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ const anylastMessage = (chat) => {
     if (!chat.lastMessage) {
         return 'hala wala'
     }
-    if (chat.lastMessage.sender._id === getUser()._id) {
+    if (chat?.lastMessage?.sender?._id === getUser()._id) {
         return `You: ${chat.lastMessage.content}`
     } else {
         return `${chat.lastMessage.content}`
@@ -79,7 +79,7 @@ const anylastMessage = (chat) => {
 
 const profileHead = (participants) => {
     const kaChatKo = participants.find(participant => participant._id !== getUser()._id)
-    return kaChatKo.avatar ? <img
+    return kaChatKo?.avatar ? <img
         src={kaChatKo.avatar?.url}
         alt=''
         style={{ width: '45px', height: '45px' }}
@@ -87,7 +87,7 @@ const profileHead = (participants) => {
     /> :
         <div className='d-flex align-content-center justify-content-center' style={{ width: "45px", height: "45px", borderRadius: '50%', backgroundColor: 'lightblue', marginTop: -5 }}>
             <span style={{ lineHeight: "45px", fontSize: 18 }}>
-                {kaChatKo.firstname.charAt(0)}{kaChatKo.lastname.charAt(0)}
+                {kaChatKo?.firstname?.charAt(0)}{kaChatKo?.lastname?.charAt(0)}
             </span>
         </div>
 }

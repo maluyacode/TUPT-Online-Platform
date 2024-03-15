@@ -108,51 +108,37 @@ function App() {
           <Route path='/change-password/:token' element={<ChangePassword />} />
           <Route path='/verification' element={<Verification />} />
 
-          <Route path='/' element={<ProtectedRoute> <Home /> </ProtectedRoute>} />
+          <Route path='/' element={<ProtectedRoute isForAll={true}> <Home /> </ProtectedRoute>} />
+          <Route path='/report-incident' element={<ProtectedRoute viewers={['admin', 'teacher', 'student']}> <ReportIncident /></ProtectedRoute>} />
+          <Route path='/tupt-chat' element={<ProtectedRoute isForAll={true}> <Chat /> </ProtectedRoute>} />
+          <Route path='/announcements' element={<ProtectedRoute isForAll={true}><Announcement /></ProtectedRoute>} />
+          <Route path='/post-announcement' element={<ProtectedRoute viewers={['admin', 'teacher']}><Post /></ProtectedRoute>} />
+          <Route path='/edit-announcement/:id' element={<ProtectedRoute viewers={['admin', 'teacher']}><EditAnnouncement /></ProtectedRoute>} />
+          <Route path='/teachers-post' element={<ProtectedRoute viewers={['admin', 'teacher']}><TeachersPosts /></ProtectedRoute>} />
+          <Route path='/archived-posts' element={<ProtectedRoute isForAll={true}><ArchivedPosts /></ProtectedRoute>} />
+          <Route path='/announcement-details/:id' element={<ProtectedRoute isForAll={true}><AnnouncementDetails /></ProtectedRoute>} />
+          <Route path='/categorize-announcements/:teacherId' element={<ProtectedRoute isForAll={true}><AnnouncementsListByTeacher /></ProtectedRoute>} />
+          <Route path='/group-announcements/:groupId' element={<ProtectedRoute isForAll={true}><AnnouncementsListByGroup /></ProtectedRoute>} />
+          <Route path='/announcement/create-group' element={<ProtectedRoute viewers={['admin', 'teacher']}><CreateGroup /></ProtectedRoute>} />
+          <Route path='/announcement/edit-group/:id' element={<ProtectedRoute viewers={['admin', 'teacher']}><EditGroup /></ProtectedRoute>} />
+          <Route path='/archived-announcements' element={<ProtectedRoute viewers={['admin', 'teacher']}><ArchivedAnnouncements /></ProtectedRoute>} />
+          <Route path='/tutorials' element={<ProtectedRoute isForAll={true}><TutorialsList /></ProtectedRoute>} />
+          <Route path='/collab' element={<ProtectedRoute isForAll={true}><Collab /></ProtectedRoute>} />
+          <Route path='/profile' element={<ProtectedRoute isForAll={true}><UserProfile /></ProtectedRoute>} />
 
-          <Route path='/report-incident' element={<ProtectedRoute> <ReportIncident /> </ProtectedRoute>} />
-
-          <Route path='/tupt-chat' element={<Chat />} />
-          <Route path='/announcements' element={<Announcement />} />
-          <Route path='/post-announcement' element={<Post />} />
-          <Route path='/edit-announcement/:id' element={<EditAnnouncement />} />
-          <Route path='/teachers-post' element={<TeachersPosts />} />
-          <Route path='/post-emergency' element={<Emergency />} />
-          <Route path='/archived-posts' element={<ArchivedPosts />} />
-          <Route path='/announcement-details/:id' element={<AnnouncementDetails />} />
-          <Route path='/categorize-announcements/:teacherId' element={<AnnouncementsListByTeacher />} />
-          <Route path='/group-announcements/:groupId' element={<AnnouncementsListByGroup />} />
-          <Route path='/announcement/create-group' element={<CreateGroup />} />
-          <Route path='/announcement/edit-group/:id' element={<EditGroup />} />
-          <Route path='/archived-announcements' element={<ArchivedAnnouncements />} />
-
-          <Route path='/tutorials' element={<TutorialsList />} />
-
-          <Route path='/collab' element={<Collab />} />
-
-          <Route path='/profile' element={<UserProfile />} />
-
-          <Route path='/admin/dashboard' element={<ProtectedRoute isAdmin={true}> <Dashboard /> </ProtectedRoute>} />
-
-          <Route path='/admin/chat-management' element={<ChatManagement />} />
-          <Route path='/admin/chat-history/:id' element={<ChatHistory />} />
-
-          <Route path='/admin/user-management' element={<UserManagement />} />
-          <Route path='/admin/create-user' element={<CreateUser />} />
-          <Route path='/admin/edit-user/:id' element={<EditUser />} />
-
-          <Route path='/admin/announcement-management' element={<AnnouncementManagement />} />
-          <Route path='/admin/create-announcement' element={<CreateAnnouncement />} />
-          <Route path='/admin/edit-announcement/:id' element={<AdminEditAnnouncement />} />
-
-          <Route path='/admin/forum-management' element={<ForumManagement />} />
-
-
-          <Route path='/admin/list-video-tutorial' element={<VideoTutorialsList />} />
-          <Route path='/admin/edit-video-tutorial/:id' element={<EditTutorial />} />
-          <Route path='/admin/create-video-tutorial' element={<CreateTutorial />} />
-
-
+          <Route path='/admin/dashboard' element={<ProtectedRoute viewers={['admin']}> <Dashboard /> </ProtectedRoute>} />
+          <Route path='/admin/chat-management' element={<ProtectedRoute viewers={['admin']}><ChatManagement /></ProtectedRoute>} />
+          <Route path='/admin/chat-history/:id' element={<ProtectedRoute viewers={['admin']}><ChatHistory /></ProtectedRoute>} />
+          <Route path='/admin/user-management' element={<ProtectedRoute viewers={['admin']}><UserManagement /></ProtectedRoute>} />
+          <Route path='/admin/create-user' element={<ProtectedRoute viewers={['admin']}><CreateUser /></ProtectedRoute>} />
+          <Route path='/admin/edit-user/:id' element={<ProtectedRoute viewers={['admin']}><EditUser /></ProtectedRoute>} />
+          <Route path='/admin/announcement-management' element={<ProtectedRoute viewers={['admin']}><AnnouncementManagement /></ProtectedRoute>} />
+          <Route path='/admin/create-announcement' element={<ProtectedRoute viewers={['admin']}><CreateAnnouncement /></ProtectedRoute>} />
+          <Route path='/admin/edit-announcement/:id' element={<ProtectedRoute viewers={['admin']}><AdminEditAnnouncement /></ProtectedRoute>} />
+          <Route path='/admin/forum-management' element={<ProtectedRoute viewers={['admin']}><ForumManagement /></ProtectedRoute>} />
+          <Route path='/admin/list-video-tutorial' element={<ProtectedRoute viewers={['admin']}><VideoTutorialsList /></ProtectedRoute>} />
+          <Route path='/admin/edit-video-tutorial/:id' element={<ProtectedRoute viewers={['admin']}><EditTutorial /></ProtectedRoute>} />
+          <Route path='/admin/create-video-tutorial' element={<ProtectedRoute viewers={['admin']}><CreateTutorial /></ProtectedRoute>} />
 
         </Routes>
 
