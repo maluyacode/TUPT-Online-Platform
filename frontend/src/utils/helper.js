@@ -12,11 +12,13 @@ function getCookie(cookieName) {
 
 
 export const isAuthenticated = () => {
+    console.log(getCookie('token'))
     return getCookie('token') ? true : false
 }
 
 
 export const getUser = () => {
+    console.log(getCookie('user'))
     return getCookie('user') ? JSON.parse(getCookie('user')) : false
 }
 
