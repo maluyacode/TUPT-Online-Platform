@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const upload = require('../utils/multer')
-const userController = require('../controllers/userController.js');
+const userController = require('../controllers/userController');
 const { isAuthenticated, isAuthorized } = require('../middlewares/Auth');
 
 router.post('/register', upload.single('avatar'), userController.registerUser, userController.regsteredByAdmin);
