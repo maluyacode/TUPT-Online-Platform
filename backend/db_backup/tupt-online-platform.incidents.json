@@ -1,0 +1,209 @@
+[{
+  "_id": {
+    "$oid": "65e88b4971da9d8bb0eb2093"
+  },
+  "location": "Hallway",
+  "incident_date": "2024-03-06",
+  "description": "Nadapa po",
+  "type": "Injury",
+  "reporting_person": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T15:27:05.696Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T15:27:05.696Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e88bb171da9d8bb0eb2096"
+  },
+  "location": "Hallway",
+  "incident_date": "2024-03-09",
+  "description": "Natumba po sa may ugat ng puno",
+  "type": "Injury",
+  "reporting_person": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T15:28:49.584Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T15:28:49.584Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e89103594c76b7cd3f3ab9"
+  },
+  "location": "Classroom",
+  "incident_date": "2023-01-17",
+  "description": "Cannot breath properly",
+  "type": "Health",
+  "reporting_person": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T15:51:31.872Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T15:51:31.872Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8946133656afd5971d944"
+  },
+  "location": "Intrance",
+  "incident_date": "2024-01-02",
+  "description": "Nasagasaan ng motor",
+  "type": "Physical",
+  "reporting_person": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T16:05:53.411Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T16:05:53.411Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e92040e3428014e02e0b0b"
+  },
+  "location": "BASD",
+  "incident_date": "2024-02-06",
+  "description": "The fire starts at the lab",
+  "type": "Fire incident",
+  "reporting_person": {
+    "$oid": "65e919a3e3428014e02e041b"
+  },
+  "createdAt": {
+    "$date": "2024-03-07T02:02:40.965Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T02:02:40.965Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e921dae3428014e02e0ba4"
+  },
+  "location": "Entrance",
+  "incident_date": "2023-02-14",
+  "description": "Nabutas po yung gulong",
+  "type": "Accident",
+  "reporting_person": {
+    "$oid": "65e919a3e3428014e02e041b"
+  },
+  "createdAt": {
+    "$date": "2024-03-07T02:09:30.671Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T02:09:30.671Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e92239e3428014e02e0bf2"
+  },
+  "location": "Hallway",
+  "incident_date": "2023-05-26",
+  "description": "Natapilok po sa daan",
+  "type": "Injury",
+  "reporting_person": {
+    "$oid": "65e919a3e3428014e02e041b"
+  },
+  "createdAt": {
+    "$date": "2024-03-07T02:11:05.375Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T02:11:05.375Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e932e6e10fdd4f4867deba"
+  },
+  "location": "Hallway",
+  "incident_date": "2024-02-08",
+  "description": "Nadapa",
+  "type": "Injury",
+  "reporting_person": {
+    "$oid": "65e92fbfe10fdd4f4867db23"
+  },
+  "createdAt": {
+    "$date": "2024-03-07T03:22:14.279Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T03:22:14.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f10083c26580de29cefb97"
+  },
+  "location": "Room 101 BSIT",
+  "incident_date": "2024-03-14",
+  "description": "Inaasar po nila ako",
+  "type": "Bullying",
+  "reporting_person": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "createdAt": {
+    "$date": "2024-03-13T01:25:23.524Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T01:25:23.524Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f1714dee1a2022815a7391"
+  },
+  "location": "Classroom",
+  "incident_date": "2022-08-25",
+  "description": "ASDSADSADASASDAS\r\n",
+  "type": "Injury",
+  "reporting_person": {
+    "$oid": "65f16d20cec619279c3b6ec3"
+  },
+  "createdAt": {
+    "$date": "2024-03-13T09:26:37.170Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T09:26:37.170Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f25065e70e9025e32b22da"
+  },
+  "location": "MTICS",
+  "incident_date": "2024-02-15",
+  "description": "Natapilok\r\n",
+  "type": "Physical",
+  "reporting_person": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "createdAt": {
+    "$date": "2024-03-14T01:18:29.468Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:18:29.468Z"
+  },
+  "__v": 0
+}]

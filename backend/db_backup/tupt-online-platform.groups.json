@@ -1,0 +1,304 @@
+[{
+  "_id": {
+    "$oid": "65d7333318db72dfbd315e1e"
+  },
+  "groupName": "BSIT-NS-3A",
+  "members": [
+    {
+      "$oid": "65d2f31f682e2b9f3614cc31"
+    },
+    {
+      "$oid": "65c74231dc0531150fb527a6"
+    },
+    {
+      "$oid": "65dedc6cfdf521c8a60b359b"
+    },
+    {
+      "$oid": "65ddfeb553c498c9ecc829a7"
+    },
+    {
+      "$oid": "65dbf68821a12b286b79b6c8"
+    },
+    {
+      "$oid": "65cd45d65f0e4f5344b827e3"
+    },
+    {
+      "$oid": "65e3c3c77b5cb524252fdba6"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/cupjxjcf40s7il70bmku",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708605408/tupt-online-platform/avatar/cupjxjcf40s7il70bmku.jpg"
+  },
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-02-22T11:42:43.722Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T04:45:50.655Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d8308d08afa5282c43694b"
+  },
+  "groupName": "Research Group 5",
+  "members": [
+    {
+      "$oid": "65c74231dc0531150fb527a6"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/v7h9xw1pcygaemmlxjsz",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708667022/tupt-online-platform/avatar/v7h9xw1pcygaemmlxjsz.png"
+  },
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-02-23T05:43:41.474Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T03:01:26.590Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e5295210b6508c12f5314e"
+  },
+  "groupName": "Group 9 Research",
+  "members": [
+    {
+      "$oid": "65e526bea143c5c48e359fbe"
+    },
+    {
+      "$oid": "65e526f7a143c5c48e359fca"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/ubynw0q5teiyrnytubrc",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709517139/tupt-online-platform/avatar/ubynw0q5teiyrnytubrc.jpg"
+  },
+  "createdBy": {
+    "$oid": "65c864732f4df8d7bb88299a"
+  },
+  "createdAt": {
+    "$date": "2024-03-04T01:52:18.706Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T02:44:19.939Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e758c105b6aee034228ef1"
+  },
+  "groupName": "Dave Group",
+  "members": [
+    {
+      "$oid": "65c747cadc0531150fb527b1"
+    },
+    {
+      "$oid": "65e526bea143c5c48e359fbe"
+    },
+    {
+      "$oid": "65e526f7a143c5c48e359fca"
+    },
+    {
+      "$oid": "65cd45d65f0e4f5344b827e3"
+    },
+    {
+      "$oid": "65c864732f4df8d7bb88299a"
+    },
+    {
+      "$oid": "65e16eaedd19f9dfe1adbf47"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/l1dnvtsf3zs5lvrjhd7y",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709660353/tupt-online-platform/avatar/l1dnvtsf3zs5lvrjhd7y.png"
+  },
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-03-05T17:39:13.445Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:37:14.561Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e7d5e5b8aac11af1544332"
+  },
+  "groupName": "Students 1st year",
+  "members": [
+    {
+      "$oid": "65c74231dc0531150fb527a6"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/flgw3qsmq4kbjd8yvnjr",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709692389/tupt-online-platform/avatar/flgw3qsmq4kbjd8yvnjr.png"
+  },
+  "createdBy": {
+    "$oid": "65c864732f4df8d7bb88299a"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T02:33:09.968Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T02:57:52.402Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e7efeeb4e5774e888ab165"
+  },
+  "groupName": "HEHEHEHE",
+  "members": [
+    {
+      "$oid": "65e3c3c77b5cb524252fdba6"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/egqpleub7f7l5l70xsfs",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709699053/tupt-online-platform/avatar/egqpleub7f7l5l70xsfs.jpg"
+  },
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T04:24:14.543Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T16:54:44.028Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e7f043b4e5774e888ab253"
+  },
+  "groupName": "Emergency Team",
+  "members": [
+    {
+      "$oid": "65e526f7a143c5c48e359fca"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/tgzzf4vqlyk8ne6yzbjm",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709699138/tupt-online-platform/avatar/tgzzf4vqlyk8ne6yzbjm.png"
+  },
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "createdAt": {
+    "$date": "2024-03-06T04:25:39.425Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T13:36:55.934Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ef30fc0e13de527ac599e1"
+  },
+  "groupName": "New Group",
+  "members": [
+    {
+      "$oid": "65e3c3c77b5cb524252fdba6"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/wfdshkfbafbv5d1tqirf",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710174461/tupt-online-platform/avatar/wfdshkfbafbv5d1tqirf.jpg"
+  },
+  "createdBy": {
+    "$oid": "65e930c4e10fdd4f4867db75"
+  },
+  "deletedAt": null,
+  "createdAt": {
+    "$date": "2024-03-11T16:27:40.674Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T16:28:06.783Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f16f04cec619279c3b7043"
+  },
+  "groupName": "BSIT-NS-3A",
+  "members": [
+    {
+      "$oid": "65e526bea143c5c48e359fbe"
+    },
+    {
+      "$oid": "65e526f7a143c5c48e359fca"
+    },
+    {
+      "$oid": "65c74231dc0531150fb527a6"
+    },
+    {
+      "$oid": "65c86422143a381e792e585d"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/wazy5fshlhwt7kust7zq",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710321412/tupt-online-platform/avatar/wazy5fshlhwt7kust7zq.png"
+  },
+  "createdBy": {
+    "$oid": "65f16d20cec619279c3b6ec3"
+  },
+  "deletedAt": null,
+  "createdAt": {
+    "$date": "2024-03-13T09:16:52.767Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T09:18:24.020Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f24ee5e70e9025e32b203c"
+  },
+  "groupName": "BSIT-NS-3A",
+  "members": [
+    {
+      "$oid": "65f24da3e70e9025e32b1f63"
+    },
+    {
+      "$oid": "65e526bea143c5c48e359fbe"
+    },
+    {
+      "$oid": "65e526f7a143c5c48e359fca"
+    }
+  ],
+  "coverPhoto": {
+    "public_id": "tupt-online-platform/avatar/mv84csipwa2yexwghxlf",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710378725/tupt-online-platform/avatar/mv84csipwa2yexwghxlf.png"
+  },
+  "createdBy": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "deletedAt": null,
+  "createdAt": {
+    "$date": "2024-03-14T01:12:05.343Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:12:05.343Z"
+  },
+  "__v": 0
+}]

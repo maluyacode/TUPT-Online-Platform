@@ -195,7 +195,7 @@ export default function Chat() {
                                     <div
                                         id="chat-container"
                                         ref={scrollableContainerRef}
-                                        style={{ position: "relative", height: '480px', overflowY: 'scroll', overflowAnchor: 'auto' }}
+                                        style={{ position: "relative", height: '70vh', overflowY: 'scroll', overflowAnchor: 'auto' }}
                                     >
                                         {selectedChat ?
                                             <MDBCardBody>

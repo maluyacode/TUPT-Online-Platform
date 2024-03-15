@@ -1,0 +1,938 @@
+[{
+  "_id": {
+    "$oid": "65d873aa4e4ad69c11b7d20c"
+  },
+  "title": "No classes due to heavy rain",
+  "content": "Wala pong pasok ang buong year level ng TUPT, hangga't maari manatili po sa bahay. Keep safe everyone!",
+  "canViewBy": [
+    "student",
+    "parent",
+    "teacher"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/u3hsevplmp18rwkwgjgi",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708823830/tupt-online-platform/announcements/u3hsevplmp18rwkwgjgi.webp",
+      "_id": {
+        "$oid": "65da9511e53ca558a779a3c4"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "attachments": [
+    {
+      "public_id": "02/25/24, 01:13:55 AM_kila-dave-raw.pdf",
+      "url": "https://mega.nz/file/l69hxJ5a#zBwjdxN5P5S_XWYv_lgkJxELW7Hth2wYkVkCrvvV_14",
+      "original_name": "kila-dave-raw.pdf",
+      "_id": {
+        "$oid": "65da23d5e8e4a659f8bbb938"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-02-23T10:30:02.363Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-04T02:15:35.247Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d874274e4ad69c11b7d214"
+  },
+  "title": "Strike 2024 Now Released",
+  "content": "No classes due to strike. please see the attach file for more details",
+  "canViewBy": [
+    "student"
+  ],
+  "groupViewers": {
+    "$oid": "65d7333318db72dfbd315e1e"
+  },
+  "isForAll": false,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/pqyqilagtjex3xlh6bqf",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709178562/tupt-online-platform/announcements/pqyqilagtjex3xlh6bqf.jpg",
+      "_id": {
+        "$oid": "65dffec78f5b168f44c44060"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/announcements/rnma3vtgs2ypwpbzew48",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709178563/tupt-online-platform/announcements/rnma3vtgs2ypwpbzew48.png",
+      "_id": {
+        "$oid": "65dffec78f5b168f44c44061"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/announcements/crx89x6jsbxiyiun2eko",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709178565/tupt-online-platform/announcements/crx89x6jsbxiyiun2eko.png",
+      "_id": {
+        "$oid": "65dffec78f5b168f44c44062"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/announcements/bnde5dp608vysyoawpbj",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709178566/tupt-online-platform/announcements/bnde5dp608vysyoawpbj.png",
+      "_id": {
+        "$oid": "65dffec78f5b168f44c44063"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "02/25/24, 01:19:46 AM_AmodiRRLRRS.pdf",
+      "url": "https://mega.nz/file/429mHC5R#njwnZQwjG0TLJJpbEelDNWx-SCLsrbGbEpRmycqk_uk",
+      "original_name": "AmodiRRLRRS.pdf",
+      "_id": {
+        "$oid": "65da2539bcea44688685fd3b"
+      }
+    },
+    {
+      "public_id": "02/25/24, 01:19:50 AM_AIRAAMODS.pdf",
+      "url": "https://mega.nz/file/46MGxBTB#bUG9CXSPm-71u2tqM97KPSz_t0UPqlS2Gy9Y3FJ0GNc",
+      "original_name": "AIRAAMODS.pdf",
+      "_id": {
+        "$oid": "65da2539bcea44688685fd3c"
+      }
+    },
+    {
+      "public_id": "02/25/24, 01:19:52 AM_angel1.pdf",
+      "url": "https://mega.nz/file/tzVFDDIJ#lLhlc8VtwwqPqMFvwypln0I16n49xjXXWez4x1ogsFk",
+      "original_name": "angel1.pdf",
+      "_id": {
+        "$oid": "65da2539bcea44688685fd3d"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-02-23T10:32:07.214Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-29T04:36:48.298Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-12T09:11:10.183Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d8750c2d4f8a82df429823"
+  },
+  "title": "Lindol",
+  "content": "Wala po munang pasok dahil sa lindol, may inaasahang after shock pa rin. Keep safe!",
+  "canViewBy": [
+    "student",
+    "teacher",
+    "parent"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/gfhjhfgyofpe2wlp9o2d",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708684555/tupt-online-platform/announcements/gfhjhfgyofpe2wlp9o2d.png",
+      "_id": {
+        "$oid": "65d8750c2d4f8a82df429824"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "02/23/24, 06:35:53 PM_kila-dave-raw.pdf",
+      "url": "https://mega.nz/file/Yy8gQSBK#uIInUOdhwZOQByWhMDhLvlmbudRkTnAclQc-b_h3PpY",
+      "original_name": "kila-dave-raw.pdf",
+      "_id": {
+        "$oid": "65d8750c2d4f8a82df429825"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-02-23T10:35:56.289Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T13:17:55.966Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65d89ced2abb3440fcb341ac"
+  },
+  "title": "Important Announcement",
+  "content": "Please be informed that there fault line within tenement, mag ingat po ang lahat at laging magin handa. See the attachments below to see more details about the fault line. Keep safe everyone!",
+  "canViewBy": [
+    "parent",
+    "teacher",
+    "student"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/ghetpasvi5k1d7lcpvtu",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708694762/tupt-online-platform/announcements/ghetpasvi5k1d7lcpvtu.png",
+      "_id": {
+        "$oid": "65d89ced2abb3440fcb341ad"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "02/23/24, 09:25:59 PM_G9-C3Cont_AdlawanAstronomoYgot.pdf",
+      "url": "https://mega.nz/file/9zFngSYR#6fQ7i56BHyP4eLEwvtShoFvV6qk2ie6HqJbogesPwQw",
+      "original_name": "G9-C3Cont_AdlawanAstronomoYgot.pdf",
+      "_id": {
+        "$oid": "65d89ced2abb3440fcb341ae"
+      }
+    },
+    {
+      "public_id": "02/23/24, 09:26:01 PM_G5-C1ver1-AmodiaGraciaPagalan-LATEST-100224.docx",
+      "url": "https://mega.nz/file/RzFyQIbI#86SfqKjuUmKinP9QEcZhJlmkAvYuWRL1s4TFW275TTo",
+      "original_name": "G5-C1ver1-AmodiaGraciaPagalan-LATEST-100224.docx",
+      "_id": {
+        "$oid": "65d89ced2abb3440fcb341af"
+      }
+    },
+    {
+      "public_id": "02/23/24, 09:26:03 PM_7b-Measures-of-Central-Tendency-2.ppt",
+      "url": "https://mega.nz/file/c61iSRxC#BogpCIYMfXlqRnkpcWudUTPRxJ9KLgT0mBsWpcBJHa4",
+      "original_name": "7b-Measures-of-Central-Tendency-2.ppt",
+      "_id": {
+        "$oid": "65d89ced2abb3440fcb341b0"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "createdAt": {
+    "$date": "2024-02-23T13:26:05.589Z"
+  },
+  "__v": 0,
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-11T18:27:06.448Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65d8b68171880c0ca130a923"
+  },
+  "title": "Pospond Research Defense",
+  "content": "We cannot continue our defense by tommorow, see you next week.",
+  "canViewBy": [
+    "student"
+  ],
+  "groupViewers": {
+    "$oid": "65d8308d08afa5282c43694b"
+  },
+  "isForAll": false,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/cgf7jlmwnwti4ucqhqp2",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708701315/tupt-online-platform/announcements/cgf7jlmwnwti4ucqhqp2.jpg",
+      "_id": {
+        "$oid": "65d8b68171880c0ca130a924"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-02-23T15:15:13.738Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-23T15:15:13.738Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:27:55.935Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-11T18:27:55.935Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65dff1bf97a4f80130fb9e39"
+  },
+  "title": "Eum atque vel sit qu",
+  "content": "Reprehenderit adipi",
+  "canViewBy": [
+    "student",
+    "parent",
+    "teacher"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/l9bnjevcnes7v9vaujt3",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709175228/tupt-online-platform/announcements/l9bnjevcnes7v9vaujt3.jpg",
+      "_id": {
+        "$oid": "65dff1bf97a4f80130fb9e3a"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "02/29/24, 10:53:49 AM_sustainability-14-16424.pdf",
+      "url": "https://mega.nz/file/1y8knaZA#7p29OfJmaFlkKxjyTnedXJxOmfezSL--HY0alCNcHtY",
+      "original_name": "sustainability-14-16424.pdf",
+      "_id": {
+        "$oid": "65dff1bf97a4f80130fb9e3b"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65da91cee53ca558a779a363"
+  },
+  "createdAt": {
+    "$date": "2024-02-29T02:53:51.741Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-29T02:53:51.741Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e529c510b6508c12f53165"
+  },
+  "title": "Download this files",
+  "content": "Please see the attach files below to see the instructions.",
+  "canViewBy": [
+    "student",
+    "teacher",
+    "parent"
+  ],
+  "groupViewers": {
+    "$oid": "65e5295210b6508c12f5314e"
+  },
+  "isForAll": false,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/dukonz7kh23lhsfhwmel",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709517235/tupt-online-platform/announcements/dukonz7kh23lhsfhwmel.png",
+      "_id": {
+        "$oid": "65e529c510b6508c12f53166"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/announcements/mq592b8b1fumilz7xz33",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709517237/tupt-online-platform/announcements/mq592b8b1fumilz7xz33.png",
+      "_id": {
+        "$oid": "65e529c510b6508c12f53167"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/04/24, 09:53:56 AM_G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "url": "https://mega.nz/file/VyFRzbBY#ZvV6c3bWaRVpUdkIK2zhhfvLGFtXOJZcVr_pYgzN8Vo",
+      "original_name": "G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "_id": {
+        "$oid": "65e529c510b6508c12f53168"
+      }
+    },
+    {
+      "public_id": "03/04/24, 09:54:12 AM_MTICS-IT_PLDL_3rdTermSY2223.pdf",
+      "url": "https://mega.nz/file/hjcWjRQQ#04uPcALsQo9unAlkYHCGVAPLucu8wEvrxidXrZ0lH3w",
+      "original_name": "MTICS-IT_PLDL_3rdTermSY2223.pdf",
+      "_id": {
+        "$oid": "65e529c510b6508c12f53169"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "createdAt": {
+    "$date": "2024-03-04T01:54:13.968Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-04T01:54:13.968Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e7bd564c62c2815ec5a361"
+  },
+  "title": "Try with notify to other other",
+  "content": "try with socket",
+  "canViewBy": [
+    "parent",
+    "teacher",
+    "student"
+  ],
+  "groupViewers": {
+    "$oid": "65d7333318db72dfbd315e1e"
+  },
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T00:48:22.716Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T04:38:22.884Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e7eacd0e684b8fe2d5db25"
+  },
+  "title": "My first announcement",
+  "content": "Hello everyone! ",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": {
+    "$oid": "65e7f043b4e5774e888ab253"
+  },
+  "isForAll": false,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/qdvszbwaypmniqyanaim",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709697740/tupt-online-platform/announcements/qdvszbwaypmniqyanaim.png",
+      "original_name": "Grades.png",
+      "_id": {
+        "$oid": "65e7eacd0e684b8fe2d5db26"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T04:02:21.926Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-10T17:30:09.813Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e846a7538b9671c4d048ef"
+  },
+  "title": "No Classes due to heavy rain",
+  "content": "Dear Students, Faculty, and Staff,\r\n\r\nWe regret to inform you that classes for today are canceled due to heavy rainfall. The safety and well-being of our campus community are our utmost priority, and after careful consideration of weather forecasts and current conditions, we have decided to suspend all academic activities for the day.\r\n\r\nThe heavy rainfall poses potential hazards such as flooding, unsafe travel conditions, and compromised infrastructure. In order to ensure the safety of everyone on campus, it is imperative that we take proactive measures to mitigate any risks associated with the inclement weather.\r\n\r\nWe understand that this decision may disrupt your plans and schedules, but your safety is paramount. Please refrain from traveling unless absolutely necessary, and exercise caution if you must venture outside.\r\n\r\nFaculty members will communicate any adjustments to class schedules and assignments directly to their students. We encourage everyone to stay indoors, stay connected to official communications channels for updates, and take necessary precautions to stay safe during this time.\r\n\r\nFor any urgent inquiries or assistance, please do not hesitate to reach out to the appropriate department or contact us through our emergency hotline.\r\n\r\nThank you for your understanding and cooperation as we prioritize the safety and well-being of our campus community.",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65da91cee53ca558a779a363"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T10:34:15.893Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T10:34:15.893Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e86a60ef9d1aca5f377912"
+  },
+  "title": "asdsadsadsadsad",
+  "content": "asdasdsadsadsadasd",
+  "canViewBy": [
+    "student",
+    "parent",
+    "teacher"
+  ],
+  "groupViewers": {
+    "$oid": "65e7f043b4e5774e888ab253"
+  },
+  "isForAll": false,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T13:06:40.624Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-10T17:30:01.526Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8ad57c6bb912bb9d537cc"
+  },
+  "title": "High rate of incidents",
+  "content": "We regret to inform you that we have observed a concerning increase in the rate of incidents within our [organization/team]. It's crucial for us to address this issue promptly and take necessary steps to ensure the safety and well-being of everyone involved.\r\n\r\nYour safety is our top priority, and we are actively working on implementing additional measures to mitigate the risk of incidents and maintain a safe environment for all.\r\n\r\nWe urge everyone to remain vigilant, report any incidents or potential hazards immediately, and adhere to safety protocols at all times. Together, we can make a difference and create a safer environment for everyone.",
+  "canViewBy": [
+    "teacher",
+    "parent",
+    "student"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T17:52:23.534Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T17:52:23.534Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e8b5a6c6bb912bb9d53b79"
+  },
+  "title": "Urgent: Evacuation Notice",
+  "content": "Due to an ongoing emergency situation, all occupants are required to evacuate the building immediately. Please proceed to the nearest exit and follow the instructions of emergency personnel.s",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T18:27:50.072Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-10T17:30:03.057Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e8b5d5c6bb912bb9d53ba6"
+  },
+  "title": "Severe Weather Warning",
+  "content": "A severe weather warning has been issued for our area. Please take appropriate precautions and stay indoors until further notice. Avoid traveling unless absolutely necessary.",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": {
+    "$oid": "65e7efeeb4e5774e888ab165"
+  },
+  "isForAll": false,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T18:28:37.592Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-10T17:30:03.773Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ede5f06c6bcac92f2fc4ff"
+  },
+  "title": "Trying wiht socket",
+  "content": "Trying wiht socket grades",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": {
+    "$oid": "65e7efeeb4e5774e888ab165"
+  },
+  "isForAll": false,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/x2lncwxv8nydpdfkh4f4",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710089713/tupt-online-platform/announcements/x2lncwxv8nydpdfkh4f4.jpg",
+      "original_name": "431460439_967079564847604_9089621146197568764_n.jpeg",
+      "_id": {
+        "$oid": "65ede5f06c6bcac92f2fc500"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "deletedAt": {
+    "$date": "2024-03-10T17:30:00.336Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-10T16:48:22.155Z"
+  },
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ede7dc6c6bcac92f2fc8c8"
+  },
+  "title": "No classes",
+  "content": "Walang pasok bukas",
+  "canViewBy": [
+    "student"
+  ],
+  "groupViewers": {
+    "$oid": "65ede7956c6bcac92f2fc7e1"
+  },
+  "isForAll": false,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "deletedAt": {
+    "$date": "2024-03-10T17:30:08.802Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-10T16:48:22.155Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edec69bb2783222a5515b8"
+  },
+  "title": "Please incdicate your name on the below",
+  "content": "https://keep.google.com/u/0/#home",
+  "canViewBy": [
+    "teacher",
+    "parent",
+    "student"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-10T17:14:37.574Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-10T17:14:37.574Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ee64187e019b8a2683a09b"
+  },
+  "title": "No Classes 11/03/24",
+  "content": "Focus on your projects",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": {
+    "$oid": "65d7333318db72dfbd315e1e"
+  },
+  "isForAll": false,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-11T01:47:23.358Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-11T01:47:23.358Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ef0db1009b1362b693c8cd"
+  },
+  "title": "No classes due to flood in triumph",
+  "content": "Wala po munang pasok para sa mga need dumaan sa triumph dahil baha po",
+  "canViewBy": [
+    "teacher",
+    "student",
+    "parent"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-11T13:37:01.084Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-11T13:37:01.084Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f02b58ba75ccd505c7e6e9"
+  },
+  "title": "Try the role viewers",
+  "content": "Try the role viewers",
+  "canViewBy": [
+    "parent"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forceDeletedAt": null,
+  "deletedAt": {
+    "$date": "2024-03-12T10:41:42.555Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:24:02.270Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-12T09:11:59.668Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f02f1503d446518b4b861d"
+  },
+  "title": "Trying without roles",
+  "content": "addddadadadadadadadad",
+  "canViewBy": [
+    "parent",
+    "student",
+    "teacher"
+  ],
+  "groupViewers": {
+    "$oid": "65e758c105b6aee034228ef1"
+  },
+  "isForAll": false,
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forceDeletedAt": null,
+  "deletedAt": {
+    "$date": "2024-03-12T10:41:40.879Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:37:23.398Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-12T10:29:30.569Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f1c5bbe8c46af6e1dfce3b"
+  },
+  "title": "Important Announcement",
+  "content": "Please read the attachment below",
+  "canViewBy": [
+    "parent",
+    "student",
+    "teacher"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "attachments": [
+    {
+      "public_id": "03/13/24, 11:26:48 PM_ada.pdf",
+      "url": "https://mega.nz/file/Rj83QC5Y#YP4rMhRB5sI6_i5mjnE88c9MyUoOpqCyWagQ3PfyF_I",
+      "original_name": "ada.pdf",
+      "_id": {
+        "$oid": "65f1c5bbe8c46af6e1dfce3c"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forceDeletedAt": null,
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-13T15:13:22.728Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-13T15:13:22.728Z"
+  },
+  "images": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f24f11e70e9025e32b206c"
+  },
+  "title": "Emergency Response",
+  "content": "Tulongggg",
+  "canViewBy": [
+    "parent",
+    "student",
+    "teacher"
+  ],
+  "groupViewers": {
+    "$oid": "65f24ee5e70e9025e32b203c"
+  },
+  "isForAll": false,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/demgvncw4db4vmfyyjxm",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710378765/tupt-online-platform/announcements/demgvncw4db4vmfyyjxm.png",
+      "original_name": "Grades.png",
+      "_id": {
+        "$oid": "65f24f11e70e9025e32b206d"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/14/24, 09:12:45 AM_ada.pdf",
+      "url": "https://mega.nz/file/A3EWVShb#CkmYlvq_qjV_iiu64HzENu5V4n99Ri8ovWX6XdWs1AM",
+      "original_name": "ada.pdf",
+      "_id": {
+        "$oid": "65f24f11e70e9025e32b206e"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "forceDeletedAt": null,
+  "deletedAt": {
+    "$date": "2024-03-14T01:14:44.527Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:14:38.874Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-14T00:26:31.587Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f24f53e70e9025e32b20f9"
+  },
+  "title": "asshole",
+  "content": "helpppppppppp",
+  "canViewBy": [
+    "parent",
+    "student",
+    "teacher"
+  ],
+  "groupViewers": null,
+  "isForAll": true,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/announcements/cagte4039oewmkautq7y",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710378830/tupt-online-platform/announcements/cagte4039oewmkautq7y.png",
+      "original_name": "1.png",
+      "_id": {
+        "$oid": "65f24f53e70e9025e32b20fa"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/14/24, 09:13:50 AM_ada.pdf",
+      "url": "https://mega.nz/file/gqlzAbJR#heLI5n_QCvj-xcMXUb8Gu2HGqjk3Dc433OmDqhCtcqQ",
+      "original_name": "ada.pdf",
+      "_id": {
+        "$oid": "65f24f53e70e9025e32b20fb"
+      }
+    }
+  ],
+  "viewedBy": [],
+  "createdBy": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-14T01:23:10.526Z"
+  },
+  "deletedAt": {
+    "$date": "2024-03-14T01:14:47.284Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T00:26:31.587Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-14T00:26:31.587Z"
+  },
+  "__v": 0
+}]

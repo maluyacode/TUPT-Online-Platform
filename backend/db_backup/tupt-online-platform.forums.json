@@ -1,0 +1,1036 @@
+[{
+  "_id": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "heading": "first forum",
+  "body": "This is the first forum without files",
+  "category": [
+    "Emergency Nursing",
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T05:20:23.438Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-02T05:20:23.438Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "heading": "Another topic",
+  "body": "Try forum with file",
+  "category": [
+    "Emergency Funding",
+    "First Aid"
+  ],
+  "postedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/sxsh5yynxjt9pjradqgd",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710343433/tupt-online-platform/forums/sxsh5yynxjt9pjradqgd.png",
+      "original_name": "1.png",
+      "_id": {
+        "$oid": "65f1c509e8c46af6e1dfcd80"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/02/24, 01:25:10 PM_G5-AmodiaGraciaPagalan-LATEST-010324.docx",
+      "url": "https://mega.nz/file/ZqE1QZIJ#I9jr5CuOoy9BvWX2DFU3HNo6zOy4S3Dyq7j5ihZI-OE",
+      "original_name": "G5-AmodiaGraciaPagalan-LATEST-010324.docx",
+      "_id": {
+        "$oid": "65e2b83f3a8420a412018d07"
+      }
+    },
+    {
+      "public_id": "03/02/24, 01:25:13 PM_Chapter-4-GRACIA-UPDATED.docx",
+      "url": "https://mega.nz/file/l2dkkJxK#HAJfuG5Ev0xTFwQ97TqufMP_k8Ds1msPlXJ4ILPZ1x0",
+      "original_name": "Chapter-4-GRACIA-UPDATED.docx",
+      "_id": {
+        "$oid": "65e2b83f3a8420a412018d08"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-02T05:25:19.204Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T15:23:53.729Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e2b8e73a8420a412018d0b"
+  },
+  "heading": "Try agin",
+  "body": "asdasdasdasd",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T05:28:07.484Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:19:12.384Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-05T15:19:12.381Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-11T17:01:16.273Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "heading": "Try ko nga mag post heheheh",
+  "body": "Paano ba mag research ng nawawala ",
+  "category": [
+    "Emergency Research"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/qtlmgp1omq3qhgdpceus",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709364598/tupt-online-platform/forums/qtlmgp1omq3qhgdpceus.jpg",
+      "_id": {
+        "$oid": "65e2d57644c3bc721fbebc99"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/02/24, 03:29:57 PM_tableDownload.csv",
+      "url": "https://mega.nz/file/py0QQKzC#2VMFmbDN0tPT8svr_zaLIDYj7b7M-4ZcNER-b2mwt5U",
+      "original_name": "tableDownload.csv",
+      "_id": {
+        "$oid": "65e2d57644c3bc721fbebc9a"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-02T07:29:58.753Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:42:35.729Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:43:12.464Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:48:12.303Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e2d6ec44c3bc721fbebcdc"
+  },
+  "heading": "sadadasdsad",
+  "body": "asdadasdasdasdsad",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "attachments": [
+    {
+      "public_id": "03/02/24, 03:36:09 PM_G5-AmodiaGraciaPagalan-LATEST-010324.docx",
+      "url": "https://mega.nz/file/hv0zzIaI#nPY9_2WmFGdjaTgegw0HHLwXWSkW-bo2c6GGUhirR4I",
+      "original_name": "G5-AmodiaGraciaPagalan-LATEST-010324.docx",
+      "_id": {
+        "$oid": "65e2d6ec44c3bc721fbebcdd"
+      }
+    }
+  ],
+  "images": [],
+  "createdAt": {
+    "$date": "2024-03-02T07:36:12.861Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:18:43.661Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:42:18.613Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:49:03.958Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e2f711126d1beb56838d74"
+  },
+  "heading": "Try again",
+  "body": "asdasdasdasd",
+  "category": [
+    "asdsad"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T09:53:21.495Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:19:20.780Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:43:35.653Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T07:48:10.242Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "heading": "Try again",
+  "body": "asdsadsadasd",
+  "category": [
+    "2313"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T09:54:02.375Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:38:28.296Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-12T07:47:58.741Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T07:47:58.740Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "heading": "Raining topic",
+  "body": "What to do when raining in the area?",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T12:52:33.738Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:40:37.416Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4b478b49711adf6785a8f"
+  },
+  "heading": "Emergency earthquake",
+  "body": "Paano po ba mag ready para sa earthquake?",
+  "category": [
+    "Emergency Dentistry"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/zo78dbw93h0evobikcth",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709653190/tupt-online-platform/forums/zo78dbw93h0evobikcth.jpg",
+      "original_name": "429107144_335543076146051_8380179126782629181_n.jpg",
+      "_id": {
+        "$oid": "65e73cc6923f9262c32ca1a5"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/06/24, 01:15:13 AM_p-Q-2A-L.ppt",
+      "url": "https://mega.nz/file/979ADDqa#FGcd6VxAC7OpriGTdkafmftdE9qDY0mtJULCuJ1Pd6Y",
+      "original_name": "p-Q-2A-L.ppt",
+      "_id": {
+        "$oid": "65e75324965e612d65c71c14"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-03T17:33:44.181Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T11:35:17.167Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e6fe07fdff68c1e638a412"
+  },
+  "heading": "asdasdsadsadsada",
+  "body": "asdadadasdsadad",
+  "category": [
+    "asdadsasdasd"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/to8jrfhaghivjtm2nvgk",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637125/tupt-online-platform/forums/to8jrfhaghivjtm2nvgk.jpg",
+      "_id": {
+        "$oid": "65e6fe07fdff68c1e638a413"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/05/24, 07:12:05 PM_G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "url": "https://mega.nz/file/tycTVALC#bTbI0nBgpTHKQQ0XVzQ7euWFHpuQPr8XhoRaZ8ATCqc",
+      "original_name": "G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "_id": {
+        "$oid": "65e6fe07fdff68c1e638a414"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-05T11:12:07.254Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:18:17.765Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:43:06.388Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:48:32.474Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e6fe67fdff68c1e638a42f"
+  },
+  "heading": "asdasdasdasd",
+  "body": "asdasdsadasdsadsadsadasd",
+  "category": [
+    "Search and Rescue"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/jw1vs6vud0hnlvwue0br",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637219/tupt-online-platform/forums/jw1vs6vud0hnlvwue0br.jpg",
+      "_id": {
+        "$oid": "65e6fe67fdff68c1e638a430"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/05/24, 07:13:39 PM_PPT-FORMAT.pptx",
+      "url": "https://mega.nz/file/ojcnkRRQ#trpETsLLmSgnebNybZzncrShVj5J6BBB8JlBuooEkG4",
+      "original_name": "PPT-FORMAT.pptx",
+      "_id": {
+        "$oid": "65e6fe67fdff68c1e638a431"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-05T11:13:43.254Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:18:21.961Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:43:01.574Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:48:30.015Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e6fe8ff136ea27d8774294"
+  },
+  "heading": "asdasdasd",
+  "body": "asdasdasdasd",
+  "category": [
+    "asdsadas"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/j9coo7oidiiyvdqf2ote",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637263/tupt-online-platform/forums/j9coo7oidiiyvdqf2ote.jpg",
+      "_id": {
+        "$oid": "65e6fe8ff136ea27d8774295"
+      }
+    }
+  ],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:14:23.878Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:18:26.464Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-05T15:18:26.461Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:44:25.949Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e6fec36b4c3f37645c5974"
+  },
+  "heading": "asdsadsad",
+  "body": "asdsadsadsadsadsad",
+  "category": [
+    "asdasdsad"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/tht8srkc4qcfxlmzcqpm",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637315/tupt-online-platform/forums/tht8srkc4qcfxlmzcqpm.jpg",
+      "_id": {
+        "$oid": "65e6fec36b4c3f37645c5975"
+      }
+    }
+  ],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:15:15.684Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:18:29.811Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-11T18:43:22.553Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:48:27.547Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e6ff3172bf9b2dc701c5c8"
+  },
+  "heading": "How to predict flush flood",
+  "body": "1. Know the weather\r\n2. Search",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/zkdrnpx8zvzzjouyy9hi",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637424/tupt-online-platform/forums/zkdrnpx8zvzzjouyy9hi.jpg",
+      "original_name": "429107144_335543076146051_8380179126782629181_n.jpg",
+      "_id": {
+        "$oid": "65e6ff3172bf9b2dc701c5c9"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/forums/obqgkwrx6yu2ev6yiuzk",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637425/tupt-online-platform/forums/obqgkwrx6yu2ev6yiuzk.jpg",
+      "original_name": "6woq7y.jpg",
+      "_id": {
+        "$oid": "65e6ff3172bf9b2dc701c5ca"
+      }
+    }
+  ],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:17:05.689Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T18:39:59.673Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e700e572bf9b2dc701c627"
+  },
+  "heading": "Another post",
+  "body": "How to manage a emergency in specific organization",
+  "category": [
+    "Emergency Management"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/skodlnymiopihljjvilc",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709637861/tupt-online-platform/forums/skodlnymiopihljjvilc.jpg",
+      "original_name": "6woq7y.jpg",
+      "_id": {
+        "$oid": "65e700e572bf9b2dc701c628"
+      }
+    }
+  ],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:24:21.176Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:19:05.726Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e7011e72bf9b2dc701c64f"
+  },
+  "heading": "Evacuation",
+  "body": "Where is the evacuation facilities of TUPT? ",
+  "category": [
+    "Emergency Evacuation",
+    "First Aid"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:25:18.485Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T18:38:55.023Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e701b772bf9b2dc701c669"
+  },
+  "heading": "Small scale business emergency management",
+  "body": "What to know about business emergency management?",
+  "category": [
+    "Emergency Management"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:27:51.514Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T18:38:01.646Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e702dd72bf9b2dc701c6a9"
+  },
+  "heading": "Edited",
+  "body": "asdsadsadsadsad",
+  "category": [
+    "First Aid"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:32:45.542Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:18:00.861Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e7031a72bf9b2dc701c6bf"
+  },
+  "heading": "asdsadasd",
+  "body": "asdsadasdsadsad",
+  "category": [
+    "asdasdas"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T11:33:46.320Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:17:56.974Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-05T15:17:56.970Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:44:23.589Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e7034f72bf9b2dc701c6d5"
+  },
+  "heading": "Edited 4.0",
+  "body": "asdasdasdsadasd",
+  "category": [
+    "Emergency Radios",
+    "Emergency Evacuation"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/wwfzpkmhgu4xac9tv54g",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709648793/tupt-online-platform/forums/wwfzpkmhgu4xac9tv54g.jpg",
+      "original_name": "6woq7y.jpg",
+      "_id": {
+        "$oid": "65e72b9b8df30b45817e152e"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/05/24, 10:26:34 PM_user-registration-chart.csv",
+      "url": "https://mega.nz/file/tnsEWBhZ#eL6Tr3DNVsAGeV3BdxuTkDEVHVsUWG8Zy59Y0Ftjanc",
+      "original_name": "user-registration-chart.csv",
+      "_id": {
+        "$oid": "65e72b9b8df30b45817e152f"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-05T11:34:39.826Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:17:51.851Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-05T15:17:51.847Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-11T16:56:03.776Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e72fb38df30b45817e169a"
+  },
+  "heading": "asdsadasd",
+  "body": "asdadasdasdasd",
+  "category": [
+    "Emergency Weather Forecasting"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T14:44:03.828Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:17:46.859Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-05T15:17:46.855Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:44:20.920Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e72ff18df30b45817e16c7"
+  },
+  "heading": "dasdasdasd",
+  "body": "asdasdad",
+  "category": [
+    "Emergency Weather Forecasting"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T14:45:05.570Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:17:42.234Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-05T15:17:42.231Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:44:18.582Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e730358df30b45817e16f4"
+  },
+  "heading": "asdddddddddd",
+  "body": "asdasdasdasdasdasdasdasd",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T14:46:13.998Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:17:36.596Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-04T15:17:36.580Z"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-12T08:44:16.579Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e730518df30b45817e170c"
+  },
+  "heading": "Earthquake Related Topic",
+  "body": "What are the necessary tools or equipment to prepare for earth quake?",
+  "category": [
+    "Emergency Preparedness",
+    "Emergency Education"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T14:46:41.835Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T18:35:44.740Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e731a78df30b45817e1775"
+  },
+  "heading": "Water Supply and Elñino ",
+  "body": "How to survived El Ñino? ",
+  "category": [
+    "Emergency Water Supply",
+    "Emergency Preparedness",
+    "First Aid"
+  ],
+  "postedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T14:52:23.092Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T08:50:00.252Z"
+  },
+  "__v": 0,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e86f3eef9d1aca5f377e80"
+  },
+  "heading": "Emergency Mobile Apps",
+  "body": "What mobile app can i used for emergency? or desktop app",
+  "category": [
+    "Emergency Mobile Apps"
+  ],
+  "postedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "deletedAt": {
+    "$date": "2024-03-06T13:32:22.691Z"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/qjnykcbit9sypbcrcu1z",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709731876/tupt-online-platform/forums/qjnykcbit9sypbcrcu1z.png",
+      "original_name": "1.png",
+      "_id": {
+        "$oid": "65e87025ef9d1aca5f377fce"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/06/24, 09:31:16 PM_AmodiPartPPT.docx",
+      "url": "https://mega.nz/file/5zkXxTLK#e8Txb1Uya7gx47fY6roJD9-ZlguOuEDPQcUPKMZPbBM",
+      "original_name": "AmodiPartPPT.docx",
+      "_id": {
+        "$oid": "65e87025ef9d1aca5f377fcf"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-06T13:27:26.257Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T13:32:22.707Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e91f14e3428014e02e0865"
+  },
+  "heading": "Emergencies",
+  "body": "management",
+  "category": [
+    "Emergency Medicine"
+  ],
+  "postedBy": {
+    "$oid": "65e919a3e3428014e02e041b"
+  },
+  "attachments": [
+    {
+      "public_id": "03/07/24, 09:57:35 AM_1.png.html",
+      "url": "https://mega.nz/file/kiE2FTbJ#M47yoPOD2WmU1nAvWw4HYChdF8cT64FjQlnydW6xNMo",
+      "original_name": "1.png.html",
+      "_id": {
+        "$oid": "65e91f14e3428014e02e0866"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-07T01:58:51.034Z"
+  },
+  "images": [],
+  "createdAt": {
+    "$date": "2024-03-07T01:57:40.700Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T01:58:51.036Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edfbb4057dff484cb0ba8b"
+  },
+  "heading": "😍❌❤️",
+  "body": "asdadsadadada",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "deletedAt": {
+    "$date": "2024-03-10T18:36:14.499Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T18:28:04.584Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T18:36:14.502Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f14fa1cec619279c3b6669"
+  },
+  "heading": "Puta",
+  "body": "Gago ",
+  "category": [
+    "First Aid"
+  ],
+  "postedBy": {
+    "$oid": "65f140c1ca9147731c9fc618"
+  },
+  "forceDeletedAt": {
+    "$date": "2024-03-13T09:34:53.327Z"
+  },
+  "deletedAt": {
+    "$date": "2024-03-13T09:34:53.327Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T07:00:53.968Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-13T07:00:53.968Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f1c479e8c46af6e1dfccbb"
+  },
+  "heading": "Earthquake drill",
+  "body": "What to prepare for earthquake drill",
+  "category": [
+    "Earthquake Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "forceDeletedAt": null,
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-13T15:13:22.744Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-13T15:13:22.744Z"
+  },
+  "images": [],
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f24fbfe70e9025e32b217a"
+  },
+  "heading": "Helppppp",
+  "body": "okaaay",
+  "category": [
+    "Natural Disasters"
+  ],
+  "postedBy": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/zxykbpds2ekjvjonztfa",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710378944/tupt-online-platform/forums/zxykbpds2ekjvjonztfa.png",
+      "original_name": "1.png",
+      "_id": {
+        "$oid": "65f24fbfe70e9025e32b217b"
+      }
+    }
+  ],
+  "forceDeletedAt": null,
+  "deletedAt": {
+    "$date": "2024-03-14T01:16:21.796Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:16:17.055Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-14T00:26:31.600Z"
+  },
+  "attachments": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f25002e70e9025e32b224f"
+  },
+  "heading": "asshole",
+  "body": "dsgdfgdfgdfgdf",
+  "category": [
+    "Emergency Preparedness"
+  ],
+  "postedBy": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/ogjaw8py47lsazzfz16e",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1710379010/tupt-online-platform/forums/ogjaw8py47lsazzfz16e.png",
+      "original_name": "1.png",
+      "_id": {
+        "$oid": "65f25002e70e9025e32b2250"
+      }
+    }
+  ],
+  "forceDeletedAt": null,
+  "deletedAt": null,
+  "updatedAt": {
+    "$date": "2024-03-14T00:26:31.600Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-14T00:26:31.600Z"
+  },
+  "attachments": [],
+  "__v": 0
+}]

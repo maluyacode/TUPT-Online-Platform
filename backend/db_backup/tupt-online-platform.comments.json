@@ -1,0 +1,1930 @@
+[{
+  "_id": {
+    "$oid": "65e356e8fc59daf6eb1d937b"
+  },
+  "textContent": "First comment hehehe",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:36.630Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:42:16.731Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:36.632Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e35719fc59daf6eb1d93c2"
+  },
+  "textContent": "Second comment with file heheheh",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/do5h8zlrsryrsci9pnpl",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709397781/tupt-online-platform/forums/do5h8zlrsryrsci9pnpl.jpg",
+      "_id": {
+        "$oid": "65e35719fc59daf6eb1d93c3"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/forums/gd8kc47eiruipszjtvef",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709397783/tupt-online-platform/forums/gd8kc47eiruipszjtvef.jpg",
+      "_id": {
+        "$oid": "65e35719fc59daf6eb1d93c4"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/03/24, 12:43:02 AM_Chapter-4-GRACIA.docx",
+      "url": "https://mega.nz/file/BiMVAKib#wFeEUlyCwkAoxgRU6iFMPzJBG38laF6i1-I6NBn52po",
+      "original_name": "Chapter-4-GRACIA.docx",
+      "_id": {
+        "$oid": "65e35719fc59daf6eb1d93c5"
+      }
+    },
+    {
+      "public_id": "03/03/24, 12:43:04 AM_Chap-4-my-part.docx",
+      "url": "https://mega.nz/file/5r8EyJAI#Wp8r0CcWg0ZfMRS2QfKSSIHu8dKJPBONzdU7mMaUzBk",
+      "original_name": "Chap-4-my-part.docx",
+      "_id": {
+        "$oid": "65e35719fc59daf6eb1d93c6"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:32.255Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-02T16:43:05.244Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:32.260Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e35764ffcca2ac2cff02fb"
+  },
+  "textContent": "Third comment",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "attachments": [
+    {
+      "public_id": "03/03/24, 12:44:17 AM_G5-AmodiaGraciaPagalan-LATEST-010324.docx",
+      "url": "https://mega.nz/file/NiEgAZDC#QzoR6u508Q2R95B2gG6AF5n4jwEm34ZWouyr4NQJRhI",
+      "original_name": "G5-AmodiaGraciaPagalan-LATEST-010324.docx",
+      "_id": {
+        "$oid": "65e35764ffcca2ac2cff02fc"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:24.989Z"
+  },
+  "images": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:44:20.070Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:24.991Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e357a5ffcca2ac2cff0345"
+  },
+  "textContent": "Eyowwwwww",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:06.218Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:45:25.997Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:06.221Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e357aaffcca2ac2cff037f"
+  },
+  "textContent": "Hello",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:16:06.821Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:45:30.431Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:16:06.824Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e357aeffcca2ac2cff03b9"
+  },
+  "textContent": "Bakit?",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f711126d1beb56838d74"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-12T07:23:18.387Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:45:34.178Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T07:23:18.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e357b4ffcca2ac2cff03f3"
+  },
+  "textContent": "I am dav",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b8e73a8420a412018d0b"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:50.402Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:45:40.973Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:50.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e357b8ffcca2ac2cff042d"
+  },
+  "textContent": "asdsadasdsad",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:13:51.581Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:45:44.683Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:13:51.583Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e358b6ffcca2ac2cff0478"
+  },
+  "textContent": "asdsadsadsad",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:12:39.955Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:49:58.396Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:12:39.960Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e358caffcca2ac2cff04b3"
+  },
+  "textContent": "sadasdasd",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:16:10.132Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:50:18.300Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:16:10.133Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e358cfffcca2ac2cff04e6"
+  },
+  "textContent": "Ayusin yan",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T16:50:23.849Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:42:52.144Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e358e2ffcca2ac2cff0516"
+  },
+  "textContent": "Ito po yung images and files for reference",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/au3jhtbkv8omkipy3hti",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709398238/tupt-online-platform/forums/au3jhtbkv8omkipy3hti.jpg",
+      "_id": {
+        "$oid": "65e358e2ffcca2ac2cff0517"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/forums/ou0dty4ssngqefm9x8za",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709398240/tupt-online-platform/forums/ou0dty4ssngqefm9x8za.jpg",
+      "_id": {
+        "$oid": "65e358e2ffcca2ac2cff0518"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/03/24, 12:50:39 AM_G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "url": "https://mega.nz/file/dntVSZiT#tPNfiYrZd5GOXcegl1t6waNXhaFziLK4fl9G27Rh9_g",
+      "original_name": "G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "_id": {
+        "$oid": "65e358e2ffcca2ac2cff0519"
+      }
+    },
+    {
+      "public_id": "03/03/24, 12:50:41 AM_Chapter-4-GRACIA-UPDATED.docx",
+      "url": "https://mega.nz/file/w680GSBL#FGkVWWLb-3ICSjQbYMMTGoOfbyZhgH6Cf-DzU96Uxmg",
+      "original_name": "Chapter-4-GRACIA-UPDATED.docx",
+      "_id": {
+        "$oid": "65e358e2ffcca2ac2cff051a"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T17:10:17.218Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-02T16:50:42.291Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:10:17.235Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e3592affcca2ac2cff0548"
+  },
+  "textContent": "asdsadsadasd",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/osxoysytdsrahcbge03v",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709398311/tupt-online-platform/forums/osxoysytdsrahcbge03v.jpg",
+      "_id": {
+        "$oid": "65e3592affcca2ac2cff0549"
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "public_id": "03/03/24, 12:51:51 AM_G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "url": "https://mega.nz/file/87VWFLAI#SPaCxOBUn_sh8ZAcLvA_aeva0VZ-7CO4pfkNmt06qZE",
+      "original_name": "G9-C4C5_AdlawanAstronomoYgot.pdf",
+      "_id": {
+        "$oid": "65e3592affcca2ac2cff054a"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:54.128Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-02T16:51:54.013Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:54.170Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e35d19917443433d55ba4d"
+  },
+  "textContent": "Ano na po?",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:16.339Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T17:08:41.108Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:16.341Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e35d1c917443433d55ba63"
+  },
+  "textContent": "hehehe",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:13.024Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T17:08:44.937Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:13.027Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e35dff917443433d55bba7"
+  },
+  "textContent": "ADHAJKSdhkajsd",
+  "commentedBy": {
+    "$oid": "65cd45d65f0e4f5344b827e3"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:10.416Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T17:12:31.617Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:10.418Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e35e08917443433d55bbbd"
+  },
+  "textContent": "Wala pa po akong profile",
+  "commentedBy": {
+    "$oid": "65cd45d65f0e4f5344b827e3"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:07.497Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-02T17:12:40.308Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:07.499Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e3c41c7b5cb524252fdc26"
+  },
+  "textContent": "Try comments",
+  "commentedBy": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:19.868Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T00:28:12.454Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:19.871Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e3c4697b5cb524252fdc68"
+  },
+  "textContent": "With image edited",
+  "commentedBy": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/b2zezy2rqhpdebokrdal",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709425768/tupt-online-platform/forums/b2zezy2rqhpdebokrdal.jpg",
+      "_id": {
+        "$oid": "65e3c4697b5cb524252fdc69"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/forums/boqgh7sfx9tyrmisbuur",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709425770/tupt-online-platform/forums/boqgh7sfx9tyrmisbuur.jpg",
+      "_id": {
+        "$oid": "65e3c4697b5cb524252fdc6a"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T17:11:29.979Z"
+  },
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T00:29:29.156Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:11:29.982Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e3c7b27b5cb524252fdd0e"
+  },
+  "textContent": "saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "commentedBy": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:26.224Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T00:43:30.777Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:26.227Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e3ca757b5cb524252fdd5d"
+  },
+  "textContent": "saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "commentedBy": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:30.150Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T00:55:17.249Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:30.153Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e3e835ed9fe6a2ba331473"
+  },
+  "textContent": "",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/c6by9lksfpz79jlzonsp",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709434932/tupt-online-platform/forums/c6by9lksfpz79jlzonsp.jpg",
+      "_id": {
+        "$oid": "65e3e835ed9fe6a2ba331474"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/forums/ek753vzlyfvzukuqrjiv",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709434934/tupt-online-platform/forums/ek753vzlyfvzukuqrjiv.jpg",
+      "_id": {
+        "$oid": "65e3e835ed9fe6a2ba331475"
+      }
+    }
+  ],
+  "deletedAt": null,
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T03:02:13.051Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T16:52:16.045Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e427be52cb65adc7efe7c7"
+  },
+  "textContent": "Try reply",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": {
+    "$oid": "65e3ca757b5cb524252fdd5d"
+  },
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:38.530Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T07:33:18.400Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:38.532Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4288452cb65adc7efe816"
+  },
+  "textContent": "Hasdjaslkdjaslkdjaskl",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": {
+    "$oid": "65e35e08917443433d55bbbd"
+  },
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:04.402Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T07:36:36.242Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:04.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e42b8343a3527b448ae2dd"
+  },
+  "textContent": "Another one",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": {
+    "$oid": "65e427be52cb65adc7efe7c7"
+  },
+  "deletedAt": {
+    "$date": "2024-03-03T11:14:47.191Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T07:49:23.055Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:14:47.195Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e42bf343a3527b448ae2f8"
+  },
+  "textContent": "No I am Dave",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b8e73a8420a412018d0b"
+  },
+  "repliedTo": {
+    "$oid": "65e357b4ffcca2ac2cff03f3"
+  },
+  "deletedAt": {
+    "$date": "2024-03-03T11:15:47.042Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T07:51:15.602Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:15:47.043Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e42cc143a3527b448ae317"
+  },
+  "textContent": "Try naten ang scroll",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": {
+    "$oid": "65e357aaffcca2ac2cff037f"
+  },
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T07:54:41.339Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T07:54:41.339Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e454d9169cbbde1768a025"
+  },
+  "textContent": "Edited",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": {
+    "$oid": "65e42cc143a3527b448ae317"
+  },
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/tu0mmpig0j2y5idtcm8f",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709462743/tupt-online-platform/forums/tu0mmpig0j2y5idtcm8f.jpg",
+      "_id": {
+        "$oid": "65e454d9169cbbde1768a026"
+      }
+    },
+    {
+      "public_id": "tupt-online-platform/forums/fdjczyn3k4fmcdtugzaf",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709462745/tupt-online-platform/forums/fdjczyn3k4fmcdtugzaf.jpg",
+      "_id": {
+        "$oid": "65e454d9169cbbde1768a027"
+      }
+    }
+  ],
+  "deletedAt": null,
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T10:45:45.148Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T16:52:34.135Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e454e5169cbbde1768a036"
+  },
+  "textContent": "Wasdsadsad",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:11:37.545Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T10:45:57.544Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:11:37.562Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e454e9169cbbde1768a045"
+  },
+  "textContent": "asdasdsadsadsadsda",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T11:07:03.945Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T10:46:01.801Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T11:07:03.966Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e45d43d0bbc5b50b51e917"
+  },
+  "textContent": "Not to asdasd",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T11:21:39.542Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:04:38.481Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e45d57d0bbc5b50b51e93a"
+  },
+  "textContent": "Ayusin",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T11:21:59.852Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:15:02.438Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e45d93d0bbc5b50b51e957"
+  },
+  "textContent": "❌",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T11:22:59.511Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:40:29.278Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4af6538f191d3fe8ecc6a"
+  },
+  "textContent": "asdadasdasd",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:12:05.052Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:12:05.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4af7438f191d3fe8ecc73"
+  },
+  "textContent": "",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/jcuzrrsk5kk13qy2skb7",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709485942/tupt-online-platform/forums/jcuzrrsk5kk13qy2skb7.jpg",
+      "_id": {
+        "$oid": "65e4af7438f191d3fe8ecc74"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T17:12:27.234Z"
+  },
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:12:20.393Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:12:27.235Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4afbfbbca8a3ca093a6dd"
+  },
+  "textContent": "",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": null,
+  "images": [
+    {
+      "public_id": "tupt-online-platform/forums/kqkzzgnrtqo4zif1hdyl",
+      "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709486017/tupt-online-platform/forums/kqkzzgnrtqo4zif1hdyl.jpg",
+      "_id": {
+        "$oid": "65e4afbfbbca8a3ca093a6df"
+      }
+    }
+  ],
+  "deletedAt": null,
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:13:35.407Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:31:19.069Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "65e4b1240049f030a22a3b71"
+  },
+  "textContent": "",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2f73a126d1beb56838d95"
+  },
+  "repliedTo": null,
+  "attachments": [],
+  "deletedAt": {
+    "$date": "2024-03-03T17:28:17.815Z"
+  },
+  "images": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:19:32.605Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:28:17.817Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "65e4b3d1b49711adf67859d0"
+  },
+  "textContent": "asdasdsadsadsad",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": null,
+  "images": [],
+  "attachments": [
+    {
+      "public_id": "03/04/24, 01:30:55 AM_Chapter-4-GRACIA-UPDATED.docx",
+      "url": "https://mega.nz/file/d3sVnbyZ#nqzBT2dFLL6aKgWcOJUo1Jyn1s_gio5W4ew2GdaDWBY",
+      "original_name": "Chapter-4-GRACIA-UPDATED.docx",
+      "_id": {
+        "$oid": "65e4b3d1b49711adf67859d2"
+      }
+    }
+  ],
+  "deletedAt": {
+    "$date": "2024-03-03T17:31:10.361Z"
+  },
+  "createdAt": {
+    "$date": "2024-03-03T17:30:57.055Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:31:10.364Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "65e4b3efb49711adf6785a0d"
+  },
+  "textContent": "asdsadsadasd",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b83f3a8420a412018d04"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-03T17:31:36.539Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:31:27.840Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:31:36.540Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4b424b49711adf6785a7b"
+  },
+  "textContent": "All goods",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": {
+    "$oid": "65e45d57d0bbc5b50b51e93a"
+  },
+  "deletedAt": {
+    "$date": "2024-03-03T17:32:24.889Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:32:20.348Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T17:32:24.891Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e4b49eb49711adf6785acb"
+  },
+  "textContent": "Ewand",
+  "commentedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "forum": {
+    "$oid": "65e4b478b49711adf6785a8f"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-03T17:34:22.753Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T15:38:56.612Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e5932af83197d272f493d5"
+  },
+  "textContent": "shesh",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": {
+    "$oid": "65e4afbfbbca8a3ca093a6dd"
+  },
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-04T09:23:54.215Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-04T09:23:54.215Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e7497118d5e7d30bd71f15"
+  },
+  "textContent": "ASDASDADASDASD",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2b7173a8420a412018d01"
+  },
+  "repliedTo": {
+    "$oid": "65e5932af83197d272f493d5"
+  },
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T16:33:53.555Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T16:33:53.555Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e75276965e612d65c71aec"
+  },
+  "textContent": "asdasdasdasd",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e4b478b49711adf6785a8f"
+  },
+  "repliedTo": {
+    "$oid": "65e4b49eb49711adf6785acb"
+  },
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-05T17:12:22.507Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T17:12:22.507Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e86f70ef9d1aca5f377eeb"
+  },
+  "textContent": "Candy crush hehehe",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e86f3eef9d1aca5f377e80"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-14T01:24:04.393Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T13:28:16.188Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:24:04.395Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e86fbbef9d1aca5f377f29"
+  },
+  "textContent": "Luh?",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e86f3eef9d1aca5f377e80"
+  },
+  "repliedTo": {
+    "$oid": "65e86f70ef9d1aca5f377eeb"
+  },
+  "deletedAt": {
+    "$date": "2024-03-06T13:30:25.566Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T13:29:31.536Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T13:30:25.569Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e86fdbef9d1aca5f377f59"
+  },
+  "textContent": "Oo nga",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e86f3eef9d1aca5f377e80"
+  },
+  "repliedTo": {
+    "$oid": "65e86fbbef9d1aca5f377f29"
+  },
+  "deletedAt": {
+    "$date": "2024-03-14T01:24:08.811Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-06T13:30:03.862Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:24:08.812Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e91f25e3428014e02e08b0"
+  },
+  "textContent": "okay",
+  "commentedBy": {
+    "$oid": "65e91a2ae3428014e02e0426"
+  },
+  "forum": {
+    "$oid": "65e91f14e3428014e02e0865"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-07T01:57:57.865Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T01:57:57.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e91f32e3428014e02e08e5"
+  },
+  "textContent": "osige",
+  "commentedBy": {
+    "$oid": "65e9181e606d12f313d87cd5"
+  },
+  "forum": {
+    "$oid": "65e91f14e3428014e02e0865"
+  },
+  "repliedTo": {
+    "$oid": "65e91f25e3428014e02e08b0"
+  },
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-07T01:58:10.032Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-07T01:58:42.794Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edebc8bb2783222a551509"
+  },
+  "textContent": "sadasdsa",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T17:20:08.609Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T17:20:08.609Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edebcfbb2783222a551512"
+  },
+  "textContent": "asdsadasdasasdasdasdsasasasassasasda",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e3211191534e17d7e0edbd"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T17:20:15.166Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T17:20:15.166Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edebdbbb2783222a551525"
+  },
+  "textContent": "asdadasdasdasdasd",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": {
+    "$oid": "65e45d43d0bbc5b50b51e917"
+  },
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T17:20:27.801Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T17:20:27.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edf000057dff484cb0b46f"
+  },
+  "textContent": "I know?",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T17:38:08.426Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T17:38:08.426Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edf209057dff484cb0b519"
+  },
+  "textContent": "Gago",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T17:46:49.469Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T17:46:49.469Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edf95d057dff484cb0b7dc"
+  },
+  "textContent": "Gago",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-12T07:35:56.169Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T18:18:05.932Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T07:35:56.172Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edf961057dff484cb0b7eb"
+  },
+  "textContent": "Puta",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T18:18:09.476Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T18:18:09.476Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edf96d057dff484cb0b7fa"
+  },
+  "textContent": "gago ka talaga putangina mo",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-12T07:36:37.003Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T18:18:21.797Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T07:36:37.006Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65edfc15057dff484cb0bb4c"
+  },
+  "textContent": "😍❌😍",
+  "commentedBy": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "forum": {
+    "$oid": "65edfbb4057dff484cb0ba8b"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-10T18:29:41.459Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T18:29:41.459Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ee6bea7e019b8a2683a252"
+  },
+  "textContent": "gago ka talaga tite",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e2d57644c3bc721fbebc98"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T02:26:50.154Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T02:26:50.154Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ee7bbc7bc3f9c5580bfa10"
+  },
+  "textContent": "putanginamo",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T03:34:20.464Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T03:34:20.464Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ee7bc17bc3f9c5580bfa1d"
+  },
+  "textContent": "Gago ka",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T03:34:25.934Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T03:34:25.934Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65ee7bf87bc3f9c5580bfa2a"
+  },
+  "textContent": "tite",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-13T09:34:24.514Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T03:35:20.801Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T09:34:24.516Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65eef8d969861576a70bb453"
+  },
+  "textContent": "malandi",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-11T12:32:24.128Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T12:28:09.097Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T12:32:24.132Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65eef95369861576a70bb484"
+  },
+  "textContent": "❌",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T12:30:11.059Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T12:30:11.059Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65eefa1b69861576a70bb50a"
+  },
+  "textContent": "malandi",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T12:33:31.132Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T12:33:31.132Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65eefa2969861576a70bb517"
+  },
+  "textContent": "malandi",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-12T07:41:15.154Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T12:33:45.223Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T07:41:15.158Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65eefa4269861576a70bb524"
+  },
+  "textContent": "yawa",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65edefef057dff484cb0b40a"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-11T12:34:10.688Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-11T12:34:10.688Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f014a54aa1a1cde715ffcc"
+  },
+  "textContent": "Up!",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e6ff3172bf9b2dc701c5c8"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-12T08:39:01.180Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T08:39:01.180Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f018094aa1a1cde7160791"
+  },
+  "textContent": "Hello",
+  "commentedBy": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "forum": {
+    "$oid": "65e731a78df30b45817e1775"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-12T08:53:40.245Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-12T08:53:29.769Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T08:53:40.247Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f1c4a1e8c46af6e1dfcd31"
+  },
+  "textContent": "Knowledge",
+  "commentedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "forum": {
+    "$oid": "65f1c479e8c46af6e1dfccbb"
+  },
+  "repliedTo": null,
+  "deletedAt": null,
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-13T15:22:09.127Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T15:22:09.127Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f1c4ade8c46af6e1dfcd3a"
+  },
+  "textContent": "Yes No",
+  "commentedBy": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "forum": {
+    "$oid": "65f1c479e8c46af6e1dfccbb"
+  },
+  "repliedTo": {
+    "$oid": "65f1c4a1e8c46af6e1dfcd31"
+  },
+  "deletedAt": {
+    "$date": "2024-03-13T15:22:31.358Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-13T15:22:21.341Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T15:22:31.360Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f24fcbe70e9025e32b21c1"
+  },
+  "textContent": "sigeeewwww",
+  "commentedBy": {
+    "$oid": "65f24cfee70e9025e32b1f3f"
+  },
+  "forum": {
+    "$oid": "65f24fbfe70e9025e32b217a"
+  },
+  "repliedTo": null,
+  "deletedAt": {
+    "$date": "2024-03-14T01:16:07.319Z"
+  },
+  "images": [],
+  "attachments": [],
+  "createdAt": {
+    "$date": "2024-03-14T01:15:55.066Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:16:07.321Z"
+  },
+  "__v": 0
+}]

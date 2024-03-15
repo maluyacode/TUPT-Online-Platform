@@ -25,20 +25,24 @@ import ToastEmmiter from '../Layout/ToastEmmiter'
 
 import { getAnnouncement } from '../../api/announcementsAPI'
 import axios from 'axios'
+import Block from '../Layout/Loaders/Block';
 
 const AnnouncementDetails = () => {
 
     const { id } = useParams();
+    const [loading, setLoading] = useState(false)
 
     const [announcement, setAnnouncement] = useState({});
 
     const getSingleAnnouncement = async () => {
+        setLoading(true)
         const { data } = await getAnnouncement(id);
-        console.log(data)
         if (data.success) {
+            setLoading(false)
             setAnnouncement(data.announcement)
         } else {
-            ToastEmmiter.error('Error occured');
+            setLoading(false)
+            ToastEmmiter.warning('Please try again later');
         }
     }
 
@@ -49,6 +53,7 @@ const AnnouncementDetails = () => {
 
     return (
         <>
+            <Block loading={loading} />
             <MetaData pageTitle="Announcements" />
             <div style={{ display: 'flex', height: '100vh' }}>
                 <SideNav />

@@ -41,14 +41,12 @@ const Collab = () => {
     const [filteredTopics, setFilteredTopics] = useState();
 
     const getAllTopics = async () => {
-
+        setLoading(true)
         const { data } = await fetchAllPost(fetchStatus);
         if (data.success) {
-            console.log(data);
             setLoading(false)
             setTopics(data.topics)
             setFilteredTopics(data.topics)
-
         } else {
             ToastEmmiter.warning('System error, please try again later', 'top-center');
             setLoading(false)
@@ -242,7 +240,11 @@ const Collab = () => {
                                         </Box>
                                     </Paper>
                                     : ""}
-
+                                {topics.length <= 0 && (
+                                    <Box className='p-5'>
+                                        <Typography fontSize={20} fontStyle={'oblique'} textAlign={'center'}>Nothing to show</Typography>
+                                    </Box>
+                                )}
                                 <TopicLists
                                     topics={topics}
                                     filteredTopics={filteredTopics}

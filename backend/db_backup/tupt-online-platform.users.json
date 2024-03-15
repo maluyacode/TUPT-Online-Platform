@@ -1,0 +1,2003 @@
+[{
+  "_id": {
+    "$oid": "65c74231dc0531150fb527a6"
+  },
+  "firstname": "Jurome",
+  "lastname": "De Jesus",
+  "email": "juromelouise.dejesus@tup.edu.ph",
+  "contact_number": "09929590647",
+  "password": "$2a$10$6lKzH7fah9qc0WN1rS0D2.n9LmF.PDYGOO8jqi0qOWyhPxG5j15iy",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "createdAt": {
+    "$date": "2024-02-10T09:30:25.168Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T13:10:17.687Z"
+  },
+  "__v": 3,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/ks875djdaiil0v93idte",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709054228/tupt-online-platform/avatar/ks875djdaiil0v93idte.jpg"
+  },
+  "baranggay": "",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "city": "",
+  "facebookLink": "",
+  "houseNo": "asdasdsadasd",
+  "instagramLink": "",
+  "street": "",
+  "iCareFor": [],
+  "myGuardian": [
+    {
+      "user": {
+        "$oid": "65e14e523472706f6335355d"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16b01527511d08028988e"
+      }
+    }
+  ],
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": "null"
+},
+{
+  "_id": {
+    "$oid": "65c747cadc0531150fb527b1"
+  },
+  "firstname": "Evad merc",
+  "lastname": "Nawalda",
+  "email": "nawalda@gmail.com",
+  "contact_number": "09511459083",
+  "password": "$2a$10$n4U2tmKWIsSO5l7GFZ50i.RW1UqFQ7UD/UplmW08RnJHdsyZSXFKG",
+  "role": "teacher",
+  "isEmailVerified": true,
+  "isContactVerified": false,
+  "createdAt": {
+    "$date": "2024-02-10T09:54:18.642Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:26:14.609Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-03-14T00:10:21.449Z"
+  },
+  "contactCodeVerification": "709108",
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/ndjaadzgnmtc3krpxnm0",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709746640/tupt-online-platform/avatar/ndjaadzgnmtc3krpxnm0.jpg"
+  },
+  "baranggay": "asdas",
+  "birthdate": {
+    "$date": "2002-04-17T00:00:00.000Z"
+  },
+  "city": "dsad",
+  "houseNo": "adsa",
+  "instagramLink": "sdasdasd",
+  "street": "dasd",
+  "facebookLink": "asda",
+  "course": "null",
+  "department": "Mechanical and Allied Department",
+  "iCareFor": []
+},
+{
+  "_id": {
+    "$oid": "65c86422143a381e792e585d"
+  },
+  "firstname": "Haicam",
+  "lastname": "Astro",
+  "email": "maicah@gmail.com",
+  "contact_number": "09934374643",
+  "password": "$2a$10$LCUpTf8X0cZzW5FjJWHvy.sKi8hdG.0mwyl23KcwugW6oUvD1klQW",
+  "role": "teacher",
+  "isEmailVerified": true,
+  "isContactVerified": false,
+  "createdAt": {
+    "$date": "2024-02-11T06:07:30.197Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T00:27:57.224Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-03-14T00:32:57.174Z"
+  },
+  "contactCodeVerification": "490558",
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "baranggay": "",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "city": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "instagramLink": "",
+  "street": "",
+  "course": "null",
+  "department": "Electrical and Allied Department",
+  "iCareFor": []
+},
+{
+  "_id": {
+    "$oid": "65c864732f4df8d7bb88299a"
+  },
+  "firstname": "Llessur",
+  "lastname": "Togy",
+  "email": "ygot@gmail.com",
+  "contact_number": "09124370894",
+  "password": "$2a$10$5mcmztFY9ZURvObO25yTjuIARVH8/8WcRmCqtvIrCn6/kgv4tnSIm",
+  "role": "teacher",
+  "isEmailVerified": true,
+  "isContactVerified": false,
+  "createdAt": {
+    "$date": "2024-02-11T06:08:51.939Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T00:28:11.840Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-03-14T00:33:11.833Z"
+  },
+  "contactCodeVerification": "515764",
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "baranggay": "",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "city": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "instagramLink": "",
+  "street": "",
+  "course": "null",
+  "department": "Electrical and Allied Department",
+  "iCareFor": []
+},
+{
+  "_id": {
+    "$oid": "65cd45d65f0e4f5344b827e3"
+  },
+  "firstname": "Aira Nicole",
+  "lastname": "Amodia",
+  "email": "airanicole.amodia@tup.edu.ph",
+  "contact_number": "09555711456",
+  "password": "$2a$10$jrMz2G4oKCp.o.LmEm/lNOYivrd3dqJK12IM2TzgTXZ.XBChPZqVm",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "createdAt": {
+    "$date": "2024-02-14T22:59:34.779Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-06T17:47:46.133Z"
+  },
+  "__v": 4,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "baranggay": "",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "city": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "instagramLink": "",
+  "street": "",
+  "iCareFor": [
+    ""
+  ],
+  "myGuardian": [
+    {
+      "user": {
+        "$oid": "65e14df53472706f63353544"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16a9e527511d08028984a"
+      }
+    },
+    {
+      "user": {
+        "$oid": "65e14df53472706f63353544"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16be3909010082cf9a0ed"
+      }
+    }
+  ],
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/kldebjltkesyv44dttj1",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709747266/tupt-online-platform/avatar/kldebjltkesyv44dttj1.jpg"
+  },
+  "course": "undefined",
+  "department": "null"
+},
+{
+  "_id": {
+    "$oid": "65d2f31f682e2b9f3614cc31"
+  },
+  "firstname": "Junnie",
+  "lastname": "Puyos",
+  "email": "gerelito.puyos@tup.edu.ph",
+  "contact_number": "09536473829",
+  "password": "$2a$10$y3wO8DHMHw5xP.xCNCkvQ.aSpVERmwCAD/psZQbHI4ikJwySudDl.",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "createdAt": {
+    "$date": "2024-02-19T06:20:15.719Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:58:22.183Z"
+  },
+  "__v": 3,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "baranggay": "",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "city": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "instagramLink": "",
+  "street": "",
+  "iCareFor": [
+    ""
+  ],
+  "myGuardian": [
+    {
+      "user": {
+        "$oid": "65e14df53472706f63353544"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16a9e527511d08028984f"
+      }
+    },
+    {
+      "user": {
+        "$oid": "65e14df53472706f63353544"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16be3909010082cf9a0f0"
+      }
+    }
+  ],
+  "course": "null",
+  "department": "null"
+},
+{
+  "_id": {
+    "$oid": "65da8b6fe53ca558a779a255"
+  },
+  "firstname": "Admin",
+  "lastname": "123",
+  "email": "admin@gmail.com",
+  "contact_number": "09123456787",
+  "password": "$2a$10$verCH7uvfU6J.7D8m3wU8uNHigiQayeYsY0q5Rg2UwdA87H9eExtG",
+  "role": "admin",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "instagramLink": "null",
+  "facebookLink": "null",
+  "houseNo": "null",
+  "street": "null",
+  "baranggay": "null",
+  "city": "null",
+  "createdAt": {
+    "$date": "2024-02-25T00:35:59.694Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-27T17:12:56.357Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65da91cee53ca558a779a363"
+  },
+  "firstname": "Gojo",
+  "lastname": "Saturo",
+  "email": "admin2@gmail.com",
+  "contact_number": "09123232334",
+  "password": "$2a$10$Sm.YpA/ZDH25bpnWx3drkOxeCEnuprgStR9AQKgFuOO0Kv/FSJiDe",
+  "role": "admin",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2002-04-16T00:00:00.000Z"
+  },
+  "instagramLink": "asdsadsadsadasd",
+  "facebookLink": "sadsad",
+  "houseNo": "dasdsadasd",
+  "street": "asdsad",
+  "baranggay": "asdasdsad",
+  "city": "asdsadasdasdsad",
+  "createdAt": {
+    "$date": "2024-02-25T01:03:10.714Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-27T17:02:20.519Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/vdmqy2r1sj6qew4gvy2y",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708837566/tupt-online-platform/avatar/vdmqy2r1sj6qew4gvy2y.jpg"
+  }
+},
+{
+  "_id": {
+    "$oid": "65dbf68821a12b286b79b6c8"
+  },
+  "firstname": "John Radilh",
+  "lastname": "Mancao",
+  "email": "johnradilh.mancao@tup.edu.ph",
+  "contact_number": "09852148511",
+  "password": "$2a$10$IwvnbzbGupYa6IdvbnmkTOl8pUnslqXQL9.7vmWRnh9ymyXPZk3e2",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-26T02:25:12.748Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-29T07:09:38.403Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/lz3nflj2a0qnrpj07nkn",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1708914509/tupt-online-platform/avatar/lz3nflj2a0qnrpj07nkn.jpg"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ddfeb553c498c9ecc829a7"
+  },
+  "firstname": "Shan",
+  "lastname": "Palima",
+  "email": "shan.palima@tup.edu.ph",
+  "contact_number": "09564337865",
+  "password": "$2a$10$O5y7TMLVqnCtK2TQte5w4.C3sOemKvydnlqE8fuRk6FOGG2KUToQa",
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/lbcz1lerqpppes9c8rn8",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709054095/tupt-online-platform/avatar/lbcz1lerqpppes9c8rn8.jpg"
+  },
+  "role": "student",
+  "isEmailVerified": false,
+  "isContactVerified": false,
+  "birthdate": {
+    "$date": "2024-02-29T00:00:00.000Z"
+  },
+  "instagramLink": "asdasdasdsadasd",
+  "facebookLink": "asdasdsad",
+  "houseNo": "sadasdsadas",
+  "street": "dsadasdasd",
+  "baranggay": "asdasdasdsad",
+  "city": "asdasdasdasd",
+  "createdAt": {
+    "$date": "2024-02-27T15:24:37.827Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:56:41.876Z"
+  },
+  "__v": 0,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "65de1987ae1338ab0f1f85fa"
+  },
+  "firstname": "John Paul",
+  "lastname": "Dellova",
+  "email": "johnpaul.dellova@tup.edu.ph",
+  "contact_number": "09763861051",
+  "password": "$2a$10$jaI1eRjlZkfRsU57RFp5AOWbWGRKsahYIBA0uccwg2Hsfq7aU5JlW",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2003-02-07T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-27T17:19:03.395Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-29T06:58:26.674Z"
+  },
+  "__v": 0,
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/hufsw7fsfmesl06ubh97",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709054396/tupt-online-platform/avatar/hufsw7fsfmesl06ubh97.jpg"
+  }
+},
+{
+  "_id": {
+    "$oid": "65deabd75316851c138d78b3"
+  },
+  "firstname": "Lester",
+  "lastname": "Holmes",
+  "email": "lester.holmes@tup.edu.ph",
+  "contact_number": "09689848271",
+  "password": "$2a$10$yjJ9UJmFlGPFW4aGRpNEWuBGMD2m7iBTt6u9SNtovjx1eBCMZ1qpq",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "1972-10-04T00:00:00.000Z"
+  },
+  "instagramLink": "Odio mollitia necess",
+  "facebookLink": "Commodo voluptatibus",
+  "houseNo": "Consequatur adipisic",
+  "street": "Quaerat dolore recus",
+  "baranggay": "Omnis inventore repr",
+  "city": "Nihil velit rerum qu",
+  "createdAt": {
+    "$date": "2024-02-28T03:43:19.120Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-28T03:45:43.210Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65deabe75316851c138d78b7"
+  },
+  "firstname": "Clinton",
+  "lastname": "Kim",
+  "email": "clinton.kim@tup.edu.ph",
+  "contact_number": "09815254223",
+  "password": "$2a$10$rpDfXkf6Yw3DqpaS1MiFNupYITQ0o8fDn96WujjSK.8fZDq4PqePG",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2006-11-28T00:00:00.000Z"
+  },
+  "instagramLink": "Facilis veniam aute",
+  "facebookLink": "Vel tempor natus vol",
+  "houseNo": "Corporis dolorem ea ",
+  "street": "Quia incididunt et v",
+  "baranggay": "Exercitation volupta",
+  "city": "Ipsam ipsum numquam",
+  "createdAt": {
+    "$date": "2024-02-28T03:43:35.866Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-28T03:45:49.092Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65deac9c5316851c138d78e1"
+  },
+  "firstname": "Colby",
+  "lastname": "Cantu",
+  "email": "colby.cantu@tup.edu.ph",
+  "contact_number": "09830246243",
+  "password": "$2a$10$7PZ.O4JnqGKoC.6zthKvCOazbAr.6Gl0zBW6yCVYEIOXQGN6IL/fS",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "1977-08-23T00:00:00.000Z"
+  },
+  "instagramLink": "Debitis dolores dele",
+  "facebookLink": "Laborum Sint animi",
+  "houseNo": "Minima officiis reru",
+  "street": "Tempora sed temporib",
+  "baranggay": "Commodi doloribus nu",
+  "city": "Facilis qui molestia",
+  "createdAt": {
+    "$date": "2024-02-28T03:46:36.609Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-28T03:46:36.609Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dedc6cfdf521c8a60b359b"
+  },
+  "firstname": "Bea Patricia",
+  "lastname": "Junio",
+  "email": "patriciabea.junio@tup.edu.ph",
+  "contact_number": "09453672345",
+  "password": "$2a$10$3j1fXMiJNNnNnQApSM6O2uJSQADKBznNwlDstsQqnawzQGaWSJ9xe",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2024-02-22T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-28T07:10:36.395Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:58:54.289Z"
+  },
+  "__v": 0,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "65dfc07dbb5a8a698f3e941e"
+  },
+  "firstname": "Gelgin",
+  "lastname": "Delo Santos",
+  "email": "gelgin.delosantos@tup.edu.ph",
+  "contact_number": "09123617420",
+  "password": "$2a$10$aoEk8mFTbHR9IXmlI2SfQeMmxBEDLdmA78n44IGnrdXg2CC3Uy4r.",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2024-02-29T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-28T23:23:41.806Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-28T23:23:41.806Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65dfc0b5bb5a8a698f3e9422"
+  },
+  "firstname": "Joshua",
+  "lastname": "Narayan",
+  "email": "joshua.narayan@tup.edu.ph",
+  "contact_number": "09686047871",
+  "password": "$2a$10$yueL9r0UmOpN0Cw7nwKkEOxfgzdaniIvTsbmwYhXe4pizQjE5hBLa",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2024-02-29T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-28T23:24:37.043Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-28T23:24:37.043Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65e02cf8b4bc98b07e331d34"
+  },
+  "firstname": "Norwin Shane",
+  "lastname": "Mendoza",
+  "email": "shanenorwin.mendoza@tup.edu.ph",
+  "contact_number": "09451222105",
+  "password": "$2a$10$5XoS16FtRJDkSq2B68ygk.Es2/KFkitcHnN0.m7IMqp.Brr5XeV.e",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2024-02-08T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-29T07:06:32.510Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:55:59.512Z"
+  },
+  "__v": 0,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    ""
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e04639e6220464ae806a68"
+  },
+  "firstname": "Kyle John",
+  "lastname": "Flores",
+  "email": "kylejohncflores@gmail.com",
+  "contact_number": "09478247822",
+  "password": "$2a$10$3/IHPulH0CfWEeFEzEjLY.CEijpbvKupH6n4hGXt5mRgv.yZ6b.di",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "birthdate": {
+    "$date": "2004-09-10T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "createdAt": {
+    "$date": "2024-02-29T08:54:17.874Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-29T09:16:00.149Z"
+  },
+  "__v": 0,
+  "avatar": {
+    "public_id": "tupt-online-platform/avatar/wpaw6nhny7ju9jwzvntq",
+    "url": "https://res.cloudinary.com/dzyv6cl5r/image/upload/v1709198160/tupt-online-platform/avatar/wpaw6nhny7ju9jwzvntq.jpg"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e09801c3ab2c208a931026"
+  },
+  "firstname": "Isaac",
+  "lastname": "Dickson",
+  "email": "isaac.dickson@tup.edu.ph",
+  "contact_number": "09451991641",
+  "password": "$2a$10$evxGo8sqpFqSw1zDuBuUtu5JNH8q.NGGXz0a8TpYaMyLQ1ncQEV1m",
+  "role": "student",
+  "isEmailVerified": false,
+  "isContactVerified": false,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "iCareFor": [],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-02-29T14:43:13.451Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-29T14:43:13.687Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-02-29T14:48:13.621Z"
+  },
+  "contactCodeVerification": "236155",
+  "emailCodeExpire": {
+    "$date": "2024-02-29T14:48:13.620Z"
+  },
+  "emailCodeVerification": "125446"
+},
+{
+  "_id": {
+    "$oid": "65e09835c3ab2c208a93102c"
+  },
+  "firstname": "Bertha",
+  "lastname": "Brown",
+  "email": "bertha.brown@tup.edu.ph",
+  "contact_number": "09521624994",
+  "password": "$2a$10$PuwJmmDnFbwulE6twENegeyL/afeyb0H3.kIzjZoOOJ/u5uAhx5iO",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "iCareFor": [],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-02-29T14:44:05.212Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T00:21:34.102Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65e120324e4327995c0a31f6"
+  },
+  "firstname": "Holmes",
+  "lastname": "Ramirez",
+  "email": "holmes.ramirez@tup.edu.ph",
+  "contact_number": "09112146423",
+  "password": "$2a$10$Y8oMNDWs84Caof14P.lHmOKCp4lV.vJ6/hUBwe59nyQfeSoAP9y/W",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "BET Major in Construction Technology (BETCT-T)",
+  "department": null,
+  "iCareFor": [],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T00:24:18.450Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T00:24:50.533Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65e121394e4327995c0a320e"
+  },
+  "firstname": "Piper",
+  "lastname": "James",
+  "email": "piper.james@tup.edu.ph",
+  "contact_number": "09814943366",
+  "password": "$2a$10$ADQYjZRnuB8PQ7hwhfZxVOGhTfrL8TaPO7oT6tAwipavMSgTaBeNy",
+  "role": "teacher",
+  "isEmailVerified": false,
+  "isContactVerified": false,
+  "course": "",
+  "department": "Mechanical and Allied Department",
+  "iCareFor": [],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T00:28:41.946Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T00:28:42.121Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-03-01T00:33:42.106Z"
+  },
+  "contactCodeVerification": "389900",
+  "emailCodeExpire": {
+    "$date": "2024-03-01T00:33:42.106Z"
+  },
+  "emailCodeVerification": "479038"
+},
+{
+  "_id": {
+    "$oid": "65e130444e4327995c0a3240"
+  },
+  "firstname": "Kathleen",
+  "lastname": "Haynes",
+  "email": "kathleen.haynes@tup.edu.ph",
+  "contact_number": "09494595474",
+  "password": "$2a$10$9w./H8rCfnVBLthdfCl8DuMe1gLAzryoRqaHLzqLJVAVLClnusakK",
+  "role": "student",
+  "isEmailVerified": false,
+  "isContactVerified": false,
+  "course": "BET Major in Construction Technology (BETCT-T)",
+  "department": null,
+  "iCareFor": [],
+  "myGuardian": [
+    {
+      "user": {
+        "$oid": "65e14df53472706f63353544"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16a5c527511d080289811"
+      }
+    }
+  ],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T01:32:52.097Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T05:40:44.158Z"
+  },
+  "__v": 3,
+  "contactCodeExpire": {
+    "$date": "2024-03-01T01:37:52.233Z"
+  },
+  "contactCodeVerification": "080125",
+  "emailCodeExpire": {
+    "$date": "2024-03-01T01:37:52.233Z"
+  },
+  "emailCodeVerification": "997609"
+},
+{
+  "_id": {
+    "$oid": "65e1307c4e4327995c0a3244"
+  },
+  "firstname": "Edward",
+  "lastname": "Delacruz",
+  "email": "edward.delacruz@tup.edu.ph",
+  "contact_number": "09266386321",
+  "password": "$2a$10$wL0YUvLsx03lH4QEs.ACwe/NHsie6w7bV8CQYo6zjDccGKi4wDPaa",
+  "role": "teacher",
+  "isEmailVerified": false,
+  "isContactVerified": false,
+  "course": null,
+  "department": "Electrical and Allied Department",
+  "iCareFor": [],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T01:33:48.106Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T01:33:48.242Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-03-01T01:38:48.230Z"
+  },
+  "contactCodeVerification": "757754",
+  "emailCodeExpire": {
+    "$date": "2024-03-01T01:38:48.230Z"
+  },
+  "emailCodeVerification": "021360"
+},
+{
+  "_id": {
+    "$oid": "65e136355b84bf5cd15974a7"
+  },
+  "firstname": "Tatiana",
+  "lastname": "Hunter",
+  "email": "tatiana.hunter@tup.edu.ph",
+  "contact_number": "09838235879",
+  "password": "$2a$10$kf1H2BkhpjnsdKodI0WbgOmztua6cq/1p5srXGocOR/WXt0Lc/sQW",
+  "role": "parent",
+  "isEmailVerified": false,
+  "isContactVerified": false,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65e04639e6220464ae806a68"
+      },
+      "isAccepted": false,
+      "_id": {
+        "$oid": "65e136355b84bf5cd15974a8"
+      }
+    }
+  ],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T01:58:13.701Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T01:58:13.880Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": {
+    "$date": "2024-03-01T02:03:13.831Z"
+  },
+  "contactCodeVerification": "409934",
+  "emailCodeExpire": {
+    "$date": "2024-03-01T02:03:13.831Z"
+  },
+  "emailCodeVerification": "976603"
+},
+{
+  "_id": {
+    "$oid": "65e1379326d93c34c33df587"
+  },
+  "firstname": "Chaney",
+  "lastname": "Cervantes",
+  "email": "chaney.cervantes@tup.edu.ph",
+  "contact_number": "09989946224",
+  "password": "$2a$10$LotpXH4wktPAAlCmE2tGfORmPs4PkBz5VjstuldA1SLd5YdM9l0km",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65e120324e4327995c0a31f6"
+      },
+      "isAccepted": false,
+      "_id": {
+        "$oid": "65e1379326d93c34c33df588"
+      }
+    }
+  ],
+  "myGuardian": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T02:04:03.193Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T09:36:27.308Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e1465eff1b2bcc6dc5a4f7"
+  },
+  "firstname": "Mira",
+  "lastname": "Garner",
+  "email": "mira.garner@tup.edu.ph",
+  "contact_number": "09123243543",
+  "password": "$2a$10$TaG8tHuY4z0T8y8OMZPPCekC3Am9oYunWJ8ipi8fOhremyhMQ4.U6",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Civil Engineering (BSCESEP-T)",
+  "department": null,
+  "myGuardian": [
+    {
+      "user": {
+        "$oid": "65e14e523472706f6335355d"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16b01527511d080289892"
+      }
+    },
+    {
+      "user": {
+        "$oid": "65e14e523472706f6335355d"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16c1e909010082cf9a116"
+      }
+    }
+  ],
+  "birthdate": {
+    "$date": "2013-06-22T00:00:00.000Z"
+  },
+  "instagramLink": "Ea voluptatem fugit",
+  "facebookLink": "Nam ut unde quibusda",
+  "houseNo": "Odit autem laboris e",
+  "street": "Aut odio distinctio",
+  "baranggay": "Cupidatat voluptas b",
+  "city": "Sed officiis eum non",
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-01T03:07:10.729Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T09:36:33.818Z"
+  },
+  "__v": 4,
+  "deletedAt": null
+},
+{
+  "_id": {
+    "$oid": "65e146a6ff1b2bcc6dc5a4fe"
+  },
+  "firstname": "Levi",
+  "lastname": "Gilmore",
+  "email": "levi.gilmore@tup.edu.ph",
+  "contact_number": "09564832453",
+  "password": "$2a$10$mErW6sTb4jy/n7hxMT4I7.2dQLZTtGqFptonnMLi1wr/cBeWPJmKG",
+  "role": "teacher",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Civil and Allied Department",
+  "department": null,
+  "myGuardian": [],
+  "birthdate": {
+    "$date": "2002-02-11T00:00:00.000Z"
+  },
+  "instagramLink": "Sed cumque mollitia ",
+  "facebookLink": "Hic culpa nostrum p",
+  "houseNo": "Rerum nihil totam lo",
+  "street": "Consequuntur nihil q",
+  "baranggay": "Accusamus perferendi",
+  "city": "Omnis esse nemo des",
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-01T03:08:22.731Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:48.404Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:48.400Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e147ebff1b2bcc6dc5a505"
+  },
+  "firstname": "Harding",
+  "lastname": "Young",
+  "email": "harding.young@tup.edu.ph",
+  "contact_number": "09542378764",
+  "password": "$2a$10$r0LIgMo1Te5ttPU.71ealedd27rK6SGo04BHAdajv4wCX4tY.tH2a",
+  "role": "teacher",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": "Electrical and Allied Department",
+  "myGuardian": [],
+  "birthdate": {
+    "$date": "2017-08-11T00:00:00.000Z"
+  },
+  "instagramLink": "Saepe sunt ut eu dol",
+  "facebookLink": "Et minus nobis aut q",
+  "houseNo": "Laborum Consequatur",
+  "street": "Vitae provident qui",
+  "baranggay": "Repudiandae ut a vol",
+  "city": "Ad neque non sint od",
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-01T03:13:47.304Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:52.508Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:52.504Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e14df53472706f63353544"
+  },
+  "firstname": "Kelly",
+  "lastname": "Sargent",
+  "email": "kelly.sargent@tup.edu.ph",
+  "contact_number": "09343523672",
+  "password": "$2a$10$/IGtO91YtAoTwAxReb31/.N7FnDX4dRHE8FslIBNEQS/DUSCK5rz2",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65d2f31f682e2b9f3614cc31"
+      },
+      "isAccepted": false,
+      "_id": {
+        "$oid": "65e175b7d5b94805b0062159"
+      }
+    }
+  ],
+  "birthdate": {
+    "$date": "2009-10-03T00:00:00.000Z"
+  },
+  "instagramLink": "Aut minus qui suscip",
+  "facebookLink": "Ea veniam et sed qu",
+  "houseNo": "Aut quia excepteur q",
+  "street": "Consectetur est sed ",
+  "baranggay": "Consequatur Eiusmod",
+  "city": "Labore magna non arc",
+  "myGuardian": [],
+  "createdAt": {
+    "$date": "2024-03-01T03:39:33.143Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:54.732Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:54.728Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e14e523472706f6335355d"
+  },
+  "firstname": "Patience",
+  "lastname": "Harding",
+  "email": "patience.harding@tup.edu.ph",
+  "contact_number": "09543674532",
+  "password": "$2a$10$W1KJtHNXjJPxhM.OTDl3g.9kVK6BA94fjI6P5cAqpfNJ3ZKKPhJaW",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65c74231dc0531150fb527a6"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e16e1b8f5fa66a73315fee"
+      }
+    }
+  ],
+  "birthdate": {
+    "$date": "1973-04-07T00:00:00.000Z"
+  },
+  "instagramLink": "Sint adipisci esse e",
+  "facebookLink": "Ipsum officia quia d",
+  "houseNo": "Qui quo iste perspic",
+  "street": "Provident sit et no",
+  "baranggay": "Earum officiis sed e",
+  "city": "Laborum Modi blandi",
+  "myGuardian": [],
+  "createdAt": {
+    "$date": "2024-03-01T03:41:06.313Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:43.861Z"
+  },
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:43.857Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e16eaedd19f9dfe1adbf47"
+  },
+  "firstname": "Emily",
+  "lastname": "Adlawan",
+  "email": "melayadlawan@gmail.com",
+  "contact_number": "09315764117",
+  "password": "$2a$10$ZDR4s/ZKAu61fQBAoTZVYe5MW/fceMmPWsi1CPB/S6AgEcf0rBtXq",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65cd45d65f0e4f5344b827e3"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e171017565de9179505b9e"
+      }
+    }
+  ],
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "instagramLink": "null",
+  "facebookLink": "null",
+  "houseNo": "null",
+  "street": "null",
+  "baranggay": "null",
+  "city": "null",
+  "createdAt": {
+    "$date": "2024-03-01T05:59:10.290Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-01T06:09:05.515Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65e1865f2e2c11c5907b4c27"
+  },
+  "firstname": "Lucermina",
+  "lastname": "Amodia",
+  "email": "lucermina.amodia@gmail.com",
+  "contact_number": "09345231324",
+  "password": "$2a$10$jVmaxVC9KKAGliHCWUc9WeoCmP6MiUNkDAymJG1Y8wP4nBUdxd09S",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65cd45d65f0e4f5344b827e3"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e1865f2e2c11c5907b4c28"
+      }
+    }
+  ],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T07:40:15.936Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-05T17:26:07.281Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65e1d9aae1575335af1e3331"
+  },
+  "firstname": "Britanni",
+  "lastname": "Underwood",
+  "email": "britanni.underwood@tup.edu.ph",
+  "contact_number": "09576938244",
+  "password": "$2a$10$eejFNmI6IzWtbf93aKch9e9n9re2eWkC6Guz4nvqGH.7nmPbhYyDO",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65c74231dc0531150fb527a6"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e1d9aae1575335af1e3332"
+      }
+    }
+  ],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T13:35:38.104Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:37.499Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:37.494Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e1dd73bfea4695a461fc88"
+  },
+  "firstname": "Dominic",
+  "lastname": "Bush",
+  "email": "dominic.bush@tup.edu.ph",
+  "contact_number": "09255834467",
+  "password": "$2a$10$FBmRcGLqCJo3of5p/U03ze5WiT3qXDiuBS6iwPfUP8WVTtXd2hJAW",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-01T13:51:47.867Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:34.364Z"
+  },
+  "__v": 1,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:34.360Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e3c3c77b5cb524252fdba6"
+  },
+  "firstname": "Marquia Atahra",
+  "lastname": "Adlawan",
+  "email": "marquiaatahra.adlawan@tup.edu.ph",
+  "contact_number": "09456373452",
+  "password": "$2a$10$0UMheivpi4rcJsaBVp9dLO4EWy6/Zw47iE8U2ZLBqJ.4qt1O7puT6",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-03T00:26:47.252Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-03T00:27:31.189Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65e526bea143c5c48e359fbe"
+  },
+  "firstname": "Martha",
+  "lastname": "Horne",
+  "email": "martha.horne@tup.edu.ph",
+  "contact_number": "09431741691",
+  "password": "$2a$10$a9rkr0px0m7Av4QIp7gcXuG/hLArQkiA5cy/yRrPeemdU0OzMzFYW",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65e3c3c77b5cb524252fdba6"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65e526bea143c5c48e359fbf"
+      }
+    }
+  ],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-04T01:41:19.057Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:10.776Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:10.771Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e526f7a143c5c48e359fca"
+  },
+  "firstname": "Zachery",
+  "lastname": "Mercer",
+  "email": "zachery.mercer@tup.edu.ph",
+  "contact_number": "09918294826",
+  "password": "$2a$10$c1OGNUJ1.UzwedIDMeMWYuJ4iGcqTwcoVPZPYOuKTj/W9Ta7qWH8u",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65c74231dc0531150fb527a6"
+      },
+      "isAccepted": false,
+      "_id": {
+        "$oid": "65e526f7a143c5c48e359fcb"
+      }
+    }
+  ],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "createdAt": {
+    "$date": "2024-03-04T01:42:15.623Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:08.242Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:08.227Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e84291538b9671c4d04648"
+  },
+  "firstname": "Wade",
+  "lastname": "Larsen",
+  "email": "wade.larsen@tup.edu.ph",
+  "contact_number": "09327261459",
+  "password": "$2a$10$VBtsoGLWqR5hVol5XVvBouCrirGd5hKiZ/UwfxvNvR1COzaru33Xy",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "BET Major in Chemical Technology (BETChT-T)",
+  "department": null,
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-06T10:16:49.677Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T21:41:14.146Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null,
+  "deletedAt": {
+    "$date": "2024-03-12T21:41:14.142Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65ede90675b0b9c15989b161"
+  },
+  "firstname": "Earl Russel",
+  "lastname": "Sy",
+  "email": "earlsy51@gmail.com",
+  "contact_number": "09950353807",
+  "password": "$2a$10$tPPL.bWgSE2mngGuV2LHmu6HTv6fZdQU/2/omeBuJetIv7btr9/Ku",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": {
+    "$date": "2024-03-14T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-10T17:08:22.719Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-10T17:08:22.719Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f0349775457d9ec5c19cbc"
+  },
+  "firstname": "Marc Andrie",
+  "lastname": "Delda",
+  "email": "marcandre.delda@tup.edu.ph",
+  "contact_number": "09324234242",
+  "password": "$2a$10$2kLKPz4ah/xazqNm2.ueXOS5C8JvxWTZ.zZDrPOp5qWmua31p6rkC",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": {
+    "$date": "2024-03-12T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-12T10:55:19.801Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:55:19.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f0359b75457d9ec5c19d3f"
+  },
+  "firstname": "Bea ",
+  "lastname": "Clarisse",
+  "email": "beaclarisse.elumba@tup.edu.ph",
+  "contact_number": "09456372834",
+  "password": "$2a$10$pdyXd9nIC2SIYCuDYjIdHOGA1jWbh3Duw0/jyetbl3Go3lkFK26XG",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": {
+    "$date": "2024-03-12T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-12T10:59:39.249Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T10:59:39.249Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f035f075457d9ec5c19d4e"
+  },
+  "firstname": "Ryou",
+  "lastname": "Kinoshita",
+  "email": "ryou.kinoshita@tup.edu.ph",
+  "contact_number": "09456372345",
+  "password": "$2a$10$6ZAHBFNLzqsWk214WB8/Bu6N01GxHrPTQMxz3RSPWbpRWE/L5w8zm",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": {
+    "$date": "2024-03-12T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-12T11:01:04.226Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T11:01:04.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65f097204bcc2168f4729e1c"
+  },
+  "firstname": "Aira",
+  "lastname": "Adlawan",
+  "email": "airanicole.canete@gmail.com",
+  "contact_number": "09563526354",
+  "password": "$2a$10$BUfLc0oZASyNa/7MpipDX..vGa4o8dRM.s4qe4JKBBBt5mJcDImc2",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "null",
+  "department": "null",
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65f097204bcc2168f4729e1d"
+      },
+      "isAccepted": false,
+      "_id": {
+        "$oid": "65f0a7454bcc2168f472a52f"
+      }
+    }
+  ],
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "createdAt": {
+    "$date": "2024-03-12T17:55:44.472Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-12T19:04:37.375Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65f140c1ca9147731c9fc618"
+  },
+  "firstname": "Austins",
+  "lastname": "Farley",
+  "email": "austin.farley@tup.edu.ph",
+  "contact_number": "09677836462",
+  "password": "$2a$10$aVXxxXUer0sgfzQuznH/t.LcV23wxeJHvFMJBxP8qJsf.BG88vklu",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "undefined",
+  "department": "null",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-13T05:59:29.514Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T07:07:45.723Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65f150d7cec619279c3b6a3c"
+  },
+  "firstname": "Amery",
+  "lastname": "Parsons",
+  "email": "amery.parsons@tup.edu.ph",
+  "contact_number": "09746678875",
+  "password": "$2a$10$1NFJAzp4q1azCJVLrKVqouSUBI7pO98lrfiL7fUA8n3xFf9DwuT5.",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "undefined",
+  "department": "null",
+  "birthdate": {
+    "$date": "1970-01-01T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-13T07:08:07.991Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-13T07:26:34.285Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65f24cfee70e9025e32b1f3f"
+  },
+  "firstname": "Dan Russell",
+  "lastname": "Ygot",
+  "email": "danrussell.ygot@tup.edu.ph",
+  "contact_number": "09124370896",
+  "password": "$2a$10$i2mcweagwS20XgzGRklkH.pKIpHYvkJcm8aXA4Bk8ttGrudDhJWUe",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-14T01:03:58.752Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:04:39.181Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65f24da3e70e9025e32b1f63"
+  },
+  "firstname": "Dave Merc",
+  "lastname": "Ygot",
+  "email": "adlawandavemerc98@gmail.com",
+  "contact_number": "09949736571",
+  "password": "$2a$10$JLPzDBMyU6D5JXwqAzlCr.iW4j1zjv9354nWjOhnDzbUt.r/jLdeC",
+  "role": "parent",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": null,
+  "iCareFor": [
+    {
+      "user": {
+        "$oid": "65f24cfee70e9025e32b1f3f"
+      },
+      "isAccepted": true,
+      "_id": {
+        "$oid": "65f24da3e70e9025e32b1f64"
+      }
+    }
+  ],
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "deletedAt": null,
+  "createdAt": {
+    "$date": "2024-03-14T01:06:43.233Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:07:33.352Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65f24e1ce70e9025e32b1fad"
+  },
+  "firstname": "Maicah",
+  "lastname": "Astronomo",
+  "email": "kaylamae.baluyot@tup.edu.ph",
+  "contact_number": "09503355818",
+  "password": "$2a$10$m.3ACOkvtx024VwRWVF5zet58cYANOx.q5.bL0Mw8nQT.0yFJsfae",
+  "role": "teacher",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": null,
+  "department": "Electrical and Allied Department",
+  "birthdate": null,
+  "instagramLink": null,
+  "facebookLink": null,
+  "houseNo": null,
+  "street": null,
+  "baranggay": null,
+  "city": null,
+  "deletedAt": null,
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-14T01:08:44.121Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:09:15.449Z"
+  },
+  "__v": 0,
+  "contactCodeExpire": null,
+  "contactCodeVerification": null,
+  "emailCodeExpire": null,
+  "emailCodeVerification": null
+},
+{
+  "_id": {
+    "$oid": "65f251fce70e9025e32b248e"
+  },
+  "firstname": "Another",
+  "lastname": "User",
+  "email": "another@gmail.com",
+  "contact_number": "09123456721",
+  "password": "$2a$10$iFkjFtzngjIvr8d3H4vOauEOcNM0odi1L1qFOWeqL7b2EWXry8L1q",
+  "role": "student",
+  "isEmailVerified": true,
+  "isContactVerified": true,
+  "course": "Bachelor of Science in Information Technology (BSIT-T)",
+  "department": null,
+  "birthdate": {
+    "$date": "2024-03-15T00:00:00.000Z"
+  },
+  "instagramLink": "",
+  "facebookLink": "",
+  "houseNo": "",
+  "street": "",
+  "baranggay": "",
+  "city": "",
+  "deletedAt": {
+    "$date": "2024-03-14T01:25:41.256Z"
+  },
+  "iCareFor": [],
+  "createdAt": {
+    "$date": "2024-03-14T01:25:16.516Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-14T01:25:41.261Z"
+  },
+  "__v": 0
+}]
