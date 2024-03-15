@@ -108,7 +108,7 @@ function App() {
           <Route path='/change-password/:token' element={<ChangePassword />} />
           <Route path='/verification' element={<Verification />} />
 
-          <Route path='/' element={<ProtectedRoute isForAll={true}> <Home /> </ProtectedRoute>} />
+          <Route path='/' element={<ProtectedRoute isForAll={true} viewers={['admin', 'teacher', 'student', 'parent']}> <Home /> </ProtectedRoute>} />
           <Route path='/report-incident' element={<ProtectedRoute viewers={['admin', 'teacher', 'student']}> <ReportIncident /></ProtectedRoute>} />
           <Route path='/tupt-chat' element={<ProtectedRoute isForAll={true}> <Chat /> </ProtectedRoute>} />
           <Route path='/announcements' element={<ProtectedRoute isForAll={true}><Announcement /></ProtectedRoute>} />
