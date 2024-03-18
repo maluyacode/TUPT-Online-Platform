@@ -13,10 +13,10 @@ const messageSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    readBy: [
+    readBy: [ // not applicable
         { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     ], // Users who have read the message
-    attachments: [
+    attachments: [ // not applicable
         {
             type: String
         }

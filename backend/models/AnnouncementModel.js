@@ -9,7 +9,7 @@ const AnnouncementSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    canViewBy: [{
+    canViewBy: [{ // not applicable
         type: String, // parent, student, teacher.
         default: ["parent", "student", "teacher"]
     }],
@@ -44,7 +44,7 @@ const AnnouncementSchema = new mongoose.Schema({
             type: String,
         }
     }],
-    viewedBy: [{
+    viewedBy: [{ // not applicable
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],

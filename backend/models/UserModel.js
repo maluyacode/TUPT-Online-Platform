@@ -82,18 +82,6 @@ const userSchema = new mongoose.Schema({
             default: false
         }
     }],
-    // myGuardian: [{ // if student
-    //     user: {
-    //         type: mongoose.Schema.Types.ObjectId,
-    //         ref: 'User',
-    //         default: null
-    //     },
-    //     isAccepted: {
-    //         type: Boolean,
-    //         default: false
-    //     }
-    // }],
-
     birthdate: {
         type: Date,
         default: null

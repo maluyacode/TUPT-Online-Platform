@@ -7,7 +7,7 @@ const chatSchema = new mongoose.Schema({
             ref: 'User'
         }
     ],
-    isGroup: {
+    isGroup: { // not applicable
         type: Boolean,
         default: false
     },
