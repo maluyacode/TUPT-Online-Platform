@@ -9,19 +9,21 @@ dotenv.config({ path: './config/.env' });
 (async () => {
     await mega.connect();
 })();
+
 require('./config/cloudinary');
 connectDatabase();
 
 const port = process.env.PORT || 8080;
-console.log(port)
-
 
 const server = app.listen(port, () => console.log(`Server Started`))
 
-
 const io = new Server(server, {
     cors: {
-        origin: 'https://tupt-online-platform.onrender.com',
+        origin: [
+            'http://localhost:3000',
+            'https://tupt-online-platform.vercel.app',
+            'https://tupt-online-platform.onrender.com',
+        ],
         methods: ['GET', 'POST'],
     },
 });
@@ -30,10 +32,8 @@ const connectedUsers = new Map();
 
 io.on('connection', (socket) => {
 
-    // console.log(socket.handshake.query)
     const { user } = socket.handshake.query
     connectedUsers.set(user, socket);
-    // console.log(connectedUsers)
 
     socket.on('disconnect', () => {
         console.log('User disconnected');
