@@ -23,7 +23,8 @@ const io = new Server(server, {
     cors: {
         origin: [
             'http://localhost:3000',
-            'https://tupt-online-platform.vercel.app'
+            'https://tupt-online-platform.vercel.app',
+            'https://tupt-online-platform.onrender.com',
         ],
         methods: ['GET', 'POST'],
     },

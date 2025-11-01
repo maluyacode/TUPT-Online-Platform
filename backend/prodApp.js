@@ -16,7 +16,11 @@ const incidentRoutes = require('./routes/incidentRoutes');
 const videoTutorialRoutes = require('./routes/videoTutorialRoutes');
 
 const corsOptions = {
-    origin: 'https://tupt-online-platform.onrender.com', //included origin as true
+    origin: [
+        'http://localhost:3000',
+        'https://tupt-online-platform.vercel.app',
+        'https://tupt-online-platform.onrender.com',
+    ],
     credentials: true, //included credentials as true
 };
 

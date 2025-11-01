@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const bodyParser = require('body-parser')
 
 const userRoutes = require('./routes/userRoutes');
 const chatRoutes = require('./routes/chatRoutes');
@@ -18,7 +17,8 @@ const videoTutorialRoutes = require('./routes/videoTutorialRoutes');
 const corsOptions = {
     origin: [
         'http://localhost:3000',
-        'https://tupt-online-platform.vercel.app'
+        'https://tupt-online-platform.vercel.app',
+        'https://tupt-online-platform.onrender.com',
     ],
     credentials: true, //included credentials as true
 };
@@ -40,6 +40,5 @@ app.use('/api/v1/comment', commentRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/incident', incidentRoutes);
 app.use('/api/v1/video-tutorial', videoTutorialRoutes);
-
 
 module.exports = app;
