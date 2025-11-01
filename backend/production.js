@@ -25,6 +25,7 @@ const io = new Server(server, {
             'https://tupt-online-platform.onrender.com',
         ],
         methods: ['GET', 'POST'],
+        credentials: true,
     },
 });
 

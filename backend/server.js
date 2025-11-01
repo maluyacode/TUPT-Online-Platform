@@ -13,11 +13,8 @@ require('./config/cloudinary');
 connectDatabase();
 
 const port = process.env.PORT || 8080;
-console.log(port)
-
 
 const server = app.listen(port, () => console.log(`Server Started: http://localhost:${port}/`))
-
 
 const io = new Server(server, {
     cors: {
@@ -27,6 +24,7 @@ const io = new Server(server, {
             'https://tupt-online-platform.onrender.com',
         ],
         methods: ['GET', 'POST'],
+        credentials: true,
     },
 });
 
@@ -34,10 +32,8 @@ const connectedUsers = new Map();
 
 io.on('connection', (socket) => {
 
-    // console.log(socket.handshake.query)
     const { user } = socket.handshake.query
     connectedUsers.set(user, socket);
-    // console.log(connectedUsers)
 
     socket.on('disconnect', () => {
         console.log('User disconnected');

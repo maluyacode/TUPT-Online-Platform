@@ -12,7 +12,6 @@ function getCookie(cookieName) {
 
 
 export const isAuthenticated = () => {
-    console.log(getCookie('token'))
     return getCookie('token') ? true : false
 }
 

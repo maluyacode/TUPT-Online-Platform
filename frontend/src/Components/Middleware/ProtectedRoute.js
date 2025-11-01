@@ -2,14 +2,9 @@ import React from 'react'
 import { getUser, isAuthenticated } from '../../utils/helper'
 import { Navigate } from 'react-router-dom'
 import ToastEmmiter from '../Layout/ToastEmmiter'
-import { useNavigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children, viewers, isForAll = false }) => {
-
-    const navigate = useNavigate();
-
     if (isAuthenticated()) {
-
         if (!getUser().isEmailVerified && !getUser().isContactVerified) {
             ToastEmmiter.warning('Please verify you email and contact number!', 'top-center')
             return <Navigate to='/verification' />

@@ -8,7 +8,6 @@ const loginAPI = async (formData) => {
         return response
 
     } catch ({ response }) {
-        console.log(response);
         return response
     }
 }
