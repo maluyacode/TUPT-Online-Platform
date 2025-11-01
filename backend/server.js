@@ -21,7 +21,10 @@ const server = app.listen(port, () => console.log(`Server Started: http://localh
 
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: [
+            'http://localhost:3000',
+            'https://tupt-online-platform.vercel.app'
+        ],
         methods: ['GET', 'POST'],
     },
 });
